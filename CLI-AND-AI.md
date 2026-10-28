@@ -1,6 +1,6 @@
 # Use your own AI with Lectern
 
-Lectern 0.18.0 provides optional local models, a connection to your own provider, and a read-only CLI. Core Bible study still requires
+The public Lectern beta provides optional local models, a connection to your own provider, and a read-only CLI. Core Bible study still requires
 no model, account or subscription. Neither route gives AI automatic access to
 your private notes or publisher credentials.
 

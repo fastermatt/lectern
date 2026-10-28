@@ -1,4 +1,4 @@
-# Lectern 0.15.0 — passage study, layouts and your library
+# Lectern workspace and library
 
 ## 0.17: Fathers & reception and navigation tips
 
@@ -115,5 +115,5 @@ Lectern does not include Logos code, proprietary datasets, branding or entitleme
 
 Core study still works without AI. Your AI panel and read-only CLI remain available;
 see CLI-AND-AI.md. The CLI intentionally continues to exclude personal books/notes.
-This candidate is ad-hoc signed, not notarized or publicly published. Open-source
-publication still needs the existing clean-source export and asset/license review.
+The public 0.18.1 beta is ad-hoc signed and not Apple-notarized. See the
+[installation guide](docs/INSTALL.md) and [public source](https://github.com/fastermatt/lectern).
