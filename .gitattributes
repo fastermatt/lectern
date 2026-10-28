@@ -1,0 +1,14 @@
+# Keep signed/hash-checked source snapshots byte-identical on every contributor OS.
+Sources/StudyTable/Resources/** -text linguist-vendored=true
+scripture-source/** -text linguist-vendored=true
+resource-inputs/** -text linguist-vendored=true
+Vendor/LocalAI/** -text linguist-vendored=true
+Assets/** -text
+*.swift text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.c text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.png binary
+*.icns binary

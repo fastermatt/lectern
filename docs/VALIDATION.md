@@ -4,6 +4,8 @@ This repository is a public-source preparation based on Lectern 0.18.0. It has n
 been pushed to GitHub; hosted CI and a second contributor machine are not yet verified.
 
 - Clean exported source compiled locally with full Xcode/Swift 6.4 on Apple Silicon.
+  A separate Git clone also built and ran its focused verification suite without
+  private files, downloaded models, runtime binaries or maintainer credentials.
 - Initial 630-test run identified 15 failures caused by withheld-corpus assumptions,
   omitted internal documentation and two orphaned HCF candidate link previews.
   The previews were removed; tests now use explicit public expectations/synthetic
@@ -28,3 +30,9 @@ Before uploading, review the staged tree/history and docs/RELEASING.md. Before p
 an app release, run the source checks again, package it, test a clean second Mac, and
 state signing/notarization status. Source MIT licensing does not relicense third-party
 resource content. Complete from-upstream regeneration is still a documented follow-up.
+
+Final Git preparation: no tracked file exceeds GitHub's 100 MB limit. Snapshot
+line endings are preserved with .gitattributes for Windows/Linux contributors.
+Known private contact comparisons and personal-path checks returned no matches.
+The repository has newly created history with a generic automation author identity.
+No GitHub remote is configured and no source has been uploaded.
