@@ -47,7 +47,7 @@ cd lectern
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 python3 scripts/verify-public-source.py
 swift build
-swift test
+swift test -c release
 swift run StudyTable
 ```
 

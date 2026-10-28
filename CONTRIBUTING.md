@@ -27,12 +27,12 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 python3 scripts/verify-public-source.py
 python3 scripts/test-suggestions.py
 python3 scripts/test-public-resources.py
-swift test
+swift test -c release
 ```
 
 Tests use temporary stores and mock providers, never a contributor's notes or Keychain.
 Optional live AI/provider tests are opt-in and must not become a PR requirement. Use
-`STUDYTABLE_SNAPSHOT_DIR=/absolute/path swift test --filter SnapshotTests` to save
+`STUDYTABLE_SNAPSHOT_DIR=/absolute/path swift test -c release --filter SnapshotTests` to save
 actual light/dark renders. See PUBLIC-SOURCE.md for withheld-corpus tests and importer
 prerequisites. Passing tests do not prove historical accuracy or redistribution rights.
 
@@ -64,3 +64,6 @@ about another contributor's beliefs. Corrections and appeals should carry eviden
 No contributor license agreement is required for this initial source contribution
 workflow. Submit original code under the existing MIT license; third-party additions
 must retain their actual license and attribution. Do not submit work you lack rights to.
+
+The release test configuration matches CI and measures optimized performance against
+the existing timing budgets. `swift build` still checks the debug configuration.
