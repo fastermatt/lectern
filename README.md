@@ -3,52 +3,88 @@
 [![Contributor checks](https://github.com/fastermatt/lectern/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/fastermatt/lectern/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A free, offline-first Bible study workspace for macOS. Scripture, sources and notes
-stay together in a quiet, adjustable interface. No subscription or AI account is
-required to study. The first public beta is [0.18.1](https://github.com/fastermatt/lectern/releases/tag/v0.18.1).
+**Study the Bible with the Church, across centuries.**
+
+Lectern brings Scripture, historical sources, original-language tools and your own
+notes into one quiet workspace. Open a passage, follow its sources, and keep what
+you learn. The included core works offline, without a subscription, account or AI
+service.
+
+[Download the Mac beta](https://github.com/fastermatt/lectern/releases/tag/v0.18.1)
+· [See what you can do](#what-you-can-do-today)
+· [Help build Lectern](#help-build-lectern)
 
 ![Lectern passage study in light mode](docs/images/study-romans-light.png)
 
 [View dark mode](docs/images/study-romans-dark.png)
 
-## Our mission
+## Why Lectern exists
 
-Lectern exists to help anyone study the Christian Scriptures deeply without a
-software subscription. The core workspace works offline and needs no account or AI
-service. Scripture, historical sources and a reader's own notes belong together,
-with sources and editions clear enough to verify. Readers can compare
-interpretations, keep and export their work, and choose which resources to add.
+For centuries, Christians have copied, translated, preserved, debated and explained
+Scripture. Much of that work can be shared freely, yet finding a trustworthy edition
+and using it alongside a passage can still be difficult. Lectern brings those texts
+into reach with clear attribution and room for the reader's own work.
 
-We build Lectern as a community project. Readers, researchers, translators,
-accessibility testers, writers and developers can improve it from anywhere. We
-credit contributions and explain editorial decisions. We take historic Christian
-teaching seriously: disputed or rejected claims need specific evidence and room
-for correction, not a verdict based only on an author's name. AI output cannot
-approve those claims. The official core remains free; optional third-party books
-and AI services are separate choices.
+We want serious study to be available whether or not someone can pay. The official
+core remains free; optional publisher books and personal AI services are separate
+choices. We take historic Christian teaching seriously: disputed or rejected claims
+need specific evidence and room for correction, not a verdict based only on an
+author's name. AI output cannot approve those claims.
 
-## Start here
+Lectern is built in public so readers, researchers, translators, accessibility
+testers, writers and developers around the world can improve it. We credit their
+work and explain editorial decisions. The project should be able to grow beyond
+any one founder.
 
-- **Use the app:** get the latest available beta from [Releases](https://github.com/fastermatt/lectern/releases). See [installation](docs/INSTALL.md); Apple Silicon/macOS 14+ only, currently unnotarized.
-- **Build the app:** follow the commands below. All default resources are included.
-- **Help without coding or a Mac:** report a reference error, suggest a resource,
-  test accessibility or improve wording. Start with [Contributing](CONTRIBUTING.md)
-  and [portable contribution drafts](collaboration/README.md).
-- **Find a small task:** [good first issues](https://github.com/fastermatt/lectern/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and [contributor roadmap](docs/ROADMAP.md).
-- **Join the community:** [Discussions](https://github.com/fastermatt/lectern/discussions) or [help share maintenance](https://github.com/fastermatt/lectern/issues/5).
+## What you can do today
 
-## What works today
+- **Read and search Scripture offline.** BSB, KJV and WEB are included. Move from a
+  passage to its cross-references and linked sources without leaving your study.
+- **Follow the historical record.** Read passage-linked commentaries and reference
+  entries with author, edition and source information. Coverage varies by passage.
+  A separate, searchable Apostolic Fathers reader and 74 author profiles are included.
+- **Study original-language words.** Use Strong's numbers, lexicon entries,
+  concordance results and Greek or Hebrew word tools with their source context.
+- **Keep your work.** Write passage-linked notes, save and highlight verses, organize
+  collections, and export study work. Save a favorite layout; adjust reading type,
+  light/dark colors and optional navigation tips.
+- **Grow your library.** Add free Bible editions, Tyndale study notes and a
+  dictionary; import your own unencrypted EPUB or plain-text books. Included and
+  downloadable resources disclose their rights and provenance; importing a book
+  does not grant redistribution rights. [See the library guide](WORKSPACE-AND-LIBRARY.md).
+- **Use AI only if it helps.** Choose one of three optional local models, connect
+  your own compatible provider, or let an external AI use Lectern's read-only JSON
+  CLI. None is needed for core study. [See AI and CLI](CLI-AND-AI.md).
 
-Passage study with Bible, linked sources and notes; saved layouts; editable light/dark
-palettes; Bible/library search; Strong's and original-language tools; the independently
-sourced Apostolic Fathers reader; historic reference works; source/edition disclosures;
-optional resource downloads and personal imports. Availability differs by passage.
+## Get Lectern
 
-Optional AI offers three local Qwen3.5 models (533 MB / 1.28 GB / 2.74 GB), downloaded
-inside the packaged app, or a connection to your own compatible provider. Models run
-without access to private notes or tools; readers explicitly attach context. AI can
-be wrong and never approves theological labels. A read-only JSON CLI supports external
-tools. See [AI and CLI](CLI-AND-AI.md) and [workspace guide](WORKSPACE-AND-LIBRARY.md).
+[Download beta 0.18.1](https://github.com/fastermatt/lectern/releases/tag/v0.18.1)
+for an **Apple Silicon Mac running macOS 14 or later**. The current beta is
+ad-hoc signed and not Apple-notarized. Follow the [installation and update guide](docs/INSTALL.md)
+for the exact steps; updates are manual for now. No account is needed for the included
+study resources.
+
+## Help build Lectern
+
+You do not need to write Swift or own a Mac to help. Try one study session and report
+where you got stuck; check a citation or resource edition; improve a translation,
+help page or accessibility path. Small, well-sourced contributions matter.
+
+- [Report an installation problem](https://github.com/fastermatt/lectern/issues/1)
+  or [ask a question](https://github.com/fastermatt/lectern/discussions).
+- [Pick a good first issue](https://github.com/fastermatt/lectern/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
+  including [accessibility](https://github.com/fastermatt/lectern/issues/2),
+  [localization](https://github.com/fastermatt/lectern/issues/3) and
+  [reproducible resources](https://github.com/fastermatt/lectern/issues/4).
+- [Help share maintenance](https://github.com/fastermatt/lectern/issues/5) so the
+  project can continue without one person's constant attention.
+
+Start with [Contributing](CONTRIBUTING.md) and the [roadmap](docs/ROADMAP.md). Work
+can be submitted asynchronously and in your preferred language. Reviews explain
+what evidence or checks a change needs; AI-assisted contributions require the same
+human verification as other work. See the [conduct](CODE_OF_CONDUCT.md),
+[security](SECURITY.md) and [architecture](docs/ARCHITECTURE.md) guides. There is no
+promised response time or staffed editorial board yet.
 
 ## Build and test
 
@@ -96,16 +132,3 @@ The app does not declare one fixed confessional identity; the reader can choose 
 comparison lens. Source-based cautions remain visible. Disagreement with a chosen
 tradition is not automatically a finding of heresy. Contributions to doctrinal labels
 need primary evidence and human review; see [review process](GOVERNANCE.md).
-
-## Contribute
-
-Small pull requests are welcome. Explain the problem, show the result, and include the
-checks you ran. You may use your own language; state the language so the right reviewer
-can help. AI-assisted contributions need the same human verification as any other change.
-Code, research, translation, testing and accessibility work all deserve credit.
-
-Read [Contributing](CONTRIBUTING.md), [community conduct](CODE_OF_CONDUCT.md),
-[security reporting](SECURITY.md) and [architecture](docs/ARCHITECTURE.md).
-There is no promised response time or staffed editorial board yet. The contributor
-roadmap includes recruiting independent maintainers so this project need not depend
-on one person's availability.
