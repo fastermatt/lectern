@@ -200,22 +200,22 @@ final class InterlinearTests: XCTestCase {
 
     /// Psalm 119 is the largest chapter in the Bible by verse count and a real worst case for
     /// Hebrew word density.
-    func testColdChapterLoadIsUnderFiftyMilliseconds() {
+    func testColdChapterLoadPerformance() {
         let store = freshStore()
         let start = DispatchTime.now()
         let words = store.words(bookCode: "PSA", chapter: 119, verse: 1)
         let elapsedMs = Double(DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000
         XCTAssertFalse(words.isEmpty)
-        XCTAssertLessThanOrEqual(elapsedMs, 50, "cold Psalm 119 interlinear load took \(elapsedMs) ms")
+        assertReferencePerformance(elapsedMs, maximum: 50, label: "cold Psalm 119 interlinear load took \(elapsedMs) ms")
     }
 
-    func testFirstConcordanceLookupIsFast() {
+    func testFirstConcordanceLookupPerformance() {
         let store = freshStore()
         let start = DispatchTime.now()
         let hits = store.occurrences(strong: "H0430G")
         let elapsedMs = Double(DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000
         XCTAssertGreaterThan(hits.count, 0)
-        XCTAssertLessThanOrEqual(elapsedMs, 500, "first Elohim concordance lookup took \(elapsedMs) ms")
+        assertReferencePerformance(elapsedMs, maximum: 500, label: "first Elohim concordance lookup took \(elapsedMs) ms")
     }
 
     // MARK: LCD word-click selection
@@ -242,6 +242,7 @@ final class InterlinearTests: XCTestCase {
         window.contentView = host
         window.setFrameOrigin(NSPoint(x: -20_000, y: -20_000))
         window.orderBack(nil)
+        defer { window.contentView = nil; window.orderOut(nil) }
         for _ in 0..<6 {
             host.layoutSubtreeIfNeeded()
             RunLoop.main.run(until: Date().addingTimeInterval(0.25))
@@ -253,7 +254,6 @@ final class InterlinearTests: XCTestCase {
             try XCTUnwrap(rep.representation(using: .png, properties: [:]))
                 .write(to: url.appendingPathComponent("\(name)-\(dark ? "dark" : "light").png"))
         }
-        window.orderOut(nil)
         return rep
     }
 

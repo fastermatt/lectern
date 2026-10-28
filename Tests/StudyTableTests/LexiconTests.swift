@@ -93,25 +93,25 @@ final class LexiconTests: XCTestCase {
 
     /// Cold load of one book's tags ≤ 50ms. Psalms is the largest book by tag count, so it's
     /// the honest worst case rather than a small book that would flatter the number.
-    func testColdBookLoadIsUnderFiftyMilliseconds() {
+    func testColdBookLoadPerformance() {
         let store = freshStore()
         let start = DispatchTime.now()
         let tags = store.tags(bookCode: "PSA", chapter: 119, verse: 1)
         let elapsedMs = Double(DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000
         XCTAssertFalse(tags.isEmpty)
-        XCTAssertLessThanOrEqual(elapsedMs, 50, "cold Psalms tag load took \(elapsedMs) ms")
+        assertReferencePerformance(elapsedMs, maximum: 50, label: "cold Psalms tag load took \(elapsedMs) ms")
     }
 
     /// Concordance for a common word (G26, 117 occurrences) ≤ 500ms on first computation —
     /// this is the expensive path (scans every book's tag file), so it's measured on a store
     /// that has touched nothing yet.
-    func testFirstConcordanceComputationIsUnderFiveHundredMilliseconds() {
+    func testFirstConcordanceComputationPerformance() {
         let store = freshStore()
         let start = DispatchTime.now()
         let hits = store.concordance(for: "G26")
         let elapsedMs = Double(DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000
         XCTAssertGreaterThan(hits.count, 0)
-        XCTAssertLessThanOrEqual(elapsedMs, 500, "first G26 concordance computation took \(elapsedMs) ms")
+        assertReferencePerformance(elapsedMs, maximum: 500, label: "first G26 concordance computation took \(elapsedMs) ms")
 
         // Second call must be cache-served and much faster (sanity check, not a hard budget).
         let start2 = DispatchTime.now()
@@ -152,6 +152,7 @@ final class LexiconTests: XCTestCase {
         window.contentView = host
         window.setFrameOrigin(NSPoint(x: -20_000, y: -20_000))
         window.orderBack(nil)
+        defer { window.contentView = nil; window.orderOut(nil) }
         for _ in 0..<6 {
             host.layoutSubtreeIfNeeded()
             RunLoop.main.run(until: Date().addingTimeInterval(0.25))
@@ -163,7 +164,6 @@ final class LexiconTests: XCTestCase {
             try XCTUnwrap(rep.representation(using: .png, properties: [:]))
                 .write(to: url.appendingPathComponent("\(name)-\(dark ? "dark" : "light").png"))
         }
-        window.orderOut(nil)
         return rep
     }
 

@@ -105,3 +105,14 @@ func snapshotBitmap(of view: NSView) throws -> NSBitmapImageRep {
     view.cacheDisplay(in: view.bounds, to: rep)
     return rep
 }
+
+/// Absolute latency budgets are a release check on a physical reference Mac, not a
+/// reliable assertion on shared VMs. Correctness assertions always run in the caller.
+/// Opt in explicitly with LECTERN_ENFORCE_PERFORMANCE_BUDGETS=1 and a release build.
+func assertReferencePerformance(_ elapsedMs: Double, maximum: Double, label: String,
+                                file: StaticString = #filePath, line: UInt = #line) {
+    print("PERFORMANCE: \(label): \(elapsedMs) ms; reference budget \(maximum) ms")
+    if ProcessInfo.processInfo.environment["LECTERN_ENFORCE_PERFORMANCE_BUDGETS"] == "1" {
+        XCTAssertLessThanOrEqual(elapsedMs, maximum, label, file: file, line: line)
+    }
+}

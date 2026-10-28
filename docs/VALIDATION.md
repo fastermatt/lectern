@@ -40,11 +40,27 @@ Known private contact comparisons and personal-path checks returned no matches.
 The repository has newly created history with a generic automation author identity.
 The reviewed repository is now published; private development history remains excluded.
 
-## Hosted runner portability
+## Hosted runner portability and performance
 
-The first hosted run built successfully but exposed display-dependent snapshot checks
-and debug-mode timing variability. Snapshot capture now uses a fixed 2x bitmap on every
-Mac, including headless 1x runners. The verse text comparison excludes selection styling,
-which intentionally changed in the workspace redesign. CI runs `swift test -c release`
-so existing 50ms/500ms budgets measure optimized code, as distributed; the budgets and
-visual difference thresholds are unchanged. Debug compilation remains a separate check.
+Snapshots use a fixed 2x bitmap, independent of physical display scale. The verse text
+comparison excludes selection styling, which intentionally changed in the redesign.
+The full optimized local run passed: 630 tests, 13 explicit opt-in/withheld-corpus skips,
+zero failures. All affected visual checks subsequently passed on the hosted runner.
+
+The shared runner exceeded absolute latency budgets even with optimization (2,020ms
+for first interlinear concordance vs a 500ms target), and the optimized build plus suite
+hit the 30-minute timeout. CI therefore runs the debug correctness/rendering suite;
+it always checks actual lookup results and records latency, but does not claim to
+certify physical-machine performance. Offscreen windows release their content after
+capture instead of retaining study state between renders.
+
+Before a release, explicitly enforce the unchanged 50ms/500ms budgets on a physical
+Apple Silicon reference Mac with full Xcode selected:
+
+```sh
+LECTERN_ENFORCE_PERFORMANCE_BUDGETS=1 swift test -c release --filter 'InterlinearTests|LexiconTests'
+```
+
+Record hardware, build configuration and results. Do not interpret passing shared-runner
+CI as meeting these performance targets. New contributors can run the same opt-in check;
+when reporting a regression include machine/OS/build details, not private user data.

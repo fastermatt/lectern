@@ -212,6 +212,7 @@ final class AlignmentTests: XCTestCase {
         window.contentView = host
         window.setFrameOrigin(NSPoint(x: -20_000, y: -20_000))
         window.orderBack(nil)
+        defer { window.contentView = nil; window.orderOut(nil) }
         for _ in 0..<6 {
             host.layoutSubtreeIfNeeded()
             RunLoop.main.run(until: Date().addingTimeInterval(0.25))
@@ -221,7 +222,6 @@ final class AlignmentTests: XCTestCase {
             try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
             try XCTUnwrap(rep.representation(using: .png, properties: [:])).write(to: directory.appendingPathComponent("\(name).png"))
         }
-        window.orderOut(nil)
         return rep
     }
 

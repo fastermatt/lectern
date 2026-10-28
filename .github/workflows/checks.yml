@@ -42,5 +42,5 @@ jobs:
         run: swift --version
       - run: python3 scripts/verify-public-source.py
       - run: swift build
-      - name: Test optimized app behavior and performance budgets
-        run: swift test -c release
+      - name: Test app correctness and rendering
+        run: swift test
