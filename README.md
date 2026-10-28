@@ -5,11 +5,26 @@
 
 A free, offline-first Bible study workspace for macOS. Scripture, sources and notes
 stay together in a quiet, adjustable interface. No subscription or AI account is
-required to study. This repository starts from the **0.18.0 beta**; **0.18.1** is the first public-source beta candidate.
+required to study. The first public beta is [0.18.1](https://github.com/fastermatt/lectern/releases/tag/v0.18.1).
 
 ![Lectern passage study in light mode](docs/images/study-romans-light.png)
 
 [View dark mode](docs/images/study-romans-dark.png)
+
+## Our mission
+
+Lectern exists to help anyone study the Christian Scriptures deeply without a
+software subscription. The core workspace works offline and needs no account or AI
+service. Scripture, historical sources and a reader's own notes belong together,
+with sources and editions clear enough to verify. Readers can compare
+interpretations, keep and export their work, and choose which resources to add.
+
+We build Lectern as a community project. Readers, researchers, translators,
+accessibility testers, writers and developers can improve it from anywhere. We
+credit contributions, explain editorial decisions and review theological or
+historical cautions against specific evidence. AI output cannot approve those
+claims. The official core remains free; optional third-party books and AI services
+are separate choices.
 
 ## Start here
 
