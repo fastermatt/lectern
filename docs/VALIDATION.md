@@ -39,3 +39,12 @@ line endings are preserved with .gitattributes for Windows/Linux contributors.
 Known private contact comparisons and personal-path checks returned no matches.
 The repository has newly created history with a generic automation author identity.
 The reviewed repository is now published; private development history remains excluded.
+
+## Hosted runner portability
+
+The first hosted run built successfully but exposed display-dependent snapshot checks
+and debug-mode timing variability. Snapshot capture now uses a fixed 2x bitmap on every
+Mac, including headless 1x runners. The verse text comparison excludes selection styling,
+which intentionally changed in the workspace redesign. CI runs `swift test -c release`
+so existing 50ms/500ms budgets measure optimized code, as distributed; the budgets and
+visual difference thresholds are unchanged. Debug compilation remains a separate check.

@@ -238,8 +238,7 @@ final class WordStudyDeskTests: XCTestCase {
         window.orderBack(nil)
         defer { window.contentView = nil; window.orderOut(nil) }
         for _ in 0..<6 { host.layoutSubtreeIfNeeded(); RunLoop.main.run(until: Date().addingTimeInterval(0.08)) }
-        let rep = try XCTUnwrap(host.bitmapImageRepForCachingDisplay(in: host.bounds))
-        host.cacheDisplay(in: host.bounds, to: rep)
+        let rep = try snapshotBitmap(of: host)
         return rep
     }
 
@@ -262,7 +261,10 @@ final class WordStudyDeskTests: XCTestCase {
             for dark in [false, true] {
                 let state = state("JHN", 3, 16)
                 state.fontSize = size
+                // Compare text layout only: selected-row decoration intentionally changed
+                // in the workspace redesign (navy fill and leading selection rule).
                 state.lineSpacing = spacing
+                state.selectedVerse = 15
                 let verses = try [16, 17].map { try verse("BSB", "JHN", 3, $0) }
                 let new = VStack(alignment: .leading, spacing: 0) { ForEach(verses) { VerseRow(verse: $0) } }.environmentObject(state)
                 let old = VStack(alignment: .leading, spacing: 0) { ForEach(verses) { LegacyVerseRow(verse: $0) } }.environmentObject(state)

@@ -1,4 +1,5 @@
 import Foundation
+import AppKit
 import os
 import XCTest
 import StudyTableCore
@@ -90,3 +91,17 @@ func ephemeralStudy(clock: @escaping () -> Date = Date.init) -> StudyStore {
 /// Pre-0.10 name; existing tests call this.
 @MainActor
 func ephemeralNotes() -> StudyStore { ephemeralStudy() }
+
+/// Fixed 2x backing pixels make snapshots independent of the host's physical display.
+/// Keep the logical point size so AppKit draws at the intended scale.
+@MainActor
+func snapshotBitmap(of view: NSView) throws -> NSBitmapImageRep {
+    let size = view.bounds.size
+    let rep = try XCTUnwrap(NSBitmapImageRep(bitmapDataPlanes: nil,
+        pixelsWide: Int(size.width * 2), pixelsHigh: Int(size.height * 2),
+        bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false,
+        colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0))
+    rep.size = size
+    view.cacheDisplay(in: view.bounds, to: rep)
+    return rep
+}
