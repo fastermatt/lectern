@@ -1,6 +1,6 @@
 # Study Table contributor notes
 
-- This is a native macOS SwiftUI app distributed directly to invited beta testers.
+- This is a native macOS SwiftUI app distributed as a public contributor beta.
 - Keep the app fully useful offline and do not introduce a runtime AI dependency.
 - Do not bundle copyrighted Bible translations without a written license.
 - BSB is the bundled baseline. ESV/NKJV are optional reader-key online integrations; NASB is a licensed-pack slot.

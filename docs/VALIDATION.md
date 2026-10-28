@@ -1,7 +1,8 @@
 # Source preparation checks — 2026-10-28
 
-This repository is a public-source preparation based on Lectern 0.18.0. It has not
-been pushed to GitHub; hosted CI and a second contributor machine are not yet verified.
+This repository is a public-source preparation based on Lectern 0.18.0. It is published at https://github.com/fastermatt/lectern. This document records local
+checks; consult the Actions tab for current hosted results. An independent contributor
+Mac is still needed for installation testing.
 
 - Clean exported source compiled locally with full Xcode/Swift 6.4 on Apple Silicon.
   A separate Git clone also built and ran its focused verification suite without
@@ -37,4 +38,4 @@ Final Git preparation: no tracked file exceeds GitHub's 100 MB limit. Snapshot
 line endings are preserved with .gitattributes for Windows/Linux contributors.
 Known private contact comparisons and personal-path checks returned no matches.
 The repository has newly created history with a generic automation author identity.
-No GitHub remote is configured and no source has been uploaded.
+The reviewed repository is now published; private development history remains excluded.

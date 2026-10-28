@@ -1,8 +1,11 @@
 # Lectern
 
+[![Contributor checks](https://github.com/fastermatt/lectern/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/fastermatt/lectern/actions/workflows/checks.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A free, offline-first Bible study workspace for macOS. Scripture, sources and notes
 stay together in a quiet, adjustable interface. No subscription or AI account is
-required to study. This repository starts from the **0.18.0 beta**; the next public-source build is **0.18.1** (not yet released).
+required to study. This repository starts from the **0.18.0 beta**; **0.18.1** is the first public-source beta candidate.
 
 ![Lectern passage study in light mode](docs/images/study-romans-light.png)
 
@@ -10,13 +13,13 @@ required to study. This repository starts from the **0.18.0 beta**; the next pub
 
 ## Start here
 
-- **Use the app:** when a maintainer publishes a build, download it from this
-  repository's GitHub Releases page. See [installation](docs/INSTALL.md).
+- **Use the app:** get the latest available beta from [Releases](https://github.com/fastermatt/lectern/releases). See [installation](docs/INSTALL.md); Apple Silicon/macOS 14+ only, currently unnotarized.
 - **Build the app:** follow the commands below. All default resources are included.
 - **Help without coding or a Mac:** report a reference error, suggest a resource,
   test accessibility or improve wording. Start with [Contributing](CONTRIBUTING.md)
   and [portable contribution drafts](collaboration/README.md).
-- **Find a small task:** [contributor roadmap](docs/ROADMAP.md).
+- **Find a small task:** [good first issues](https://github.com/fastermatt/lectern/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and [contributor roadmap](docs/ROADMAP.md).
+- **Join the community:** [Discussions](https://github.com/fastermatt/lectern/discussions) or [help share maintenance](https://github.com/fastermatt/lectern/issues/5).
 
 ## What works today
 
@@ -35,10 +38,11 @@ tools. See [AI and CLI](CLI-AND-AI.md) and [workspace guide](WORKSPACE-AND-LIBRA
 
 Use a Mac with full Xcode and its Swift 6 toolchain, Python 3.9+, and Git. The current
 beta and bundled local engine target **Apple Silicon, macOS 14+**. The local verification
-record is in [Validation](docs/VALIDATION.md); GitHub CI has not run until this repository
-is uploaded. Windows/Linux contributors can use the Python validators and edit docs/data.
+record is in [Validation](docs/VALIDATION.md); the badge above links the current hosted CI result. Windows/Linux contributors can use the Python validators and edit docs/data.
 
 ```sh
+git clone https://github.com/fastermatt/lectern.git
+cd lectern
 # Run inside your clone. Accept Xcode's license through Xcode if prompted.
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 python3 scripts/verify-public-source.py

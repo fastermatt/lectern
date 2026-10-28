@@ -26,9 +26,10 @@ Scripture mappings or an entire resource pack.
 
 Review your exported file before sharing it. Include source links, not whole
 copyrighted works, private notes or credentials. The app adds no account, device
-or study-store data. Nothing is submitted automatically. Public submission and
-private security-reporting channels are still being prepared; this directory
-does not announce a live repository or a staffed review service.
+or study-store data. Nothing is submitted automatically. Submit a reviewed draft through an issue at
+https://github.com/fastermatt/lectern/issues or ask in Discussions. Use the Security
+tab for private vulnerability reports. A live repository does not imply a staffed
+editorial review service.
 
 Maintainers should credit research, testing and translation alongside code.
 A draft is a suggestion; source corrections still require human review. AI

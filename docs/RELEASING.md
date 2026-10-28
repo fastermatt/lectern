@@ -1,6 +1,9 @@
 # Prepare a release
 
-## Before the first GitHub upload
+## Repository setup and future forks
+
+The official repository is https://github.com/fastermatt/lectern. Initial publication
+is complete; do not re-create it. The commands below document setup for future forks.
 
 Review the exported tree, MIT scope, THIRD_PARTY_NOTICES, PUBLIC-SOURCE and governance
 workflow. Do not upload the original private development folder. Run the public snapshot
@@ -14,8 +17,7 @@ repository's main branch. For example, after confirming owner and visibility:
 gh repo create OWNER/REPOSITORY --public --source . --remote origin --push
 ```
 
-This command publishes source; it has intentionally not been run by the preparation
-workflow. Alternatively add the remote from GitHub's instructions and push normally.
+This command publishes source; run it only when intentionally creating a new repository. Alternatively add the remote from GitHub's instructions and push normally.
 Use the Git CLI rather than GitHub's browser uploader for this resource-rich repository.
 
 Enable Issues, Discussions if useful, private vulnerability reporting, secret scanning
