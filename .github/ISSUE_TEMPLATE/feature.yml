@@ -1,0 +1,19 @@
+name: Feature or contributor task
+description: Propose an improvement or ask how to help.
+title: "[Idea] "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Who needs this, and what is difficult today?
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Suggested behavior and a small first step
+  - type: textarea
+    id: help
+    attributes:
+      label: How would you like to help?
+      description: Research, testing, translation, accessibility, writing and code are all useful.

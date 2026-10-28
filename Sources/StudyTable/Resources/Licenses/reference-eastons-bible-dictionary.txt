@@ -1,0 +1,46 @@
+Study Table — Reference licence record: Easton's Bible Dictionary
+====================================================================
+
+Content: 3,961 dictionary articles (names, places, terms), plus a book-
+introduction mapping for all 66 canon books. Used to build
+`Resources/Reference/easton/**`.
+
+Original work: Matthew George Easton, M.A., D.D., "Easton's Bible
+Dictionary" (Illustrated Bible Dictionary, Third Edition), published by
+Thomas Nelson, 1897 (public domain; author died 1894/his final edition
+published posthumously in 1897 — over a century past any copyright term).
+
+Digital edition used: the official CrossWire SWORD Project module "Easton"
+(module version 2.0.1, 2022-08-03), downloaded from
+  https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/Easton.zip
+Cached at scripts/reference-sources/Easton.zip (and its extracted
+mods.d/easton.conf at scripts/reference-sources/easton.conf).
+
+Licence evidence — quoted verbatim from the module's own mods.d/easton.conf:
+
+    DistributionLicense=Public Domain
+    TextSource=CCEL
+
+    About=Easton's 1897 Bible Dictionary\par\par Public Domain -- Copy
+    Freely\par\par These Dictionary topics are from M.G. Easton M.A., D.D.,
+    Illustrated Bible Dictionary, Third Edition, published by Thomas
+    Nelson, 1897. Due to the nature of etext, the illustrated portions of
+    the Dictionary have not been included.
+
+Format note: same SWORD "zLD" binary format and the same pure-Python reader
+as Nave's Topical Bible — see reference-naves-topical-bible.txt in this
+folder for the format/provenance note.
+
+Known upstream data-quality note (documented, not silently "fixed"): a
+small number of articles containing shorthand comparative citations (e.g.
+"Titus, Epistle to", comparing Titus and 1 Timothy verse by verse) have a
+handful of osisRef citations mis-tagged to Genesis 1 by the CCEL/CrossWire
+TEI conversion itself — a pre-existing defect in the upstream digital
+edition, not introduced by this build. Spot-checked: 230 articles cite
+Genesis 1 at all, the overwhelming majority correctly (CREATION, MAN, HERB,
+HEAVEN...); "Titus, Epistle to" is a confirmed miscite. Not auto-corrected,
+per this project's standing rule against fragile broad "fix" heuristics for
+isolated upstream defects (see the Athanasius/Song of Solomon precedent in
+the project wiki, 0.6.1).
+
+Retrieved: 2026-09-23. See scripts/reference-sources/SOURCES.md.

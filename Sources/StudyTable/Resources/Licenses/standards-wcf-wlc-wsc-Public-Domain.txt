@@ -1,0 +1,29 @@
+The Westminster Confession of Faith, the Larger Catechism, and the Shorter Catechism
+(Westminster Assembly, 1646-1648)
+
+Public domain. 17th-century ecclesiastical documents; no subsisting copyright.
+
+Structure/wording (WCF only, American revision): opc.org/wcf.html — the Orthodox
+Presbyterian Church's own published doctrinal standard, no copyright notice or
+restriction. Verified section-by-section against the app's own wcf-chapters.json
+(33 chapters, 171 sections, including the one genuine structural change from the
+original at WCF 31).
+
+Proof texts (WCF, WLC): the historic 1647 Assembly's own citations, via
+NonlinearFruit/Creeds.json (github.com/NonlinearFruit/Creeds.json), whose own
+metadata cites an archive.org scan of the original Assembly printing:
+  https://archive.org/details/humbleadviceofas200west/page/108/mode/2up (WLC)
+  https://archive.org/details/humbleadviceofas00west/mode/2up (WCF)
+Cross-checked against a second, independent source, thewestminsterstandard.org, for
+the fact this project specifically verifies: WCF 3.5 cites Rom 8:30; WCF 3.6 cites
+Rom 8:28-39 and Rom 8:30. Confirmed verbatim on both.
+
+Q/A text and proof texts (WSC): Q/A text from the same archive.org 1647 Assembly
+scan (https://archive.org/details/bim_early-english-books-1641-1700_the-humble-advice-of-the_westminster-assembly-of-_1647_0,
+via NonlinearFruit/Creeds.json); proof texts (annexed separately in 1648) from
+thewestminsterstandard.org/westminster-shorter-catechism/, matched question by
+question against the 1647 Q/A text.
+
+Full sourcing detail, alignment method, and the small number of sections that carry
+no historic proof text (because the American revision genuinely rewrote them):
+scripts/standards-sources/SOURCES.md.

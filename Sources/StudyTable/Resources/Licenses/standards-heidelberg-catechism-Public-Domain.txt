@@ -1,0 +1,16 @@
+The Heidelberg Catechism (1563)
+
+Public domain. Traditional English translation with its lettered Scripture-proof
+apparatus, verified word-for-word identical at two independent sites:
+  https://www.ccel.org/creeds/heidelberg-cat.html (Christian Classics Ethereal
+  Library; used as the parse source)
+  https://thewestminsterstandard.org/heidelberg-catechism/ (cross-check)
+
+Deliberately NOT the modern 1975/1988/2011 joint CRC & RCA translation, which is
+copyrighted by Faith Alive Christian Resources and reads "belong-body and soul, in
+life and in death-to my faithful Savior, Jesus Christ." This translation's archaic
+diction ("thy", "sincerely willing and ready, henceforth, to live unto him") is
+textually distinct and pre-dates that modern copyrighted revision.
+
+129 questions / 52 Lord's Days confirmed. Full sourcing detail:
+scripts/standards-sources/SOURCES.md.

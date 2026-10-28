@@ -1,0 +1,21 @@
+The Belgic Confession (1561, revised 1619)
+
+Public domain. Text: the Reformed (Dutch) Church in America's 19th-century
+authorized English translation, read from
+https://thewestminsterstandard.org/the-belgic-confession/ — verified as the same
+translation Philip Schaff reprinted in Creeds of Christendom, vol. III (1877; Baker
+1889 reprint), whose CCEL plain-text export explicitly states "Rights: Public
+Domain" (https://ccel.org/ccel/s/schaff/creeds3/cache/creeds3.txt).
+
+Proof texts: primarily Schaff's own footnoted Scripture-proof apparatus (316
+footnotes across the 37 articles) from that same public-domain volume, plus this
+translation's own inline citations, merged.
+
+IMPORTANT — a candidate source was checked and REJECTED for this document:
+NonlinearFruit/Creeds.json's Belgic Confession text was found, on direct comparison,
+to be verbatim the Christian Reformed Church's modern official translation
+(crcna.org/sites/default/files/BelgicConfession.pdf), which is explicitly
+copyrighted by Faith Alive Christian Resources (Synod 2011) and restricts
+reproduction beyond 100 study/worship copies. That text is NOT used anywhere in
+this app. See scripts/standards-sources/SOURCES.md for the full comparison and
+evidence trail.

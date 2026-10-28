@@ -1,0 +1,34 @@
+Interlinear versification report -- 18 verse(s) in STEPBible's TAGNT data
+did not resolve to a real verse in the bundled BSB. Each was DROPPED from the shipped
+interlinear data rather than silently misplaced. The primary (pre-parenthesis/bracket)
+STEPBible reference already matches the BSB's own English versification for the overwhelming
+majority of the canon -- including Psalm superscriptions as verse 0 and Joel/Malachi's
+English chapter numbering -- so every mismatch here is a genuine textual-critical or
+manuscript-tradition difference, not a numbering scheme mismatch:
+
+All 16 New Testament ones are the well-known verses present in the Byzantine/Textus Receptus
+tradition (which TAGNT also tags, alongside NA27/28, SBL, WH, Tregelles) but treated as later
+scribal additions and omitted by the modern critical text BSB translates (Matthew 17:21,
+18:11, 23:14; Mark 7:16, 9:44, 9:46, 11:26, 15:28; Luke 17:36, 23:17; John 5:4; Acts 8:37,
+15:34, 24:7, 28:29; Romans 16:24). 3 John 1:15 and Revelation 12:18 are real Greek-edition
+verse-division differences at those two boundaries. None are Old Testament / Hebrew-Aramaic
+(TAHOT's own English-primary references had zero mismatches against the bundled BSB).
+
+MAT 17:21 (12 word(s)) -- verse 21 not present in bundled BSB MAT 17 (BSB verses: 1..27, 26 total)
+MAT 18:11 (9 word(s)) -- verse 11 not present in bundled BSB MAT 18 (BSB verses: 1..35, 34 total)
+MAT 23:14 (21 word(s)) -- verse 14 not present in bundled BSB MAT 23 (BSB verses: 1..39, 38 total)
+MRK 7:16 (6 word(s)) -- verse 16 not present in bundled BSB MRK 7 (BSB verses: 1..37, 36 total)
+MRK 9:44 (11 word(s)) -- verse 44 not present in bundled BSB MRK 9 (BSB verses: 1..50, 48 total)
+MRK 9:46 (11 word(s)) -- verse 46 not present in bundled BSB MRK 9 (BSB verses: 1..50, 48 total)
+MRK 11:26 (17 word(s)) -- verse 26 not present in bundled BSB MRK 11 (BSB verses: 1..33, 32 total)
+MRK 15:28 (10 word(s)) -- verse 28 not present in bundled BSB MRK 15 (BSB verses: 1..47, 46 total)
+LUK 17:36 (9 word(s)) -- verse 36 not present in bundled BSB LUK 17 (BSB verses: 1..37, 36 total)
+LUK 23:17 (8 word(s)) -- verse 17 not present in bundled BSB LUK 23 (BSB verses: 1..56, 55 total)
+JHN 5:4 (27 word(s)) -- verse 4 not present in bundled BSB JHN 5 (BSB verses: 1..47, 46 total)
+ACT 8:37 (23 word(s)) -- verse 37 not present in bundled BSB ACT 8 (BSB verses: 1..40, 39 total)
+ACT 15:34 (6 word(s)) -- verse 34 not present in bundled BSB ACT 15 (BSB verses: 1..41, 40 total)
+ACT 24:7 (13 word(s)) -- verse 7 not present in bundled BSB ACT 24 (BSB verses: 1..27, 26 total)
+ACT 28:29 (12 word(s)) -- verse 29 not present in bundled BSB ACT 28 (BSB verses: 1..31, 30 total)
+ROM 16:24 (11 word(s)) -- verse 24 not present in bundled BSB ROM 16 (BSB verses: 1..27, 26 total)
+3JN 1:15 (11 word(s)) -- verse 15 not present in bundled BSB 3JN 1 (BSB verses: 1..14, 14 total)
+REV 12:18 (7 word(s)) -- verse 18 not present in bundled BSB REV 12 (BSB verses: 1..17, 17 total)

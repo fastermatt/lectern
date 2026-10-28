@@ -1,0 +1,12 @@
+{
+  "id": "BSB",
+  "abbreviation": "BSB",
+  "name": "Berean Standard Bible",
+  "language": "eng",
+  "license": {
+    "summary": "Public domain",
+    "url": "https://ebible.org/engbsb/copyright.htm",
+    "attribution": "Berean Standard Bible, BSB Publishing, LLC. Public domain. Text from eBible.org."
+  },
+  "sourceURL": "https://ebible.org/engbsb/"
+}

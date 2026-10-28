@@ -1,0 +1,14 @@
+John Gill's Exposition of the Old and New Testament
+
+Public Domain Mark 1.0. Digitized and served by the HelloAO Free Use Bible API.
+
+Source API: https://bible.helloao.org/api/c/john-gill/
+Commentary listing (license field verified 2026-09-22):
+https://bible.helloao.org/api/available_commentaries.json
+  -> "id": "john-gill", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+
+Public Domain Mark declaration: https://creativecommons.org/publicdomain/mark/1.0/
+
+Covers all 66 canonical books (verified against the commentary's own books.json:
+numberOfBooks 66, totalNumberOfChapters 1189). Author: John Gill (1697-1771), a
+Particular (Reformed) Baptist divine; not a subscriber to the Westminster Standards.

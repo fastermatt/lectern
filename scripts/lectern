@@ -1,0 +1,10 @@
+#!/bin/sh
+# Resolve symlinks so this launcher can also be linked into a reader's PATH.
+script=$0
+while [ -L "$script" ]; do
+  directory=$(CDPATH= cd -- "$(dirname -- "$script")" && pwd) || exit 1
+  target=$(readlink "$script") || exit 1
+  case "$target" in /*) script=$target ;; *) script=$directory/$target ;; esac
+done
+directory=$(CDPATH= cd -- "$(dirname -- "$script")" && pwd) || exit 1
+exec "$directory/StudyTable" --cli "$@"

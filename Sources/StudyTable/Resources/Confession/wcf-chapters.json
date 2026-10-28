@@ -1,0 +1,173 @@
+{
+ "schema": 1,
+ "confession": "Westminster Confession of Faith",
+ "edition": "Chapter and section structure as presented by the Orthodox Presbyterian Church (opc.org/wcf.html)",
+ "structureVerifiedOn": "2026-09-21",
+ "chapters": [
+  {
+   "n": 1,
+   "title": "Of the Holy Scripture",
+   "sections": 10
+  },
+  {
+   "n": 2,
+   "title": "Of God, and of the Holy Trinity",
+   "sections": 3
+  },
+  {
+   "n": 3,
+   "title": "Of God's Eternal Decree",
+   "sections": 8
+  },
+  {
+   "n": 4,
+   "title": "Of Creation",
+   "sections": 2
+  },
+  {
+   "n": 5,
+   "title": "Of Providence",
+   "sections": 7
+  },
+  {
+   "n": 6,
+   "title": "Of the Fall of Man, of Sin, and of the Punishment Thereof",
+   "sections": 6
+  },
+  {
+   "n": 7,
+   "title": "Of God's Covenant with Man",
+   "sections": 6
+  },
+  {
+   "n": 8,
+   "title": "Of Christ the Mediator",
+   "sections": 8
+  },
+  {
+   "n": 9,
+   "title": "Of Free Will",
+   "sections": 5
+  },
+  {
+   "n": 10,
+   "title": "Of Effectual Calling",
+   "sections": 4
+  },
+  {
+   "n": 11,
+   "title": "Of Justification",
+   "sections": 6
+  },
+  {
+   "n": 12,
+   "title": "Of Adoption",
+   "sections": 1
+  },
+  {
+   "n": 13,
+   "title": "Of Sanctification",
+   "sections": 3
+  },
+  {
+   "n": 14,
+   "title": "Of Saving Faith",
+   "sections": 3
+  },
+  {
+   "n": 15,
+   "title": "Of Repentance unto Life",
+   "sections": 6
+  },
+  {
+   "n": 16,
+   "title": "Of Good Works",
+   "sections": 7
+  },
+  {
+   "n": 17,
+   "title": "Of the Perseverance of the Saints",
+   "sections": 3
+  },
+  {
+   "n": 18,
+   "title": "Of the Assurance of Grace and Salvation",
+   "sections": 4
+  },
+  {
+   "n": 19,
+   "title": "Of the Law of God",
+   "sections": 7
+  },
+  {
+   "n": 20,
+   "title": "Of Christian Liberty, and Liberty of Conscience",
+   "sections": 4
+  },
+  {
+   "n": 21,
+   "title": "Of Religious Worship, and the Sabbath Day",
+   "sections": 8
+  },
+  {
+   "n": 22,
+   "title": "Of Lawful Oaths and Vows",
+   "sections": 7
+  },
+  {
+   "n": 23,
+   "title": "Of the Civil Magistrate",
+   "sections": 4
+  },
+  {
+   "n": 24,
+   "title": "Of Marriage and Divorce",
+   "sections": 6
+  },
+  {
+   "n": 25,
+   "title": "Of the Church",
+   "sections": 6
+  },
+  {
+   "n": 26,
+   "title": "Of the Communion of Saints",
+   "sections": 3
+  },
+  {
+   "n": 27,
+   "title": "Of the Sacraments",
+   "sections": 5
+  },
+  {
+   "n": 28,
+   "title": "Of Baptism",
+   "sections": 7
+  },
+  {
+   "n": 29,
+   "title": "Of the Lord's Supper",
+   "sections": 8
+  },
+  {
+   "n": 30,
+   "title": "Of Church Censures",
+   "sections": 4
+  },
+  {
+   "n": 31,
+   "title": "Of Synods and Councils",
+   "sections": 4
+  },
+  {
+   "n": 32,
+   "title": "Of the State of Men after Death, and of the Resurrection of the Dead",
+   "sections": 3
+  },
+  {
+   "n": 33,
+   "title": "Of the Last Judgment",
+   "sections": 3
+  }
+ ]
+}

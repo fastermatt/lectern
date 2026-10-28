@@ -1,0 +1,26 @@
+name: Resource, reference or interpretation review
+description: Suggest a resource or a source-based correction.
+title: "[Resource] "
+body:
+  - type: textarea
+    id: target
+    attributes:
+      label: Exact resource, edition, language and passage
+      description: Distinguish translated text from notes or an author's other works.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed addition or correction
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Primary sources, rights and contrary evidence
+      description: Links and concise excerpts; do not upload whole copyrighted works. Unknown rights can be marked unknown.
+  - type: input
+    id: language
+    attributes:
+      label: Language or subject expertise needed for review

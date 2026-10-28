@@ -1,0 +1,62 @@
+Study Table — Reference licence record: STEPBible TIPNR (People & Places)
+=============================================================================
+
+Content: 4,242 disambiguated proper-name records (3,129 people, 1,011
+places, 102 other proper nouns), each with a compact description and every
+verse reference. Used to build `Resources/Reference/tipnr/**`.
+
+Source: TIPNR — "Translators Individualised Proper Names with all
+References", from the STEPBible-Data repository:
+  https://github.com/STEPBible/STEPBible-Data
+  file: "Proper Nouns/TIPNR - Translators Individualised Proper Names with
+  all References - STEPBible.org CC BY.txt"
+Cached at scripts/reference-sources/TIPNR.txt.
+
+Licence: **CC BY 4.0**, stated explicitly in the file's own header and the
+repository's README:
+
+    "STEPBible Data Repository  CC BY 4.0
+     Data created initially by Tyndale House Cambridge now curated by
+     www.STEPBible.org"
+
+    "This public licence allows you to:
+     * Include any part of STEPBible-Data in any software or publications
+       without requesting permission...
+     And you should:
+     * Credit it to "STEP Bible" linked to www.STEPBible.org"
+
+Required attribution (used in `Resources/Reference/meta.json` and shown in
+the app's Settings/About screen):
+
+    "Proper names data from TIPNR, STEPBible.org (CC BY), Tyndale House
+    Cambridge."
+
+Not share-alike: CC BY 4.0 requires attribution only, no obligation to
+release Study Table's own code or other data under the same licence.
+
+AI-drafted descriptions: the source file's own header states "Every
+individual has a description in brief, short and article length (created
+by Claude 3 AI)" — these description tiers (`@Briefest=`/`@Brief=`/
+`@Short=`/`@Article=`) are STEPBible's own published content, released
+under the same CC BY 4.0 as the rest of the file. This build uses the
+`@Short=` tier (falling back to `@Brief=`/`@Briefest=` when empty) as the
+People & Places card's description — attributed to STEPBible like
+everything else from this file, never presented as Study Table's or
+Claude's own writing.
+
+Documented, bounded enrichment: TIPNR's own reference tagging follows its
+base text (mainly the ESV, per its header: "Proper Nouns in the ESV (+
+differences in KJV & NIV)"); `scripts/build-reference.py`'s
+`enrich_same_chapter_name_matches` adds a verse to a name's reference list
+only when (a) TIPNR already ties that specific individual/place to that
+exact chapter via a confirmed occurrence elsewhere in it, and (b) one of
+TIPNR's own recorded name spellings for that individual appears as a whole
+word in the app's own bundled BSB text of the otherwise-untagged verse —
+e.g. Acts 9:3 (BSB: "As Saul drew near to Damascus...") vs the ESV's "Now as
+he went on his way...". 7,619 such additions in the 2026-09-23 build,
+reported by the build script.
+
+Excluded: the "EXCLUDED OTHER" category (STEPBible's own label, e.g. the
+language name "Latin") is dropped entirely, per the source's own guidance.
+
+Retrieved: 2026-09-23. See scripts/reference-sources/SOURCES.md.

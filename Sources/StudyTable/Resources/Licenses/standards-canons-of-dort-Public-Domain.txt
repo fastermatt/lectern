@@ -1,0 +1,25 @@
+The Canons of the Synod of Dort (1618-1619) — Positive Articles only
+
+Public domain. The Reformed (Dutch) Church in America's authorized translation, as
+reprinted by Philip Schaff (Creeds of Christendom, vol. III, 1877/1889 — CCEL:
+"Rights: Public Domain"); verified word-for-word identical between
+NonlinearFruit/Creeds.json's copy and Schaff's own reprint.
+
+Proof texts: this translation's own inline Scripture quotations/citations (this
+document's historic proof-text apparatus is inline, not a separate footnote list).
+
+WITHHELD FROM THIS BUILD: the Rejection of Errors (34 paragraphs). Not present in
+Schaff's reprint (his own editorial note states the RCA Constitution he reprinted
+from prints only the positive Articles). The only source found was the United
+Reformed Churches in North America's own published confessional-standard page
+(urcna.org/urcna/confessionshtml/canonshtml/), which carries no copyright notice —
+but on review that is an absence of a restriction, not positive evidence of public-
+domain status, and the wording reads like the mid-20th-century CRC Psalter Hymnal
+rendering of the Canons, whose actual US copyright/renewal status could not be
+confirmed. Per this project's licensing gate ("if a source is unclear, do not ship
+it"), the Rejection of Errors is withheld from 0.7.0. The parsing code is kept (not
+deleted) in scripts/build-standards.py's build_canons(), which never emits these
+items into cd.json. Candidate public-domain replacements for a future pass: Thomas
+Scott's 1818 English translation of the Acts of the Synod of Dort (pre-1929,
+unambiguously PD, includes the Rejection of Errors in full), or any other verified
+pre-1931 US edition. Full detail: scripts/standards-sources/SOURCES.md.

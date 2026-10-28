@@ -1,0 +1,38 @@
+Study Table — Reference licence record: Nave's Topical Bible
+==============================================================
+
+Content: topic → verse-references index (5,317 topics, 72,155 deduplicated
+Scripture references) plus each topic's "see also" links to other topics.
+Used to build `Resources/Reference/nave/**`.
+
+Original work: Orville J. Nave, A.M., D.D., LL.D., "Nave's Topical Bible",
+first published 1896 (public domain; author died 1917, work is well past
+any copyright term in every jurisdiction).
+
+Digital edition used: the official CrossWire SWORD Project module "Nave"
+(module version 3.0, 2021-02-28), downloaded from
+  https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/Nave.zip
+Cached at scripts/reference-sources/Nave.zip (and its extracted
+mods.d/nave.conf at scripts/reference-sources/nave.conf) for reproducibility.
+
+Licence evidence — quoted verbatim from the module's own mods.d/nave.conf:
+
+    DistributionLicense=Public Domain
+    TextSource=https://ccel.org/ccel/n/nave/bible.xml
+
+CrossWire only distributes works it has independently cleared for
+redistribution; this is the standard citation Bible-study software (Xiphos,
+BibleTime, AndBible, and other SWORD-compatible tools) uses for Nave's.
+
+Format note: the module is SWORD's "zLD" (compressed local dictionary)
+binary format. `scripts/build-reference.py` includes a small pure-Python
+reader (`ZLDReader`) ported field-for-field from CrossWire's own reference
+Java implementation (`RawLDBackend.java`/`ZLDBackend.java`/`DataEntry.java`
+in github.com/crosswire/jsword, LGPL-2.1+, © CrossWire Bible Society) since
+no SWORD Python binding is available in this build environment — the binary
+*format* was ported (a public, documented layout), not GPL/LGPL source
+shipped in the app; the app itself contains only Study Table's own JSON
+output, never any jsword code.
+
+Retrieved: 2026-09-23. See scripts/reference-sources/SOURCES.md and
+scripts/build-reference.py's own build report for exact counts.

@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "note": "Traditional English renderings of three ecumenical creeds, public domain by age (2nd-5th century originals; English translation tradition traces to 19th-century patristic translation projects, e.g. the Nicene and Post-Nicene Fathers series). These are reference documents, not verse-by-verse commentary, and are not linked to individual verses. Reformed churches historically receive all three as summaries of catholic (universal) Christian doctrine, prior to and distinct from the later Reformation confessions.",
+ "creeds": [
+  {
+   "id": "apostles",
+   "title": "The Apostles' Creed",
+   "era": "Received form by c. 700, core substantially 2nd-4th century",
+   "text": "I believe in God the Father Almighty, Maker of heaven and earth; And in Jesus Christ His only Son our Lord: who was conceived by the Holy Ghost, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, dead, and buried; He descended into hell; the third day He rose again from the dead; He ascended into heaven, and sitteth on the right hand of God the Father Almighty; from thence He shall come to judge the quick and the dead. I believe in the Holy Ghost; the holy catholic Church; the communion of saints; the forgiveness of sins; the resurrection of the body; and the life everlasting. Amen.",
+   "note": "\"He descended into hell\" (Latin: descendit ad inferna) is textually the latest clause to enter the Creed and is read by different Reformed traditions either literally or, more commonly, as summarizing the depth of Christ's suffering and humiliation (so, e.g., the Heidelberg Catechism, Q. 44) — the Creed is reproduced whole rather than edited."
+  },
+  {
+   "id": "nicene",
+   "title": "The Nicene Creed",
+   "era": "Nicaea 325, expanded Constantinople 381; Western form with filioque",
+   "text": "We believe in one God the Father Almighty, Maker of heaven and earth, and of all things visible and invisible: And in one Lord Jesus Christ, the only-begotten Son of God, begotten of His Father before all worlds, God of God, Light of Light, very God of very God, begotten, not made, being of one substance with the Father, by whom all things were made; who for us men, and for our salvation, came down from heaven, and was incarnate by the Holy Ghost of the Virgin Mary, and was made man; and was crucified also for us under Pontius Pilate; He suffered and was buried; and the third day He rose again according to the Scriptures, and ascended into heaven, and sitteth on the right hand of the Father; and He shall come again with glory to judge both the quick and the dead: whose kingdom shall have no end. And we believe in the Holy Ghost, the Lord and Giver of Life, who proceedeth from the Father and the Son, who with the Father and the Son together is worshiped and glorified, who spake by the Prophets. And we believe one holy catholic and apostolic Church. We acknowledge one baptism for the remission of sins. And we look for the resurrection of the dead, and the life of the world to come. Amen.",
+   "note": "The 'filioque' (\"and the Son\") clause, added in the Western church, is not part of the original 381 Constantinopolitan text and remains a historic point of difference with Eastern Orthodoxy. It is included here because Western Reformed churches have historically received the Creed in this form; the difference is noted, not adjudicated."
+  },
+  {
+   "id": "chalcedon",
+   "title": "The Chalcedonian Definition",
+   "era": "Council of Chalcedon, 451",
+   "text": "Therefore, following the holy fathers, we all with one accord teach men to acknowledge one and the same Son, our Lord Jesus Christ, at once complete in Godhead and complete in manhood, truly God and truly man, consisting also of a reasonable soul and body; of one substance with the Father as regards His Godhead, and at the same time of one substance with us as regards His manhood; like us in all respects, apart from sin; as regards His Godhead, begotten of the Father before the ages, but yet as regards His manhood begotten, for us men and for our salvation, of Mary the Virgin, the God-bearer; one and the same Christ, Son, Lord, only-begotten, recognized in two natures, without confusion, without change, without division, without separation; the distinction of natures being in no way annulled by the union, but rather the characteristics of each nature being preserved and coming together to form one person and subsistence, not as parted or separated into two persons, but one and the same Son and only-begotten God the Word, Lord Jesus Christ; even as the prophets from earliest times spoke of Him, and our Lord Jesus Christ Himself taught us, and the Creed of the Fathers has handed down to us.",
+   "note": "The Definition does not replace the Nicene Creed; it clarifies the two-nature (Godhead and manhood) Christology the Creed implies, against both those who divided Christ's person (Nestorius) and those who confused or blended His natures (Eutyches)."
+  }
+ ]
+}

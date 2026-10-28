@@ -1,0 +1,26 @@
+name: Bug or usability problem
+description: Something failed or was difficult to use.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened, and what did you expect?
+      description: Please avoid private notes or credentials. Your own language is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version, macOS version, Mac chip and memory
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Error or screenshot
+      description: Hide personal study material. Security vulnerabilities belong in private reporting.

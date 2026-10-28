@@ -1,0 +1,49 @@
+John Calvin's Commentaries -- HelloAO digitization (gap-fill: Isaiah 49-66 and the Psalms)
+
+Public Domain Mark 1.0. Digitized and served by the HelloAO Free Use Bible API.
+
+Source API: https://bible.helloao.org/api/c/john-calvin/
+Commentary listing (license field verified 2026-09-24):
+https://bible.helloao.org/api/available_commentaries.json
+  -> "id": "john-calvin", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  -> licenseNotes: "Calvin Translation Society English texts. CCEL identifies its electronic
+     Calvin commentaries as public domain and usable for any purpose."
+
+Public Domain Mark declaration: https://creativecommons.org/publicdomain/mark/1.0/
+
+Same underlying commentary as the app's primary "calvin" source (CCEL / CrossWire, converted
+by the MIT-licensed Pillar Commentary Data project) -- verified 2026-09-24 by comparing Isaiah
+1:1 in both digitizations: near-identical English prose ("The vision of Isaiah...") from the
+same Calvin Translation Society translation. Not a different, less-verified text.
+
+Used ONLY as a narrow gap-fill: the cached Pillar conversion
+(work-content/pillar-commentary-data-main/c/calvin/ISA/<49-66>.json) has empty content: [] for
+Isaiah 49-66 -- the entire Book of Consolation, including the Servant Songs and Isaiah 53 --
+confirmed upstream (a fresh fetch of the same Pillar/CrossWire conversion from jsdelivr is
+also empty for these chapters), not a local corruption. HelloAO's independent digitization of
+the same commentary has real content for all 18 of these chapters. See
+work-content/helloao/calvin-helloao/_fetch-manifest.json for the verification record and
+CONTENT-SOURCES.md / CONTENT-ROADMAP.md for the write-up.
+
+Known quirk of this digitization, left as-is rather than "corrected" (see fetch manifest):
+Hebrew words are rendered as a bare consonantal Latin-letter transliteration (e.g. "chzvn")
+rather than the Pillar copy's Hebrew Unicode glyphs. Cosmetic, does not affect the English
+commentary text itself.
+
+This source id ("calvin-helloao") is emitted for ISA chapters 49-66 and for the Psalms (below).
+Isaiah 1-48 keep shipping from the Pillar "calvin" source; this gap-fill never produces a
+duplicate Calvin card for a verse the Pillar source already covers.
+
+SECOND SCOPE -- the Psalms (0.10, workstream R2, 2026-09-24/26). The Pillar conversion carries,
+for 148 of the 150 psalms, one repeated block per psalm (introduction + comment on the first
+verse group) instead of per-verse commentary. HelloAO's john-calvin PSA/1-150 (fetched with
+`scripts/fetch-helloao-commentaries.py john-calvin --books PSA --dest-id calvin-helloao`;
+per-chapter SHA-256 in the fetch manifest) has the real per-verse commentary. Same-translation
+check (a build gate): >= 90% of every shared 6-word shingle of Pillar's text is present in HelloAO's
+chapter (median 1.00, minimum 0.92, all 148 chapters; see data/study-build-report.json,
+"calvinPsalms"). Precedence: Ps 55 and 120 (Pillar has per-verse text) unchanged; Ps 53 and 70
+(HelloAO has only the quoted psalm) keep Pillar's block; the other 146 ship HelloAO per-verse text
+plus, from Pillar, only the psalm's introduction at verse 1. One upstream misfiling is re-homed
+(Psalm 104:19-22 is filed inside Psalm 102's item; locator header only, text untouched). Not shipped:
+the translator's editorial footnotes (partly French) and their inline [n] markers -- for the Psalms
+and, since this pass, for Isaiah 49-66 too. The raw files keep everything.

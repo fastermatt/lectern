@@ -1,0 +1,3990 @@
+{
+ "id": "wsc",
+ "title": "The Shorter Catechism",
+ "shortTitle": "WSC",
+ "year": 1647,
+ "translation": "Original 1647 Westminster Assembly Q/A text (public domain; archive.org 1647 printing) with the traditional annexed Scripture-proof apparatus (public-domain 17th-century text).",
+ "sourceURL": "https://archive.org/details/bim_early-english-books-1641-1700_the-humble-advice-of-the_westminster-assembly-of-_1647_0",
+ "license": "Public domain (17th-century ecclesiastical document).",
+ "kind": "catechism",
+ "items": [
+  {
+   "id": "Q1",
+   "label": "WSC Q1",
+   "question": "What is the chief end of man?",
+   "text": "Man's chief end is to glorify God, and to enjoy him for ever.",
+   "proofs": [
+    {
+     "code": "1CO",
+     "chapter": 10,
+     "start": 31,
+     "end": 31,
+     "ref": "1 Cor 10:31"
+    },
+    {
+     "code": "ROM",
+     "chapter": 11,
+     "start": 36,
+     "end": 36,
+     "ref": "Rom 11:36"
+    },
+    {
+     "code": "PSA",
+     "chapter": 73,
+     "start": 25,
+     "end": 28,
+     "ref": "Ps 73:25–28"
+    }
+   ]
+  },
+  {
+   "id": "Q2",
+   "label": "WSC Q2",
+   "question": "What rule hath God given to direct us how we may glorify and enjoy him?",
+   "text": "The Word of God, which is contained in the Scriptures of the Old and New Testaments, is the only rule to direct us how we may glorify and enjoy him.",
+   "proofs": [
+    {
+     "code": "2TI",
+     "chapter": 3,
+     "start": 16,
+     "end": 16,
+     "ref": "2 Tim 3:16"
+    },
+    {
+     "code": "EPH",
+     "chapter": 2,
+     "start": 20,
+     "end": 20,
+     "ref": "Eph 2:20"
+    },
+    {
+     "code": "1JN",
+     "chapter": 1,
+     "start": 3,
+     "end": 4,
+     "ref": "1 John 1:3–4"
+    }
+   ]
+  },
+  {
+   "id": "Q3",
+   "label": "WSC Q3",
+   "question": "What do the Scriptures principally teach?",
+   "text": "The Scriptures principally teach what man is to believe concerning God, and what duty God requires of man.",
+   "proofs": [
+    {
+     "code": "2TI",
+     "chapter": 1,
+     "start": 13,
+     "end": 13,
+     "ref": "2 Tim 1:13"
+    },
+    {
+     "code": "2TI",
+     "chapter": 3,
+     "start": 16,
+     "end": 16,
+     "ref": "2 Tim 3:16"
+    }
+   ]
+  },
+  {
+   "id": "Q4",
+   "label": "WSC Q4",
+   "question": "What is God?",
+   "text": "God is a Spirit, infinite, eternal, and unchangeable in his being, wisdom, power, holiness, justice, goodness, and truth.",
+   "proofs": [
+    {
+     "code": "JHN",
+     "chapter": 4,
+     "start": 24,
+     "end": 24,
+     "ref": "John 4:24"
+    },
+    {
+     "code": "JOB",
+     "chapter": 11,
+     "start": 7,
+     "end": 9,
+     "ref": "Job 11:7–9"
+    },
+    {
+     "code": "PSA",
+     "chapter": 90,
+     "start": 2,
+     "end": 2,
+     "ref": "Ps 90:2"
+    },
+    {
+     "code": "JAS",
+     "chapter": 1,
+     "start": 17,
+     "end": 17,
+     "ref": "Jas 1:17"
+    },
+    {
+     "code": "EXO",
+     "chapter": 3,
+     "start": 14,
+     "end": 14,
+     "ref": "Exod 3:14"
+    },
+    {
+     "code": "PSA",
+     "chapter": 147,
+     "start": 5,
+     "end": 5,
+     "ref": "Ps 147:5"
+    },
+    {
+     "code": "REV",
+     "chapter": 4,
+     "start": 8,
+     "end": 8,
+     "ref": "Rev 4:8"
+    },
+    {
+     "code": "EXO",
+     "chapter": 34,
+     "start": 6,
+     "end": 7,
+     "ref": "Exod 34:6–7"
+    }
+   ]
+  },
+  {
+   "id": "Q5",
+   "label": "WSC Q5",
+   "question": "Are there more Gods than one?",
+   "text": "There is but one only, the living and true God.",
+   "proofs": [
+    {
+     "code": "DEU",
+     "chapter": 6,
+     "start": 4,
+     "end": 4,
+     "ref": "Deut 6:4"
+    },
+    {
+     "code": "JER",
+     "chapter": 10,
+     "start": 10,
+     "end": 10,
+     "ref": "Jer 10:10"
+    }
+   ]
+  },
+  {
+   "id": "Q6",
+   "label": "WSC Q6",
+   "question": "How many persons are there in the Godhead?",
+   "text": "There are three persons in the Godhead; the Father, the Son, and the Holy Ghost; and these three are one God, the same in substance, equal in power and glory.",
+   "proofs": [
+    {
+     "code": "1JN",
+     "chapter": 5,
+     "start": 7,
+     "end": 7,
+     "ref": "1 John 5:7"
+    },
+    {
+     "code": "MAT",
+     "chapter": 28,
+     "start": 19,
+     "end": 19,
+     "ref": "Matt 28:19"
+    }
+   ]
+  },
+  {
+   "id": "Q7",
+   "label": "WSC Q7",
+   "question": "What are the decrees of God?",
+   "text": "The decrees of God are, his eternal purpose, according to the counsel of his will, whereby, for his own glory, he hath foreordained whatsoever comes to pass.",
+   "proofs": [
+    {
+     "code": "EPH",
+     "chapter": 1,
+     "start": 4,
+     "end": 4,
+     "ref": "Eph 1:4"
+    },
+    {
+     "code": "EPH",
+     "chapter": 1,
+     "start": 11,
+     "end": 11,
+     "ref": "Eph 1:11"
+    },
+    {
+     "code": "ROM",
+     "chapter": 9,
+     "start": 22,
+     "end": 23,
+     "ref": "Rom 9:22–23"
+    }
+   ]
+  },
+  {
+   "id": "Q8",
+   "label": "WSC Q8",
+   "question": "How doth God execute his decrees?",
+   "text": "God executeth his decrees in the works of creation and providence.",
+   "proofs": [
+    {
+     "code": "PSA",
+     "chapter": 148,
+     "start": 8,
+     "end": 8,
+     "ref": "Ps 148:8"
+    },
+    {
+     "code": "ISA",
+     "chapter": 40,
+     "start": 26,
+     "end": 26,
+     "ref": "Isa 40:26"
+    },
+    {
+     "code": "DAN",
+     "chapter": 4,
+     "start": 35,
+     "end": 35,
+     "ref": "Dan 4:35"
+    },
+    {
+     "code": "ACT",
+     "chapter": 4,
+     "start": 24,
+     "end": 28,
+     "ref": "Acts 4:24–28"
+    },
+    {
+     "code": "REV",
+     "chapter": 4,
+     "start": 11,
+     "end": 11,
+     "ref": "Rev 4:11"
+    }
+   ]
+  },
+  {
+   "id": "Q9",
+   "label": "WSC Q9",
+   "question": "What is the work of creation?",
+   "text": "The work of creation is, God's making all things of nothing, by the word of his power, in the space of six days, and all very good.",
+   "proofs": [
+    {
+     "code": "HEB",
+     "chapter": 11,
+     "start": 3,
+     "end": 3,
+     "ref": "Heb 11:3"
+    }
+   ]
+  },
+  {
+   "id": "Q10",
+   "label": "WSC Q10",
+   "question": "How did God create man?",
+   "text": "God created man male and female, after his own image, in knowledge, righteousness, and holiness, with dominion over the creatures.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 1,
+     "start": 26,
+     "end": 28,
+     "ref": "Gen 1:26–28"
+    },
+    {
+     "code": "COL",
+     "chapter": 3,
+     "start": 10,
+     "end": 10,
+     "ref": "Col 3:10"
+    },
+    {
+     "code": "EPH",
+     "chapter": 4,
+     "start": 24,
+     "end": 24,
+     "ref": "Eph 4:24"
+    }
+   ]
+  },
+  {
+   "id": "Q11",
+   "label": "WSC Q11",
+   "question": "What are God's works of providence?",
+   "text": "God's works of providence are, his most holy, wise, and powerful preserving and governing all his creatures, and all their actions.",
+   "proofs": [
+    {
+     "code": "PSA",
+     "chapter": 145,
+     "start": 17,
+     "end": 17,
+     "ref": "Ps 145:17"
+    },
+    {
+     "code": "PSA",
+     "chapter": 104,
+     "start": 24,
+     "end": 24,
+     "ref": "Ps 104:24"
+    },
+    {
+     "code": "ISA",
+     "chapter": 28,
+     "start": 29,
+     "end": 29,
+     "ref": "Isa 28:29"
+    },
+    {
+     "code": "HEB",
+     "chapter": 1,
+     "start": 3,
+     "end": 3,
+     "ref": "Heb 1:3"
+    },
+    {
+     "code": "PSA",
+     "chapter": 103,
+     "start": 19,
+     "end": 19,
+     "ref": "Ps 103:19"
+    },
+    {
+     "code": "MAT",
+     "chapter": 10,
+     "start": 29,
+     "end": 31,
+     "ref": "Matt 10:29–31"
+    }
+   ]
+  },
+  {
+   "id": "Q12",
+   "label": "WSC Q12",
+   "question": "What special act of providence did God exercise toward man in the estate wherein he was created?",
+   "text": "When God had created man, he entered into a covenant of life with him, upon condition of perfect obedience; forbidding him to eat of the tree of the knowledge of good and evil, upon pain of death.",
+   "proofs": [
+    {
+     "code": "GAL",
+     "chapter": 3,
+     "start": 12,
+     "end": 12,
+     "ref": "Gal 3:12"
+    },
+    {
+     "code": "GEN",
+     "chapter": 2,
+     "start": 17,
+     "end": 17,
+     "ref": "Gen 2:17"
+    }
+   ]
+  },
+  {
+   "id": "Q13",
+   "label": "WSC Q13",
+   "question": "Did our first parents continue in the estate wherein they were created?",
+   "text": "Our first parents, being left to the freedom of their own will, fell from the estate wherein they were created, by sinning against God.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 6,
+     "end": 8,
+     "ref": "Gen 3:6–8"
+    },
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 13,
+     "end": 13,
+     "ref": "Gen 3:13"
+    },
+    {
+     "code": "ECC",
+     "chapter": 7,
+     "start": 29,
+     "end": 29,
+     "ref": "Eccl 7:29"
+    }
+   ]
+  },
+  {
+   "id": "Q14",
+   "label": "WSC Q14",
+   "question": "What is sin?",
+   "text": "Sin is any want of conformity unto, or transgression of, the law of God.",
+   "proofs": [
+    {
+     "code": "1JN",
+     "chapter": 3,
+     "start": 4,
+     "end": 4,
+     "ref": "1 John 3:4"
+    }
+   ]
+  },
+  {
+   "id": "Q15",
+   "label": "WSC Q15",
+   "question": "What was the sin whereby our first parents fell from the estate wherein they were created?",
+   "text": "The sin whereby our first parents fell from the estate wherein they were created, was their eating the forbidden fruit.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 6,
+     "end": 6,
+     "ref": "Gen 3:6"
+    },
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 12,
+     "end": 12,
+     "ref": "Gen 3:12"
+    }
+   ]
+  },
+  {
+   "id": "Q16",
+   "label": "WSC Q16",
+   "question": "Did all mankind fall in Adam's first transgression?",
+   "text": "The covenant being made with Adam, not only for himself, but for his posterity; all mankind, descending from him by ordinary generation, sinned in him, and fell with him, in his first transgression.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 2,
+     "start": 16,
+     "end": 17,
+     "ref": "Gen 2:16–17"
+    },
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 12,
+     "end": 12,
+     "ref": "Rom 5:12"
+    },
+    {
+     "code": "1CO",
+     "chapter": 15,
+     "start": 21,
+     "end": 22,
+     "ref": "1 Cor 15:21–22"
+    }
+   ]
+  },
+  {
+   "id": "Q17",
+   "label": "WSC Q17",
+   "question": "Into what estate did the fall bring mankind?",
+   "text": "The fall brought mankind into an estate of sin and misery.",
+   "proofs": [
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 12,
+     "end": 12,
+     "ref": "Rom 5:12"
+    }
+   ]
+  },
+  {
+   "id": "Q18",
+   "label": "WSC Q18",
+   "question": "Wherein consists the sinfulness of that estate whereinto man fell?",
+   "text": "The sinfulness of that estate whereinto man fell, consists in the guilt of Adam's first sin, the want of original righteousness, and the corruption of his whole nature, which is commonly called original sin; together with all actual transgressions which proceed from it.",
+   "proofs": [
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 12,
+     "end": 12,
+     "ref": "Rom 5:12"
+    },
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 19,
+     "end": 19,
+     "ref": "Rom 5:19"
+    },
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 10,
+     "end": 20,
+     "ref": "Rom 5:10–20"
+    },
+    {
+     "code": "EPH",
+     "chapter": 2,
+     "start": 1,
+     "end": 3,
+     "ref": "Eph 2:1–3"
+    },
+    {
+     "code": "JAS",
+     "chapter": 1,
+     "start": 14,
+     "end": 15,
+     "ref": "Jas 1:14–15"
+    },
+    {
+     "code": "MAT",
+     "chapter": 15,
+     "start": 19,
+     "end": 19,
+     "ref": "Matt 15:19"
+    }
+   ]
+  },
+  {
+   "id": "Q19",
+   "label": "WSC Q19",
+   "question": "What is the misery of that estate whereinto man fell?",
+   "text": "All mankind by their fall lost communion with God, are under his wrath and curse, and so made liable to all miseries in this life, to death itself, and to the pains of hell for ever.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 8,
+     "end": 8,
+     "ref": "Gen 3:8"
+    },
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 10,
+     "end": 10,
+     "ref": "Gen 3:10"
+    },
+    {
+     "code": "GEN",
+     "chapter": 3,
+     "start": 24,
+     "end": 24,
+     "ref": "Gen 3:24"
+    },
+    {
+     "code": "EPH",
+     "chapter": 2,
+     "start": 2,
+     "end": 3,
+     "ref": "Eph 2:2–3"
+    },
+    {
+     "code": "GAL",
+     "chapter": 3,
+     "start": 10,
+     "end": 10,
+     "ref": "Gal 3:10"
+    },
+    {
+     "code": "LAM",
+     "chapter": 3,
+     "start": 39,
+     "end": 39,
+     "ref": "Lam 3:39"
+    },
+    {
+     "code": "ROM",
+     "chapter": 6,
+     "start": 23,
+     "end": 23,
+     "ref": "Rom 6:23"
+    },
+    {
+     "code": "MAT",
+     "chapter": 25,
+     "start": 41,
+     "end": 41,
+     "ref": "Matt 25:41"
+    },
+    {
+     "code": "MAT",
+     "chapter": 25,
+     "start": 46,
+     "end": 46,
+     "ref": "Matt 25:46"
+    }
+   ]
+  },
+  {
+   "id": "Q20",
+   "label": "WSC Q20",
+   "question": "Did God leave all mankind to perish in the estate of sin and misery?",
+   "text": "God having, out of his mere good pleasure, from all eternity, elected some to everlasting life did enter into a covenant of grace, to deliver them out of the estate of sin and misery, and to bring them into an estate of salvation by a Redeemer.",
+   "proofs": [
+    {
+     "code": "EPH",
+     "chapter": 1,
+     "start": 4,
+     "end": 4,
+     "ref": "Eph 1:4"
+    },
+    {
+     "code": "ROM",
+     "chapter": 3,
+     "start": 20,
+     "end": 22,
+     "ref": "Rom 3:20–22"
+    },
+    {
+     "code": "GAL",
+     "chapter": 3,
+     "start": 21,
+     "end": 22,
+     "ref": "Gal 3:21–22"
+    }
+   ]
+  },
+  {
+   "id": "Q21",
+   "label": "WSC Q21",
+   "question": "Who is the Redeemer of God's elect?",
+   "text": "The only Redeemer of God's elect is the Lord Jesus Christ, who, being the eternal Son of God, became man and so was, and continueth to be, God and man in two distinct natures, and one person, forever.",
+   "proofs": [
+    {
+     "code": "1TI",
+     "chapter": 2,
+     "start": 5,
+     "end": 6,
+     "ref": "1 Tim 2:5–6"
+    },
+    {
+     "code": "JHN",
+     "chapter": 1,
+     "start": 14,
+     "end": 14,
+     "ref": "John 1:14"
+    },
+    {
+     "code": "GAL",
+     "chapter": 4,
+     "start": 4,
+     "end": 4,
+     "ref": "Gal 4:4"
+    },
+    {
+     "code": "ROM",
+     "chapter": 9,
+     "start": 5,
+     "end": 5,
+     "ref": "Rom 9:5"
+    },
+    {
+     "code": "LUK",
+     "chapter": 1,
+     "start": 35,
+     "end": 35,
+     "ref": "Luke 1:35"
+    },
+    {
+     "code": "COL",
+     "chapter": 2,
+     "start": 9,
+     "end": 9,
+     "ref": "Col 2:9"
+    },
+    {
+     "code": "HEB",
+     "chapter": 7,
+     "start": 24,
+     "end": 25,
+     "ref": "Heb 7:24–25"
+    }
+   ]
+  },
+  {
+   "id": "Q22",
+   "label": "WSC Q22",
+   "question": "How did Christ, being the Son of God, become man?",
+   "text": "Christ, the Son of God, became man, by taking to himself a true body, and a reasonable soul, being conceived by the power of the Holy Ghost, in the womb of the virgin Mary, and born of her yet without sin.",
+   "proofs": [
+    {
+     "code": "HEB",
+     "chapter": 2,
+     "start": 14,
+     "end": 14,
+     "ref": "Heb 2:14"
+    },
+    {
+     "code": "HEB",
+     "chapter": 2,
+     "start": 16,
+     "end": 16,
+     "ref": "Heb 2:16"
+    },
+    {
+     "code": "HEB",
+     "chapter": 10,
+     "start": 5,
+     "end": 5,
+     "ref": "Heb 10:5"
+    },
+    {
+     "code": "MAT",
+     "chapter": 26,
+     "start": 38,
+     "end": 38,
+     "ref": "Matt 26:38"
+    },
+    {
+     "code": "LUK",
+     "chapter": 1,
+     "start": 27,
+     "end": 27,
+     "ref": "Luke 1:27"
+    },
+    {
+     "code": "LUK",
+     "chapter": 1,
+     "start": 31,
+     "end": 31,
+     "ref": "Luke 1:31"
+    },
+    {
+     "code": "LUK",
+     "chapter": 1,
+     "start": 35,
+     "end": 35,
+     "ref": "Luke 1:35"
+    },
+    {
+     "code": "LUK",
+     "chapter": 1,
+     "start": 42,
+     "end": 42,
+     "ref": "Luke 1:42"
+    },
+    {
+     "code": "GAL",
+     "chapter": 4,
+     "start": 4,
+     "end": 4,
+     "ref": "Gal 4:4"
+    },
+    {
+     "code": "HEB",
+     "chapter": 4,
+     "start": 15,
+     "end": 15,
+     "ref": "Heb 4:15"
+    },
+    {
+     "code": "HEB",
+     "chapter": 7,
+     "start": 26,
+     "end": 26,
+     "ref": "Heb 7:26"
+    }
+   ]
+  },
+  {
+   "id": "Q23",
+   "label": "WSC Q23",
+   "question": "What offices doth Christ execute as our Redeemer?",
+   "text": "Christ, as our Redeemer, executeth the offices of a prophet, of a priest, and of a king, both in his estate of humiliation and exaltation.",
+   "proofs": [
+    {
+     "code": "ACT",
+     "chapter": 3,
+     "start": 21,
+     "end": 22,
+     "ref": "Acts 3:21–22"
+    },
+    {
+     "code": "HEB",
+     "chapter": 12,
+     "start": 25,
+     "end": 25,
+     "ref": "Heb 12:25"
+    },
+    {
+     "code": "HEB",
+     "chapter": 5,
+     "start": 5,
+     "end": 7,
+     "ref": "Heb 5:5–7"
+    },
+    {
+     "code": "HEB",
+     "chapter": 7,
+     "start": 25,
+     "end": 25,
+     "ref": "Heb 7:25"
+    },
+    {
+     "code": "PSA",
+     "chapter": 2,
+     "start": 6,
+     "end": 6,
+     "ref": "Ps 2:6"
+    },
+    {
+     "code": "ISA",
+     "chapter": 9,
+     "start": 6,
+     "end": 7,
+     "ref": "Isa 9:6–7"
+    },
+    {
+     "code": "MAT",
+     "chapter": 21,
+     "start": 5,
+     "end": 5,
+     "ref": "Matt 21:5"
+    },
+    {
+     "code": "PSA",
+     "chapter": 2,
+     "start": 8,
+     "end": 11,
+     "ref": "Ps 2:8–11"
+    }
+   ]
+  },
+  {
+   "id": "Q24",
+   "label": "WSC Q24",
+   "question": "How doth Christ execute the office of a prophet?",
+   "text": "Christ executeth the office of a prophet, in revealing to us, by his Word and Spirit the will of God for our salvation.",
+   "proofs": [
+    {
+     "code": "JHN",
+     "chapter": 1,
+     "start": 18,
+     "end": 18,
+     "ref": "John 1:18"
+    },
+    {
+     "code": "1PE",
+     "chapter": 1,
+     "start": 10,
+     "end": 12,
+     "ref": "1 Pet 1:10–12"
+    },
+    {
+     "code": "JHN",
+     "chapter": 15,
+     "start": 15,
+     "end": 15,
+     "ref": "John 15:15"
+    },
+    {
+     "code": "JHN",
+     "chapter": 20,
+     "start": 31,
+     "end": 31,
+     "ref": "John 20:31"
+    }
+   ]
+  },
+  {
+   "id": "Q25",
+   "label": "WSC Q25",
+   "question": "How doth Christ execute the office of a priest?",
+   "text": "Christ executeth the office of a priest, in his once offering up of himself a sacrifice to satisfy divine justice, and reconcile us to God; and in making continual intercession for us.",
+   "proofs": [
+    {
+     "code": "HEB",
+     "chapter": 9,
+     "start": 14,
+     "end": 14,
+     "ref": "Heb 9:14"
+    },
+    {
+     "code": "HEB",
+     "chapter": 9,
+     "start": 28,
+     "end": 28,
+     "ref": "Heb 9:28"
+    },
+    {
+     "code": "HEB",
+     "chapter": 2,
+     "start": 17,
+     "end": 17,
+     "ref": "Heb 2:17"
+    },
+    {
+     "code": "HEB",
+     "chapter": 7,
+     "start": 24,
+     "end": 25,
+     "ref": "Heb 7:24–25"
+    }
+   ]
+  },
+  {
+   "id": "Q26",
+   "label": "WSC Q26",
+   "question": "How doth Christ execute the office of a king?",
+   "text": "Christ executeth the office of a king, in subduing us to himself, in ruling and defending us, and in restraining and conquering all his and our enemies.",
+   "proofs": [
+    {
+     "code": "ACT",
+     "chapter": 15,
+     "start": 14,
+     "end": 16,
+     "ref": "Acts 15:14–16"
+    },
+    {
+     "code": "ISA",
+     "chapter": 33,
+     "start": 22,
+     "end": 22,
+     "ref": "Isa 33:22"
+    },
+    {
+     "code": "ISA",
+     "chapter": 32,
+     "start": 1,
+     "end": 2,
+     "ref": "Isa 32:1–2"
+    },
+    {
+     "code": "1CO",
+     "chapter": 15,
+     "start": 25,
+     "end": 25,
+     "ref": "1 Cor 15:25"
+    }
+   ]
+  },
+  {
+   "id": "Q27",
+   "label": "WSC Q27",
+   "question": "Wherein did Christ's humiliation consist?",
+   "text": "Christ's humiliation consisted in his being born, and that in a low condition, made under the law, undergoing the miseries of this life, the wrath of God, and the cursed death of the cross; in being buried, and continuing under the power of death for a time.",
+   "proofs": [
+    {
+     "code": "LUK",
+     "chapter": 2,
+     "start": 7,
+     "end": 7,
+     "ref": "Luke 2:7"
+    },
+    {
+     "code": "GAL",
+     "chapter": 4,
+     "start": 4,
+     "end": 4,
+     "ref": "Gal 4:4"
+    },
+    {
+     "code": "HEB",
+     "chapter": 12,
+     "start": 2,
+     "end": 3,
+     "ref": "Heb 12:2–3"
+    },
+    {
+     "code": "ISA",
+     "chapter": 53,
+     "start": 2,
+     "end": 3,
+     "ref": "Isa 53:2–3"
+    },
+    {
+     "code": "LUK",
+     "chapter": 22,
+     "start": 44,
+     "end": 44,
+     "ref": "Luke 22:44"
+    },
+    {
+     "code": "MAT",
+     "chapter": 27,
+     "start": 46,
+     "end": 46,
+     "ref": "Matt 27:46"
+    },
+    {
+     "code": "PHP",
+     "chapter": 2,
+     "start": 8,
+     "end": 8,
+     "ref": "Phil 2:8"
+    },
+    {
+     "code": "1CO",
+     "chapter": 15,
+     "start": 3,
+     "end": 4,
+     "ref": "1 Cor 15:3–4"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 24,
+     "end": 27,
+     "ref": "Acts 2:24–27"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 31,
+     "end": 31,
+     "ref": "Acts 2:31"
+    }
+   ]
+  },
+  {
+   "id": "Q28",
+   "label": "WSC Q28",
+   "question": "Wherein consisteth Christ's exaltation?",
+   "text": "Christ's exaltation consisteth in his rising again from the dead on the third day, in ascending up into heaven, in sitting at the right hand of God the Father, and in coming to judge the world at the last day.",
+   "proofs": [
+    {
+     "code": "1CO",
+     "chapter": 15,
+     "start": 4,
+     "end": 4,
+     "ref": "1 Cor 15:4"
+    },
+    {
+     "code": "MRK",
+     "chapter": 16,
+     "start": 19,
+     "end": 19,
+     "ref": "Mark 16:19"
+    },
+    {
+     "code": "EPH",
+     "chapter": 1,
+     "start": 20,
+     "end": 20,
+     "ref": "Eph 1:20"
+    },
+    {
+     "code": "ACT",
+     "chapter": 1,
+     "start": 11,
+     "end": 11,
+     "ref": "Acts 1:11"
+    },
+    {
+     "code": "ACT",
+     "chapter": 17,
+     "start": 31,
+     "end": 31,
+     "ref": "Acts 17:31"
+    }
+   ]
+  },
+  {
+   "id": "Q29",
+   "label": "WSC Q29",
+   "question": "How are we made partakers of the redemption purchased by Christ?",
+   "text": "We are made partakers of the redemption purchased by Christ, by the effectual application of it to us by his Holy Spirit.",
+   "proofs": [
+    {
+     "code": "JHN",
+     "chapter": 1,
+     "start": 11,
+     "end": 12,
+     "ref": "John 1:11–12"
+    },
+    {
+     "code": "TIT",
+     "chapter": 3,
+     "start": 5,
+     "end": 6,
+     "ref": "Titus 3:5–6"
+    }
+   ]
+  },
+  {
+   "id": "Q30",
+   "label": "WSC Q30",
+   "question": "How doth the Spirit apply to us the redemption purchased by Christ?",
+   "text": "The Spirit applieth to us the redemption purchased by Christ, by working faith in us, and thereby uniting us to Christ in our effectual calling.",
+   "proofs": [
+    {
+     "code": "EPH",
+     "chapter": 1,
+     "start": 13,
+     "end": 14,
+     "ref": "Eph 1:13–14"
+    },
+    {
+     "code": "JHN",
+     "chapter": 6,
+     "start": 37,
+     "end": 37,
+     "ref": "John 6:37"
+    },
+    {
+     "code": "JHN",
+     "chapter": 6,
+     "start": 39,
+     "end": 39,
+     "ref": "John 6:39"
+    },
+    {
+     "code": "EPH",
+     "chapter": 2,
+     "start": 8,
+     "end": 8,
+     "ref": "Eph 2:8"
+    },
+    {
+     "code": "EPH",
+     "chapter": 3,
+     "start": 17,
+     "end": 17,
+     "ref": "Eph 3:17"
+    },
+    {
+     "code": "1CO",
+     "chapter": 1,
+     "start": 9,
+     "end": 9,
+     "ref": "1 Cor 1:9"
+    }
+   ]
+  },
+  {
+   "id": "Q31",
+   "label": "WSC Q31",
+   "question": "What is effectual calling?",
+   "text": "Effectual calling is the work of God's Spirit, whereby, convincing us of our sin and misery, enlightening our minds in the knowledge of Christ, and renewing our wills, he doth persuade and enable us to embrace Jesus Christ, freely offered to us in the gospel.",
+   "proofs": [
+    {
+     "code": "2TI",
+     "chapter": 1,
+     "start": 9,
+     "end": 9,
+     "ref": "2 Tim 1:9"
+    },
+    {
+     "code": "2TH",
+     "chapter": 2,
+     "start": 13,
+     "end": 14,
+     "ref": "2 Thess 2:13–14"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 37,
+     "end": 37,
+     "ref": "Acts 2:37"
+    },
+    {
+     "code": "ACT",
+     "chapter": 26,
+     "start": 18,
+     "end": 18,
+     "ref": "Acts 26:18"
+    },
+    {
+     "code": "EZK",
+     "chapter": 36,
+     "start": 26,
+     "end": 27,
+     "ref": "Ezek 36:26–27"
+    },
+    {
+     "code": "JHN",
+     "chapter": 6,
+     "start": 44,
+     "end": 45,
+     "ref": "John 6:44–45"
+    },
+    {
+     "code": "PHP",
+     "chapter": 2,
+     "start": 13,
+     "end": 13,
+     "ref": "Phil 2:13"
+    }
+   ]
+  },
+  {
+   "id": "Q32",
+   "label": "WSC Q32",
+   "question": "What benefits do they that are effectually called partake of in this life?",
+   "text": "They that are effectually called do in this life partake of justification, adoption, and sanctification, and the several benefits which in this life do either accompany or flow from them.",
+   "proofs": [
+    {
+     "code": "ROM",
+     "chapter": 8,
+     "start": 30,
+     "end": 30,
+     "ref": "Rom 8:30"
+    },
+    {
+     "code": "EPH",
+     "chapter": 1,
+     "start": 5,
+     "end": 5,
+     "ref": "Eph 1:5"
+    },
+    {
+     "code": "1CO",
+     "chapter": 1,
+     "start": 26,
+     "end": 26,
+     "ref": "1 Cor 1:26"
+    },
+    {
+     "code": "1CO",
+     "chapter": 1,
+     "start": 30,
+     "end": 30,
+     "ref": "1 Cor 1:30"
+    }
+   ]
+  },
+  {
+   "id": "Q33",
+   "label": "WSC Q33",
+   "question": "What is justification?",
+   "text": "Justification is an act of God's free grace, wherein he pardoneth all our sins, and accepteth us as righteous in his sight, only for the righteousness of Christ imputed to us, and received by faith alone.",
+   "proofs": [
+    {
+     "code": "ROM",
+     "chapter": 3,
+     "start": 24,
+     "end": 25,
+     "ref": "Rom 3:24–25"
+    },
+    {
+     "code": "ROM",
+     "chapter": 4,
+     "start": 6,
+     "end": 8,
+     "ref": "Rom 4:6–8"
+    },
+    {
+     "code": "2CO",
+     "chapter": 5,
+     "start": 19,
+     "end": 19,
+     "ref": "2 Cor 5:19"
+    },
+    {
+     "code": "2CO",
+     "chapter": 5,
+     "start": 21,
+     "end": 21,
+     "ref": "2 Cor 5:21"
+    },
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 17,
+     "end": 19,
+     "ref": "Rom 5:17–19"
+    },
+    {
+     "code": "GAL",
+     "chapter": 2,
+     "start": 16,
+     "end": 16,
+     "ref": "Gal 2:16"
+    },
+    {
+     "code": "PHP",
+     "chapter": 3,
+     "start": 9,
+     "end": 9,
+     "ref": "Phil 3:9"
+    }
+   ]
+  },
+  {
+   "id": "Q34",
+   "label": "WSC Q34",
+   "question": "What is adoption?",
+   "text": "Adoption is an act of God's free grace, whereby we are received into the number, and have a right to all the privileges, of the sons of God.",
+   "proofs": [
+    {
+     "code": "1JN",
+     "chapter": 3,
+     "start": 1,
+     "end": 1,
+     "ref": "1 John 3:1"
+    },
+    {
+     "code": "JHN",
+     "chapter": 1,
+     "start": 12,
+     "end": 12,
+     "ref": "John 1:12"
+    },
+    {
+     "code": "ROM",
+     "chapter": 8,
+     "start": 17,
+     "end": 17,
+     "ref": "Rom 8:17"
+    }
+   ]
+  },
+  {
+   "id": "Q35",
+   "label": "WSC Q35",
+   "question": "What is sanctification?",
+   "text": "Sanctification is the work of God's free grace, whereby we are renewed in the whole man after the image of God, and are enabled more and more to die unto sin, and live unto righteousness.",
+   "proofs": [
+    {
+     "code": "2TH",
+     "chapter": 2,
+     "start": 13,
+     "end": 13,
+     "ref": "2 Thess 2:13"
+    },
+    {
+     "code": "EPH",
+     "chapter": 4,
+     "start": 23,
+     "end": 24,
+     "ref": "Eph 4:23–24"
+    },
+    {
+     "code": "ROM",
+     "chapter": 6,
+     "start": 4,
+     "end": 4,
+     "ref": "Rom 6:4"
+    },
+    {
+     "code": "ROM",
+     "chapter": 6,
+     "start": 6,
+     "end": 6,
+     "ref": "Rom 6:6"
+    },
+    {
+     "code": "ROM",
+     "chapter": 8,
+     "start": 1,
+     "end": 1,
+     "ref": "Rom 8:1"
+    }
+   ]
+  },
+  {
+   "id": "Q36",
+   "label": "WSC Q36",
+   "question": "What are the benefits which in this life do accompany or flow from justification, adoption, and sanctification?",
+   "text": "The benefits which in this life do accompany or flow from justification, adoption, and sanctification, are, assurance of God's love, peace of conscience, joy in the Holy Ghost, increase of grace, and perseverance therein to the end.",
+   "proofs": [
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 1,
+     "end": 2,
+     "ref": "Rom 5:1–2"
+    },
+    {
+     "code": "ROM",
+     "chapter": 5,
+     "start": 5,
+     "end": 5,
+     "ref": "Rom 5:5"
+    },
+    {
+     "code": "ROM",
+     "chapter": 14,
+     "start": 17,
+     "end": 17,
+     "ref": "Rom 14:17"
+    },
+    {
+     "code": "PRO",
+     "chapter": 4,
+     "start": 18,
+     "end": 18,
+     "ref": "Prov 4:18"
+    },
+    {
+     "code": "1JN",
+     "chapter": 5,
+     "start": 13,
+     "end": 13,
+     "ref": "1 John 5:13"
+    },
+    {
+     "code": "1PE",
+     "chapter": 1,
+     "start": 5,
+     "end": 5,
+     "ref": "1 Pet 1:5"
+    }
+   ]
+  },
+  {
+   "id": "Q37",
+   "label": "WSC Q37",
+   "question": "What benefits do believers receive from Christ at death?",
+   "text": "The souls of believers are at their death made perfect in holiness, and do immediately pass into glory; and their bodies, being still united to Christ, do rest in their graves till the resurrection.",
+   "proofs": [
+    {
+     "code": "HEB",
+     "chapter": 12,
+     "start": 23,
+     "end": 23,
+     "ref": "Heb 12:23"
+    },
+    {
+     "code": "2CO",
+     "chapter": 5,
+     "start": 1,
+     "end": 1,
+     "ref": "2 Cor 5:1"
+    },
+    {
+     "code": "2CO",
+     "chapter": 5,
+     "start": 6,
+     "end": 6,
+     "ref": "2 Cor 5:6"
+    },
+    {
+     "code": "2CO",
+     "chapter": 5,
+     "start": 8,
+     "end": 8,
+     "ref": "2 Cor 5:8"
+    },
+    {
+     "code": "PHP",
+     "chapter": 1,
+     "start": 23,
+     "end": 23,
+     "ref": "Phil 1:23"
+    },
+    {
+     "code": "LUK",
+     "chapter": 23,
+     "start": 43,
+     "end": 43,
+     "ref": "Luke 23:43"
+    },
+    {
+     "code": "1TH",
+     "chapter": 4,
+     "start": 14,
+     "end": 14,
+     "ref": "1 Thess 4:14"
+    },
+    {
+     "code": "ISA",
+     "chapter": 57,
+     "start": 2,
+     "end": 2,
+     "ref": "Isa 57:2"
+    },
+    {
+     "code": "JOB",
+     "chapter": 19,
+     "start": 26,
+     "end": 27,
+     "ref": "Job 19:26–27"
+    }
+   ]
+  },
+  {
+   "id": "Q38",
+   "label": "WSC Q38",
+   "question": "What benefits do believers receive from Christ at the resurrection?",
+   "text": "At the resurrection, believers being raised up in glory, shall be openly acknowledged and acquitted in the day of judgment, and made perfectly blessed in the full enjoying of God to all eternity.",
+   "proofs": [
+    {
+     "code": "1CO",
+     "chapter": 15,
+     "start": 43,
+     "end": 43,
+     "ref": "1 Cor 15:43"
+    },
+    {
+     "code": "MAT",
+     "chapter": 25,
+     "start": 23,
+     "end": 23,
+     "ref": "Matt 25:23"
+    },
+    {
+     "code": "MAT",
+     "chapter": 10,
+     "start": 32,
+     "end": 32,
+     "ref": "Matt 10:32"
+    },
+    {
+     "code": "1JN",
+     "chapter": 3,
+     "start": 2,
+     "end": 2,
+     "ref": "1 John 3:2"
+    },
+    {
+     "code": "1CO",
+     "chapter": 13,
+     "start": 12,
+     "end": 12,
+     "ref": "1 Cor 13:12"
+    },
+    {
+     "code": "1TH",
+     "chapter": 4,
+     "start": 17,
+     "end": 18,
+     "ref": "1 Thess 4:17–18"
+    }
+   ]
+  },
+  {
+   "id": "Q39",
+   "label": "WSC Q39",
+   "question": "What is the duty which God requireth of man?",
+   "text": "The duty which God requireth of man, is obedience to his revealed will.",
+   "proofs": [
+    {
+     "code": "MIC",
+     "chapter": 6,
+     "start": 8,
+     "end": 8,
+     "ref": "Mic 6:8"
+    },
+    {
+     "code": "1SA",
+     "chapter": 15,
+     "start": 22,
+     "end": 22,
+     "ref": "1 Sam 15:22"
+    }
+   ]
+  },
+  {
+   "id": "Q40",
+   "label": "WSC Q40",
+   "question": "What did God at first reveal to man for the rule of his obedience?",
+   "text": "The rule which God at first revealed to man for his obedience, was the moral law.",
+   "proofs": [
+    {
+     "code": "ROM",
+     "chapter": 2,
+     "start": 14,
+     "end": 15,
+     "ref": "Rom 2:14–15"
+    },
+    {
+     "code": "ROM",
+     "chapter": 10,
+     "start": 5,
+     "end": 5,
+     "ref": "Rom 10:5"
+    }
+   ]
+  },
+  {
+   "id": "Q41",
+   "label": "WSC Q41",
+   "question": "Wherein is the moral law summarily comprehended?",
+   "text": "The moral law is summarily comprehended in the ten commandments.",
+   "proofs": [
+    {
+     "code": "DEU",
+     "chapter": 10,
+     "start": 4,
+     "end": 4,
+     "ref": "Deut 10:4"
+    },
+    {
+     "code": "MAT",
+     "chapter": 19,
+     "start": 17,
+     "end": 17,
+     "ref": "Matt 19:17"
+    }
+   ]
+  },
+  {
+   "id": "Q42",
+   "label": "WSC Q42",
+   "question": "What is the sum of the ten commandments?",
+   "text": "The sum of the ten commandments is, To love the Lord our God with all our heart, with all our soul, with all our strength, and with all our mind; and our neighbour as ourselves.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 22,
+     "start": 37,
+     "end": 40,
+     "ref": "Matt 22:37–40"
+    }
+   ]
+  },
+  {
+   "id": "Q43",
+   "label": "WSC Q43",
+   "question": "What is the preface to the ten commandments?",
+   "text": "The preface to the ten commandments is in these words, I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage. ",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 2,
+     "end": 2,
+     "ref": "Exod 20:2"
+    }
+   ]
+  },
+  {
+   "id": "Q44",
+   "label": "WSC Q44",
+   "question": "What doth the preface to the ten commandments teach us?",
+   "text": "The preface to the ten commandments teacheth us, That because God is the Lord, and our God, and Redeemer, therefore we are bound to keep all his commandments.",
+   "proofs": [
+    {
+     "code": "LUK",
+     "chapter": 1,
+     "start": 74,
+     "end": 75,
+     "ref": "Luke 1:74–75"
+    },
+    {
+     "code": "1PE",
+     "chapter": 1,
+     "start": 15,
+     "end": 19,
+     "ref": "1 Pet 1:15–19"
+    }
+   ]
+  },
+  {
+   "id": "Q45",
+   "label": "WSC Q45",
+   "question": "Which is the first commandment?",
+   "text": "The first commandment is, Thou shalt have no other gods before me.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 3,
+     "end": 3,
+     "ref": "Exod 20:3"
+    }
+   ]
+  },
+  {
+   "id": "Q46",
+   "label": "WSC Q46",
+   "question": "What is required in the first commandment?",
+   "text": "The first commandment requireth us to know and acknowledge God to be the only true God, and our God; and to worship and glorify him accordingly.",
+   "proofs": [
+    {
+     "code": "1CH",
+     "chapter": 28,
+     "start": 9,
+     "end": 9,
+     "ref": "1 Chron 28:9"
+    },
+    {
+     "code": "DEU",
+     "chapter": 26,
+     "start": 17,
+     "end": 17,
+     "ref": "Deut 26:17"
+    },
+    {
+     "code": "MAT",
+     "chapter": 4,
+     "start": 10,
+     "end": 10,
+     "ref": "Matt 4:10"
+    },
+    {
+     "code": "PSA",
+     "chapter": 29,
+     "start": 2,
+     "end": 2,
+     "ref": "Ps 29:2"
+    }
+   ]
+  },
+  {
+   "id": "Q47",
+   "label": "WSC Q47",
+   "question": "What is forbidden in the first commandment?",
+   "text": "The first commandment forbiddeth the denying, or not worshipping and glorifying the true God as God, and our God; and the giving of that worship and glory to any other, which is due to him alone.",
+   "proofs": [
+    {
+     "code": "PSA",
+     "chapter": 14,
+     "start": 1,
+     "end": 1,
+     "ref": "Ps 14:1"
+    },
+    {
+     "code": "ROM",
+     "chapter": 1,
+     "start": 21,
+     "end": 21,
+     "ref": "Rom 1:21"
+    },
+    {
+     "code": "PSA",
+     "chapter": 81,
+     "start": 10,
+     "end": 11,
+     "ref": "Ps 81:10–11"
+    },
+    {
+     "code": "ROM",
+     "chapter": 1,
+     "start": 25,
+     "end": 26,
+     "ref": "Rom 1:25–26"
+    }
+   ]
+  },
+  {
+   "id": "Q48",
+   "label": "WSC Q48",
+   "question": "What are we specially taught by these words, 'before me', in the first commandment?",
+   "text": "These words, before me, in the first commandment teach us, that God, who seeth all things, taketh notice of, and is much displeased with, the sin of having any other God.",
+   "proofs": [
+    {
+     "code": "EZK",
+     "chapter": 8,
+     "start": 5,
+     "end": 18,
+     "ref": "Ezek 8:5–18"
+    },
+    {
+     "code": "PSA",
+     "chapter": 44,
+     "start": 20,
+     "end": 21,
+     "ref": "Ps 44:20–21"
+    }
+   ]
+  },
+  {
+   "id": "Q49",
+   "label": "WSC Q49",
+   "question": "Which is the second commandment?",
+   "text": "The second commandment is, Thou shalt not make unto thee any graven image, or any likeness of anything that is in heaven above, or that is in the earth beneath, or that is in the water under the earth: thou shalt not bow down thy self to them, nor serve them: for I the Lord thy God am a jealous God, visiting the iniquity of the fathers upon the children unto the third and fourth generation of them that hate me; and showing mercy unto thousands of them that love me, and keep my commandments.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 4,
+     "end": 6,
+     "ref": "Exod 20:4–6"
+    }
+   ]
+  },
+  {
+   "id": "Q50",
+   "label": "WSC Q50",
+   "question": "What is required in the second commandment?",
+   "text": "The second commandment requireth the receiving, observing, and keeping pure and entire, all such religious worship and ordinances as God hath appointed in his Word.",
+   "proofs": [
+    {
+     "code": "DEU",
+     "chapter": 32,
+     "start": 46,
+     "end": 46,
+     "ref": "Deut 32:46"
+    },
+    {
+     "code": "MAT",
+     "chapter": 28,
+     "start": 20,
+     "end": 20,
+     "ref": "Matt 28:20"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 42,
+     "end": 42,
+     "ref": "Acts 2:42"
+    }
+   ]
+  },
+  {
+   "id": "Q51",
+   "label": "WSC Q51",
+   "question": "What is forbidden in the second commandment?",
+   "text": "The second commandment forbiddeth the worshipping of God by images, or any other way not appointed in his Word.",
+   "proofs": [
+    {
+     "code": "DEU",
+     "chapter": 4,
+     "start": 15,
+     "end": 19,
+     "ref": "Deut 4:15–19"
+    },
+    {
+     "code": "EXO",
+     "chapter": 32,
+     "start": 5,
+     "end": 5,
+     "ref": "Exod 32:5"
+    },
+    {
+     "code": "EXO",
+     "chapter": 32,
+     "start": 8,
+     "end": 8,
+     "ref": "Exod 32:8"
+    },
+    {
+     "code": "DEU",
+     "chapter": 12,
+     "start": 31,
+     "end": 32,
+     "ref": "Deut 12:31–32"
+    }
+   ]
+  },
+  {
+   "id": "Q52",
+   "label": "WSC Q52",
+   "question": "What are the reasons annexed to the second commandment?",
+   "text": "The reasons annexed to the second commandment are, God's sovereignty over us, his propriety in us, and the zeal he hath to his own worship.",
+   "proofs": [
+    {
+     "code": "PSA",
+     "chapter": 95,
+     "start": 2,
+     "end": 3,
+     "ref": "Ps 95:2–3"
+    },
+    {
+     "code": "PSA",
+     "chapter": 95,
+     "start": 6,
+     "end": 6,
+     "ref": "Ps 95:6"
+    },
+    {
+     "code": "PSA",
+     "chapter": 45,
+     "start": 11,
+     "end": 11,
+     "ref": "Ps 45:11"
+    },
+    {
+     "code": "EXO",
+     "chapter": 34,
+     "start": 13,
+     "end": 14,
+     "ref": "Exod 34:13–14"
+    }
+   ]
+  },
+  {
+   "id": "Q53",
+   "label": "WSC Q53",
+   "question": "Which is the third commandment?",
+   "text": "The third commandment is, Thou shalt not take the name of the Lord thy God in vain; for the Lord will not hold him guiltless that taketh his name in vain. ",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 7,
+     "end": 7,
+     "ref": "Exod 20:7"
+    }
+   ]
+  },
+  {
+   "id": "Q54",
+   "label": "WSC Q54",
+   "question": "What is required in the third commandment?",
+   "text": "The third commandment requireth the holy and reverend use of God's names, titles, attributes, ordinances, Word, and works.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 9,
+     "end": 9,
+     "ref": "Matt 6:9"
+    },
+    {
+     "code": "DEU",
+     "chapter": 28,
+     "start": 58,
+     "end": 58,
+     "ref": "Deut 28:58"
+    },
+    {
+     "code": "PSA",
+     "chapter": 68,
+     "start": 4,
+     "end": 4,
+     "ref": "Ps 68:4"
+    },
+    {
+     "code": "REV",
+     "chapter": 15,
+     "start": 3,
+     "end": 4,
+     "ref": "Rev 15:3–4"
+    },
+    {
+     "code": "MAL",
+     "chapter": 1,
+     "start": 11,
+     "end": 11,
+     "ref": "Mal 1:11"
+    },
+    {
+     "code": "MAL",
+     "chapter": 1,
+     "start": 14,
+     "end": 14,
+     "ref": "Mal 1:14"
+    },
+    {
+     "code": "PSA",
+     "chapter": 138,
+     "start": 1,
+     "end": 2,
+     "ref": "Ps 138:1–2"
+    },
+    {
+     "code": "JOB",
+     "chapter": 36,
+     "start": 24,
+     "end": 24,
+     "ref": "Job 36:24"
+    }
+   ]
+  },
+  {
+   "id": "Q55",
+   "label": "WSC Q55",
+   "question": "What is forbidden in the third commandment?",
+   "text": "The third commandment forbiddeth all profaning or abusing of anything whereby God maketh himself known.",
+   "proofs": [
+    {
+     "code": "MAL",
+     "chapter": 1,
+     "start": 6,
+     "end": 7,
+     "ref": "Mal 1:6–7"
+    },
+    {
+     "code": "MAL",
+     "chapter": 1,
+     "start": 12,
+     "end": 12,
+     "ref": "Mal 1:12"
+    },
+    {
+     "code": "MAL",
+     "chapter": 2,
+     "start": 2,
+     "end": 2,
+     "ref": "Mal 2:2"
+    },
+    {
+     "code": "MAL",
+     "chapter": 3,
+     "start": 14,
+     "end": 14,
+     "ref": "Mal 3:14"
+    }
+   ]
+  },
+  {
+   "id": "Q56",
+   "label": "WSC Q56",
+   "question": "What is the reason annexed to the third commandment?",
+   "text": "The reason annexed to the third commandment is, that however the breakers of this commandment may escape punishment from men, yet the Lord our God will not suffer them to escape his righteous judgment.",
+   "proofs": [
+    {
+     "code": "1SA",
+     "chapter": 2,
+     "start": 12,
+     "end": 12,
+     "ref": "1 Sam 2:12"
+    },
+    {
+     "code": "1SA",
+     "chapter": 2,
+     "start": 17,
+     "end": 17,
+     "ref": "1 Sam 2:17"
+    },
+    {
+     "code": "1SA",
+     "chapter": 2,
+     "start": 22,
+     "end": 22,
+     "ref": "1 Sam 2:22"
+    },
+    {
+     "code": "1SA",
+     "chapter": 2,
+     "start": 29,
+     "end": 29,
+     "ref": "1 Sam 2:29"
+    },
+    {
+     "code": "1SA",
+     "chapter": 3,
+     "start": 13,
+     "end": 13,
+     "ref": "1 Sam 3:13"
+    },
+    {
+     "code": "DEU",
+     "chapter": 28,
+     "start": 58,
+     "end": 59,
+     "ref": "Deut 28:58–59"
+    }
+   ]
+  },
+  {
+   "id": "Q57",
+   "label": "WSC Q57",
+   "question": "Which is the fourth commandment?",
+   "text": "The fourth commandment is, Remember the sabbath day, to keep it holy. Six days shalt thou labor, and do all thy work; but the seventh day is the sabbath of the Lord thy God: in it thou shalt not do any work, thou, nor thy son, nor thy daughter, thy manservant, nor thy maidservant, nor thy cattle, nor thy stranger that is within thy gates. For in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the Lord blessed the sabbath day, and hallowed it.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 8,
+     "end": 11,
+     "ref": "Exod 20:8–11"
+    }
+   ]
+  },
+  {
+   "id": "Q58",
+   "label": "WSC Q58",
+   "question": "What is required in the fourth commandment?",
+   "text": "The fourth commandment requireth the keeping holy to God such set times as he hath appointed in his Word; expressly one whole day in seven, to be a holy sabbath to himself.",
+   "proofs": [
+    {
+     "code": "DEU",
+     "chapter": 5,
+     "start": 12,
+     "end": 14,
+     "ref": "Deut 5:12–14"
+    }
+   ]
+  },
+  {
+   "id": "Q59",
+   "label": "WSC Q59",
+   "question": "Which day of the seven hath God appointed to be the weekly sabbath?",
+   "text": "From the beginning of the world to the resurrection of Christ, God appointed the seventh day of the week to be the weekly sabbath; and the first day of the week ever since, to continue to the end of the world, which is the Christian sabbath.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 2,
+     "start": 2,
+     "end": 3,
+     "ref": "Gen 2:2–3"
+    },
+    {
+     "code": "1CO",
+     "chapter": 16,
+     "start": 1,
+     "end": 2,
+     "ref": "1 Cor 16:1–2"
+    },
+    {
+     "code": "ACT",
+     "chapter": 20,
+     "start": 7,
+     "end": 7,
+     "ref": "Acts 20:7"
+    }
+   ]
+  },
+  {
+   "id": "Q60",
+   "label": "WSC Q60",
+   "question": "How is the sabbath to be sanctified?",
+   "text": "The sabbath is to be sanctified by a holy resting all that day, even from such worldly employments and recreations as are lawful on other days; and spending the whole time in the public and private exercises of God's worship, except so much as is to be taken up in the works of necessity and mercy.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 8,
+     "end": 8,
+     "ref": "Exod 20:8"
+    },
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 10,
+     "end": 10,
+     "ref": "Exod 20:10"
+    },
+    {
+     "code": "EXO",
+     "chapter": 16,
+     "start": 25,
+     "end": 28,
+     "ref": "Exod 16:25–28"
+    },
+    {
+     "code": "NEH",
+     "chapter": 13,
+     "start": 15,
+     "end": 19,
+     "ref": "Neh 13:15–19"
+    },
+    {
+     "code": "NEH",
+     "chapter": 13,
+     "start": 21,
+     "end": 22,
+     "ref": "Neh 13:21–22"
+    },
+    {
+     "code": "LUK",
+     "chapter": 4,
+     "start": 16,
+     "end": 16,
+     "ref": "Luke 4:16"
+    },
+    {
+     "code": "ACT",
+     "chapter": 20,
+     "start": 7,
+     "end": 7,
+     "ref": "Acts 20:7"
+    },
+    {
+     "code": "PSA",
+     "chapter": 92,
+     "start": 1,
+     "end": 15,
+     "ref": "Ps 92:1–15"
+    },
+    {
+     "code": "ISA",
+     "chapter": 66,
+     "start": 23,
+     "end": 23,
+     "ref": "Isa 66:23"
+    },
+    {
+     "code": "MAT",
+     "chapter": 12,
+     "start": 1,
+     "end": 13,
+     "ref": "Matt 12:1–13"
+    }
+   ]
+  },
+  {
+   "id": "Q61",
+   "label": "WSC Q61",
+   "question": "What is forbidden in the fourth commandment?",
+   "text": "The fourth commandment forbiddeth the omission or careless performance of the duties required, and the profaning the day by idleness, or doing that which is in itself sinful, or by unnecessary thoughts, words, or works, about our worldly employments or recreations.",
+   "proofs": [
+    {
+     "code": "EZK",
+     "chapter": 22,
+     "start": 26,
+     "end": 26,
+     "ref": "Ezek 22:26"
+    },
+    {
+     "code": "AMO",
+     "chapter": 8,
+     "start": 5,
+     "end": 5,
+     "ref": "Amos 8:5"
+    },
+    {
+     "code": "MAL",
+     "chapter": 1,
+     "start": 13,
+     "end": 13,
+     "ref": "Mal 1:13"
+    },
+    {
+     "code": "ACT",
+     "chapter": 20,
+     "start": 7,
+     "end": 7,
+     "ref": "Acts 20:7"
+    },
+    {
+     "code": "ACT",
+     "chapter": 20,
+     "start": 9,
+     "end": 9,
+     "ref": "Acts 20:9"
+    },
+    {
+     "code": "EZK",
+     "chapter": 23,
+     "start": 38,
+     "end": 38,
+     "ref": "Ezek 23:38"
+    },
+    {
+     "code": "JER",
+     "chapter": 17,
+     "start": 24,
+     "end": 26,
+     "ref": "Jer 17:24–26"
+    },
+    {
+     "code": "ISA",
+     "chapter": 58,
+     "start": 13,
+     "end": 13,
+     "ref": "Isa 58:13"
+    }
+   ]
+  },
+  {
+   "id": "Q62",
+   "label": "WSC Q62",
+   "question": "What are the reasons annexed to the fourth commandment?",
+   "text": "The reasons annexed to the fourth commandment are, God's allowing us six days of the week for our own employments, his challenging a special propriety in the seventh, his own example, and his blessing the sabbath day.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 9,
+     "end": 9,
+     "ref": "Exod 20:9"
+    },
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 11,
+     "end": 11,
+     "ref": "Exod 20:11"
+    }
+   ]
+  },
+  {
+   "id": "Q63",
+   "label": "WSC Q63",
+   "question": "Which is the fifth commandment?",
+   "text": "The fifth commandment is, Honour thy father and thy mother; that thy days may be long upon the land which the Lord thy God giveth thee.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 12,
+     "end": 12,
+     "ref": "Exod 20:12"
+    }
+   ]
+  },
+  {
+   "id": "Q64",
+   "label": "WSC Q64",
+   "question": "What is required in the fifth commandment?",
+   "text": "The fifth commandment requireth the preserving the honor, and performing the duties, belonging to everyone in their several places and relations, as superiors, inferiors, or equals.",
+   "proofs": [
+    {
+     "code": "EPH",
+     "chapter": 5,
+     "start": 21,
+     "end": 21,
+     "ref": "Eph 5:21"
+    },
+    {
+     "code": "1PE",
+     "chapter": 2,
+     "start": 17,
+     "end": 17,
+     "ref": "1 Pet 2:17"
+    },
+    {
+     "code": "ROM",
+     "chapter": 12,
+     "start": 10,
+     "end": 10,
+     "ref": "Rom 12:10"
+    }
+   ]
+  },
+  {
+   "id": "Q65",
+   "label": "WSC Q65",
+   "question": "What is forbidden in the fifth commandment?",
+   "text": "The fifth commandment forbiddeth the neglecting of, or doing anything against, the honor and duty which belongeth to everyone in their several places and relations.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 15,
+     "start": 4,
+     "end": 6,
+     "ref": "Matt 15:4–6"
+    },
+    {
+     "code": "EZK",
+     "chapter": 34,
+     "start": 2,
+     "end": 4,
+     "ref": "Ezek 34:2–4"
+    },
+    {
+     "code": "ROM",
+     "chapter": 13,
+     "start": 8,
+     "end": 8,
+     "ref": "Rom 13:8"
+    }
+   ]
+  },
+  {
+   "id": "Q66",
+   "label": "WSC Q66",
+   "question": "What is the reason annexed to the fifth commandment?",
+   "text": "The reason annexed to the fifth commandment is, a promise of long life and prosperity (as far as it shall serve for God's glory and their own good) to all such as keep this commandment.",
+   "proofs": [
+    {
+     "code": "DEU",
+     "chapter": 5,
+     "start": 16,
+     "end": 16,
+     "ref": "Deut 5:16"
+    },
+    {
+     "code": "EPH",
+     "chapter": 6,
+     "start": 2,
+     "end": 3,
+     "ref": "Eph 6:2–3"
+    }
+   ]
+  },
+  {
+   "id": "Q67",
+   "label": "WSC Q67",
+   "question": "Which is the sixth commandment?",
+   "text": "The sixth commandment is, Thou shalt not kill.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 13,
+     "end": 13,
+     "ref": "Exod 20:13"
+    }
+   ]
+  },
+  {
+   "id": "Q68",
+   "label": "WSC Q68",
+   "question": "What is required in the sixth commandment?",
+   "text": "The sixth commandment requireth all lawful endeavors to preserve our own life, and the life of others.",
+   "proofs": [
+    {
+     "code": "EPH",
+     "chapter": 5,
+     "start": 28,
+     "end": 29,
+     "ref": "Eph 5:28–29"
+    },
+    {
+     "code": "1KI",
+     "chapter": 18,
+     "start": 4,
+     "end": 4,
+     "ref": "1 Kings 18:4"
+    }
+   ]
+  },
+  {
+   "id": "Q69",
+   "label": "WSC Q69",
+   "question": "What is forbidden in the sixth commandment?",
+   "text": "The sixth commandment forbiddeth the taking away of our own life, or the life of our neighbour, unjustly, or whatsoever tendeth thereunto.",
+   "proofs": [
+    {
+     "code": "ACT",
+     "chapter": 16,
+     "start": 28,
+     "end": 28,
+     "ref": "Acts 16:28"
+    },
+    {
+     "code": "GEN",
+     "chapter": 9,
+     "start": 6,
+     "end": 6,
+     "ref": "Gen 9:6"
+    }
+   ]
+  },
+  {
+   "id": "Q70",
+   "label": "WSC Q70",
+   "question": "Which is the seventh commandment?",
+   "text": "The seventh commandment is, Thou shalt not commit adultery.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 14,
+     "end": 14,
+     "ref": "Exod 20:14"
+    }
+   ]
+  },
+  {
+   "id": "Q71",
+   "label": "WSC Q71",
+   "question": "What is required in the seventh commandment?",
+   "text": "The seventh commandment requireth the preservation of our own and our neighbour's chastity, in heart, speech, and behavior.",
+   "proofs": [
+    {
+     "code": "1CO",
+     "chapter": 7,
+     "start": 2,
+     "end": 3,
+     "ref": "1 Cor 7:2–3"
+    },
+    {
+     "code": "1CO",
+     "chapter": 7,
+     "start": 5,
+     "end": 5,
+     "ref": "1 Cor 7:5"
+    },
+    {
+     "code": "1CO",
+     "chapter": 7,
+     "start": 34,
+     "end": 34,
+     "ref": "1 Cor 7:34"
+    },
+    {
+     "code": "1CO",
+     "chapter": 7,
+     "start": 36,
+     "end": 36,
+     "ref": "1 Cor 7:36"
+    },
+    {
+     "code": "COL",
+     "chapter": 4,
+     "start": 6,
+     "end": 6,
+     "ref": "Col 4:6"
+    },
+    {
+     "code": "1PE",
+     "chapter": 3,
+     "start": 2,
+     "end": 2,
+     "ref": "1 Pet 3:2"
+    }
+   ]
+  },
+  {
+   "id": "Q72",
+   "label": "WSC Q72",
+   "question": "What is forbidden in the seventh commandment?",
+   "text": "The seventh commandment forbiddeth all unchaste thoughts, words, and actions.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 15,
+     "start": 19,
+     "end": 19,
+     "ref": "Matt 15:19"
+    },
+    {
+     "code": "MAT",
+     "chapter": 5,
+     "start": 28,
+     "end": 28,
+     "ref": "Matt 5:28"
+    },
+    {
+     "code": "EPH",
+     "chapter": 5,
+     "start": 3,
+     "end": 4,
+     "ref": "Eph 5:3–4"
+    }
+   ]
+  },
+  {
+   "id": "Q73",
+   "label": "WSC Q73",
+   "question": "Which is the eighth commandment?",
+   "text": "The eighth commandment is, Thou shalt not steal.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 15,
+     "end": 15,
+     "ref": "Exod 20:15"
+    }
+   ]
+  },
+  {
+   "id": "Q74",
+   "label": "WSC Q74",
+   "question": "What is required in the eighth commandment?",
+   "text": "The eighth commandment requireth the lawful procuring and furthering the wealth and outward estate of ourselves and others.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 30,
+     "start": 30,
+     "end": 30,
+     "ref": "Gen 30:30"
+    },
+    {
+     "code": "1TI",
+     "chapter": 5,
+     "start": 8,
+     "end": 8,
+     "ref": "1 Tim 5:8"
+    },
+    {
+     "code": "LEV",
+     "chapter": 25,
+     "start": 35,
+     "end": 35,
+     "ref": "Lev 25:35"
+    },
+    {
+     "code": "DEU",
+     "chapter": 22,
+     "start": 1,
+     "end": 5,
+     "ref": "Deut 22:1–5"
+    },
+    {
+     "code": "EXO",
+     "chapter": 23,
+     "start": 4,
+     "end": 5,
+     "ref": "Exod 23:4–5"
+    },
+    {
+     "code": "GEN",
+     "chapter": 47,
+     "start": 14,
+     "end": 14,
+     "ref": "Gen 47:14"
+    },
+    {
+     "code": "GEN",
+     "chapter": 47,
+     "start": 20,
+     "end": 20,
+     "ref": "Gen 47:20"
+    }
+   ]
+  },
+  {
+   "id": "Q75",
+   "label": "WSC Q75",
+   "question": "What is forbidden in the eighth commandment?",
+   "text": "The eighth commandment forbiddeth whatsoever doth, or may, unjustly hinder our own, or our neighbour's, wealth or outward estate.",
+   "proofs": [
+    {
+     "code": "PRO",
+     "chapter": 21,
+     "start": 17,
+     "end": 17,
+     "ref": "Prov 21:17"
+    },
+    {
+     "code": "PRO",
+     "chapter": 23,
+     "start": 20,
+     "end": 21,
+     "ref": "Prov 23:20–21"
+    },
+    {
+     "code": "PRO",
+     "chapter": 28,
+     "start": 19,
+     "end": 19,
+     "ref": "Prov 28:19"
+    },
+    {
+     "code": "EPH",
+     "chapter": 4,
+     "start": 28,
+     "end": 28,
+     "ref": "Eph 4:28"
+    }
+   ]
+  },
+  {
+   "id": "Q76",
+   "label": "WSC Q76",
+   "question": "Which is the ninth commandment?",
+   "text": "The ninth commandment is, Thou shalt not bear false witness against thy neighbour. ",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 16,
+     "end": 16,
+     "ref": "Exod 20:16"
+    }
+   ]
+  },
+  {
+   "id": "Q77",
+   "label": "WSC Q77",
+   "question": "What is required in the ninth commandment?",
+   "text": "The ninth commandment requireth the maintaining and promoting of truth between man and man, and of our own and our neighbour's good name, especially in witness bearing.",
+   "proofs": [
+    {
+     "code": "ZEC",
+     "chapter": 8,
+     "start": 16,
+     "end": 16,
+     "ref": "Zech 8:16"
+    },
+    {
+     "code": "3JN",
+     "chapter": 1,
+     "start": 12,
+     "end": 12,
+     "ref": "3 John 1:12"
+    },
+    {
+     "code": "PRO",
+     "chapter": 14,
+     "start": 5,
+     "end": 5,
+     "ref": "Prov 14:5"
+    },
+    {
+     "code": "PRO",
+     "chapter": 14,
+     "start": 25,
+     "end": 25,
+     "ref": "Prov 14:25"
+    }
+   ]
+  },
+  {
+   "id": "Q78",
+   "label": "WSC Q78",
+   "question": "What is forbidden in the ninth commandment?",
+   "text": "The ninth commandment forbiddeth whatsoever is prejudicial to truth, or injurious to our own, or our neighbour's, good name.",
+   "proofs": [
+    {
+     "code": "1SA",
+     "chapter": 17,
+     "start": 28,
+     "end": 28,
+     "ref": "1 Sam 17:28"
+    },
+    {
+     "code": "LEV",
+     "chapter": 19,
+     "start": 16,
+     "end": 16,
+     "ref": "Lev 19:16"
+    },
+    {
+     "code": "PSA",
+     "chapter": 15,
+     "start": 3,
+     "end": 3,
+     "ref": "Ps 15:3"
+    }
+   ]
+  },
+  {
+   "id": "Q79",
+   "label": "WSC Q79",
+   "question": "Which is the tenth commandment?",
+   "text": "The tenth commandment is, Thou shalt not covet thy neighbour's house, thou shalt not covet thy neighbour's wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor anything that is thy neighbour's.",
+   "proofs": [
+    {
+     "code": "EXO",
+     "chapter": 20,
+     "start": 17,
+     "end": 17,
+     "ref": "Exod 20:17"
+    }
+   ]
+  },
+  {
+   "id": "Q80",
+   "label": "WSC Q80",
+   "question": "What is required in the tenth commandment?",
+   "text": "The tenth commandment requireth full contentment with our own condition, with a right and charitable frame of spirit toward our neighbour, and all that is his.",
+   "proofs": [
+    {
+     "code": "HEB",
+     "chapter": 13,
+     "start": 5,
+     "end": 5,
+     "ref": "Heb 13:5"
+    },
+    {
+     "code": "1TI",
+     "chapter": 6,
+     "start": 6,
+     "end": 6,
+     "ref": "1 Tim 6:6"
+    },
+    {
+     "code": "JOB",
+     "chapter": 31,
+     "start": 29,
+     "end": 29,
+     "ref": "Job 31:29"
+    },
+    {
+     "code": "ROM",
+     "chapter": 12,
+     "start": 15,
+     "end": 15,
+     "ref": "Rom 12:15"
+    },
+    {
+     "code": "1TI",
+     "chapter": 1,
+     "start": 5,
+     "end": 5,
+     "ref": "1 Tim 1:5"
+    },
+    {
+     "code": "1CO",
+     "chapter": 13,
+     "start": 4,
+     "end": 7,
+     "ref": "1 Cor 13:4–7"
+    }
+   ]
+  },
+  {
+   "id": "Q81",
+   "label": "WSC Q81",
+   "question": "What is forbidden in the tenth commandment?",
+   "text": "The tenth commandment forbiddeth all discontentment with our own estate, envying or grieving at the good of our neighbour, and all inordinate motions and affections to anything that is his.",
+   "proofs": [
+    {
+     "code": "1KI",
+     "chapter": 21,
+     "start": 4,
+     "end": 4,
+     "ref": "1 Kings 21:4"
+    },
+    {
+     "code": "EST",
+     "chapter": 5,
+     "start": 13,
+     "end": 13,
+     "ref": "Esth 5:13"
+    },
+    {
+     "code": "1CO",
+     "chapter": 10,
+     "start": 10,
+     "end": 10,
+     "ref": "1 Cor 10:10"
+    },
+    {
+     "code": "GAL",
+     "chapter": 5,
+     "start": 26,
+     "end": 26,
+     "ref": "Gal 5:26"
+    },
+    {
+     "code": "JAS",
+     "chapter": 3,
+     "start": 14,
+     "end": 14,
+     "ref": "Jas 3:14"
+    },
+    {
+     "code": "JAS",
+     "chapter": 3,
+     "start": 16,
+     "end": 16,
+     "ref": "Jas 3:16"
+    },
+    {
+     "code": "ROM",
+     "chapter": 7,
+     "start": 7,
+     "end": 8,
+     "ref": "Rom 7:7–8"
+    },
+    {
+     "code": "ROM",
+     "chapter": 13,
+     "start": 9,
+     "end": 9,
+     "ref": "Rom 13:9"
+    },
+    {
+     "code": "DEU",
+     "chapter": 5,
+     "start": 21,
+     "end": 21,
+     "ref": "Deut 5:21"
+    }
+   ]
+  },
+  {
+   "id": "Q82",
+   "label": "WSC Q82",
+   "question": "Is any man able perfectly to keep the commandments of God?",
+   "text": "No mere man, since the fall, is able in this life perfectly to keep the commandments of God, but doth daily break them in thought, word, and deed.",
+   "proofs": [
+    {
+     "code": "ECC",
+     "chapter": 7,
+     "start": 20,
+     "end": 20,
+     "ref": "Eccl 7:20"
+    },
+    {
+     "code": "1JN",
+     "chapter": 1,
+     "start": 8,
+     "end": 8,
+     "ref": "1 John 1:8"
+    },
+    {
+     "code": "1JN",
+     "chapter": 1,
+     "start": 10,
+     "end": 10,
+     "ref": "1 John 1:10"
+    },
+    {
+     "code": "GAL",
+     "chapter": 5,
+     "start": 17,
+     "end": 17,
+     "ref": "Gal 5:17"
+    },
+    {
+     "code": "GEN",
+     "chapter": 6,
+     "start": 5,
+     "end": 5,
+     "ref": "Gen 6:5"
+    },
+    {
+     "code": "GEN",
+     "chapter": 8,
+     "start": 21,
+     "end": 21,
+     "ref": "Gen 8:21"
+    },
+    {
+     "code": "ROM",
+     "chapter": 3,
+     "start": 9,
+     "end": 21,
+     "ref": "Rom 3:9–21"
+    },
+    {
+     "code": "JAS",
+     "chapter": 3,
+     "start": 2,
+     "end": 13,
+     "ref": "Jas 3:2–13"
+    }
+   ]
+  },
+  {
+   "id": "Q83",
+   "label": "WSC Q83",
+   "question": "Are all transgressions of the law equally heinous?",
+   "text": "Some sins in themselves, and by reason of several aggravations, are more heinous in the sight of God than others.",
+   "proofs": [
+    {
+     "code": "EZK",
+     "chapter": 8,
+     "start": 6,
+     "end": 6,
+     "ref": "Ezek 8:6"
+    },
+    {
+     "code": "EZK",
+     "chapter": 8,
+     "start": 13,
+     "end": 13,
+     "ref": "Ezek 8:13"
+    },
+    {
+     "code": "EZK",
+     "chapter": 8,
+     "start": 15,
+     "end": 15,
+     "ref": "Ezek 8:15"
+    },
+    {
+     "code": "1JN",
+     "chapter": 5,
+     "start": 16,
+     "end": 16,
+     "ref": "1 John 5:16"
+    },
+    {
+     "code": "PSA",
+     "chapter": 78,
+     "start": 17,
+     "end": 17,
+     "ref": "Ps 78:17"
+    },
+    {
+     "code": "PSA",
+     "chapter": 78,
+     "start": 32,
+     "end": 32,
+     "ref": "Ps 78:32"
+    },
+    {
+     "code": "PSA",
+     "chapter": 78,
+     "start": 56,
+     "end": 56,
+     "ref": "Ps 78:56"
+    }
+   ]
+  },
+  {
+   "id": "Q84",
+   "label": "WSC Q84",
+   "question": "What doth every sin deserve?",
+   "text": "Every sin deserveth God's wrath and curse, both in this life, and that which is to come.",
+   "proofs": [
+    {
+     "code": "EPH",
+     "chapter": 5,
+     "start": 6,
+     "end": 6,
+     "ref": "Eph 5:6"
+    },
+    {
+     "code": "GAL",
+     "chapter": 3,
+     "start": 10,
+     "end": 10,
+     "ref": "Gal 3:10"
+    },
+    {
+     "code": "LAM",
+     "chapter": 3,
+     "start": 39,
+     "end": 39,
+     "ref": "Lam 3:39"
+    },
+    {
+     "code": "MAT",
+     "chapter": 25,
+     "start": 41,
+     "end": 41,
+     "ref": "Matt 25:41"
+    }
+   ]
+  },
+  {
+   "id": "Q85",
+   "label": "WSC Q85",
+   "question": "What doth God require of us, that we may escape his wrath and curse, due to us for sin?",
+   "text": "To escape the wrath and curse of God, due to us for sin, God requireth of us faith in Jesus Christ, repentance unto life, with the diligent use of all the outward means whereby Christ communicateth to us the benefits of redemption.",
+   "proofs": [
+    {
+     "code": "ACT",
+     "chapter": 20,
+     "start": 21,
+     "end": 21,
+     "ref": "Acts 20:21"
+    },
+    {
+     "code": "PRO",
+     "chapter": 2,
+     "start": 1,
+     "end": 5,
+     "ref": "Prov 2:1–5"
+    },
+    {
+     "code": "PRO",
+     "chapter": 8,
+     "start": 33,
+     "end": 36,
+     "ref": "Prov 8:33–36"
+    },
+    {
+     "code": "ISA",
+     "chapter": 55,
+     "start": 3,
+     "end": 3,
+     "ref": "Isa 55:3"
+    }
+   ]
+  },
+  {
+   "id": "Q86",
+   "label": "WSC Q86",
+   "question": "What is faith in Jesus Christ?",
+   "text": "Faith in Jesus Christ is a saving grace, whereby we receive and rest upon him alone for salvation, as he is offered to us in the gospel.",
+   "proofs": [
+    {
+     "code": "HEB",
+     "chapter": 10,
+     "start": 39,
+     "end": 39,
+     "ref": "Heb 10:39"
+    },
+    {
+     "code": "JHN",
+     "chapter": 1,
+     "start": 12,
+     "end": 12,
+     "ref": "John 1:12"
+    },
+    {
+     "code": "ISA",
+     "chapter": 26,
+     "start": 3,
+     "end": 4,
+     "ref": "Isa 26:3–4"
+    },
+    {
+     "code": "PHP",
+     "chapter": 3,
+     "start": 9,
+     "end": 9,
+     "ref": "Phil 3:9"
+    },
+    {
+     "code": "GAL",
+     "chapter": 2,
+     "start": 16,
+     "end": 16,
+     "ref": "Gal 2:16"
+    }
+   ]
+  },
+  {
+   "id": "Q87",
+   "label": "WSC Q87",
+   "question": "What is repentance unto life?",
+   "text": "Repentance unto life is a saving grace, whereby a sinner, out of a true sense of his sin, and apprehension of the mercy of God in Christ, doth, with grief and hatred of his sin, turn from it unto God, with full purpose of, and endeavour after, new obedience.",
+   "proofs": [
+    {
+     "code": "ACT",
+     "chapter": 11,
+     "start": 18,
+     "end": 18,
+     "ref": "Acts 11:18"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 37,
+     "end": 38,
+     "ref": "Acts 2:37–38"
+    },
+    {
+     "code": "JOL",
+     "chapter": 2,
+     "start": 12,
+     "end": 12,
+     "ref": "Joel 2:12"
+    },
+    {
+     "code": "JER",
+     "chapter": 3,
+     "start": 22,
+     "end": 22,
+     "ref": "Jer 3:22"
+    },
+    {
+     "code": "JER",
+     "chapter": 31,
+     "start": 18,
+     "end": 19,
+     "ref": "Jer 31:18–19"
+    },
+    {
+     "code": "EZK",
+     "chapter": 36,
+     "start": 31,
+     "end": 31,
+     "ref": "Ezek 36:31"
+    },
+    {
+     "code": "2CO",
+     "chapter": 7,
+     "start": 11,
+     "end": 11,
+     "ref": "2 Cor 7:11"
+    },
+    {
+     "code": "ISA",
+     "chapter": 1,
+     "start": 16,
+     "end": 17,
+     "ref": "Isa 1:16–17"
+    }
+   ]
+  },
+  {
+   "id": "Q88",
+   "label": "WSC Q88",
+   "question": "What are the outward and ordinary means whereby Christ communicateth to us the benefits of redemption?",
+   "text": "The outward and ordinary means whereby Christ communicateth to us the benefits of redemption are, his ordinances, especially the Word, sacraments, and prayer; all which are made effectual to the elect for salvation.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 28,
+     "start": 19,
+     "end": 20,
+     "ref": "Matt 28:19–20"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 42,
+     "end": 42,
+     "ref": "Acts 2:42"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 46,
+     "end": 47,
+     "ref": "Acts 2:46–47"
+    }
+   ]
+  },
+  {
+   "id": "Q89",
+   "label": "WSC Q89",
+   "question": "How is the Word made effectual to salvation?",
+   "text": "The Spirit of God maketh the reading, but especially the preaching of the Word, an effectual means of convincing and converting sinners, and of building them up in holiness and comfort, through faith, unto salvation.",
+   "proofs": [
+    {
+     "code": "NEH",
+     "chapter": 8,
+     "start": 8,
+     "end": 8,
+     "ref": "Neh 8:8"
+    },
+    {
+     "code": "1CO",
+     "chapter": 14,
+     "start": 24,
+     "end": 25,
+     "ref": "1 Cor 14:24–25"
+    },
+    {
+     "code": "ACT",
+     "chapter": 26,
+     "start": 18,
+     "end": 18,
+     "ref": "Acts 26:18"
+    },
+    {
+     "code": "PSA",
+     "chapter": 19,
+     "start": 8,
+     "end": 8,
+     "ref": "Ps 19:8"
+    },
+    {
+     "code": "ACT",
+     "chapter": 20,
+     "start": 32,
+     "end": 32,
+     "ref": "Acts 20:32"
+    },
+    {
+     "code": "ROM",
+     "chapter": 15,
+     "start": 4,
+     "end": 4,
+     "ref": "Rom 15:4"
+    },
+    {
+     "code": "2TI",
+     "chapter": 3,
+     "start": 15,
+     "end": 17,
+     "ref": "2 Tim 3:15–17"
+    },
+    {
+     "code": "ROM",
+     "chapter": 10,
+     "start": 13,
+     "end": 17,
+     "ref": "Rom 10:13–17"
+    },
+    {
+     "code": "ROM",
+     "chapter": 1,
+     "start": 16,
+     "end": 16,
+     "ref": "Rom 1:16"
+    }
+   ]
+  },
+  {
+   "id": "Q90",
+   "label": "WSC Q90",
+   "question": "How is the Word to be read and heard, that it may become effectual to salvation?",
+   "text": "That the Word may become effectual to salvation, we must attend thereunto with diligence, preparation, and prayer; receive it with faith and love, lay it up in our hearts, and practice it in our lives.",
+   "proofs": [
+    {
+     "code": "PRO",
+     "chapter": 8,
+     "start": 34,
+     "end": 34,
+     "ref": "Prov 8:34"
+    },
+    {
+     "code": "1PE",
+     "chapter": 2,
+     "start": 1,
+     "end": 2,
+     "ref": "1 Pet 2:1–2"
+    },
+    {
+     "code": "PSA",
+     "chapter": 119,
+     "start": 18,
+     "end": 18,
+     "ref": "Ps 119:18"
+    },
+    {
+     "code": "HEB",
+     "chapter": 4,
+     "start": 2,
+     "end": 2,
+     "ref": "Heb 4:2"
+    },
+    {
+     "code": "2TH",
+     "chapter": 2,
+     "start": 10,
+     "end": 10,
+     "ref": "2 Thess 2:10"
+    },
+    {
+     "code": "PSA",
+     "chapter": 119,
+     "start": 11,
+     "end": 11,
+     "ref": "Ps 119:11"
+    },
+    {
+     "code": "LUK",
+     "chapter": 8,
+     "start": 15,
+     "end": 15,
+     "ref": "Luke 8:15"
+    },
+    {
+     "code": "JAS",
+     "chapter": 1,
+     "start": 25,
+     "end": 25,
+     "ref": "Jas 1:25"
+    }
+   ]
+  },
+  {
+   "id": "Q91",
+   "label": "WSC Q91",
+   "question": "How do the sacraments become effectual means of salvation?",
+   "text": "The sacraments become effectual means of salvation, not from any virtue in them, or in him that doth administer them; but only by the blessing of Christ, and the working of his Spirit in them that by faith receive them.",
+   "proofs": [
+    {
+     "code": "1PE",
+     "chapter": 3,
+     "start": 21,
+     "end": 21,
+     "ref": "1 Pet 3:21"
+    },
+    {
+     "code": "MAT",
+     "chapter": 3,
+     "start": 11,
+     "end": 11,
+     "ref": "Matt 3:11"
+    },
+    {
+     "code": "1CO",
+     "chapter": 3,
+     "start": 6,
+     "end": 7,
+     "ref": "1 Cor 3:6–7"
+    },
+    {
+     "code": "1CO",
+     "chapter": 12,
+     "start": 13,
+     "end": 13,
+     "ref": "1 Cor 12:13"
+    }
+   ]
+  },
+  {
+   "id": "Q92",
+   "label": "WSC Q92",
+   "question": "What is a sacrament?",
+   "text": "A sacrament is an holy ordinance instituted by Christ; wherein, by sensible signs, Christ, and the benefits of the new covenant, are represented, sealed, and applied to believers.",
+   "proofs": [
+    {
+     "code": "GEN",
+     "chapter": 17,
+     "start": 7,
+     "end": 7,
+     "ref": "Gen 17:7"
+    },
+    {
+     "code": "GEN",
+     "chapter": 17,
+     "start": 10,
+     "end": 10,
+     "ref": "Gen 17:10"
+    },
+    {
+     "code": "EXO",
+     "chapter": 12,
+     "start": 1,
+     "end": 51,
+     "ref": "Exod 12:1–51"
+    },
+    {
+     "code": "1CO",
+     "chapter": 11,
+     "start": 23,
+     "end": 23,
+     "ref": "1 Cor 11:23"
+    },
+    {
+     "code": "1CO",
+     "chapter": 11,
+     "start": 26,
+     "end": 26,
+     "ref": "1 Cor 11:26"
+    }
+   ]
+  },
+  {
+   "id": "Q93",
+   "label": "WSC Q93",
+   "question": "Which are the sacraments of the New Testament?",
+   "text": "The sacraments of the New Testament are, Baptism, and the Lord's Supper.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 28,
+     "start": 19,
+     "end": 19,
+     "ref": "Matt 28:19"
+    },
+    {
+     "code": "MAT",
+     "chapter": 26,
+     "start": 26,
+     "end": 28,
+     "ref": "Matt 26:26–28"
+    }
+   ]
+  },
+  {
+   "id": "Q94",
+   "label": "WSC Q94",
+   "question": "What is Baptism?",
+   "text": "Baptism is a sacrament, wherein the washing with water in the name of the Father, and of the Son, and of the Holy Ghost, doth signify and seal our ingrafting into Christ, and partaking of the benefits of the covenant of grace, and our engagement to be the Lord's.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 28,
+     "start": 19,
+     "end": 19,
+     "ref": "Matt 28:19"
+    },
+    {
+     "code": "ROM",
+     "chapter": 6,
+     "start": 4,
+     "end": 4,
+     "ref": "Rom 6:4"
+    },
+    {
+     "code": "GAL",
+     "chapter": 3,
+     "start": 27,
+     "end": 27,
+     "ref": "Gal 3:27"
+    }
+   ]
+  },
+  {
+   "id": "Q95",
+   "label": "WSC Q95",
+   "question": "To whom is Baptism to be administered?",
+   "text": "Baptism is not to be administered to any that are out of the visible church, till they profess their faith in Christ, and obedience to him; but the infants of such as are members of the visible church are to be baptized.",
+   "proofs": [
+    {
+     "code": "ACT",
+     "chapter": 8,
+     "start": 36,
+     "end": 37,
+     "ref": "Acts 8:36–37"
+    },
+    {
+     "code": "ACT",
+     "chapter": 2,
+     "start": 38,
+     "end": 39,
+     "ref": "Acts 2:38–39"
+    },
+    {
+     "code": "GEN",
+     "chapter": 17,
+     "start": 10,
+     "end": 10,
+     "ref": "Gen 17:10"
+    },
+    {
+     "code": "1CO",
+     "chapter": 7,
+     "start": 14,
+     "end": 14,
+     "ref": "1 Cor 7:14"
+    }
+   ]
+  },
+  {
+   "id": "Q96",
+   "label": "WSC Q96",
+   "question": "What is the Lord's Supper?",
+   "text": "The Lord's Supper is a sacrament, wherein, by giving and receiving bread and wine, according to Christ's appointment, his death is showed forth; and the worthy receivers are, not after a corporal and carnal manner, but by faith, made partakers of his body and blood, with all his benefits, to their spiritual nourishment, and growth in grace.",
+   "proofs": [
+    {
+     "code": "1CO",
+     "chapter": 11,
+     "start": 23,
+     "end": 26,
+     "ref": "1 Cor 11:23–26"
+    },
+    {
+     "code": "1CO",
+     "chapter": 10,
+     "start": 16,
+     "end": 16,
+     "ref": "1 Cor 10:16"
+    }
+   ]
+  },
+  {
+   "id": "Q97",
+   "label": "WSC Q97",
+   "question": "What is required for the worthy receiving of the Lord's Supper?",
+   "text": "It is required of them that would worthily partake of the Lord's Supper, that they examine themselves of their knowledge to discern the Lord's body, of their faith to feed upon him, of their repentance, love, and new obedience; lest, coming unworthily, they eat and drink judgment to themselves.",
+   "proofs": [
+    {
+     "code": "1CO",
+     "chapter": 11,
+     "start": 28,
+     "end": 29,
+     "ref": "1 Cor 11:28–29"
+    },
+    {
+     "code": "2CO",
+     "chapter": 13,
+     "start": 5,
+     "end": 5,
+     "ref": "2 Cor 13:5"
+    },
+    {
+     "code": "1CO",
+     "chapter": 11,
+     "start": 31,
+     "end": 31,
+     "ref": "1 Cor 11:31"
+    },
+    {
+     "code": "1CO",
+     "chapter": 10,
+     "start": 16,
+     "end": 17,
+     "ref": "1 Cor 10:16–17"
+    },
+    {
+     "code": "1CO",
+     "chapter": 5,
+     "start": 7,
+     "end": 8,
+     "ref": "1 Cor 5:7–8"
+    }
+   ]
+  },
+  {
+   "id": "Q98",
+   "label": "WSC Q98",
+   "question": "What is prayer?",
+   "text": "Prayer is an offering up of our desires unto God, for things agreeable to his will, in the name of Christ, with confession of our sins, and thankful acknowledgement of his mercies.",
+   "proofs": [
+    {
+     "code": "PSA",
+     "chapter": 62,
+     "start": 8,
+     "end": 8,
+     "ref": "Ps 62:8"
+    },
+    {
+     "code": "1JN",
+     "chapter": 5,
+     "start": 14,
+     "end": 14,
+     "ref": "1 John 5:14"
+    },
+    {
+     "code": "JHN",
+     "chapter": 16,
+     "start": 23,
+     "end": 23,
+     "ref": "John 16:23"
+    },
+    {
+     "code": "PSA",
+     "chapter": 32,
+     "start": 5,
+     "end": 6,
+     "ref": "Ps 32:5–6"
+    },
+    {
+     "code": "DAN",
+     "chapter": 9,
+     "start": 4,
+     "end": 4,
+     "ref": "Dan 9:4"
+    },
+    {
+     "code": "PHP",
+     "chapter": 4,
+     "start": 6,
+     "end": 6,
+     "ref": "Phil 4:6"
+    }
+   ]
+  },
+  {
+   "id": "Q99",
+   "label": "WSC Q99",
+   "question": "What rule hath God given for our direction in prayer?",
+   "text": "The whole Word of God is of use to direct us in prayer; but the special rule of direction is that form of prayer which Christ taught his disciples, commonly called The Lord's Prayer.",
+   "proofs": [
+    {
+     "code": "1JN",
+     "chapter": 5,
+     "start": 14,
+     "end": 14,
+     "ref": "1 John 5:14"
+    },
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 9,
+     "end": 13,
+     "ref": "Matt 6:9–13"
+    }
+   ]
+  },
+  {
+   "id": "Q100",
+   "label": "WSC Q100",
+   "question": "What doth the preface of the Lord's Prayer teach us?",
+   "text": "The preface of the Lord's Prayer, which is, Our Father which art in heaven, teacheth us to draw near to God with all holy reverence and confidence, as children to a father, able and ready to help us; and that we should pray with and for others.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 9,
+     "end": 9,
+     "ref": "Matt 6:9"
+    },
+    {
+     "code": "ROM",
+     "chapter": 8,
+     "start": 15,
+     "end": 15,
+     "ref": "Rom 8:15"
+    },
+    {
+     "code": "LUK",
+     "chapter": 11,
+     "start": 13,
+     "end": 13,
+     "ref": "Luke 11:13"
+    },
+    {
+     "code": "ACT",
+     "chapter": 12,
+     "start": 5,
+     "end": 5,
+     "ref": "Acts 12:5"
+    },
+    {
+     "code": "1TI",
+     "chapter": 2,
+     "start": 1,
+     "end": 2,
+     "ref": "1 Tim 2:1–2"
+    }
+   ]
+  },
+  {
+   "id": "Q101",
+   "label": "WSC Q101",
+   "question": "What do we pray for in the first petition?",
+   "text": "In the first petition, which is, Hallowed be thy name, we pray, that God would enable us, and others, to glorify him in all that whereby he maketh himself known; and that he would dispose all things to his own glory.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 9,
+     "end": 9,
+     "ref": "Matt 6:9"
+    },
+    {
+     "code": "PSA",
+     "chapter": 67,
+     "start": 2,
+     "end": 3,
+     "ref": "Ps 67:2–3"
+    },
+    {
+     "code": "PSA",
+     "chapter": 83,
+     "start": 1,
+     "end": 18,
+     "ref": "Ps 83:1–18"
+    }
+   ]
+  },
+  {
+   "id": "Q102",
+   "label": "WSC Q102",
+   "question": "What do we pray for in the second petition?",
+   "text": "In the second petition, which is, Thy kingdom come, we pray, that Satan's kingdom may be destroyed; and that the kingdom of grace may be advanced, ourselves and others brought into it, and kept in it; and that the kingdom of glory may be hastened.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 10,
+     "end": 10,
+     "ref": "Matt 6:10"
+    },
+    {
+     "code": "PSA",
+     "chapter": 68,
+     "start": 1,
+     "end": 1,
+     "ref": "Ps 68:1"
+    },
+    {
+     "code": "PSA",
+     "chapter": 68,
+     "start": 18,
+     "end": 18,
+     "ref": "Ps 68:18"
+    },
+    {
+     "code": "REV",
+     "chapter": 12,
+     "start": 10,
+     "end": 11,
+     "ref": "Rev 12:10–11"
+    },
+    {
+     "code": "2TH",
+     "chapter": 3,
+     "start": 1,
+     "end": 1,
+     "ref": "2 Thess 3:1"
+    },
+    {
+     "code": "ROM",
+     "chapter": 10,
+     "start": 1,
+     "end": 1,
+     "ref": "Rom 10:1"
+    },
+    {
+     "code": "JHN",
+     "chapter": 17,
+     "start": 9,
+     "end": 9,
+     "ref": "John 17:9"
+    },
+    {
+     "code": "JHN",
+     "chapter": 17,
+     "start": 20,
+     "end": 20,
+     "ref": "John 17:20"
+    },
+    {
+     "code": "REV",
+     "chapter": 22,
+     "start": 20,
+     "end": 20,
+     "ref": "Rev 22:20"
+    }
+   ]
+  },
+  {
+   "id": "Q103",
+   "label": "WSC Q103",
+   "question": "What do we pray for in the third petition?",
+   "text": "In the third petition, which is, Thy will be done in earth, as it is in heaven, we pray, that God, by his grace, would make us able and willing to know, obey, and submit to his will in all things, as the angels do in heaven.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 10,
+     "end": 10,
+     "ref": "Matt 6:10"
+    },
+    {
+     "code": "PSA",
+     "chapter": 67,
+     "start": 1,
+     "end": 7,
+     "ref": "Ps 67:1–7"
+    },
+    {
+     "code": "PSA",
+     "chapter": 119,
+     "start": 36,
+     "end": 36,
+     "ref": "Ps 119:36"
+    },
+    {
+     "code": "MAT",
+     "chapter": 26,
+     "start": 39,
+     "end": 39,
+     "ref": "Matt 26:39"
+    },
+    {
+     "code": "2SA",
+     "chapter": 15,
+     "start": 25,
+     "end": 25,
+     "ref": "2 Sam 15:25"
+    },
+    {
+     "code": "JOB",
+     "chapter": 1,
+     "start": 21,
+     "end": 21,
+     "ref": "Job 1:21"
+    },
+    {
+     "code": "PSA",
+     "chapter": 103,
+     "start": 20,
+     "end": 21,
+     "ref": "Ps 103:20–21"
+    }
+   ]
+  },
+  {
+   "id": "Q104",
+   "label": "WSC Q104",
+   "question": "What do we pray for in the fourth petition?",
+   "text": "In the fourth petition, which is, Give us this day our daily bread, we pray that of God's free gift we may receive a competent portion of the good things of this life, and enjoy his blessing with them.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 11,
+     "end": 11,
+     "ref": "Matt 6:11"
+    },
+    {
+     "code": "PRO",
+     "chapter": 30,
+     "start": 8,
+     "end": 9,
+     "ref": "Prov 30:8–9"
+    },
+    {
+     "code": "GEN",
+     "chapter": 28,
+     "start": 20,
+     "end": 20,
+     "ref": "Gen 28:20"
+    },
+    {
+     "code": "1TI",
+     "chapter": 4,
+     "start": 4,
+     "end": 5,
+     "ref": "1 Tim 4:4–5"
+    }
+   ]
+  },
+  {
+   "id": "Q105",
+   "label": "WSC Q105",
+   "question": "What do we pray for in the fifth petition?",
+   "text": "In the fifth petition, which is, And forgive us our debts, as we forgive our debtors, we pray that God, for Christ's sake, would freely pardon all our sins; which we are the rather encouraged to ask, because by his grace we are enabled from the heart to forgive others.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 12,
+     "end": 12,
+     "ref": "Matt 6:12"
+    },
+    {
+     "code": "PSA",
+     "chapter": 51,
+     "start": 1,
+     "end": 2,
+     "ref": "Ps 51:1–2"
+    },
+    {
+     "code": "PSA",
+     "chapter": 51,
+     "start": 7,
+     "end": 7,
+     "ref": "Ps 51:7"
+    },
+    {
+     "code": "PSA",
+     "chapter": 51,
+     "start": 9,
+     "end": 9,
+     "ref": "Ps 51:9"
+    },
+    {
+     "code": "DAN",
+     "chapter": 9,
+     "start": 17,
+     "end": 19,
+     "ref": "Dan 9:17–19"
+    },
+    {
+     "code": "LUK",
+     "chapter": 11,
+     "start": 4,
+     "end": 4,
+     "ref": "Luke 11:4"
+    },
+    {
+     "code": "MAT",
+     "chapter": 18,
+     "start": 35,
+     "end": 35,
+     "ref": "Matt 18:35"
+    }
+   ]
+  },
+  {
+   "id": "Q106",
+   "label": "WSC Q106",
+   "question": "What do we pray for in the sixth petition?",
+   "text": "In the sixth petition, which is, And lead us not into temptation, but deliver us from evil, we pray, that God would either keep us from being tempted to sin, or support and deliver us when we are tempted.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 12,
+     "end": 12,
+     "ref": "Matt 6:12"
+    },
+    {
+     "code": "MAT",
+     "chapter": 26,
+     "start": 41,
+     "end": 41,
+     "ref": "Matt 26:41"
+    },
+    {
+     "code": "2CO",
+     "chapter": 12,
+     "start": 7,
+     "end": 8,
+     "ref": "2 Cor 12:7–8"
+    }
+   ]
+  },
+  {
+   "id": "Q107",
+   "label": "WSC Q107",
+   "question": "What doth the conclusion of the Lord's Prayer teach us?",
+   "text": "The conclusion of the Lord's Prayer, which is, For thine is the kingdom, and the power, and the glory, for ever, Amen. teacheth us to take our encouragement in prayer from God only, and in our prayers to praise him, ascribing kingdom, power, and glory to him; and, in testimony of our desire, and assurance to be heard, we say, Amen.",
+   "proofs": [
+    {
+     "code": "MAT",
+     "chapter": 6,
+     "start": 13,
+     "end": 13,
+     "ref": "Matt 6:13"
+    },
+    {
+     "code": "DAN",
+     "chapter": 9,
+     "start": 4,
+     "end": 9,
+     "ref": "Dan 9:4–9"
+    },
+    {
+     "code": "DAN",
+     "chapter": 9,
+     "start": 16,
+     "end": 19,
+     "ref": "Dan 9:16–19"
+    },
+    {
+     "code": "1CH",
+     "chapter": 29,
+     "start": 10,
+     "end": 13,
+     "ref": "1 Chron 29:10–13"
+    },
+    {
+     "code": "1CO",
+     "chapter": 14,
+     "start": 16,
+     "end": 16,
+     "ref": "1 Cor 14:16"
+    },
+    {
+     "code": "REV",
+     "chapter": 22,
+     "start": 20,
+     "end": 21,
+     "ref": "Rev 22:20–21"
+    }
+   ]
+  }
+ ]
+}

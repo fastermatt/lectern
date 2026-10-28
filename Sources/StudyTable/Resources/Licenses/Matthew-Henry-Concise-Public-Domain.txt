@@ -1,0 +1,16 @@
+Matthew Henry's Concise Commentary on the Bible
+
+Public domain. Source text: Christian Classics Ethereal Library.
+https://ccel.org/ccel/h/henry/mhcc/cache/mhcc.txt
+
+Public-domain module declaration:
+https://crosswire.org/sword/modules/ModInfo.jsp?modName=MHCC
+
+Retired as a general second Henry voice 2026-09-22 in favor of the unabridged Commentary on
+the Whole Bible (see commentary-matthew-henry-complete-Public-Domain.txt). Restored
+2026-09-23 (workstream E, 0.7 wave 2, E3) in a narrow, gap-only role: parsed again from this
+same text, but only for the exact chapters where the unabridged Complete has zero entries
+(recomputed every build from the Complete's own parsed output -- see
+scripts/build-study-resources.py's mhcc_gap_chapters() and data/study-build-report.json's
+"mhccGapFill" for the current list). Labelled "Concise Commentary" on its cards, never
+shown in the same chapter as a Complete entry.

@@ -1,0 +1,38 @@
+Original-language interlinear data (Hebrew/Aramaic Old Testament, Greek New Testament) is
+derived from STEPBible-Data:
+  * TAHOT - Translators Amalgamated Hebrew OT (Leningrad-based, includes Aramaic portions)
+  * TAGNT - Translators Amalgamated Greek NT
+  * TEHMC / TEGMC - Translators Expansion of Hebrew/Greek Morphology Codes
+https://github.com/STEPBible/STEPBible-Data
+
+Licence: Creative Commons Attribution 4.0 International (CC BY 4.0). Attribution only --
+NOT share-alike. Verified directly in the repository's README.md and restated in every
+source file's own header and filename ("STEPBible.org CC BY" / "CC-BY").
+
+Required attribution string (shown in Settings > About and here):
+  "Original-language data (c) Tyndale House Cambridge, from STEPBible.org (STEP Bible),
+  used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+
+Strong's Hebrew/Greek dictionary lemma text shown alongside this data is NOT re-derived
+here -- it reuses the app's existing Resources/Lexicon/strongs-hebrew.json /
+strongs-greek.json (built by workstream D, 0.7, from the public-domain openscriptures
+raw Strong's XML; see Resources/Licenses/lexicon-*.txt for that licence evidence).
+
+Textual-variant and edition flags (0.10): the per-word `v` objects in Resources/Interlinear/*
+carry TAGNT's Word Type code, its `editions` column, its `Meaning variants` and `Variant Notes`
+columns, and TAHOT's Type code and `Meaning Variants` column, as the source states them; the
+app's explanation text is composed only from those fields and the source's own header legends
+(shipped as Resources/Interlinear/variant-legend.json; the build fails if any legend fragment
+stops matching the source header). The source's spelling-variant columns are not shipped.
+
+Note of changes made to the source data (STEPBible asks that changes be recorded):
+  * Word-level fields are re-encoded as JSON; nothing was re-translated or re-tagged.
+  * Attached punctuation is split from the word: Hebrew text after the source's backslash
+    (maqaf, sof pasuq, paseq, parasha letters) and Greek trailing , . ; · and the pilcrow
+    are not part of the stored word; leading/trailing sentence punctuation is trimmed from
+    the English gloss. Square/angle brackets in glosses are kept.
+  * A Greek variant note the source places only on the last word of a multi-word variant is
+    copied onto the earlier bare-marker words of the same variant.
+  * Variant-note HTML italics tags are removed and whitespace collapsed; alternate readings
+    ("Meaning variants") are split into reading / transliteration / gloss / Strong's /
+    morphology / witnesses, with the morphology decoded through TEGMC/TEHMC like every word.

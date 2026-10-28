@@ -1,0 +1,12 @@
+{
+  "id": "KJV",
+  "abbreviation": "KJV",
+  "name": "King James Version (1769 text)",
+  "language": "eng",
+  "license": {
+    "summary": "Public domain outside the United Kingdom (Crown letters patent apply to printing in the UK)",
+    "url": "https://ebible.org/eng-kjv2006/copyright.htm",
+    "attribution": "King James (Authorized) Version, standardized 1769 text, protocanon. Courtesy of the CrossWire Bible Society and eBible.org."
+  },
+  "sourceURL": "https://ebible.org/eng-kjv2006/"
+}

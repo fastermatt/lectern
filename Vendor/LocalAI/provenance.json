@@ -1,0 +1,86 @@
+{
+  "project": "llama.cpp",
+  "tag": "b11968",
+  "commit": "ac8e1694d",
+  "architecture": "arm64",
+  "upstream": "https://github.com/ggml-org/llama.cpp/releases/tag/b11968",
+  "archiveSHA256": "74b7034262407e60acdc507508f260ba50fcba0cdf6a42fe74b21fb8b5088fa6",
+  "files": [
+    {
+      "file": "libggml-base.0.28.0.dylib",
+      "sha256": "7b750b71b27d1ac029c3b7783dc8a1a46e73536cb9b72d786c0f4cca410698d9"
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+    },
+    {
+      "file": "libllama-server-impl.dylib",
+      "sha256": "98a863e7045f5e33dac01a1ec4acd5d9547968650dff072800cca4d71fdb8008"
+    },
+    {
+      "file": "libllama-completion-impl.dylib",
+      "sha256": "90fca5fcc0dbec0eef9b228e0b51cefce32c6ade21a1deb1f9b977e345b25636"
+    },
+    {
+      "file": "libllama-bench-impl.dylib",
+      "sha256": "46f160706b04a37eb6aa1404ed08694fb1643048bb4cd24420e8271a1b3ffd03"
+    },
+    {
+      "file": "libllama-perplexity-impl.dylib",
+      "sha256": "1e94ae0000d5bdee8c40e679fa79745d52c47733dd7bf00f167a94dfac4ae965"
+    },
+    {
+      "file": "libllama-quantize-impl.dylib",
+      "sha256": "3e69bcdea485960de2329135dfb1e4e933d3a95d2803c5cfb504d7c626aff9c9"
+    },
+    {
+      "file": "libllama-common.0.8.0.dylib",
+      "sha256": "9b9c476ea071d8e16d996bed1116bbad0ccdd1e693da738a6614d79e546868ad"
+    },
+    {
+      "file": "libllama.0.8.0.dylib",
+      "sha256": "e3fbdb5b2b31d0b5bc7a8e0382e469f04a3b5e4f30a969b28c7d20ad6498001c"
+    },
+    {
+      "file": "libmtmd.0.8.0.dylib",
+      "sha256": "a4f48b67ab510c2b516a1be7e1bd09552e80ae23b701e1ea71cde382688c179b"
+    },
+    {
+      "file": "libllama-cli-impl.dylib",
+      "sha256": "0640d51f37c013995ce0f9e2ed7370b551ed7a16bc11038813250e7ac4964b20"
+    },
+    {
+      "file": "libggml-blas.0.28.0.dylib",
+      "sha256": "505df04b85bf698d39dc18c4fa6256333d1cba44e7339505cdbd1a647db3c603"
+    },
+    {
+      "file": "libggml-rpc.0.28.0.dylib",
+      "sha256": "3dc8d8445eb8125293360a4c094a46fa36c42f5fa447500c5f27bf2cb7de02a4"
+    },
+    {
+      "file": "llama-server",
+      "sha256": "3d81b7997317e5ffd13ed3ba32436658e0f4067172cea3674b4215b39d4635be"
+    },
+    {
+      "file": "libllama-batched-bench-impl.dylib",
+      "sha256": "f160087d56790048bcc32cd6ec91778e48e497c7a24a936ab102dc44ef165d13"
+    },
+    {
+      "file": "libllama-fit-params-impl.dylib",
+      "sha256": "f7ac57268a31a1f0a77e9b6c2e46dc7f7c6f638249c855e2fb82860056b29064"
+    },
+    {
+      "file": "libggml-metal.0.28.0.dylib",
+      "sha256": "8b3bb1b49678c8c65d35f64dbb991bc8280608676a0b9a0a8c3acd533ec1437e"
+    },
+    {
+      "file": "libggml.0.28.0.dylib",
+      "sha256": "c3830dd10717fdf15bd9762a8a31598b0b71a5d7ab6623c0c43793676c54ac0d"
+    },
+    {
+      "file": "libggml-cpu.0.28.0.dylib",
+      "sha256": "6ff144943afbe691eb3e774d8ee6333cd1bffaade6f4bf67b73da4ad3325789a"
+    }
+  ]
+}

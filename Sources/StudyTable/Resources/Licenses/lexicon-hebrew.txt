@@ -1,0 +1,55 @@
+Study Table — Lexicon licence record: Strong's Hebrew Dictionary
+=================================================================
+
+Content: Strong's Hebrew (and Biblical Aramaic) Dictionary of the Old
+Testament (lemma, transliteration, pronunciation, derivation, definition,
+KJV usage), keyed by Strong's number (e.g. "H430").
+
+Original work: James Strong, LL.D., S.T.D., "A Concise Dictionary of the
+Words in the Hebrew Bible, with their Renderings in the King James Version",
+1894 (from Strong's Exhaustive Concordance of the Bible).
+
+Digital edition used: the raw OSIS XML e-text at
+  https://github.com/openscriptures/strongs
+  path: hebrew/StrongHebrewG.xml
+
+Licence evidence — quoted verbatim from that XML file's own <header>:
+
+    <work osisWork="Strong" xml:lang="en">
+      <title>A Concise Dictionary of the Words in the Hebrew Bible</title>
+      <title type="sub">with their Renderings in the King James Version</title>
+      <creator role="aut">James Strong, LL.D., S.T.D.</creator>
+      <date event="original" type="Gregorian">1894</date>
+      <rights>Public Domain</rights>
+    </work>
+
+Important exclusion: the same XML file also embeds a `gloss="4a"`-style
+attribute on many entries, pointing into Strong's *Theological Wordbook of
+the Old Testament* (TWOT). The file's own header declares that work
+separately:
+
+    <work osisWork="TWOT" xml:lang="en">
+      <title>Theological Wordbook of the Old Testament</title>
+      <creator role="aut">Gleason L. Archer and R. Laird Harris</creator>
+      <date event="original" type="Gregorian">1980</date>
+      <rights type="x-copyright">Copyright (c) 1980 by the Moody Bible
+      Institute.</rights>
+    </work>
+
+scripts/build-lexicon.py never reads the `gloss` attribute or any TWOT
+content. Only the fields declared under the "Strong" work above (lemma,
+xlit, POS/pronunciation, and the <list>/<note> senses, derivation and KJV
+renderings, all part of the 1894 public-domain dictionary itself) are used.
+
+Deliberately NOT used: openscriptures/strongs also publishes a pre-converted
+JSON/JS version of this dictionary (hebrew/strongs-hebrew-dictionary.js)
+whose header reads "Copyright 2010, Open Scriptures. CC-BY-SA. Derived from
+XML." Study Table does not ship that file or any data copied from it. This
+app's strongs-hebrew.json is built by this repo's own
+scripts/build-lexicon.py, which parses the public-domain XML above directly
+and recombines its original fields into a new JSON shape — it is an
+independent derivation of the 1894 public-domain text, not a copy of Open
+Scriptures' CC-BY-SA conversion, and carries no share-alike obligation.
+
+Retrieved: see scripts/build-lexicon.py header comment / build report for the
+exact date this pass ran.

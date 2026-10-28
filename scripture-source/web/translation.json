@@ -1,0 +1,12 @@
+{
+  "id": "WEB",
+  "abbreviation": "WEB",
+  "name": "World English Bible",
+  "language": "eng",
+  "license": {
+    "summary": "Public domain; the name \"World English Bible\" is a trademark of eBible.org and must not be applied to altered text",
+    "url": "https://ebible.org/engwebp/copyright.htm",
+    "attribution": "World English Bible, 2020 stable text edition, protocanon. Public domain. eBible.org."
+  },
+  "sourceURL": "https://ebible.org/engwebp/"
+}

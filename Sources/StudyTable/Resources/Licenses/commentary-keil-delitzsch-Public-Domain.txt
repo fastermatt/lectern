@@ -1,0 +1,21 @@
+Carl Friedrich Keil and Franz Delitzsch's Old Testament Commentary
+
+Public Domain Mark 1.0. Digitized and served by the HelloAO Free Use Bible API.
+
+Source API: https://bible.helloao.org/api/c/keil-delitzsch/
+Commentary listing (license field verified 2026-09-23):
+https://bible.helloao.org/api/available_commentaries.json
+  -> "id": "keil-delitzsch", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+
+Public Domain Mark declaration: https://creativecommons.org/publicdomain/mark/1.0/
+
+Old Testament only (39 books per the source's own manifest, work-content/helloao/
+keil-delitzsch/_books.json). Authors: Carl Friedrich Keil (1807-1888) and Franz Delitzsch
+(1813-1890), German Lutheran Old Testament scholars -- not confessionally Reformed. Filed
+in Study Table's Tier-2 "Exegetes" bank, labelled "Lutheran" on every card.
+
+Known upstream gaps, not a parsing defect (see work-content/helloao/keil-delitzsch/
+_fetch-manifest.json and data/study-build-report.json): 11 individual chapters returned
+HTTP 404 at the source (Exodus 37-38, Numbers 17, Job 25, Psalm 101/117/131/133, Ezekiel
+4/5/36), and Song of Solomon has zero chapters at the source despite being listed in its
+own books.json.

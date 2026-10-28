@@ -1,0 +1,28 @@
+.DS_Store
+.build/
+.swiftpm/
+Releases/
+work/
+work-content/
+Research Reviews/
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.key
+*.pem
+*.gguf
+*.partial
+*.xcuserstate
+xcuserdata/
+__pycache__/
+*.pyc
+# Optional binaries are reproducibly downloaded, not stored in Git.
+Vendor/LocalAI/*.dylib
+Vendor/LocalAI/llama-server
+Vendor/LocalAI/lectern-model-runner
+# Unreviewed upstream source inputs are never bulk imported.
+scripts/*-sources/raw/
+scripts/reference-sources/*.zip
+scripts/reference-sources/TIPNR.txt

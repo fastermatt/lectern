@@ -1,0 +1,27 @@
+Matthew Henry's Commentary on the Whole Bible (Complete, unabridged)
+
+Public Domain Mark 1.0. Digitized and served by the HelloAO Free Use Bible API.
+
+Source API: https://bible.helloao.org/api/c/matthew-henry/
+Commentary listing (license field verified 2026-09-22):
+https://bible.helloao.org/api/available_commentaries.json
+  -> "id": "matthew-henry", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+
+Public Domain Mark declaration: https://creativecommons.org/publicdomain/mark/1.0/
+
+Verified 2026-09-22 to be the unabridged Commentary on the Whole Bible (not the Concise
+Commentary this app previously bundled): sample chapters (Genesis 1, Romans 8, Psalm 119,
+Isaiah 53, Revelation 1, John 3) carry the full-length book introductions and extended
+verse-by-verse exposition characteristic of the Complete edition, not the Concise's brief
+"practical observations" format.
+
+Coverage note: this digitization spans 65 of the 66 canonical books (verified against the
+commentary's own books.json: numberOfBooks 65, missing Song of Solomon). Matthew Henry
+(1662-1714) completed Genesis through Acts himself; Romans onward was finished after his
+death by other nonconformist ministers from his notes, per the work's well-documented
+publishing history -- long issued and treated as one continuous "Complete Commentary," as
+it is here.
+
+Supersedes: Matthew Henry's Concise Commentary (retired 2026-09-22; see
+Matthew-Henry-Concise-Public-Domain.txt for that source's own license record, kept for
+provenance even though no entry uses it any more).
