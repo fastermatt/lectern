@@ -6,6 +6,8 @@ been pushed to GitHub; hosted CI and a second contributor machine are not yet ve
 - Clean exported source compiled locally with full Xcode/Swift 6.4 on Apple Silicon.
   A separate Git clone also built and ran its focused verification suite without
   private files, downloaded models, runtime binaries or maintainer credentials.
+  That fresh-clone run completed 61 tests: 57 passed, 4 opt-in/corpus audits skipped,
+  zero failures. The clean source light/dark screenshot test also passed.
 - Initial 630-test run identified 15 failures caused by withheld-corpus assumptions,
   omitted internal documentation and two orphaned HCF candidate link previews.
   The previews were removed; tests now use explicit public expectations/synthetic
