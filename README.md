@@ -21,10 +21,11 @@ interpretations, keep and export their work, and choose which resources to add.
 
 We build Lectern as a community project. Readers, researchers, translators,
 accessibility testers, writers and developers can improve it from anywhere. We
-credit contributions, explain editorial decisions and review theological or
-historical cautions against specific evidence. AI output cannot approve those
-claims. The official core remains free; optional third-party books and AI services
-are separate choices.
+credit contributions and explain editorial decisions. We take historic Christian
+teaching seriously: disputed or rejected claims need specific evidence and room
+for correction, not a verdict based only on an author's name. AI output cannot
+approve those claims. The official core remains free; optional third-party books
+and AI services are separate choices.
 
 ## Start here
 
