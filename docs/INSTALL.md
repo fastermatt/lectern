@@ -5,6 +5,10 @@ check its version/platform and supplied SHA-256, unzip, and move Throughline.app
 Applications. The current target is Apple Silicon (M1 or newer), macOS 14+.
 No account is needed for included study resources.
 
+If upgrading from Lectern 0.19 or earlier, install Throughline.app and confirm
+your notes and downloaded models appear. You can then remove the old Lectern.app;
+the new app uses the same study data and model location.
+
 The current packager produces an ad-hoc signed, unnotarized beta. If macOS blocks
 opening a trusted copy, attempt to open it once, then use System Settings → Privacy
 & Security → Open Anyway. Do not disable Gatekeeper globally. A public release should
