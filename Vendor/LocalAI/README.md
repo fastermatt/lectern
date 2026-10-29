@@ -8,7 +8,7 @@ The server and dylibs are copied from that upstream artifact, preserving dylib s
 LICENSE is the upstream MIT license. provenance.json records the original, pre-signing
 file hashes. package-app.sh verifies these hashes, compiles scripts/local-ai-runner.c,
 and signs the runtime in the finished application. Signing changes Mach-O hashes.
-The runner is Lectern source, not an upstream binary. Only the server and libraries
+The runner is Throughline source, not an upstream binary. Only the server and libraries
 are distributed; unrelated upstream CLI tools are not required.
 
 Model weights are not bundled. LocalAIModels.swift lists exact source revisions,
