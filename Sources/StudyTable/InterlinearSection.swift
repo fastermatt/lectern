@@ -310,6 +310,7 @@ struct OriginalWordRow: View {
                 Text(word.morphDescription)
                     .font(.system(size: 11.5, weight: .medium, design: .rounded))
                     .foregroundStyle(STColor.secondary)
+                GrammarHelpView(word: word)
                 if let explanation = interlinear.explanation(for: word) {
                     VariantDetail(explanation: explanation)
                 }

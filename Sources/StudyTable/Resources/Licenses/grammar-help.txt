@@ -1,0 +1,27 @@
+Lectern grammar help
+
+The explanatory prose in Sources/StudyTable/GrammarLessons.swift is adapted and
+condensed from unfoldingWord Greek Grammar and unfoldingWord Hebrew Grammar,
+copyright unfoldingWord, licensed under Creative Commons Attribution-ShareAlike
+4.0 International: https://creativecommons.org/licenses/by-sa/4.0/
+
+Greek: https://ugg.readthedocs.io/en/latest/
+Hebrew: https://uhg.readthedocs.io/en/latest/
+Exact article URLs are attached to each lesson in the app and source.
+
+Changes: short plain-English paraphrases, contextual questions and cautions; no
+paradigms or illustrations reproduced. These adapted explanations and questions
+are provided under CC BY-SA 4.0. Original matching logic and UI remain MIT.
+The MIT license does not relicense these grammar explanations.
+
+The grammar articles are reference aids; some are marked under construction.
+These lessons explain general forms, not definitive verse-specific meanings.
+No independent human linguistic review is claimed for this initial teaching set.
+
+STEPBible word forms, glosses and parsing retain their separate CC BY 4.0 terms;
+see interlinear-stepbible.txt. Strong's dictionaries retain their own public-domain
+notices. Emphasis examples in PassageLearning.swift are original Lectern editorial
+observations of the public-domain BSB text, not Greek/Hebrew emphasis determinations.
+
+No Discovery Bible proprietary definitions, annotations, symbols, software or
+licensed NASB text are included. Lectern is not affiliated with Discovery Bible.

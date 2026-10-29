@@ -9,6 +9,7 @@ No web service is required for core functionality.
 | App and windows | Sources/StudyTable/StudyTableApp.swift, MainView.swift |
 | State and preferences | AppState.swift, SavedLayouts.swift |
 | Reader and study panes | Panes.swift, ReadingNavigation.swift, Models.swift |
+| Guided passage learning | GuidedStudyView.swift, GrammarLessons.swift, GrammarHelpView.swift, PassageLearning.swift |
 | Appearance | Theme.swift, native pane/control components |
 | Bible search | BibleSearch.swift, BibleSearchSession.swift, BibleSearchView.swift |
 | Resources | ResourceCatalog.swift, ResourceDiscovery.swift, ResourceBooks.swift |

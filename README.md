@@ -10,7 +10,7 @@ notes into one quiet workspace. Open a passage, follow its sources, and keep wha
 you learn. The included core works offline, without a subscription, account or AI
 service.
 
-[Download the Mac beta](https://github.com/fastermatt/lectern/releases/tag/v0.18.1)
+[Download the Mac beta](https://github.com/fastermatt/lectern/releases/tag/v0.19.0)
 · [See what you can do](#what-you-can-do-today)
 · [Help build Lectern](#help-build-lectern)
 
@@ -43,6 +43,10 @@ any one founder.
 - **Follow the historical record.** Read passage-linked commentaries and reference
   entries with author, edition and source information. Coverage varies by passage.
   A separate, searchable Apostolic Fathers reader and 74 author profiles are included.
+- **Learn as you read.** Follow Read → Words → Grammar → Reflect. Plain-English
+  help covers ten Greek/Hebrew verb features, with source links. Optional emphasis
+  notes cover three BSB examples; reflections save as passage-linked notes.
+  [See the learning guide](WORKSPACE-AND-LIBRARY.md#guided-passage-study).
 - **Study original-language words.** Use Strong's numbers, lexicon entries,
   concordance results and Greek or Hebrew word tools with their source context.
 - **Keep your work.** Write passage-linked notes, save and highlight verses, organize
@@ -58,7 +62,7 @@ any one founder.
 
 ## Get Lectern
 
-[Download beta 0.18.1](https://github.com/fastermatt/lectern/releases/tag/v0.18.1)
+[Download beta 0.19.0](https://github.com/fastermatt/lectern/releases/tag/v0.19.0)
 for an **Apple Silicon Mac running macOS 14 or later**. The current beta is
 ad-hoc signed and not Apple-notarized. Follow the [installation and update guide](docs/INSTALL.md)
 for the exact steps; updates are manual for now. No account is needed for the included
@@ -120,7 +124,8 @@ GitHub or provide automatic app updates. See [release instructions](docs/RELEASI
 
 ## Resources and trust
 
-Original code, tests and documentation are MIT licensed. Scripture, datasets, books
+Original code, tests and documentation are MIT licensed. The adapted unfoldingWord
+grammar lesson prose is separately CC BY-SA 4.0. Scripture, datasets, books
 and assets keep their own terms; see [LICENSE](LICENSE), [content sources](CONTENT-SOURCES.md)
 and [third-party notices](THIRD_PARTY_NOTICES.md). The included public-source profile
 withholds mixed-rights HCF excerpts, private inputs and unverified legacy texture art.

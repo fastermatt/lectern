@@ -13,6 +13,7 @@ Detailed edition notices and modification statements are preserved under
 | Canonical cross-reference dataset | CrossReferences-CC-BY-4.0.txt |
 | Hebrew/Greek interlinear and morphology | interlinear-stepbible.txt, CC BY 4.0 attribution and changes |
 | Strong's lexicons | lexicon-greek.txt and lexicon-hebrew.txt |
+| Plain-English grammar lessons | grammar-help.txt; adapted unfoldingWord prose, CC BY-SA 4.0; matching logic/UI MIT |
 | Easton, Nave, TIPNR | reference-* notices, including STEPBible attribution |
 | Historic confessions | standards notices and scripts/standards-sources/SOURCES.md |
 | Apostolic Fathers, 1870 translation | project-gutenberg-77576-full-license.txt and Reference/apostolic-fathers-rights.json |

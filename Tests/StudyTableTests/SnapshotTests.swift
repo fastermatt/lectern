@@ -8,6 +8,21 @@ import XCTest
 /// that rendering produces a non-blank image.
 @MainActor
 final class SnapshotTests: XCTestCase {
+    func testGuidedStudyInBothAppearances() throws {
+        for (dark, name) in [(false, "light"), (true, "dark")] {
+            let state = stateAt("PHP", 4, 4)
+            state.preferenceStore.set(true, forKey: "learning.showEmphasis")
+            for step in GuidedStudyStep.allCases {
+                let view = ScrollView {
+                    GuidedStudyView(study: state.study, initialStep: step, initialWordIndex: 0)
+                }.environmentObject(state).defaultAppStorage(state.preferenceStore).background(STColor.paper)
+                let rep = try render(view, dark: dark, size: CGSize(width: 330, height: 850),
+                                     name: "guided-\(step.title.lowercased())-\(name)")
+                assertNotBlank(rep, "guided \(step) \(name)")
+            }
+        }
+    }
+
     func testLocalModelChooserBothAppearances() throws {
         for (dark, name) in [(false, "light"), (true, "dark")] {
             let manager = LocalAIManager(root: FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString))

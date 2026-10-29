@@ -64,3 +64,24 @@ LECTERN_ENFORCE_PERFORMANCE_BUDGETS=1 swift test -c release --filter 'Interlinea
 Record hardware, build configuration and results. Do not interpret passing shared-runner
 CI as meeting these performance targets. New contributors can run the same opt-in check;
 when reporting a regression include machine/OS/build details, not private user data.
+
+## 0.19.0 guided-study candidate — 2026-10-28
+
+Local debug regression passed 639 tests, 11 explicit skips, zero failures. After
+the final narrow-pane step-grid correction and reflection editor identity guard,
+the focused grammar/passage-learning/rendering run passed 10 tests, zero failures.
+The full suite was not repeated after those small changes. Eight final 330-point
+light/dark renders cover Read, Words, Grammar and Reflect; the step grid, text,
+emphasis underline and native controls were visually inspected. No independent
+human linguistic review or hands-on second-Mac installation is claimed.
+
+Coverage includes Hebrew fused-morpheme parsing and sequential forms, Greek
+imperfect/perfect separation, unsupported forms/languages, real tagged verbs,
+BSB-only emphasis phrase guards, repeated vocabulary, reflection reload without
+overwriting other notes, empty-note prevention and read-only rejection. The
+public resource snapshot gate passes with 3,306 files and unchanged 98,831 study
+entries; the sole new bundled resource is the grammar attribution notice.
+
+The beta is ad-hoc signed, Apple Silicon/macOS 14+, without notarization or an
+automatic updater. The teaching set has ten general grammar lessons and three
+BSB editorial emphasis examples, not Discovery Bible content or full parity.

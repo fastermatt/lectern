@@ -33,6 +33,7 @@ struct SingleWordCard: View {
                 if let result, result.match != nil { provenance(result) }
                 alternatives
                 parsing(word)
+                GrammarHelpView(word: word)
                 strongs(word)
                 entries(word)
                 OriginalConcordanceDisclosure(strong: word.strongs.first ?? "", lemma: word.lemma, store: store,

@@ -499,7 +499,7 @@ struct SourcesPane: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                ForEach([StudyDeskMode.sources, .tools, .guide]) { choice in deskTab(choice) }
+                ForEach([StudyDeskMode.sources, .tools, .guide, .learn]) { choice in deskTab(choice) }
             }.padding(.horizontal, 16)
             HStack {
                 Label("Linked to \(state.passage)", systemImage: "link")
@@ -520,10 +520,12 @@ struct SourcesPane: View {
             ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {
-                    if mode != .tools {
+                    if mode == .sources || mode == .guide {
                         DownloadedPassageNotes(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
                     }
-                    if mode == .guide {
+                    if mode == .learn {
+                        GuidedStudyView(study: state.study)
+                    } else if mode == .guide {
                         PassageGuideView(study: state.study, references: references, scope: $state.guideScope) { destination, anchor, tool in
                             state.navigate(bookCode: anchor.book, chapter: anchor.chapterStart, verse: anchor.verseStart)
                             if let tool { state.setDeskSectionVisible(tool, true) }
@@ -593,7 +595,7 @@ struct SourcesPane: View {
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(selected ? .isSelected : [])
-        .help(choice == .guide ? "Overview of a selected or entered passage" : choice == .tools
+        .help(choice == .learn ? "Read, explore words and grammar, and save a reflection" : choice == .guide ? "Overview of a selected or entered passage" : choice == .tools
             ? "Original languages, proof texts, topics, dictionary, people and translations for the reader's verse"
             : "Commentary and cross-reference banks for the reader's verse")
     }

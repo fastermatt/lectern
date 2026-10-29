@@ -11,6 +11,12 @@ struct WorkspaceToolbar: View {
             Divider().frame(height: 18)
             Button { state.showBibleSearch = true } label: { Label("Search", systemImage: "magnifyingglass") }
                 .navigationHelp("Search Scripture and your study library. Shortcut: ⌘F.")
+            Button {
+                state.focusMode = false
+                state.showStudyDesk = true
+                state.deskMode = .learn
+            } label: { Label("Learn", systemImage: "book.closed") }
+                .navigationHelp("Explore a passage with word meanings, grammar help, emphasis notes and your own reflection.")
             Button { openWindow(id: "resource-library") } label: { Label("Library", systemImage: "books.vertical") }
                 .navigationHelp("Browse installed Bibles and study resources.")
             Button { openWindow(id: "add-resources") } label: { Label("Add resources", systemImage: "plus") }

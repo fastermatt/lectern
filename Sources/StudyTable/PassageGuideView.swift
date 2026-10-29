@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum StudyDeskMode: String, CaseIterable, Identifiable {
-    case guide = "Guide", sources = "Sources", tools = "Tools"
+    case guide = "Guide", sources = "Sources", tools = "Tools", learn = "Learn"
     var id: String { rawValue }
 }
 

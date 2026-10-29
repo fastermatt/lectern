@@ -1,5 +1,39 @@
 # Lectern workspace and library
 
+## Guided passage study
+
+Choose **Learn** in the toolbar or study desk. Four steps follow the selected verse:
+
+1. **Read** shows the current translation and asks you to read its surrounding
+   paragraph. Optional **Show emphasis notes** underlines the phrases discussed
+   in a Lectern editorial observation. The initial examples are BSB Philippians
+   4:4, John 20:28 and Ephesians 2:9. Other passages/editions explicitly show no
+   note; highlighting requires matching BSB text. These are English-text
+   observations, not a whole-Bible Greek/Hebrew emphasis dataset.
+2. **Words** lets you choose an original word, see its gloss and available Strong's
+   definitions, inspect textual variants and open its concordance. No inferred
+   alignment to the English text is introduced.
+3. **Grammar** adds plain-English lessons for six Greek verb features (aorist,
+   present, imperfect, perfect, imperative and participle) and four Hebrew
+   conjugations (perfect, imperfect, sequential imperfect and imperative). The
+   same help appears in expanded original-word rows and single-word study. The
+   initial lesson set does not cover every form or Aramaic. Unsupported forms
+   retain source parsing and explicitly say that no teaching note is available.
+   Repeated vocabulary is counted from non-variant noun/verb/adjective rows, not
+   interpreted as proof of authorial emphasis.
+4. **Reflect** saves what you type as a regular passage-linked note, tagged
+   `lectern-guided-study`. Reopening the verse restores it. Existing unrelated
+   notes are untouched; merely opening the guide creates no empty note. Notes
+   warnings and read-only recovery still apply. The guide follows a single verse
+   even if the reader has selected a range; its displayed anchor names that scope.
+
+The included grammar explanations are adapted from unfoldingWord grammar under
+CC BY-SA 4.0, with exact article links. Parsing/glosses retain STEPBible's CC BY 4.0
+attribution; dictionaries retain their own notices. This is an initial teaching
+set, without a claimed independent human linguistic review. It does not include
+Discovery Bible's proprietary devotional lexicon, symbol system, annotations,
+NASB text or software. It works offline; external reference links are optional.
+
 ## 0.17: Fathers & reception and navigation tips
 
 **Library → Fathers & reception → Read** opens the included 1870 Apostolic Fathers volume. The reader offers a searchable table of contents and full-text search inside this volume; it is not yet verse-linked or part of global Library search. **Authors** opens 74 sourced profiles, including disputed reception and specific council/synod records. **Ideas & reception** is a reference area for sourced editorial comparisons, including modern Jungian readings and early disputes. These summaries do not automatically label imported books or imply complete writings for every profiled author.
