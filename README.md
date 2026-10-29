@@ -1,28 +1,29 @@
-# Lectern
+# Throughline Bible
 
-[![Contributor checks](https://github.com/fastermatt/lectern/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/fastermatt/lectern/actions/workflows/checks.yml)
+[![Contributor checks](https://github.com/fastermatt/throughline-bible/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/fastermatt/throughline-bible/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Study the Bible with the Church, across centuries.**
+**Jesus is the throughline of Scripture. Study the Bible with the Church, across centuries.**
 
-Lectern brings Scripture, historical sources, original-language tools and your own
-notes into one quiet workspace. Open a passage, follow its sources, and keep what
+Throughline, the app of the Throughline Bible project, brings Scripture,
+historical sources, original-language tools and your own notes into one quiet
+workspace. Open a passage, follow its sources, and keep what
 you learn. The included core works offline, without a subscription, account or AI
 service.
 
-[Download the Mac beta](https://github.com/fastermatt/lectern/releases/tag/v0.19.0)
+[Download the previous Lectern beta](https://github.com/fastermatt/throughline-bible/releases/tag/v0.19.0)
 · [See what you can do](#what-you-can-do-today)
-· [Help build Lectern](#help-build-lectern)
+· [Help build Throughline](#help-build-throughline)
 
-![Lectern passage study in light mode](docs/images/study-romans-light.png)
+![Throughline passage study in light mode](docs/images/study-romans-light.png)
 
 [View dark mode](docs/images/study-romans-dark.png)
 
-## Why Lectern exists
+## Why Throughline exists
 
 For centuries, Christians have copied, translated, preserved, debated and explained
 Scripture. Much of that work can be shared freely, yet finding a trustworthy edition
-and using it alongside a passage can still be difficult. Lectern brings those texts
+and using it alongside a passage can still be difficult. Throughline brings those texts
 into reach with clear attribution and room for the reader's own work.
 
 We want serious study to be available whether or not someone can pay. The official
@@ -31,7 +32,7 @@ choices. We take historic Christian teaching seriously: disputed or rejected cla
 need specific evidence and room for correction, not a verdict based only on an
 author's name. AI output cannot approve those claims.
 
-Lectern is built in public so readers, researchers, translators, accessibility
+Throughline is built in public so readers, researchers, translators, accessibility
 testers, writers and developers around the world can improve it. We credit their
 work and explain editorial decisions. The project should be able to grow beyond
 any one founder.
@@ -57,30 +58,30 @@ any one founder.
   downloadable resources disclose their rights and provenance; importing a book
   does not grant redistribution rights. [See the library guide](WORKSPACE-AND-LIBRARY.md).
 - **Use AI only if it helps.** Choose one of three optional local models, connect
-  your own compatible provider, or let an external AI use Lectern's read-only JSON
+  your own compatible provider, or let an external AI use Throughline's read-only JSON
   CLI. None is needed for core study. [See AI and CLI](CLI-AND-AI.md).
 
-## Get Lectern
+## Get Throughline
 
-[Download beta 0.19.0](https://github.com/fastermatt/lectern/releases/tag/v0.19.0)
+[Download the previous Lectern beta (0.19.0)](https://github.com/fastermatt/throughline-bible/releases/tag/v0.19.0)
 for an **Apple Silicon Mac running macOS 14 or later**. The current beta is
 ad-hoc signed and not Apple-notarized. Follow the [installation and update guide](docs/INSTALL.md)
 for the exact steps; updates are manual for now. No account is needed for the included
 study resources.
 
-## Help build Lectern
+## Help build Throughline
 
 You do not need to write Swift or own a Mac to help. Try one study session and report
 where you got stuck; check a citation or resource edition; improve a translation,
 help page or accessibility path. Small, well-sourced contributions matter.
 
-- [Report an installation problem](https://github.com/fastermatt/lectern/issues/1)
-  or [ask a question](https://github.com/fastermatt/lectern/discussions).
-- [Pick a good first issue](https://github.com/fastermatt/lectern/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
-  including [accessibility](https://github.com/fastermatt/lectern/issues/2),
-  [localization](https://github.com/fastermatt/lectern/issues/3) and
-  [reproducible resources](https://github.com/fastermatt/lectern/issues/4).
-- [Help share maintenance](https://github.com/fastermatt/lectern/issues/5) so the
+- [Report an installation problem](https://github.com/fastermatt/throughline-bible/issues/1)
+  or [ask a question](https://github.com/fastermatt/throughline-bible/discussions).
+- [Pick a good first issue](https://github.com/fastermatt/throughline-bible/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
+  including [accessibility](https://github.com/fastermatt/throughline-bible/issues/2),
+  [localization](https://github.com/fastermatt/throughline-bible/issues/3) and
+  [reproducible resources](https://github.com/fastermatt/throughline-bible/issues/4).
+- [Help share maintenance](https://github.com/fastermatt/throughline-bible/issues/5) so the
   project can continue without one person's constant attention.
 
 Start with [Contributing](CONTRIBUTING.md) and the [roadmap](docs/ROADMAP.md). Work
@@ -97,8 +98,8 @@ beta and bundled local engine target **Apple Silicon, macOS 14+**. The local ver
 record is in [Validation](docs/VALIDATION.md); the badge above links the current hosted CI result. Windows/Linux contributors can use the Python validators and edit docs/data.
 
 ```sh
-git clone https://github.com/fastermatt/lectern.git
-cd lectern
+git clone https://github.com/fastermatt/throughline-bible.git
+cd throughline-bible
 # Run inside your clone. Accept Xcode's license through Xcode if prompted.
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 python3 scripts/verify-public-source.py
@@ -115,7 +116,7 @@ To build an installable beta with the optional local engine:
 ```sh
 python3 scripts/bootstrap-local-ai.py   # pinned 16.5 MB engine; no model weights
 scripts/verify-content.sh
-scripts/package-app.sh                 # writes Releases/Lectern-Beta-<version>.zip
+scripts/package-app.sh                 # writes Releases/Throughline-Beta-<version>.zip
 ```
 
 The packager refuses to overwrite an existing release. Update Info.plist for a new

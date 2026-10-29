@@ -107,7 +107,7 @@ final class LocalAIManager: ObservableObject {
                 try Task.checkCancellation(); guard ticket == id else { return }
                 guard let runtime, FileManager.default.isExecutableFile(atPath: runtime.appendingPathComponent("llama-server").path),
                       FileManager.default.isExecutableFile(atPath: runtime.appendingPathComponent("lectern-model-runner").path) else {
-                    throw AIError.message("The local engine is missing. Open the packaged Lectern app, or reinstall this beta.")
+                    throw AIError.message("The local engine is missing. Open the packaged Throughline app, or reinstall this beta.")
                 }
                 let port = try Self.availablePort()
                 let secret = UUID().uuidString + UUID().uuidString

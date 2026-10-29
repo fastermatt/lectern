@@ -3,7 +3,7 @@ import SwiftUI
 /// Resource context, separate from optional navigation help and confessional approval badges.
 enum DarbyComparisonContext {
     static let label = "Darby · Dispensational background"
-    static let summary = "Retained for comparison with historic orthodox Christian teaching. Darby's Israel–Church distinction and pre-tribulation interpretation are disputed and should not be assumed to represent historic Christian consensus. Evaluate his translation separately from his explanatory writings; Lectern's download omits footnotes."
+    static let summary = "Retained for comparison with historic orthodox Christian teaching. Darby's Israel–Church distinction and pre-tribulation interpretation are disputed and should not be assumed to represent historic Christian consensus. Evaluate his translation separately from his explanatory writings; Throughline's download omits footnotes."
     static let discovery = "Darby · Dispensational background. Available for comparison with historic orthodox Christian teaching. Read and search offline; explanatory footnotes are not included."
 }
 

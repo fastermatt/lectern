@@ -60,7 +60,7 @@ private struct AboutSettings: View {
             // Claude may want to relocate this to Workspace, alongside source-bank visibility,
             // during wave-2 integration now that it can touch those files.
             Section("Confessional alignment lens") {
-                Text("Lectern does not claim one fixed doctrinal identity. Choose which confessional standard, if any, governs the alignment language (agreement / tension / no mapping / historically disputed) shown on source cards. This is independent of which authors or traditions you display in Fathers, Reformed, Exegetes or Cross-References \u{2014} changing the lens never hides or shows a source.")
+                Text("Throughline does not claim one fixed doctrinal identity. Choose which confessional standard, if any, governs the alignment language (agreement / tension / no mapping / historically disputed) shown on source cards. This is independent of which authors or traditions you display in Fathers, Reformed, Exegetes or Cross-References \u{2014} changing the lens never hides or shows a source.")
                     .font(.caption).foregroundStyle(.secondary)
                 AlignmentLensPicker()
             }

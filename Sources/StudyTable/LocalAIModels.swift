@@ -29,7 +29,7 @@ struct LocalAIModel: Identifiable, Equatable, Sendable {
 enum LocalAIStorage {
     static var root: URL {
         FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("Lectern/LocalAI", isDirectory: true)
+            .appendingPathComponent("Lectern/LocalAI", isDirectory: true) // Legacy location preserves downloaded models.
     }
     static func validate(_ url: URL, model: LocalAIModel) throws {
         let handle = try FileHandle(forReadingFrom: url)

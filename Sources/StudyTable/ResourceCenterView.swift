@@ -28,7 +28,7 @@ private struct ResourceCenterContent: View {
             }
 
             Section("Your own AI") {
-                Text("Connect a local or hosted model in the AI panel, or let your AI tool call Lectern’s read-only CLI. Core Bible study still works without AI.")
+                Text("Connect a local or hosted model in the AI panel, or let your AI tool call Throughline’s read-only CLI. Core Bible study still works without AI.")
                 Button("Open AI panel & CLI setup") { openWindow(id: "ai-assistant") }
             }
             Section(ResourceAccessGroup.included.rawValue) {
@@ -77,7 +77,7 @@ private struct ResourceCenterContent: View {
                 Button("Open translation settings") {
                     SettingsOpener.shared.destination = .translations
                 }
-                Text("Publisher keys belong to you and are stored in your macOS Keychain. They are not supplied by Lectern.")
+                Text("Publisher keys belong to you and are stored in your macOS Keychain. They are not supplied by Throughline.")
                     .font(.caption).foregroundStyle(.secondary)
             }
 

@@ -251,12 +251,12 @@ enum LecternStudyError: Error, LocalizedError, Equatable {
 
     var errorDescription: String? {
         switch self {
-        case .tooLarge(let n): "This file is \(n) bytes — larger than Lectern accepts for a study file."
-        case .notJSON: "This isn't a valid Lectern study file (not readable JSON)."
-        case .wrongFormat(let format): "This file's format is \"\(format)\", not a Lectern study file."
-        case .unsupportedVersion(let v): "This file was made by a newer version of Lectern (format version \(v)) and can't be opened."
-        case .malformed(let reason): "This Lectern study file is damaged: \(reason)."
-        case .tooManyItems(let n): "This file has \(n) items — more than Lectern will import at once."
+        case .tooLarge(let n): "This file is \(n) bytes — larger than Throughline accepts for a study file."
+        case .notJSON: "This isn't a valid Throughline study file (not readable JSON)."
+        case .wrongFormat(let format): "This file's format is \"\(format)\", not a Throughline study file."
+        case .unsupportedVersion(let v): "This file was made by a newer version of Throughline (format version \(v)) and can't be opened."
+        case .malformed(let reason): "This Throughline study file is damaged: \(reason)."
+        case .tooManyItems(let n): "This file has \(n) items — more than Throughline will import at once."
         case .fieldTooLong(let field): "This file's \(field) field is unreasonably long and was rejected."
         }
     }

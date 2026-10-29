@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 enum LibraryDestination: String, CaseIterable, Identifiable {
-    case discover = "Discover", contribute = "Help improve Lectern", fathers = "Fathers & reception"
+    case discover = "Discover", contribute = "Help improve Throughline", fathers = "Fathers & reception"
     case books = "My books", included = "Included study tools", modern = "Free study resources"
     case bibles = "Free Bibles", historic = "Historic works", publishers = "Publisher stores"
     var id: String { rawValue }
@@ -179,7 +179,7 @@ struct ResourceLibraryView: View {
                     Divider()
                     Link("Browse Crossway ↗", destination: URL(string: "https://www.crossway.org/books/")!)
                     Link("Check Crossway ebook formats ↗", destination: URL(string: "https://www.crossway.org/faq/")!).font(.callout)
-                    Text("Check the product’s format before buying. Lectern imports unencrypted EPUB and UTF-8 text; it cannot unlock Logos, Kindle or other DRM-protected libraries. Text imports omit images, original page numbers and publisher styling.")
+                    Text("Check the product’s format before buying. Throughline imports unencrypted EPUB and UTF-8 text; it cannot unlock Logos, Kindle or other DRM-protected libraries. Text imports omit images, original page numbers and publisher styling.")
                         .font(.callout).foregroundStyle(.secondary)
                     Button("Import a downloaded book…") { importing = true }.disabled(books.activeID != nil)
                     Divider()

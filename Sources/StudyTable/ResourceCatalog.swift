@@ -54,7 +54,7 @@ enum ResourceCatalog {
               sourceURL: URL(string: "https://www.ccel.org/creeds/")!),
         .init(id: "tyndale", title: "Tyndale Open Study Notes & Bible Dictionary", access: .downloads,
               detail: "One-click optional downloads in Add resources. Study notes follow Bible passages; both resources support offline reading and text search.",
-              rights: "Tyndale House Publishers · CC BY-SA 4.0. Lectern’s attributed text adaptation omits illustrations and retains the same license.",
+              rights: "Tyndale House Publishers · CC BY-SA 4.0. Throughline’s attributed text adaptation omits illustrations and retains the same license.",
               sourceURL: URL(string: "https://tyndaleopenresources.com/")!),
         .init(id: "offline-bibles", title: "Additional offline Bibles", access: .downloads,
               detail: "ASV, Young’s Literal, Darby, Webster, Reina Valera 1909 (Spanish), and Ostervald (French). Download once, then read offline. No account needed.",

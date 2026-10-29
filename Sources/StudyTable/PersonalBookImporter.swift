@@ -24,7 +24,7 @@ enum PersonalBookImporter {
             let members = try BibleArchive.members(data, extensions: nil, minimum: 1, memberLimit: ResourceBookFiles.memberLimit)
             let index = Dictionary(uniqueKeysWithValues: members.map { ($0.name, $0) })
             guard index["META-INF/encryption.xml"] == nil else {
-                throw ResourceBookError.invalid("This EPUB declares encrypted content. Import an unencrypted edition from the publisher; Lectern does not remove DRM.")
+                throw ResourceBookError.invalid("This EPUB declares encrypted content. Import an unencrypted edition from the publisher; Throughline does not remove DRM.")
             }
             // Parse a private immutable copy so selecting a file cannot race validation vs unzip.
             let copy = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".epub")
@@ -50,7 +50,7 @@ enum PersonalBookImporter {
             guard !articles.isEmpty else { throw ResourceBookError.invalid("No readable XHTML chapters were found in this EPUB.") }
         } else { throw ResourceBookError.invalid("Choose an unencrypted EPUB or UTF-8 .txt file.") }
         return ResourceBook(id: UUID().uuidString, title: title, author: author,
-            attribution: "Personal copy imported from \(url.lastPathComponent). Copyright remains with the rights holder. Text-only rendering; original pagination, images and styling are not retained. This file is not shared by Lectern.", source: nil, articles: articles)
+            attribution: "Personal copy imported from \(url.lastPathComponent). Copyright remains with the rights holder. Text-only rendering; original pagination, images and styling are not retained. This file is not shared by Throughline.", source: nil, articles: articles)
     }
     static func resolve(_ href: String, relativeTo root: String) -> String? {
         guard let decoded = href.components(separatedBy: "#").first?.removingPercentEncoding,

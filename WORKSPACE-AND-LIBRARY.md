@@ -1,4 +1,4 @@
-# Lectern workspace and library
+# Throughline workspace and library
 
 ## Guided passage study
 
@@ -6,7 +6,7 @@ Choose **Learn** in the toolbar or study desk. Four steps follow the selected ve
 
 1. **Read** shows the current translation and asks you to read its surrounding
    paragraph. Optional **Show emphasis notes** underlines the phrases discussed
-   in a Lectern editorial observation. The initial examples are BSB Philippians
+   in a Throughline editorial observation. The initial examples are BSB Philippians
    4:4, John 20:28 and Ephesians 2:9. Other passages/editions explicitly show no
    note; highlighting requires matching BSB text. These are English-text
    observations, not a whole-Bible Greek/Hebrew emphasis dataset.
@@ -92,7 +92,7 @@ Choose **Add resources**:
   by author/title in a full-size Library window. Download and Open remain direct.
 
 Tyndale downloads come from https://tyndaleopenresources.com/ and use CC BY-SA 4.0.
-Lectern's text conversion is attributed and shares that license. Reviewed archive
+Throughline's text conversion is attributed and shares that license. Reviewed archive
 checksums are pinned; a changed publisher file fails closed until the catalogue is
 reviewed. No Matt account or API key is needed. Failed/cancelled installation does
 not expose a partial book. Downloads are optional and are not bundled in the beta.
@@ -145,9 +145,9 @@ Search has three tabs:
 
 The workspace interaction was informed by Logos's public layout documentation:
 https://support.logos.com/hc/en-us/articles/360016599631-Set-Up-Your-Workspace-with-Layouts
-Lectern does not include Logos code, proprietary datasets, branding or entitlements.
+Throughline does not include Logos code, proprietary datasets, branding or entitlements.
 
 Core study still works without AI. Your AI panel and read-only CLI remain available;
 see CLI-AND-AI.md. The CLI intentionally continues to exclude personal books/notes.
 The public 0.18.1 beta is ad-hoc signed and not Apple-notarized. See the
-[installation guide](docs/INSTALL.md) and [public source](https://github.com/fastermatt/lectern).
+[installation guide](docs/INSTALL.md) and [public source](https://github.com/fastermatt/throughline-bible).

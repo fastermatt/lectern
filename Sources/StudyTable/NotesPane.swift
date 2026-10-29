@@ -252,7 +252,7 @@ struct NoteEditor: View {
             TextField("Romans 8:28–39", text: $anchorEditText)
                 .textFieldStyle(.roundedBorder).frame(width: 200)
                 .onSubmit { commitAnchorEdit(index: index) }
-            if anchorEditError { Text("Not a passage Lectern recognizes.").font(.system(size: 10)).foregroundStyle(STColor.warning) }
+            if anchorEditError { Text("Not a passage Throughline recognizes.").font(.system(size: 10)).foregroundStyle(STColor.warning) }
             HStack {
                 Spacer()
                 Button("Cancel") { editingAnchorIndex = nil }

@@ -118,7 +118,7 @@ enum ResourceBookFiles {
     }
     static func convert(_ resource: OpenResource, data: Data, temporary: URL) throws -> ResourceBook {
         let checksum = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
-        guard checksum == resource.checksum else { throw ResourceBookError.invalid("The publisher file has changed. Nothing was installed; Lectern needs an updated catalogue before importing this edition.") }
+        guard checksum == resource.checksum else { throw ResourceBookError.invalid("The publisher file has changed. Nothing was installed; Throughline needs an updated catalogue before importing this edition.") }
         try data.write(to: temporary)
         let members = try BibleArchive.members(data, extensions: ["xml"], minimum: 1, memberLimit: memberLimit)
         var articles: [ResourceArticle] = []
@@ -128,7 +128,7 @@ enum ResourceBookFiles {
         }
         guard !articles.isEmpty, Set(articles.map(\.id)).count == articles.count else { throw ResourceBookError.invalid("The resource did not pass validation.") }
         return ResourceBook(id: resource.id, title: resource.title, author: "Tyndale House Publishers",
-            attribution: "Adapted from \(resource.title). The original work by Tyndale House Publishers is available for free at https://tyndaleopenresources.com. Copyright © \(resource.id == "tyndale-dictionary" ? "2023" : "2022") Tyndale House Publishers. Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/. Lectern converts XML to plain text, omits illustrations, and adds passage links. This text adaptation is also CC BY-SA 4.0.",
+            attribution: "Adapted from \(resource.title). The original work by Tyndale House Publishers is available for free at https://tyndaleopenresources.com. Copyright © \(resource.id == "tyndale-dictionary" ? "2023" : "2022") Tyndale House Publishers. Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/. Throughline converts XML to plain text, omits illustrations, and adds passage links. This text adaptation is also CC BY-SA 4.0.",
             source: "https://tyndaleopenresources.com/", articles: articles)
     }
     static func store(_ book: ResourceBook, root: URL) throws {

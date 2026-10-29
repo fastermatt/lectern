@@ -5,12 +5,12 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Lectern</string>
+	<string>Throughline</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>Lectern Study File</string>
+			<string>Throughline Study File</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -30,19 +30,19 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Lectern</string>
+	<string>Throughline</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.19.0</string>
+	<string>0.20.0</string>
 	<key>CFBundleVersion</key>
-	<string>51</string>
+	<string>52</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>14.0</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Lectern beta. Bundled Scripture (BSB, KJV, WEB) is public domain. ESV and NKJV are fetched from their publishers with your own API key.</string>
+	<string>Throughline beta. Bundled Scripture (BSB, KJV, WEB) is public domain. ESV and NKJV are fetched from their publishers with your own API key.</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
@@ -51,7 +51,7 @@
 				<string>public.json</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Lectern Study File</string>
+			<string>Throughline Study File</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.fastermatt.studytable.lecternstudy</string>
 			<key>UTTypeTagSpecification</key>

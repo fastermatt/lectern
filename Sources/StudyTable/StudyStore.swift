@@ -159,7 +159,7 @@ final class StudyStore: ObservableObject {
             data = recovered
             loadReport.outcome = .recoveredFromBackup(source: source, damagedFile: nil)
             raise(.warning, "Your study data was restored from a backup",
-                  "study.json was missing, so Lectern restored your notes from \(source.lastPathComponent).")
+                  "study.json was missing, so Throughline restored your notes from \(source.lastPathComponent).")
             persist()
         } else if fm.fileExists(atPath: legacyNotesURL.path), !fm.fileExists(atPath: migrationMarkerURL.path) {
             migrateLegacyNotes()
@@ -173,7 +173,7 @@ final class StudyStore: ObservableObject {
         guard let raw = try? Data(contentsOf: studyURL) else {
             isReadOnly = true
             loadReport.outcome = .unreadable
-            raise(.error, "Lectern can't read your study data",
+            raise(.error, "Throughline can't read your study data",
                   "study.json exists but could not be read. Nothing has been changed. Check the file's permissions, then relaunch.")
             return
         }
@@ -184,8 +184,8 @@ final class StudyStore: ObservableObject {
             if decoded.envelope.schema > StudyEnvelope.currentSchema {
                 isReadOnly = true
                 loadReport.outcome = .newerSchema(decoded.envelope.schema)
-                raise(.warning, "Your study data is from a newer version of Lectern",
-                      "It was saved with schema \(decoded.envelope.schema), which this version can't safely edit. It is open read-only so nothing is overwritten. Update Lectern to keep editing.")
+                raise(.warning, "Your study data is from a newer version of Throughline",
+                      "It was saved with schema \(decoded.envelope.schema), which this version can't safely edit. It is open read-only so nothing is overwritten. Update Throughline to keep editing.")
             } else if decoded.skipped > 0 {
                 loadReport.skippedElements = decoded.skipped
                 let kept = preserve(raw, named: "study-partial")
@@ -204,14 +204,14 @@ final class StudyStore: ObservableObject {
             data = recovered
             loadReport.outcome = .recoveredFromBackup(source: source, damagedFile: damaged)
             raise(.warning, "Your study data was restored from a backup",
-                  "study.json was damaged, so Lectern restored your notes from \(source.lastPathComponent). The damaged file was kept as \(damaged?.lastPathComponent ?? "a .corrupt file") in the StudyTable folder.")
+                  "study.json was damaged, so Throughline restored your notes from \(source.lastPathComponent). The damaged file was kept as \(damaged?.lastPathComponent ?? "a .corrupt file") in the StudyTable folder.")
             persist()
         } else {
             data = StudyEnvelope()
             isReadOnly = true
             loadReport.outcome = .corrupt(damagedFile: damaged)
             raise(.error, "Your study data could not be read",
-                  "study.json is damaged and no backup was usable. It was kept as \(damaged?.lastPathComponent ?? "a .corrupt file") in the StudyTable folder — nothing was deleted. Lectern is read-only this session so it can't overwrite anything.")
+                  "study.json is damaged and no backup was usable. It was kept as \(damaged?.lastPathComponent ?? "a .corrupt file") in the StudyTable folder — nothing was deleted. Throughline is read-only this session so it can't overwrite anything.")
         }
     }
 
@@ -273,7 +273,7 @@ final class StudyStore: ObservableObject {
         guard let raw = try? Data(contentsOf: legacyNotesURL) else {
             isReadOnly = true
             loadReport.outcome = .unreadable
-            raise(.error, "Lectern can't read your notes",
+            raise(.error, "Throughline can't read your notes",
                   "notes.json exists but could not be read. Nothing has been changed. Check the file's permissions, then relaunch.")
             return
         }
@@ -281,8 +281,8 @@ final class StudyStore: ObservableObject {
         guard let backup = writeBackup(raw, base: "notes-v1") else {
             isReadOnly = true
             loadReport.outcome = .unreadable
-            raise(.error, "Lectern couldn't back up your notes",
-                  "Before upgrading your notes, Lectern makes a safety copy — and that copy couldn't be written. Nothing was changed; your notes are safe in notes.json. Free some disk space or check permissions, then relaunch.")
+            raise(.error, "Throughline couldn't back up your notes",
+                  "Before upgrading your notes, Throughline makes a safety copy — and that copy couldn't be written. Nothing was changed; your notes are safe in notes.json. Free some disk space or check permissions, then relaunch.")
             return
         }
 
@@ -308,7 +308,7 @@ final class StudyStore: ObservableObject {
             isReadOnly = true
             loadReport.outcome = .corrupt(damagedFile: damaged)
             raise(.error, "Your notes file could not be read",
-                  "notes.json is damaged and no notes could be recovered from it. It was kept as \(damaged?.lastPathComponent ?? "a .corrupt file") (with a copy in Backups) — nothing was deleted. Lectern is read-only this session so it can't overwrite anything.")
+                  "notes.json is damaged and no notes could be recovered from it. It was kept as \(damaged?.lastPathComponent ?? "a .corrupt file") (with a copy in Backups) — nothing was deleted. Throughline is read-only this session so it can't overwrite anything.")
             return
         }
 
@@ -342,7 +342,7 @@ final class StudyStore: ObservableObject {
             : .migratedFromV1(notes: envelope.notes.count, backup: backup)
         if salvaged {
             raise(.warning, "Some notes were recovered from a damaged file",
-                  "notes.json was damaged (probably cut off). Lectern recovered \(legacy.count) note(s) and kept a full copy of the original in Backups/\(backup.lastPathComponent).")
+                  "notes.json was damaged (probably cut off). Throughline recovered \(legacy.count) note(s) and kept a full copy of the original in Backups/\(backup.lastPathComponent).")
         } else if skipped > 0 {
             raise(.warning, "Some notes were unreadable",
                   "\(skipped) entr\(skipped == 1 ? "y" : "ies") in notes.json couldn't be read and were left out. A full copy of the original is in Backups/\(backup.lastPathComponent).")
@@ -372,7 +372,7 @@ final class StudyStore: ObservableObject {
             if !saveFailureAlerted {
                 saveFailureAlerted = true
                 raise(.error, "Your latest changes couldn't be saved",
-                      "Lectern couldn't write study.json (\(error.localizedDescription)). Your work is still on screen and will be retried on the next change. Free some disk space or check folder permissions.")
+                      "Throughline couldn't write study.json (\(error.localizedDescription)). Your work is still on screen and will be retried on the next change. Free some disk space or check folder permissions.")
             }
             return false
         }

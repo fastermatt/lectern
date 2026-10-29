@@ -7,7 +7,7 @@ struct WorkspaceToolbar: View {
     @State private var showAppearance = false
     var body: some View {
         HStack(spacing: 10) {
-            Text("Lectern").font(.system(size: 22, weight: .medium)).tracking(-0.6).padding(.trailing, 10)
+            Text("Throughline").font(.system(size: 22, weight: .medium)).tracking(-0.6).padding(.trailing, 10)
             Divider().frame(height: 18)
             Button { state.showBibleSearch = true } label: { Label("Search", systemImage: "magnifyingglass") }
                 .navigationHelp("Search Scripture and your study library. Shortcut: ⌘F.")

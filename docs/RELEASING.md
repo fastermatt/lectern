@@ -2,7 +2,7 @@
 
 ## Repository setup and future forks
 
-The official repository is https://github.com/fastermatt/lectern. Initial publication
+The official repository is https://github.com/fastermatt/throughline-bible. Initial publication
 is complete; do not re-create it. The commands below document setup for future forks.
 
 Review the exported tree, MIT scope, THIRD_PARTY_NOTICES, PUBLIC-SOURCE and governance
@@ -39,7 +39,7 @@ preconfigured. Agree on the governance workflow before presenting it as a staffe
 4. Run `python3 scripts/bootstrap-local-ai.py` and `scripts/package-app.sh` on Apple Silicon.
 5. Inspect light/dark, packaged CLI and optional local-model behavior. Run on a clean
    second Mac. Code changes do not justify claiming theological review of a resource.
-6. Verify `codesign --verify --deep --strict /path/to/Lectern.app` and archive integrity.
+6. Verify `codesign --verify --deep --strict /path/to/Throughline.app` and archive integrity.
 7. Generate SHA-256 checksums. Create a draft GitHub Release with version tag, ZIP,
    checksum and readable notes. Keep code history separate from release archives/models.
 8. State signing/notarization status and known limits; publish only after review.

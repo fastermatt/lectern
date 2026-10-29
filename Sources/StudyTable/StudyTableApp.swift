@@ -17,7 +17,7 @@ struct StudyTableApp: App {
     }
 
     var body: some Scene {
-        Window("Lectern", id: "workspace") {
+        Window("Throughline", id: "workspace") {
             MainView()
                 .environmentObject(state)
                 .preferredColorScheme(state.colorScheme)

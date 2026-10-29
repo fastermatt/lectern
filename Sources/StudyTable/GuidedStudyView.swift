@@ -225,7 +225,7 @@ struct GuidedPassageText: View {
                     Text(emphasis.title).fontWeight(.semibold)
                     Text(emphasis.explanation)
                     Link("Text evidence: BSB · \(emphasis.book) \(emphasis.chapter):\(emphasis.verse)", destination: emphasis.source)
-                    Text("Lectern editorial observation of this English text. Bold underlining marks the phrases discussed; it is not an original-language emphasis verdict.")
+                    Text("Throughline editorial observation of this English text. Bold underlining marks the phrases discussed; it is not an original-language emphasis verdict.")
                         .font(.caption).foregroundStyle(STColor.secondary)
                 } else {
                     Text("No editorial emphasis note for this verse and translation. Nothing is highlighted. Try BSB Philippians 4:4, John 20:28, or Ephesians 2:9.")
@@ -252,7 +252,7 @@ struct GuidedReflectionView: View {
                 .disabled(study.isReadOnly)
                 .overlay(Rectangle().stroke(STColor.hairline, lineWidth: 1))
             Text(study.isReadOnly ? "Notes are read-only. Check the notes warning before editing."
-                 : study.hasUnsavedChanges ? "Changes are still in memory. Lectern could not save them; check the notes warning."
+                 : study.hasUnsavedChanges ? "Changes are still in memory. Throughline could not save them; check the notes warning."
                  : "Your reflection saves automatically as a passage-linked note. Find it in Notes or Library & notes search.")
                 .font(.caption).foregroundStyle(STColor.secondary)
         }
