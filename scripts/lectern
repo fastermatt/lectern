@@ -1,5 +1,5 @@
 #!/bin/sh
-# Resolve symlinks so this launcher can also be linked into a reader's PATH.
+# Legacy CLI name retained for existing readers' scripts.
 script=$0
 while [ -L "$script" ]; do
   directory=$(CDPATH= cd -- "$(dirname -- "$script")" && pwd) || exit 1

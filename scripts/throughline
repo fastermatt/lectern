@@ -1,0 +1,10 @@
+#!/bin/sh
+# Throughline Bible's read-only CLI launcher. Resolve links so it can be added to PATH.
+script=$0
+while [ -L "$script" ]; do
+  directory=$(CDPATH= cd -- "$(dirname -- "$script")" && pwd) || exit 1
+  target=$(readlink "$script") || exit 1
+  case "$target" in /*) script=$target ;; *) script=$directory/$target ;; esac
+done
+directory=$(CDPATH= cd -- "$(dirname -- "$script")" && pwd) || exit 1
+exec "$directory/StudyTable" --cli "$@"
