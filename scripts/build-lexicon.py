@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds Study Table's word-study lexicon (Workstream D).
+"""Builds Throughline's word-study lexicon (Workstream D).
 
 Two independent outputs, both derived from verified public-domain sources:
 
@@ -298,7 +298,7 @@ def write_json(path: Path, data) -> None:
         f.write("\n")
 
 
-LICENSE_GREEK = """Study Table — Lexicon licence record: Strong's Greek Dictionary
+LICENSE_GREEK = """Throughline Bible — Lexicon licence record: Strong's Greek Dictionary
 ================================================================
 
 Content: Strong's Greek Dictionary of the New Testament (lemma, transliteration,
@@ -327,7 +327,7 @@ Licence evidence — quoted verbatim from that XML file's own <prologue>:
 Deliberately NOT used: openscriptures/strongs also publishes a pre-converted
 JSON/JS version of this same dictionary (greek/strongs-greek-dictionary.js)
 whose header reads "Copyright 2009, Open Scriptures. CC-BY-SA. Derived from
-XML." Study Table does not ship that file or any data copied from it. This
+XML." Throughline does not ship that file or any data copied from it. This
 app's strongs-greek.json is built by this repo's own
 scripts/build-lexicon.py, which parses the public-domain XML above directly
 and recombines its original fields into a new JSON shape — it is an
@@ -338,7 +338,7 @@ Retrieved: see scripts/build-lexicon.py header comment / build report for the
 exact date this pass ran.
 """
 
-LICENSE_HEBREW = """Study Table — Lexicon licence record: Strong's Hebrew Dictionary
+LICENSE_HEBREW = """Throughline Bible — Lexicon licence record: Strong's Hebrew Dictionary
 =================================================================
 
 Content: Strong's Hebrew (and Biblical Aramaic) Dictionary of the Old
@@ -384,7 +384,7 @@ renderings, all part of the 1894 public-domain dictionary itself) are used.
 Deliberately NOT used: openscriptures/strongs also publishes a pre-converted
 JSON/JS version of this dictionary (hebrew/strongs-hebrew-dictionary.js)
 whose header reads "Copyright 2010, Open Scriptures. CC-BY-SA. Derived from
-XML." Study Table does not ship that file or any data copied from it. This
+XML." Throughline does not ship that file or any data copied from it. This
 app's strongs-hebrew.json is built by this repo's own
 scripts/build-lexicon.py, which parses the public-domain XML above directly
 and recombines its original fields into a new JSON shape — it is an

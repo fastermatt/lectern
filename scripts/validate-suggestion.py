@@ -69,7 +69,7 @@ def main():
     except ValueError as error:
         print(str(error), file=sys.stderr)
         return 1
-    print("Valid Lectern suggestion v1. No content was sent or changed.")
+    print("Valid Throughline suggestion v1. No content was sent or changed.")
     return 0
 
 

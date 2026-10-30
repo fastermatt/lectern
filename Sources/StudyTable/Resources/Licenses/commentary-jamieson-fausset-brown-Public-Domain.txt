@@ -13,5 +13,5 @@ Covers all 66 canonical books per the source's own manifest (work-content/helloa
 jamieson-fausset-brown/_books.json). Authors: Robert Jamieson (Church of Scotland,
 Presbyterian), Andrew Robert Fausset (Church of Ireland, Anglican) and David Brown (Free
 Church of Scotland, Presbyterian) -- 19th-century, broadly evangelical, not itself a
-confessional-Reformed commentary. Filed in Study Table's Tier-2 "Exegetes" bank, labelled
+confessional-Reformed commentary. Filed in Throughline's Tier-2 "Exegetes" bank, labelled
 "Presbyterian & Anglican" on every card.

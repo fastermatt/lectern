@@ -1,6 +1,6 @@
 # Source preparation checks — 2026-10-28
 
-This repository is a public-source preparation based on Lectern 0.18.0. It is published at https://github.com/fastermatt/lectern. This document records local
+This historical validation record covers the public-source preparation of the former Lectern 0.18.0. The current Throughline Bible repository is https://github.com/fastermatt/throughline-bible. This document records local
 checks; consult the Actions tab for current hosted results. An independent contributor
 Mac is still needed for installation testing.
 

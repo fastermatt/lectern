@@ -116,7 +116,7 @@ struct LecternStudyItem: Codable, Sendable, Equatable {
     /// The wire form carries `anchor` as an OSIS reference string ("Rom.8.28", "Rom.8.28-Rom.8.39")
     /// — per PASTOR-QA-0.10 §"`.lecternstudy`": "carrying OSIS anchors" — rather than the app's
     /// internal positional struct, so the file stays a plain, portable, human-readable reference
-    /// even outside Lectern. `Anchor` already has both directions (`osis`, `init?(osis:)`).
+    /// even outside Throughline. `Anchor` already has both directions (`osis`, `init?(osis:)`).
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         if let osis = c.lenient(String.self, .anchor), let parsed = Anchor(osis: osis) {

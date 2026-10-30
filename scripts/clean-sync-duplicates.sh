@@ -31,7 +31,7 @@ if [[ -d "$resources" ]]; then
   done
 fi
 if [[ ! -d "$resources" ]]; then
-  echo "error: $resources not found (run from the Study Table project root)" >&2
+  echo "error: $resources not found (run from the Throughline Bible project root)" >&2
   exit 1
 fi
 

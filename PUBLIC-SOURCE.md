@@ -1,6 +1,6 @@
 # Public source profile
 
-This is a curated source export of Lectern 0.18.0 build 49, not the private working
+Throughline Bible began as a curated source export of the former Lectern 0.18.0 build 49, not the private working
 directory. It builds with the same public study text as the beta. The export keeps
 41,233 mixed-rights HCF excerpts out of both source and application, while preserving
 604 independently sourced Apostolic Fathers reader sections and author profiles.

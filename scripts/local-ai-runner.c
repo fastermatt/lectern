@@ -1,4 +1,4 @@
-// Own the model process: terminate it when Lectern exits (including crashes).
+// Own the model process: terminate it when Throughline exits (including crashes).
 #include <sys/event.h>
 #include <sys/wait.h>
 #include <sys/types.h>

@@ -1,4 +1,4 @@
-Study Table — Reference licence record: STEPBible TIPNR (People & Places)
+Throughline Bible — Reference licence record: STEPBible TIPNR (People & Places)
 =============================================================================
 
 Content: 4,242 disambiguated proper-name records (3,129 people, 1,011
@@ -32,7 +32,7 @@ the app's Settings/About screen):
     Cambridge."
 
 Not share-alike: CC BY 4.0 requires attribution only, no obligation to
-release Study Table's own code or other data under the same licence.
+release Throughline's own code or other data under the same licence.
 
 AI-drafted descriptions: the source file's own header states "Every
 individual has a description in brief, short and article length (created
@@ -41,7 +41,7 @@ by Claude 3 AI)" — these description tiers (`@Briefest=`/`@Brief=`/
 under the same CC BY 4.0 as the rest of the file. This build uses the
 `@Short=` tier (falling back to `@Brief=`/`@Briefest=` when empty) as the
 People & Places card's description — attributed to STEPBible like
-everything else from this file, never presented as Study Table's or
+everything else from this file, never presented as Throughline's or
 Claude's own writing.
 
 Documented, bounded enrichment: TIPNR's own reference tagging follows its

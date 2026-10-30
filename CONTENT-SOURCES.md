@@ -19,7 +19,7 @@ Bundled translations (all from eBible.org, all public domain; USFM sources kept 
 - **KJV** — King James Version, standardized 1769 text, protocanon (`eng-kjv2006_usfm.zip`, courtesy of the CrossWire Bible Society and eBible.org). Public domain outside the UK, where Crown letters patent govern *printing*.
 - **WEB** — World English Bible, 2020 stable text, protocanon (`engwebp_usfm.zip`). Public domain; the name is an eBible.org trademark.
 
-ESV, NASB and NKJV are **not bundled**. ESV (Crossway API) and NKJV (API.Bible) can be read online with the user's own API key within each publisher's terms (see `wiki/Study Table.md` › Licensing); a licensed offline pack for any of them can be installed in `~/Library/Application Support/StudyTable/Translations/`.
+ESV, NASB and NKJV are **not bundled**. ESV (Crossway API) and NKJV (API.Bible) can be read online with the user's own API key within each publisher's terms; a licensed offline pack for any of them can be installed in the existing `~/Library/Application Support/StudyTable/Translations/` data folder.
 
 ## Offline study indexes
 

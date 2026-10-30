@@ -295,7 +295,7 @@ final class AppState: ObservableObject {
         theme = currentScheme == .dark ? .light : .dark
     }
     /// The reader's chosen alignment lens. Defaults to `.none` -- per the 2026-09-24 decision,
-    /// Lectern does not ship with a fixed confessional identity, so no lens is the shipped
+    /// Throughline does not ship with a fixed confessional identity, so no lens is the shipped
     /// default rather than defaulting to Westminster Standards. See the workstream report for
     /// the reasoning and for flagging this as a default worth Matt confirming directly.
     var alignmentStandard: AlignmentStandard {
