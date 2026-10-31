@@ -17,7 +17,7 @@ struct ContributionView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Help improve Throughline").font(.system(size: 25, weight: .regular))
+                Text("Help improve Thruline").font(.system(size: 25, weight: .regular))
                 Text("A better reference. A missing resource. A clearer translation. Your experience can help, wherever you study.")
                     .font(.callout).foregroundStyle(STColor.secondary)
                 Text("Prepare a suggestion without coding. Export a small file to share with a maintainer. Nothing is sent automatically; public submission channels are still being prepared.")
@@ -53,7 +53,7 @@ struct ContributionView: View {
                 }
             }.padding(28).frame(maxWidth: 740, alignment: .leading).frame(maxWidth: .infinity, alignment: .leading)
         }.foregroundStyle(STColor.ink).background(STColor.paper)
-        .fileExporter(isPresented: $exporting, document: document, contentType: .json, defaultFilename: "throughline-suggestion") { result in
+        .fileExporter(isPresented: $exporting, document: document, contentType: .json, defaultFilename: "thruline-suggestion") { result in
             switch result { case .success: message = "Saved. Review the file before sharing it."; case .failure: message = "The draft wasn’t saved. You can try exporting again." }
         }
     }

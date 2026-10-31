@@ -1,4 +1,4 @@
-Throughline grammar help
+Thruline grammar help
 
 The explanatory prose in Sources/StudyTable/GrammarLessons.swift is adapted and
 condensed from unfoldingWord Greek Grammar and unfoldingWord Hebrew Grammar,
@@ -20,8 +20,8 @@ No independent human linguistic review is claimed for this initial teaching set.
 
 STEPBible word forms, glosses and parsing retain their separate CC BY 4.0 terms;
 see interlinear-stepbible.txt. Strong's dictionaries retain their own public-domain
-notices. Emphasis examples in PassageLearning.swift are original Throughline editorial
+notices. Emphasis examples in PassageLearning.swift are original Thruline editorial
 observations of the public-domain BSB text, not Greek/Hebrew emphasis determinations.
 
 No Discovery Bible proprietary definitions, annotations, symbols, software or
-licensed NASB text are included. Throughline is not affiliated with Discovery Bible.
+licensed NASB text are included. Thruline is not affiliated with Discovery Bible.

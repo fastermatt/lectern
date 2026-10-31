@@ -159,4 +159,83 @@ final class AppearanceReworkTests: XCTestCase {
         PaletteRuntime.shared.apply(.standard)
     }
 
+
+    func testWindowLayoutsAndOptionalDownloadsOffscreen() throws {
+        guard ProcessInfo.processInfo.environment["STUDYTABLE_SNAPSHOT_DIR"] != nil else { throw XCTSkip("Offscreen artifact capture is opt-in") }
+        for dark in [false, true] {
+            let state = makeOfflineState(); state.theme = dark ? .dark : .light
+            let finish = dark ? "dark" : "light"
+            var recipe = state.workspaceRecipe()
+            recipe.windows = [DetachedWindowRecipe(panel: "bible", frame: nil, pinned: nil), DetachedWindowRecipe(panel: "notes", frame: nil, pinned: true)]
+            state.layouts.save("Sermon prep · two windows", recipe: recipe)
+            state.layouts.save("Docked reading", recipe: state.workspaceRecipe())
+            try render(LayoutsPanel(library: state.layouts).environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                       size: CGSize(width: 490, height: 560), name: "layouts-windows-\(finish)")
+            try render(PatristicLibraryView(books: state.resourceBooks, read: { _ in })
+                .environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                size: CGSize(width: 720, height: 2400), name: "fathers-downloads-\(finish)")
+            try render(ResourceLibraryView(books: state.resourceBooks, destination: .modern,
+                historic: PuritanLibraryService(storageDirectory: temporaryDirectory("historic-modern-preview")))
+                .environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                size: CGSize(width: 1060, height: 1500), name: "free-resources-\(finish)")
+            try render(ScrollView { DownloadLibraryView().padding(24) }.environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                       size: CGSize(width: 640, height: 2300), name: "bible-downloads-\(finish)")
+        }
+        PaletteRuntime.shared.apply(.standard)
+    }
+
+    func testLinkedReaderAndLibraryCitationsOffscreen() async throws {
+        guard ProcessInfo.processInfo.environment["STUDYTABLE_SNAPSHOT_DIR"] != nil else { throw XCTSkip("Offscreen artifact capture is opt-in") }
+        let state = makeOfflineState()
+        let library = ResourceBookLibrary(root: temporaryDirectory("linked-preview"))
+        await library.load(); await library.citationsReady()
+        let fathers = try XCTUnwrap(library.includedBooks.first)
+        let hit = try XCTUnwrap(library.citations.citing(Anchor(book: "MAT", chapter: 5, throughChapter: nil)).first)
+        for dark in [false, true] {
+            state.theme = dark ? .dark : .light
+            let finish = dark ? "dark" : "light"
+            try render(ResourceBookReader(book: fathers, focus: LibraryFocus(bookID: fathers.id, articleID: hit.articleID, paragraph: hit.paragraph), back: {})
+                .environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                size: CGSize(width: 900, height: 720), name: "linked-reader-\(finish)")
+            try render(ScrollView { LibraryCitationsPanel(books: library, anchor: Anchor(book: "MAT", chapter: 5, throughChapter: nil), startsExpanded: true) }
+                .environmentObject(state).preferredColorScheme(state.colorScheme).background(STColor.paper), dark: dark,
+                size: CGSize(width: 460, height: 900), name: "library-citations-\(finish)")
+        }
+        PaletteRuntime.shared.apply(.standard)
+    }
+
+    /// PASTOR_WALKTHROUGH=1 STUDYTABLE_SNAPSHOT_DIR=… (downloads Darby into a temporary folder)
+    func testPastorWalkthroughWorkspaceOffscreen() async throws {
+        guard ProcessInfo.processInfo.environment["PASTOR_WALKTHROUGH"] == "1",
+              ProcessInfo.processInfo.environment["STUDYTABLE_SNAPSHOT_DIR"] != nil else { throw XCTSkip("Opt-in walkthrough capture") }
+        let packs = temporaryDirectory("pastor-packs")
+        try await BibleInstaller(root: packs).install(try XCTUnwrap(BibleDownload.catalog.first { $0.id == "DBY" })) { _ in }
+        let cache = OnlineChapterCache(directory: temporaryDirectory("cache"))
+        let service = OnlineTranslationService(cache: cache, transport: { _ in throw URLError(.notConnectedToInternet) },
+            idStore: BibleIDStore(defaultsKey: "test.ids.\(UUID().uuidString)"), keyReader: { _ in nil })
+        let books = ResourceBookLibrary(root: temporaryDirectory("pastor-books"))
+        let state = AppState(library: ScriptureLibrary(userRoot: packs), studyResources: StudyResourceStore(), online: service,
+            defaults: ephemeralDefaults(), notes: ephemeralNotes(), resourceBooks: books)
+        state.hasSeenIntro = true; state.applyPreset(.study); state.fontSize = 22; state.lineSpacing = 8
+        await books.load(); await books.citationsReady()
+        state.translationID = "DBY"
+        state.navigate(bookCode: "REV", chapter: 20, verse: 4); state.rangeEndVerse = 6
+        state.study.addNote(anchors: [Anchor(book: "REV", chapter: 20, verses: 1, to: 6)], title: "Was a pre-trib rapture taught before Darby?", kind: .sermonIdea,
+            sections: [NoteSection(key: "points", text: "1. What Rev 20 says\n2. Didache 16; Irenaeus V.29–30; Augustine City of God XX\n3. Darby (1830s): Israel/Church, pre-tribulation")])
+        for dark in [false, true] {
+            state.theme = dark ? .dark : .light
+            let finish = dark ? "dark" : "light"
+            try render(MainView().environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                       size: CGSize(width: 1487, height: 1058), name: "pastor-workspace-\(finish)")
+            try render(ScrollView { LibraryCitationsPanel(books: books, anchor: Anchor(book: "REV", chapter: 20, verses: 1, to: 6), startsExpanded: true) }
+                .environmentObject(state).preferredColorScheme(state.colorScheme).background(STColor.paper), dark: dark,
+                size: CGSize(width: 460, height: 800), name: "pastor-citations-rev20-\(finish)")
+            if let fathers = books.includedBooks.first, let hit = books.citations.citing(Anchor(book: "REV", chapter: 20, verses: 1, to: 6)).first {
+                try render(ResourceBookReader(book: fathers, focus: LibraryFocus(bookID: fathers.id, articleID: hit.articleID, paragraph: hit.paragraph), back: {})
+                    .environmentObject(state).preferredColorScheme(state.colorScheme), dark: dark,
+                    size: CGSize(width: 1100, height: 760), name: "pastor-reader-\(finish)")
+            }
+        }
+        PaletteRuntime.shared.apply(.standard)
+    }
 }

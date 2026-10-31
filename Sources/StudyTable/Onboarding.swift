@@ -17,19 +17,19 @@ struct WelcomeSheet: View {
         ("SOURCES", "Choose a linked resource to read its actual indexed text. The filter above the list controls source banks. Citations, coverage and historical context remain attached to each entry."),
         ("HISTORICAL CONTEXT", "Church Fathers are historical witnesses, not automatically Reformed authorities. Author profiles give sourced context where available. Council-condemned authors are separately labelled and opt-in under View. No source's inclusion means theological endorsement."),
         ("TOOLS & GUIDE", "Tools opens original languages, definitions, cross-references, topics, people and places, and translation comparison. Guide gives an overview for a selected or entered passage. Historical resources have gaps."),
-        ("STUDY A WORD", "Double-click a Bible word, or right-click its verse and choose Study a word. Throughline shows the original-language match and its confidence; some translated words have no single original word."),
+        ("STUDY A WORD", "Double-click a Bible word, or right-click its verse and choose Study a word. Thruline shows the original-language match and its confidence; some translated words have no single original word."),
         ("RESOURCES", "Library shows included and personal resources. Add resources offers free Bible downloads, Tyndale study notes and dictionary, historic works, and publisher links. Import your own unencrypted EPUB or text books. Purchases happen on the publisher's website."),
         ("SEARCH", "Search in the top toolbar (⌘F) finds Bible text, library material and notes, or original-language matches. The sidebar field finds a book or reference."),
         ("NOTES", "Notes stay linked to your passage. Use the plus button to start another note, choose a template, or browse your saved notes. Everything saves locally."),
         ("YOUR AI", "Connect your own local model or provider in Your AI. You choose which passage or cited material to attach. Core Bible study works offline without an AI account."),
-        ("ALIGNMENT LENS", "Settings → About offers Westminster Standards, Three Forms of Unity, ecumenical creeds, or none. Documented alignment labels never imply a fixed doctrinal identity for Throughline.")
+        ("ALIGNMENT LENS", "Settings → About offers Westminster Standards, Three Forms of Unity, ecumenical creeds, or none. Documented alignment labels never imply a fixed doctrinal identity for Thruline.")
     ]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 4) {
-                Text("THROUGHLINE").font(STFont.legend(11)).tracking(1.6)
-                Text("Welcome to Throughline").font(STFont.title(20))
+                Text("THRULINE BIBLE").font(STFont.legend(11)).tracking(1.6)
+                Text("Welcome to Thruline Bible").font(STFont.title(20))
             }
             .padding(20)
             Divider()

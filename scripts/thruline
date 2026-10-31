@@ -1,5 +1,5 @@
 #!/bin/sh
-# Throughline Bible's read-only CLI launcher. Resolve links so it can be added to PATH.
+# Thruline Bible's read-only CLI launcher. Resolve links so it can be added to PATH.
 script=$0
 while [ -L "$script" ]; do
   directory=$(CDPATH= cd -- "$(dirname -- "$script")" && pwd) || exit 1

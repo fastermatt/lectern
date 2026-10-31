@@ -24,7 +24,7 @@ enum PersonalBookImporter {
             let members = try BibleArchive.members(data, extensions: nil, minimum: 1, memberLimit: ResourceBookFiles.memberLimit)
             let index = Dictionary(uniqueKeysWithValues: members.map { ($0.name, $0) })
             guard index["META-INF/encryption.xml"] == nil else {
-                throw ResourceBookError.invalid("This EPUB declares encrypted content. Import an unencrypted edition from the publisher; Throughline does not remove DRM.")
+                throw ResourceBookError.invalid("This EPUB declares encrypted content. Import an unencrypted edition from the publisher; Thruline does not remove DRM.")
             }
             // Parse a private immutable copy so selecting a file cannot race validation vs unzip.
             let copy = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".epub")
@@ -50,7 +50,7 @@ enum PersonalBookImporter {
             guard !articles.isEmpty else { throw ResourceBookError.invalid("No readable XHTML chapters were found in this EPUB.") }
         } else { throw ResourceBookError.invalid("Choose an unencrypted EPUB or UTF-8 .txt file.") }
         return ResourceBook(id: UUID().uuidString, title: title, author: author,
-            attribution: "Personal copy imported from \(url.lastPathComponent). Copyright remains with the rights holder. Text-only rendering; original pagination, images and styling are not retained. This file is not shared by Throughline.", source: nil, articles: articles)
+            attribution: "Personal copy imported from \(url.lastPathComponent). Copyright remains with the rights holder. Text-only rendering; original pagination, images and styling are not retained. This file is not shared by Thruline.", source: nil, articles: articles)
     }
     static func resolve(_ href: String, relativeTo root: String) -> String? {
         guard let decoded = href.components(separatedBy: "#").first?.removingPercentEncoding,
@@ -88,21 +88,58 @@ private final class EPUBText: NSObject, XMLParserDelegate {
     var body = "", heading = ""
     private var inside = false, inHeading = false
     private var skip = 0
+    /// Text of a footnote reference link while it is being read; written out as "[n]".
+    private var noteText: String?
+    private var noteDepth = 0
+    private var lastWasSpace = true
+    /// HTML whitespace is insignificant: runs collapse to one space; <br> and blocks break lines.
+    private func append(_ text: String) {
+        for character in text {
+            if character.isWhitespace {
+                if !lastWasSpace { body.append(" "); lastWasSpace = true }
+            } else { body.append(character); lastWasSpace = false }
+        }
+    }
+    private func breakLine(_ marker: String) {
+        while body.hasSuffix(" ") { body.removeLast() }
+        body += marker; lastWasSpace = true
+    }
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes: [String: String]) {
         let name = elementName.split(separator: ":").last.map(String.init) ?? elementName
         if name == "body" { inside = true }
         if skip > 0 || ["script", "style", "svg", "nav"].contains(name) { skip += 1 }
-        if skip == 0, ["h1", "h2"].contains(name), heading.isEmpty { inHeading = true }
-        if inside, skip == 0, name == "br" { body += "\n" }
+        if skip == 0, ["h1", "h2", "h3", "h4"].contains(name), heading.isEmpty { inHeading = true }
+        if inside, skip == 0, name == "br" { breakLine("\n") }
+        if noteText != nil { noteDepth += 1 }
+        else if name == "a", let href = attributes["href"], let fragment = href.split(separator: "#").last.map({ $0.lowercased() }),
+                href.contains("#"), ["note", "fn", "foot"].contains(where: { fragment.contains($0) }) {
+            noteText = ""; noteDepth = 0
+        }
     }
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if inside, skip == 0 { body += string; if inHeading { heading += string } }
+        guard inside, skip == 0 else { return }
+        if noteText != nil { noteText! += string; return }
+        append(string)
+        if inHeading { heading += string }
     }
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         let name = elementName.split(separator: ":").last.map(String.init) ?? elementName
         if skip > 0 { skip -= 1; return }
-        if ["h1", "h2"].contains(name) { inHeading = false }
-        if inside, ["p", "div", "li", "h1", "h2", "h3", "tr"].contains(name) { body += "\n\n" }
+        if let note = noteText {
+            if noteDepth > 0 { noteDepth -= 1; return }
+            noteText = nil
+            let digits = note.filter(\.isNumber)
+            if !digits.isEmpty, digits.count <= 4, note.trimmingCharacters(in: CharacterSet(charactersIn: "[]().* ").union(.whitespacesAndNewlines)).allSatisfy(\.isNumber) {
+                body += "[\(digits)]"; lastWasSpace = false
+            } else { append(note) }
+            return
+        }
+        if ["h1", "h2", "h3", "h4"].contains(name), inHeading {
+            inHeading = false
+            heading = heading.split(whereSeparator: \.isWhitespace).joined(separator: " ")
+        }
+        if inside, name == "dt" { append(" ") }
+        if inside, ["p", "div", "li", "h1", "h2", "h3", "h4", "tr", "dd", "blockquote"].contains(name) { breakLine("\n\n") }
         if name == "body" { inside = false }
     }
 }

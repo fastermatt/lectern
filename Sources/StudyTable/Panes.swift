@@ -525,6 +525,8 @@ struct SourcesPane: View {
                 LazyVStack(alignment: .leading, spacing: 0) {
                     if mode == .sources || mode == .guide {
                         DownloadedPassageNotes(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
+                        LibraryCitationsPanel(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
+                        CatalogSuggestionsPanel(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
                     }
                     if mode == .learn {
                         GuidedStudyView(study: state.study)

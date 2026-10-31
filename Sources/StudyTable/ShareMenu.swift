@@ -82,7 +82,7 @@ struct ShareMenu: View {
             presentSharingPicker(text)
         case .exportPDF:
             guard let data = result.data else { return }
-            let name = (options.title?.isEmpty == false ? options.title! : "Throughline Export") + ".pdf"
+            let name = (options.title?.isEmpty == false ? options.title! : "Thruline Export") + ".pdf"
             savePDF(data, name)
         }
     }

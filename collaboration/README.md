@@ -1,9 +1,9 @@
 # A first contribution without a Mac
 
 You can suggest a resource, correct a reference, review wording or describe a
-usability problem without building Throughline or buying an AI account.
+usability problem without building Thruline or buying an AI account.
 
-The app's **Library → Help improve Throughline** prepares a local JSON draft.
+The app's **Library → Help improve Thruline** prepares a local JSON draft.
 You can also copy `fixtures/suggestion.json` and edit it in a text editor.
 It is an illustrative example, not an approved translation or corpus record.
 Keep the field names and `schemaVersion`; write the values in your own language.
@@ -27,7 +27,7 @@ Scripture mappings or an entire resource pack.
 Review your exported file before sharing it. Include source links, not whole
 copyrighted works, private notes or credentials. The app adds no account, device
 or study-store data. Nothing is submitted automatically. Submit a reviewed draft through an issue at
-https://github.com/fastermatt/throughline-bible/issues or ask in Discussions. Use the Security
+https://github.com/fastermatt/thruline-bible/issues or ask in Discussions. Use the Security
 tab for private vulnerability reports. A live repository does not imply a staffed
 editorial review service.
 

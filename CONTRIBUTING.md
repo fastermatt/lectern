@@ -1,4 +1,4 @@
-# Contributing to Throughline
+# Contributing to Thruline
 
 Start with a small problem you can describe and verify. Contributions can be code,
 source corrections, resource research, translation, accessibility, testing or writing.

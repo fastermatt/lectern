@@ -24,6 +24,10 @@ struct DiscoverableResource: Identifiable, Sendable {
         } + BibleDownload.catalog.map {
             Self(id: $0.id, title: $0.name, detail: $0.id == "DBY" ? DarbyComparisonContext.discovery : "Read, search and compare offline after downloading. Text only; verse numbering can differ.", language: $0.language,
                  kind: .bible, included: false, route: .bible($0.id), terms: $0.license, source: $0.sourceURL)
+        } + HistoricWork.catalog.map {
+            Self(id: $0.id, title: "\($0.title) — \($0.author)", detail: $0.detail + " " + $0.edition + ".", language: "English",
+                 kind: .historic, included: false, route: .book($0.id),
+                 terms: "Project Gutenberg eBook #\($0.ebook): public domain in the USA; laws elsewhere may differ. Converted to text on this Mac; inclusion is not doctrinal endorsement.", source: $0.page)
         } + [Self(id: "historic", title: "Historic works", detail: "Browse the Text Creation Partnership collection by author and work. Downloads have their own reader and table of contents; they are not linked by verse.", language: "English", kind: .historic, included: false, route: .historic,
                  terms: "Text Creation Partnership transcriptions: public domain. Catalogue: CC0. Facsimile images are not included.", source: URL(string: "https://www.textpartnership.net/pages/faq.html")!)]
     }
@@ -128,6 +132,9 @@ struct ResourceDiscoveryView: View {
                 HStack { ProgressView().controlSize(.small); Button("Cancel") { books.cancel() } }
             } else if let resource = OpenResource.catalog.first(where: { $0.id == id }) {
                 Button { books.install(resource) } label: { Label("Add", systemImage: "plus") }.disabled(books.activeID != nil)
+                    .accessibilityLabel("Add \(entry.title)")
+            } else if let work = HistoricWork.catalog.first(where: { $0.id == id }) {
+                Button { books.install(work) } label: { Label("Add", systemImage: "plus") }.disabled(books.activeID != nil)
                     .accessibilityLabel("Add \(entry.title)")
             }
         case .bible(let id):

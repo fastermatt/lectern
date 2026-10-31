@@ -7,7 +7,7 @@ struct WorkspaceToolbar: View {
     @State private var showAppearance = false
     var body: some View {
         HStack(spacing: 10) {
-            Text("Throughline").font(.system(size: 22, weight: .medium)).tracking(-0.6).padding(.trailing, 10)
+            Text("Thruline Bible").font(.system(size: 22, weight: .medium)).tracking(-0.6).padding(.trailing, 10)
             Divider().frame(height: 18)
             Button { state.showBibleSearch = true } label: { Label("Search", systemImage: "magnifyingglass") }
                 .navigationHelp("Search Scripture and your study library. Shortcut: ⌘F.")
@@ -22,6 +22,7 @@ struct WorkspaceToolbar: View {
             Button { openWindow(id: "add-resources") } label: { Label("Add resources", systemImage: "plus") }
                 .navigationHelp("Find and add resources to your local library.")
             Spacer(minLength: 8)
+            UpdateToolbarButton(updater: state.updater)
             Button { openWindow(id: "ai-assistant") } label: { Label("Your AI", systemImage: "text.bubble") }
                 .navigationHelp("Configure your own AI provider, then review the attached context before sending a question.")
             Button { showLayouts.toggle() } label: {

@@ -44,7 +44,7 @@ schema, data-directory, backup or migration changes are introduced. This fixes
 reopening and display behavior; it is not a claim of forensic recovery from a
 reader's actual Mac. Hosted full-suite results belong to the release PR.
 
-This historical validation record covers the public-source preparation of the former Lectern 0.18.0. The current Throughline Bible repository is https://github.com/fastermatt/throughline-bible. This document records local
+This historical validation record covers the public-source preparation of the former Lectern 0.18.0. The current Thruline Bible repository is https://github.com/fastermatt/thruline-bible. This document records local
 checks; consult the Actions tab for current hosted results. An independent contributor
 Mac is still needed for installation testing.
 

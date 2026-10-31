@@ -116,7 +116,7 @@ struct LecternStudyItem: Codable, Sendable, Equatable {
     /// The wire form carries `anchor` as an OSIS reference string ("Rom.8.28", "Rom.8.28-Rom.8.39")
     /// — per PASTOR-QA-0.10 §"`.lecternstudy`": "carrying OSIS anchors" — rather than the app's
     /// internal positional struct, so the file stays a plain, portable, human-readable reference
-    /// even outside Throughline. `Anchor` already has both directions (`osis`, `init?(osis:)`).
+    /// even outside Thruline. `Anchor` already has both directions (`osis`, `init?(osis:)`).
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         if let osis = c.lenient(String.self, .anchor), let parsed = Anchor(osis: osis) {
@@ -251,12 +251,12 @@ enum LecternStudyError: Error, LocalizedError, Equatable {
 
     var errorDescription: String? {
         switch self {
-        case .tooLarge(let n): "This file is \(n) bytes — larger than Throughline accepts for a study file."
-        case .notJSON: "This isn't a valid Throughline study file (not readable JSON)."
-        case .wrongFormat(let format): "This file's format is \"\(format)\", not a Throughline study file."
-        case .unsupportedVersion(let v): "This file was made by a newer version of Throughline (format version \(v)) and can't be opened."
-        case .malformed(let reason): "This Throughline study file is damaged: \(reason)."
-        case .tooManyItems(let n): "This file has \(n) items — more than Throughline will import at once."
+        case .tooLarge(let n): "This file is \(n) bytes — larger than Thruline accepts for a study file."
+        case .notJSON: "This isn't a valid Thruline study file (not readable JSON)."
+        case .wrongFormat(let format): "This file's format is \"\(format)\", not a Thruline study file."
+        case .unsupportedVersion(let v): "This file was made by a newer version of Thruline (format version \(v)) and can't be opened."
+        case .malformed(let reason): "This Thruline study file is damaged: \(reason)."
+        case .tooManyItems(let n): "This file has \(n) items — more than Thruline will import at once."
         case .fieldTooLong(let field): "This file's \(field) field is unreasonably long and was rejected."
         }
     }

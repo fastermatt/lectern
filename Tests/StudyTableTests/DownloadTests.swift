@@ -122,14 +122,20 @@ final class DownloadTests: XCTestCase, @unchecked Sendable {
             throw XCTSkip("Live network downloads require explicit opt-in")
         }
         let root = try directory()
-        for edition in BibleDownload.catalog {
-            try await BibleInstaller(root: root).install(edition) { _ in }
-            let data = try Data(contentsOf: root.appendingPathComponent(edition.id).appendingPathComponent("manifest.json"))
-            let manifest = try JSONDecoder().decode(TranslationManifest.self, from: data)
-            XCTAssertEqual(manifest.books.count, 66)
-            XCTAssertEqual(manifest.books.reduce(0) { $0 + $1.chapterCount }, 1189)
-            XCTAssertTrue(BibleInstaller.isManaged(edition, root: root))
-            print("VERIFIED OFFLINE DOWNLOAD: \(edition.id)")
+        // Optional comma-separated subset, e.g. STUDYTABLE_TEST_DOWNLOAD_IDS=GNV,LSG
+        let only = ProcessInfo.processInfo.environment["STUDYTABLE_TEST_DOWNLOAD_IDS"].map { Set($0.split(separator: ",").map(String.init)) }
+        for edition in BibleDownload.catalog where only?.contains(edition.id) ?? true {
+            do {
+                try await BibleInstaller(root: root).install(edition) { _ in }
+                let data = try Data(contentsOf: root.appendingPathComponent(edition.id).appendingPathComponent("manifest.json"))
+                let manifest = try JSONDecoder().decode(TranslationManifest.self, from: data)
+                XCTAssertEqual(manifest.books.count, 66, edition.id)
+                XCTAssertEqual(manifest.books.reduce(0) { $0 + $1.chapterCount }, 1189, edition.id)
+                XCTAssertTrue(BibleInstaller.isManaged(edition, root: root), edition.id)
+                print("VERIFIED OFFLINE DOWNLOAD: \(edition.id)")
+            } catch {
+                XCTFail("\(edition.id) (\(edition.sourceID)) failed: \(error.localizedDescription)")
+            }
         }
     }
 }

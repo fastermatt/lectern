@@ -2,8 +2,8 @@ import SwiftUI
 
 // MARK: - Reader-selected alignment (0.9.5, workstream N)
 //
-// Implements the 2026-09-24 Decision Log entry ("Throughline uses reader-selected creeds, not a
-// declared Reformed product identity"): Throughline must not claim one fixed confessional identity.
+// Implements the 2026-09-24 Decision Log entry ("Thruline uses reader-selected creeds, not a
+// declared Reformed product identity"): Thruline must not claim one fixed confessional identity.
 // The reader picks an alignment *lens* here, entirely independent of `AppState.selectedTraditions`
 // (which authors/traditions are visible at all) -- changing the lens never hides or shows a
 // source, it only changes what alignment language, if any, is shown next to it.

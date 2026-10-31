@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply Throughline's conservative study-text release policy to a *staged* resource bundle.
+"""Apply Thruline's conservative study-text release policy to a *staged* resource bundle.
 
 Never edits the canonical resources or raw inputs. Unknown source IDs fail closed.
 HCF text is withheld until an exact edition/translation has redistribution evidence.

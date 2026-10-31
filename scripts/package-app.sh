@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Build and package Throughline as an ad-hoc signed .app inside Releases/Throughline-Beta-<version>.zip.
+# Build and package Thruline as an ad-hoc signed .app inside Releases/Thruline-Bible-<version>.zip.
 # Refuses to overwrite an existing release: bump CFBundleShortVersionString/CFBundleVersion in Info.plist.
 set -euo pipefail
 
@@ -24,7 +24,7 @@ fi
 
 version=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' Info.plist)
 build=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' Info.plist)
-release_zip="$project_dir/Releases/Throughline-Beta-$version.zip"
+release_zip="$project_dir/Releases/Thruline-Bible-$version.zip"
 if [[ -e "$release_zip" ]]; then
   echo "error: $release_zip already exists. Bump the version in Info.plist instead of overwriting a release." >&2
   exit 1
@@ -39,14 +39,14 @@ swift build -c "$configuration" --product StudyTable --scratch-path "$scratch"
 bin_dir="$(swift build -c "$configuration" --show-bin-path --scratch-path "$scratch")"
 
 temp_root="$(mktemp -d /private/tmp/study-table-package.XXXXXX)"
-app_dir="$temp_root/Throughline.app"
+app_dir="$temp_root/Thruline Bible.app"
 mkdir -p "$app_dir/Contents/MacOS" "$app_dir/Contents/Resources"
 cp Info.plist "$app_dir/Contents/Info.plist"
 cp "$bin_dir/StudyTable" "$app_dir/Contents/MacOS/StudyTable"
 cp scripts/lectern "$app_dir/Contents/MacOS/lectern"
 chmod +x "$app_dir/Contents/MacOS/lectern"
-cp scripts/throughline "$app_dir/Contents/MacOS/throughline"
-chmod +x "$app_dir/Contents/MacOS/throughline"
+cp scripts/thruline "$app_dir/Contents/MacOS/thruline"
+chmod +x "$app_dir/Contents/MacOS/thruline"
 cp -R "$bin_dir/StudyTable_StudyTable.bundle" "$app_dir/Contents/Resources/StudyTable_StudyTable.bundle"
 cp Assets/AppIcon.icns "$app_dir/Contents/Resources/AppIcon.icns"
 chmod +x "$app_dir/Contents/MacOS/StudyTable"
@@ -116,5 +116,5 @@ cp BETA-TESTING.md "$temp_root/Start Here.md"
 cp CLI-AND-AI.md "$temp_root/CLI-AND-AI.md"
 cp WORKSPACE-AND-LIBRARY.md "$temp_root/WORKSPACE-AND-LIBRARY.md"
 ditto -c -k --sequesterRsrc "$temp_root" "$release_zip"
-echo "Packaged Throughline $version (build $build): $release_zip"
+echo "Packaged Thruline $version (build $build): $release_zip"
 echo "Unzipped app for inspection: $app_dir"

@@ -17,13 +17,13 @@ enum LecternCLI {
     static let allowedSources: Set<String> = ["calvin", "calvin-helloao", "matthew-henry", "mhcc",
         "john-gill", "keil-delitzsch", "jamieson-fausset-brown", "tsk"]
     static let help = """
-    Throughline CLI — local study resources for your own AI
-    throughline help
-    throughline resources
-    throughline read "Romans 8:28–39" [--translation BSB|KJV|WEB]
-    throughline search "faith OR hope" [--translation BSB|KJV|WEB] [--in "Romans 8"] [--limit 20] [--offset 0]
-    throughline guide "Romans 8:28–39" [--limit 10] [--offset 0]
-    throughline word G26 [--limit 20] [--offset 0]
+    Thruline CLI — local study resources for your own AI
+    thruline help
+    thruline resources
+    thruline read "Romans 8:28–39" [--translation BSB|KJV|WEB]
+    thruline search "faith OR hope" [--translation BSB|KJV|WEB] [--in "Romans 8"] [--limit 20] [--offset 0]
+    thruline guide "Romans 8:28–39" [--limit 10] [--offset 0]
+    thruline word G26 [--limit 20] [--offset 0]
 
     All responses are JSON with schemaVersion 1. Success: stdout, exit 0.
     Errors: stderr, exit 2 for invalid input or 1 for unavailable resources.
@@ -38,7 +38,7 @@ enum LecternCLI {
             return CLIResponse(data: try encode(["schemaVersion": 1, "ok": true, "data": payload]), status: 0)
         } catch {
             let usage = error is CLIUsageError || error is BibleSearchError
-            let message = usage ? error.localizedDescription : "Bundled study resources could not be read. Reinstall Throughline and try again."
+            let message = usage ? error.localizedDescription : "Bundled study resources could not be read. Reinstall Thruline and try again."
             let data = (try? encode(["schemaVersion": 1, "ok": false,
                                     "error": ["code": usage ? "invalid_request" : "resources_unavailable", "message": message]])) ?? Data()
             return CLIResponse(data: data, status: usage ? 2 : 1)
@@ -55,7 +55,7 @@ enum LecternCLI {
         let command = args.first ?? "help"
         let accepted: [String: Set<String>] = ["read": ["translation"], "search": ["translation", "in", "limit", "offset"],
             "guide": ["limit", "offset"], "word": ["limit", "offset"], "resources": [], "help": [], "--help": []]
-        guard let allowed = accepted[command] else { throw CLIUsageError(message: "Unknown command. Run throughline help.") }
+        guard let allowed = accepted[command] else { throw CLIUsageError(message: "Unknown command. Run thruline help.") }
         var positional: [String] = [], options: [String: String] = [:]
         var index = 1
         while index < args.count {
@@ -70,7 +70,7 @@ enum LecternCLI {
         }
         let needsValue = ["read", "search", "guide", "word"].contains(command)
         guard positional.count == (needsValue ? 1 : 0) else {
-            throw CLIUsageError(message: "Quote the query or passage as one argument. Run throughline help for examples.")
+            throw CLIUsageError(message: "Quote the query or passage as one argument. Run thruline help for examples.")
         }
         if command == "help" || command == "--help" { return ["help": help] }
         guard let root, FileManager.default.fileExists(atPath: root.appendingPathComponent("Scripture/BSB/manifest.json").path) else {
@@ -150,7 +150,7 @@ enum LecternCLI {
                 "occurrences": hits.dropFirst(offset).prefix(limit).map {
                     ["book": $0.bookCode, "chapter": $0.chapter, "verse": $0.verse, "word": $0.word] as [String: Any]
                 }, "attribution": "Strong’s public-domain dictionaries; KJV USFM Strong’s tagging from eBible.org. Occurrences are tagged word hits, not counts across every original-language edition."]
-        default: throw CLIUsageError(message: "Run throughline help.")
+        default: throw CLIUsageError(message: "Run thruline help.")
         }
     }
 

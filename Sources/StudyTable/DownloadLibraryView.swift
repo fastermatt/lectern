@@ -16,7 +16,31 @@ struct DownloadLibraryView: View {
             Text("OFFLINE LIBRARY").font(.system(size: 11, weight: .semibold, design: .monospaced))
             Text("BSB, KJV and WEB are already included. Add public-domain editions below; downloads are optional and require no account.")
                 .font(.system(size: 12)).foregroundStyle(STColor.secondary)
-            ForEach(BibleDownload.catalog) { edition in
+            ForEach(BibleDownload.languages, id: \.self) { language in
+                Text(language.uppercased()).font(.system(size: 10, weight: .semibold, design: .monospaced))
+                    .foregroundStyle(STColor.secondary).padding(.top, 6)
+                    .accessibilityAddTraits(.isHeader)
+                ForEach(BibleDownload.catalog.filter { $0.language == language }) { edition in
+                    row(edition)
+                }
+            }
+            if let message = manager.message { Text(message).font(.system(size: 12)).accessibilityAddTraits(.updatesFrequently) }
+            Text("The reader includes the 66-book Protestant canon, without source footnotes. Historical editions can differ in individual verse numbering; linked resources use standard Protestant references. ESV, NASB and NKJV require separate publisher permission for complete offline packs.")
+                .font(.system(size: 11)).foregroundStyle(STColor.secondary)
+        }
+        .foregroundStyle(STColor.ink)
+        .confirmationDialog("Remove \(removing?.id ?? "Bible") from this Mac?", isPresented: Binding(get: { removing != nil }, set: { if !$0 { removing = nil } }), titleVisibility: .visible) {
+            if let edition = removing {
+                Button("Remove downloaded Bible", role: .destructive) {
+                    manager.remove(edition, root: state.library.userPackDirectory) { state.rescanTranslations() }
+                    removing = nil
+                }
+            }
+            Button("Cancel", role: .cancel) { removing = nil }
+        } message: { Text("Your notes and bundled Bibles will not be changed. You can download this edition again.") }
+    }
+
+    @ViewBuilder private func row(_ edition: BibleDownload) -> some View {
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {
                         VStack(alignment: .leading, spacing: 3) {
@@ -47,20 +71,5 @@ struct DownloadLibraryView: View {
                     }
                 }
                 Divider()
-            }
-            if let message = manager.message { Text(message).font(.system(size: 12)).accessibilityAddTraits(.updatesFrequently) }
-            Text("The reader includes the 66-book Protestant canon, without source footnotes. Historical editions can differ in individual verse numbering; linked resources use standard Protestant references. ESV, NASB and NKJV require separate publisher permission for complete offline packs.")
-                .font(.system(size: 11)).foregroundStyle(STColor.secondary)
-        }
-        .foregroundStyle(STColor.ink)
-        .confirmationDialog("Remove \(removing?.id ?? "Bible") from this Mac?", isPresented: Binding(get: { removing != nil }, set: { if !$0 { removing = nil } }), titleVisibility: .visible) {
-            if let edition = removing {
-                Button("Remove downloaded Bible", role: .destructive) {
-                    manager.remove(edition, root: state.library.userPackDirectory) { state.rescanTranslations() }
-                    removing = nil
-                }
-            }
-            Button("Cancel", role: .cancel) { removing = nil }
-        } message: { Text("Your notes and bundled Bibles will not be changed. You can download this edition again.") }
     }
 }

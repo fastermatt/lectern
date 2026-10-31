@@ -22,6 +22,16 @@ struct WorkspaceRecipe: Codable, Equatable {
     var leading: Double
     var readingRatio: Double
     var notesRatio: Double
+    /// Separate study windows (0.22+). Absent in older layouts, which open fully docked.
+    var windows: [DetachedWindowRecipe]? = nil
+}
+
+/// One separate pane window: which pane, its frame in screen points, and whether Notes stays pinned.
+struct DetachedWindowRecipe: Codable, Equatable {
+    var panel: String
+    /// x, y, width, height. Omitted when no on-screen frame was available.
+    var frame: [Double]?
+    var pinned: Bool?
 }
 
 struct SavedWorkspace: Codable, Identifiable, Equatable {
@@ -95,7 +105,8 @@ extension AppState {
             notes: showNotes, focus: focusMode, sourcesOnLeft: sourcesOnLeft, mode: deskMode.rawValue,
             pinnedGuide: guideScope.explicitAnchor, order: deskSectionOrder.map(\.rawValue),
             hidden: hiddenDeskSections.map(\.rawValue), banks: selectedTraditions.map(\.rawValue),
-            type: fontSize, leading: lineSpacing, readingRatio: readingRatio, notesRatio: notesRatio)
+            type: fontSize, leading: lineSpacing, readingRatio: readingRatio, notesRatio: notesRatio,
+            windows: detachedWindows.recipes())
     }
     func openLayout(_ layout: SavedWorkspace) {
         let r = layout.recipe
@@ -114,7 +125,30 @@ extension AppState {
         translationID = library.translation(id: r.translation) == nil ? "BSB" : r.translation
         navigate(bookCode: r.book, chapter: r.chapter, verse: r.verse ?? 1)
         if let end = r.rangeEnd, end > 0, end <= verseCount { rangeEndVerse = end }
+        applyWindowRecipes(r.windows ?? [])
+        // Returning a pane to the workspace reveals its dock; the layout's own choices win.
+        showLibrary = r.library; showStudyDesk = r.sources; showNotes = r.notes; focusMode = r.focus
         activeLayoutID = layout.id; layoutRevision = UUID()
+    }
+
+    /// Windows can only open once the app's scenes exist. Before then (a startup layout
+    /// applied during launch), the recipe waits for `restoreWindowsAtLaunch()`.
+    func applyWindowRecipes(_ recipes: [DetachedWindowRecipe]) {
+        if windowsReady { detachedWindows.apply(recipes) } else { pendingWindowRecipes = recipes }
+    }
+
+    /// Called once the workspace window has appeared. A startup layout's windows win;
+    /// otherwise the separate windows open at the end of the last session come back.
+    func restoreWindowsAtLaunch() {
+        guard !windowsReady else { return }
+        windowsReady = true
+        let recipes = pendingWindowRecipes
+            ?? (reopenDetachedWindows ? DetachedWindowManager.savedSession(in: preferenceStore) : [])
+        pendingWindowRecipes = nil
+        guard !recipes.isEmpty else { return }
+        let docked = (showLibrary, showStudyDesk, showNotes, focusMode)
+        detachedWindows.apply(recipes)
+        (showLibrary, showStudyDesk, showNotes, focusMode) = docked
     }
     static func safeRatio(_ value: Double) -> Double { value.isFinite ? min(0.85, max(0.15, value)) : 0.6 }
 }
@@ -201,7 +235,7 @@ struct LayoutsPanel: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("Layouts").font(.title2.weight(.semibold))
-            Text("Arrange the panes, drag their dividers, then save your workspace. Saved layouts include the passage, translation, source banks and text size.")
+            Text("Arrange the panes, drag their dividers, then save your workspace. Saved layouts include the passage, translation, source banks, text size and any separate Bible, Sources or Notes windows.")
                 .font(.callout).foregroundStyle(.secondary)
             HStack {
                 Button("Passage study") { state.applyPreset(.study) }
@@ -214,6 +248,9 @@ struct LayoutsPanel: View {
                 Toggle("Sources", isOn: $state.showStudyDesk)
                 Toggle("Notes", isOn: $state.showNotes)
             }.font(.callout)
+            Toggle("Reopen separate windows when Thruline starts", isOn: $state.reopenDetachedWindows)
+                .font(.callout)
+                .help("Bring back the separate Bible, Sources and Notes windows that were open when you quit. A startup layout uses its own windows instead.")
             HStack {
                 TextField("Name this layout", text: $name).textFieldStyle(.roundedBorder)
                 Button("Save new") {
@@ -234,6 +271,11 @@ struct LayoutsPanel: View {
                             Button(layout.name) { state.openLayout(layout) }
                                 .fontWeight(state.activeLayoutID == layout.id ? .bold : .regular)
                             if library.startup == layout.id { Image(systemName: "power").help("Opens at startup") }
+                            if let count = layout.recipe.windows?.count, count > 0 {
+                                Label("\(count)", systemImage: "macwindow.on.rectangle").font(.caption).foregroundStyle(.secondary)
+                                    .help(count == 1 ? "Includes 1 separate window" : "Includes \(count) separate windows")
+                                    .accessibilityLabel(count == 1 ? "Includes 1 separate window" : "Includes \(count) separate windows")
+                            }
                             Spacer()
                             Menu {
                                 Button("Update from current workspace") { library.update(layout.id, recipe: state.workspaceRecipe()) }

@@ -118,7 +118,7 @@ enum ResourceBookFiles {
     }
     static func convert(_ resource: OpenResource, data: Data, temporary: URL) throws -> ResourceBook {
         let checksum = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
-        guard checksum == resource.checksum else { throw ResourceBookError.invalid("The publisher file has changed. Nothing was installed; Throughline needs an updated catalogue before importing this edition.") }
+        guard checksum == resource.checksum else { throw ResourceBookError.invalid("The publisher file has changed. Nothing was installed; Thruline needs an updated catalogue before importing this edition.") }
         try data.write(to: temporary)
         let members = try BibleArchive.members(data, extensions: ["xml"], minimum: 1, memberLimit: memberLimit)
         var articles: [ResourceArticle] = []
@@ -128,7 +128,7 @@ enum ResourceBookFiles {
         }
         guard !articles.isEmpty, Set(articles.map(\.id)).count == articles.count else { throw ResourceBookError.invalid("The resource did not pass validation.") }
         return ResourceBook(id: resource.id, title: resource.title, author: "Tyndale House Publishers",
-            attribution: "Adapted from \(resource.title). The original work by Tyndale House Publishers is available for free at https://tyndaleopenresources.com. Copyright © \(resource.id == "tyndale-dictionary" ? "2023" : "2022") Tyndale House Publishers. Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/. Throughline converts XML to plain text, omits illustrations, and adds passage links. This text adaptation is also CC BY-SA 4.0.",
+            attribution: "Adapted from \(resource.title). The original work by Tyndale House Publishers is available for free at https://tyndaleopenresources.com. Copyright © \(resource.id == "tyndale-dictionary" ? "2023" : "2022") Tyndale House Publishers. Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/. Thruline converts XML to plain text, omits illustrations, and adds passage links. This text adaptation is also CC BY-SA 4.0.",
             source: "https://tyndaleopenresources.com/", articles: articles)
     }
     static func store(_ book: ResourceBook, root: URL) throws {
@@ -167,36 +167,107 @@ final class ResourceBookLibrary: ObservableObject {
     @Published private(set) var books: [ResourceBook] = []
     @Published private(set) var activeID: String?
     @Published private(set) var message: String?
+    /// Scripture references found in installed books and the included Apostolic Fathers.
+    @Published private(set) var citations = LibraryCitationIndex.empty
+    /// Included offline books that are readable and searchable alongside downloads.
+    @Published private(set) var includedBooks: [ResourceBook] = []
     let root: URL
     private var task: Task<Void, Never>?
+    private var indexTask: Task<Void, Never>?
     private var loadWarning: String?
-    init(root: URL = AppResources.supportDirectory.appendingPathComponent("ResourceBooks")) {
+    private let includesBundledBooks: Bool
+    /// Ranked full-text index of everything readable. Lives beside the library; holds no notes.
+    let searchIndex: LibrarySearchIndex
+    @Published private(set) var searchIndexReady = false
+    @Published private(set) var searchIndexStatus: String?
+    private var searchSyncTask: Task<Void, Never>?
+    /// Where bundled commentaries and downloaded historic works live (set by AppState).
+    var searchRoots: (study: URL?, historic: URL?) = (nil, nil)
+    init(root: URL = AppResources.supportDirectory.appendingPathComponent("ResourceBooks"), includesBundledBooks: Bool = true) {
         self.root = root
+        self.includesBundledBooks = includesBundledBooks
+        self.searchIndex = LibrarySearchIndex(url: root.appendingPathComponent(".search-index.sqlite"))
     }
+
+    /// Brings the search index up to date. The first run indexes the bundled commentaries
+    /// (a minute or so, once); later runs only index books added or changed since.
+    func ensureSearchIndex() async {
+        // Each run is cheap when nothing changed: sources are compared by fingerprint.
+        if let running = searchSyncTask { await running.value; return }
+        let index = searchIndex, books = readableBooks, roots = searchRoots
+        searchIndexStatus = searchIndexReady ? nil : "Preparing faster search — first time only…"
+        let task = Task {
+            let worker = Task.detached(priority: .utility) { () throws -> Int in
+                var sources = books.map(LibrarySearchSources.book)
+                if let study = roots.study, let commentary = LibrarySearchSources.commentary(root: study) { sources.append(commentary) }
+                if let historic = roots.historic { sources += LibrarySearchSources.historic(root: historic) }
+                return try await index.sync(sources: sources)
+            }
+            do {
+                _ = try await worker.value
+                searchIndexReady = true; searchIndexStatus = nil
+            } catch {
+                searchIndexStatus = "Search index unavailable; using slower search. (\(error.localizedDescription))"
+            }
+        }
+        searchSyncTask = task
+        await task.value
+        searchSyncTask = nil
+    }
+
+    /// Every readable book: included volumes first, then downloads and imports.
+    var readableBooks: [ResourceBook] { includedBooks + books }
+    func book(id: String) -> ResourceBook? { readableBooks.first { $0.id == id } }
     func load() async {
         do {
-            let root = root
+            let root = root, bundled = includesBundledBooks
             let result = try await Task.detached { try ResourceBookFiles.scan(root: root) }.value
             books = result.books
+            if bundled, includedBooks.isEmpty, let fathers = try? await Task.detached(operation: { try PatristicReader.load() }).value {
+                includedBooks = [fathers]
+            }
             loadWarning = result.unreadable == 0 ? nil : "\(result.unreadable) library files could not be read; they were preserved. Other books are available."
             if let loadWarning { message = loadWarning }
         }
         catch { message = "Some library files could not be read. They have been preserved." }
+        rebuildCitations()
     }
+    private func rebuildCitations() {
+        indexTask?.cancel()
+        let snapshot = readableBooks
+        indexTask = Task {
+            let worker = Task.detached(priority: .utility) { try LibraryCitationIndex.build(snapshot) }
+            guard let index = try? await withTaskCancellationHandler(operation: { try await worker.value }, onCancel: { worker.cancel() }),
+                  !Task.isCancelled else { return }
+            citations = index
+        }
+    }
+    /// Waits for the current citation index (tests and first open of a passage).
+    func citationsReady() async { await indexTask?.value }
     func install(_ resource: OpenResource) {
+        installBook(id: resource.id, title: resource.title, temporaryExtension: "zip",
+                    fetch: { try await ResourceBookFiles.fetch(resource) },
+                    convert: { try ResourceBookFiles.convert(resource, data: $0, temporary: $1) })
+    }
+
+    /// One download at a time: fetch, convert off the main actor in a private temporary file,
+    /// then store by atomic rename. A cancelled or failed install never exposes a partial book.
+    func installBook(id: String, title: String, temporaryExtension: String,
+                     fetch: @escaping @Sendable () async throws -> Data,
+                     convert: @escaping @Sendable (Data, URL) throws -> ResourceBook) {
         guard activeID == nil else { return }
-        activeID = resource.id; message = nil
+        activeID = id; message = nil
         task = Task {
             do {
-                let data = try await ResourceBookFiles.fetch(resource), root = root
+                let data = try await fetch(), root = root
                 let worker = Task.detached {
-                    let tmp = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".zip")
+                    let tmp = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + "." + temporaryExtension)
                     defer { try? FileManager.default.removeItem(at: tmp) }
-                    let book = try ResourceBookFiles.convert(resource, data: data, temporary: tmp)
+                    let book = try convert(data, tmp)
                     try ResourceBookFiles.store(book, root: root)
                 }
                 try await withTaskCancellationHandler { try await worker.value } onCancel: { worker.cancel() }
-                await load(); message = "\(resource.title) is ready to read offline." + (loadWarning.map { " " + $0 } ?? "")
+                await load(); message = "\(title) is ready to read offline." + (loadWarning.map { " " + $0 } ?? "")
             } catch is CancellationError { message = "Download cancelled." }
             catch { message = (error as? LocalizedError)?.errorDescription ?? "The download could not be installed. Please try again." }
             activeID = nil; task = nil

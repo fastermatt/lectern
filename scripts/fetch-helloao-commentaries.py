@@ -40,7 +40,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "work-content/helloao"
 BASE = "https://bible.helloao.org/api"
-USER_AGENT = "ThroughlineBible/0.20 (offline Bible study; resource importer)"
+USER_AGENT = "ThrulineBible/0.20 (offline Bible study; resource importer)"
 
 
 def fetch(url: str, retries: int = 4) -> bytes:

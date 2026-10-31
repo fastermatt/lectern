@@ -21,7 +21,7 @@ struct ConsoleStatusBar: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            Text("THROUGHLINE").font(.system(size: 11, weight: .medium)).tracking(3)
+            Text("THRULINE BIBLE").font(.system(size: 11, weight: .medium)).tracking(3)
                 .foregroundStyle(STColor.lcdInk).padding(.leading, 8)
             Spacer(minLength: 6)
             if display == "original" {

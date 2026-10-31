@@ -49,7 +49,7 @@ Raw inputs cached here for reproducibility, mirroring `scripts/standards-sources
   AI)") published by STEPBible itself under the same CC BY 4.0 licence as the rest of the
   file — this build uses `@Short=` (falling back to `@Brief=`/`@Briefest=`) as the compact
   description shown in the People & Places card, attributed to STEPBible like everything
-  else from this file, never presented as Throughline's or Claude's own writing.
+  else from this file, never presented as Thruline's or Claude's own writing.
 - The `EXCLUDED OTHER` category (STEPBible's own label) is dropped entirely — it holds
   general nouns like language names ("Latin") that STEPBible itself flags as not wanted in
   a proper-noun index.

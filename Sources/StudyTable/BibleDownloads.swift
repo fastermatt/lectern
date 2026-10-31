@@ -9,13 +9,28 @@ struct BibleDownload: Identifiable, Hashable, Sendable {
     var sourceURL: URL { URL(string: "https://ebible.org/find/show.php?id=\(sourceID)")! }
     var archiveURL: URL { URL(string: "https://ebible.org/Scriptures/\(sourceID)_usfm.zip")! }
     var license: String { "Public domain · eBible.org" }
+    /// Languages in catalogue order, English first.
+    static var languages: [String] { catalog.map(\.language).reduce(into: [String]()) { if !$0.contains($1) { $0.append($1) } } }
     static let catalog: [Self] = [
         .init(id: "ASV", name: "American Standard Version (1901)", language: "English", sourceID: "eng-asv"),
         .init(id: "YLT", name: "Young’s Literal Translation", language: "English", sourceID: "engylt"),
         .init(id: "DBY", name: "Darby Translation", language: "English", sourceID: "engDBY"),
         .init(id: "WBS", name: "Noah Webster Bible (1833)", language: "English", sourceID: "engwebster"),
+        .init(id: "GNV", name: "Geneva Bible (1599)", language: "English", sourceID: "enggnv"),
+        .init(id: "RV", name: "Revised Version (1885)", language: "English", sourceID: "eng-rv"),
+        .init(id: "MSB", name: "Majority Standard Bible", language: "English", sourceID: "engmsb"),
         .init(id: "RV1909", name: "Reina Valera (1909)", language: "Español", sourceID: "spaRV1909"),
-        .init(id: "FOB", name: "La Sainte Bible — Ostervald", language: "Français", sourceID: "fra_fob")
+        .init(id: "FOB", name: "La Sainte Bible — Ostervald", language: "Français", sourceID: "fra_fob"),
+        .init(id: "LSG", name: "La Sainte Bible — Louis Segond (1910)", language: "Français", sourceID: "fraLSG"),
+        .init(id: "LUT1912", name: "Lutherbibel (1912)", language: "Deutsch", sourceID: "deu1912"),
+        .init(id: "ELB1905", name: "Elberfelder Bibel (1905)", language: "Deutsch", sourceID: "deuelo"),
+        .init(id: "DIO", name: "La Sacra Bibbia — Diodati (1885)", language: "Italiano", sourceID: "ita1885"),
+        .init(id: "RIV", name: "La Sacra Bibbia — Riveduta (1927)", language: "Italiano", sourceID: "ita1927"),
+        .init(id: "BKR", name: "Bible kralická (1613)", language: "Čeština", sourceID: "ces1613"),
+        .init(id: "SYN", name: "Синодальный перевод (1876)", language: "Русский", sourceID: "russyn"),
+        .init(id: "UKR1871", name: "Біблія — переклад П. Куліша", language: "Українська", sourceID: "ukr1871"),
+        .init(id: "CUVS", name: "和合本 (简体) — Chinese Union Version", language: "中文", sourceID: "cmn-cu89s"),
+        .init(id: "CUVT", name: "和合本 (繁體) — Chinese Union Version", language: "中文", sourceID: "cmn-cu89t")
     ]
 }
 

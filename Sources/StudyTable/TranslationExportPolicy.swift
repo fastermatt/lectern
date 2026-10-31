@@ -31,7 +31,7 @@ enum TranslationExportPolicy: Sendable, Equatable {
     /// Spelled the way `TranslationInfo.id` / `BibleDownload.id` actually spell them — not the
     /// display names PASTOR-QA-0.10 uses ("Darby" is id `DBY`, "Webster" is `WBS`, "Ostervald"
     /// is `FOB`; read the actual source, per the workplan, rather than trusting the prose).
-    static let freeTranslationIDs: Set<String> = ["BSB", "KJV", "WEB", "ASV", "YLT", "DBY", "WBS", "RV1909", "FOB"]
+    static let freeTranslationIDs: Set<String> = Set(["BSB", "KJV", "WEB"] + BibleDownload.catalog.map(\.id))
 
     /// Crossway's ESV API notice (`OnlineTranslations.swift`'s `ESVProvider.attribution`) —
     /// reused verbatim, never restated, per the workplan.

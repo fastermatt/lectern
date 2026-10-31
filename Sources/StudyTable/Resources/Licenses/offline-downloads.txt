@@ -1,7 +1,7 @@
 Optional offline Bible catalog — reviewed 2026-09-23 (Codex)
 
 No text from these editions is bundled by this feature. Downloads are explicit,
-from eBible.org HTTPS, and converted locally with the Throughline USFM reader.
+from eBible.org HTTPS, and converted locally with the Thruline USFM reader.
 The following publisher/distributor pages expressly label each edition Public Domain:
 
 ASV — American Standard Version (1901), English
@@ -30,6 +30,67 @@ https://ebible.org/Scriptures/spaRV1909_usfm.zip
 FOB — La Sainte Bible / Ostervald, French
 https://ebible.org/details.php?id=fra_fob
 https://ebible.org/Scriptures/fra_fob_usfm.zip
+
+Added 2026-10-31 (Claude) — each edition is labelled Public Domain in eBible.org's
+translations.csv catalogue and on its details page, and passed a complete live install
+(66 books, 1189 chapters) through the app's own installer on 2026-10-31:
+
+GNV — Geneva Bible (1599), English
+https://ebible.org/details.php?id=enggnv
+https://ebible.org/Scriptures/enggnv_usfm.zip
+
+RV — Revised Version (1885), English
+https://ebible.org/details.php?id=eng-rv
+https://ebible.org/Scriptures/eng-rv_usfm.zip
+
+MSB — Majority Standard Bible, English (Berean; dedicated to the public domain)
+https://ebible.org/details.php?id=engmsb
+https://ebible.org/Scriptures/engmsb_usfm.zip
+
+LSG — La Sainte Bible, Louis Segond (1910), French
+https://ebible.org/details.php?id=fraLSG
+https://ebible.org/Scriptures/fraLSG_usfm.zip
+
+LUT1912 — Lutherbibel (1912), German
+https://ebible.org/details.php?id=deu1912
+https://ebible.org/Scriptures/deu1912_usfm.zip
+
+ELB1905 — Elberfelder Bibel, unrevised (1905), German
+https://ebible.org/details.php?id=deuelo
+https://ebible.org/Scriptures/deuelo_usfm.zip
+
+DIO — La Sacra Bibbia, Diodati (1885 revision), Italian
+https://ebible.org/details.php?id=ita1885
+https://ebible.org/Scriptures/ita1885_usfm.zip
+
+RIV — La Sacra Bibbia, Riveduta (Luzzi, 1927), Italian
+https://ebible.org/details.php?id=ita1927
+https://ebible.org/Scriptures/ita1927_usfm.zip
+
+BKR — Bible kralická (1613), Czech
+https://ebible.org/details.php?id=ces1613
+https://ebible.org/Scriptures/ces1613_usfm.zip
+
+SYN — Russian Synodal Bible (1876), Russian
+https://ebible.org/details.php?id=russyn
+https://ebible.org/Scriptures/russyn_usfm.zip
+Note: Synodal Psalms and some other books follow Septuagint-derived verse numbering;
+references are matched by number, so linked resources can point to a neighbouring verse.
+
+UKR1871 — Ukrainian Bible, P. Kulish translation, Ukrainian
+https://ebible.org/details.php?id=ukr1871
+https://ebible.org/Scriptures/ukr1871_usfm.zip
+
+CUVS / CUVT — Chinese Union Version (1919), simplified and traditional script
+https://ebible.org/details.php?id=cmn-cu89s
+https://ebible.org/Scriptures/cmn-cu89s_usfm.zip
+https://ebible.org/details.php?id=cmn-cu89t
+https://ebible.org/Scriptures/cmn-cu89t_usfm.zip
+
+Tested and NOT added on 2026-10-31: Douay-Rheims 1899 (engDRA) and the Clementine
+Vulgate (latVUC) fail the 66-book/1189-chapter validation because their Vulgate book
+and chapter structure (e.g. Daniel 13–14) differs; they need explicit versification
+mapping first. BBE remains excluded pending the edition/jurisdiction research below.
 
 Attribution is retained in installed manifests and displayed with Compare text.
 Rendering strips USFM markup and footnotes and retains only the 66-book Protestant
