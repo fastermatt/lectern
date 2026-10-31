@@ -1,11 +1,11 @@
-# Throughline Bible contributor notes
+# Thruline Bible contributor notes
 
 - This is a native macOS SwiftUI app distributed as a public contributor beta.
 - Keep the app fully useful offline and do not introduce a runtime AI dependency.
 - Do not bundle copyrighted Bible translations without a written license.
 - BSB is the bundled baseline. ESV/NKJV are optional reader-key online integrations; NASB is a licensed-pack slot.
 - Preserve source provenance. Label exact quotations and editorial summaries distinctly.
-- Throughline has no fixed confessional identity. The reader selects an alignment lens (Westminster Standards, Three Forms of Unity, ecumenical creeds, or none — default none); alignment claims must be sourced fact (agreement, tension, no mapping, or historically disputed with council + year), never an app-wide verdict, and never collapse "non-Reformed" into "heterodox." Westminster Confession chapter links (the separate curated-badge system) remain a transparent index, never a claim of universal agreement.
+- Thruline has no fixed confessional identity. The reader selects an alignment lens (Westminster Standards, Three Forms of Unity, ecumenical creeds, or none — default none); alignment claims must be sourced fact (agreement, tension, no mapping, or historically disputed with council + year), never an app-wide verdict, and never collapse "non-Reformed" into "heterodox." Westminster Confession chapter links (the separate curated-badge system) remain a transparent index, never a claim of universal agreement.
 - Contrast views belong in an opt-in, clearly labeled area; never present them as the app's doctrinal conclusion.
 - New UI must work in both light and fully dark appearance.
 - Set `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer` for every `swift` command (the CLT toolchain lacks the SwiftUI macro plugin).

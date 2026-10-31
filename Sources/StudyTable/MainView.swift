@@ -26,12 +26,20 @@ struct MainView: View {
         .sheet(isPresented: $state.showBibleSearch) {
             SearchWorkspace(session: searchSession).environmentObject(state).preferredColorScheme(state.colorScheme)
         }
-        .task { await state.resourceBooks.load() }
+        .task {
+            await state.resourceBooks.load()
+            // Build or refresh the search index quietly after launch, so the first search is fast.
+            try? await Task.sleep(for: .seconds(6))
+            await state.resourceBooks.ensureSearchIndex()
+        }
         .captureSettingsOpener()
         .onAppear {
             let action = openWindow
             state.openSceneWindow = { id in action(id: id) }
+            state.restoreWindowsAtLaunch()
+            state.updater.startAutomaticChecks()
         }
+        .updateSheet(state.updater)
         .modifier(StudyStoreAlertPresenter(study: state.study))
     }
 }

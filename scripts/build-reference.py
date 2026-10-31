@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds Throughline's Passage Guide reference data (Workstream J, 0.8): Nave's Topical
+"""Builds Thruline's Passage Guide reference data (Workstream J, 0.8): Nave's Topical
 Bible, Easton's Bible Dictionary, and STEPBible TIPNR people/places, plus the per-verse
 reverse indexes the desk sections need. See scripts/reference-sources/SOURCES.md for exact
 provenance and licence evidence for every dataset.

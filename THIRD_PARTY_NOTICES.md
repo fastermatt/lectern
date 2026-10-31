@@ -1,6 +1,6 @@
 # Third-party resources and assets
 
-The MIT license applies to original Throughline source/tests/scripts/documentation; it
+The MIT license applies to original Thruline source/tests/scripts/documentation; it
 cannot relicense a Bible, historic edition, dataset, system font or external model.
 Detailed edition notices and modification statements are preserved under
 `Sources/StudyTable/Resources/Licenses` and `CONTENT-SOURCES.md`.
@@ -19,7 +19,7 @@ Detailed edition notices and modification statements are preserved under
 | Apostolic Fathers, 1870 translation | project-gutenberg-77576-full-license.txt and Reference/apostolic-fathers-rights.json |
 | Optional llama.cpp runtime | Vendor/LocalAI/LICENSE (MIT), provenance.json and README.md |
 | Optional Qwen3.5 weights | Exact Hugging Face revision/license linked in each model card; not in Git |
-| Throughline icon | Assets/ICON-PROVENANCE.md; project-generated art, MIT to the extent copyright applies |
+| Thruline icon | Assets/ICON-PROVENANCE.md; project-generated art, MIT to the extent copyright applies |
 
 Optional Tyndale books, TCP works and Bible editions are downloaded only on request
 with their own attribution and terms. ESV/NKJV/NASB texts and provider credentials are

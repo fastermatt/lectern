@@ -2,7 +2,7 @@ import Foundation
 
 // Explanatory prose in this file is adapted from unfoldingWord Greek/Hebrew Grammar,
 // © unfoldingWord, CC BY-SA 4.0. See Resources/Licenses/grammar-help.txt.
-// Matching logic is original Throughline code (MIT). These are general grammatical lessons,
+// Matching logic is original Thruline code (MIT). These are general grammatical lessons,
 // not verse-specific translations, doctrinal conclusions, or Discovery Bible content.
 struct GrammarLesson: Identifiable, Equatable, Sendable {
     let id: String

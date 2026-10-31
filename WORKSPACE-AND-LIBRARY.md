@@ -1,4 +1,4 @@
-# Throughline workspace and library
+# Thruline workspace and library
 
 ## Separate study windows
 
@@ -19,10 +19,20 @@ Only one live notebook session and one StudyStore are used; no second notes file
 or copied database is created. Changes made to the same saved note through another
 study surface refresh the shared session. Existing backup/read-only alerts apply.
 
-Window positions/sizes use macOS autosave. Detached windows do not automatically
-reopen after quitting; the app starts with docked panes. Saved workspace layouts
-do not capture detached-window arrangements. This is pane detachment, not arbitrary
-tab groups or independent Bible/source navigation sets.
+Window positions/sizes use macOS autosave. Since 0.22, separate windows that were
+open when you quit reopen at their last position the next time Thruline starts.
+Turn this off in **Layouts → Reopen separate windows when Thruline starts**.
+
+Saved layouts include separate windows: which panes are detached, each window's
+position and size, and whether Notes is pinned. Opening a layout opens its windows,
+returns any other detached panes to the workspace, and keeps the layout's own passage
+even when a pinned note pointed elsewhere. A startup layout's windows take priority
+over the last session. Layouts saved before 0.22 open fully docked. A saved position
+is used only when its title bar is still reachable on a connected display; otherwise
+the window opens at its default place. Window recipes never contain note text.
+
+This is pane detachment, not arbitrary tab groups or independent Bible/source
+navigation sets.
 
 
 ## Reopening your notes
@@ -48,7 +58,7 @@ Choose **Learn** in the toolbar or study desk. Four steps follow the selected ve
 
 1. **Read** shows the current translation and asks you to read its surrounding
    paragraph. Optional **Show emphasis notes** underlines the phrases discussed
-   in a Throughline editorial observation. The initial examples are BSB Philippians
+   in a Thruline editorial observation. The initial examples are BSB Philippians
    4:4, John 20:28 and Ephesians 2:9. Other passages/editions explicitly show no
    note; highlighting requires matching BSB text. These are English-text
    observations, not a whole-Bible Greek/Hebrew emphasis dataset.
@@ -128,13 +138,64 @@ Choose **Add resources**:
   in Guide and Sources for matching passages, and can be read/searched in Library.
 - Tyndale Open Bible Dictionary: 6,010 articles plus 110 textboxes. Text edition;
   maps, images, charts and original formatting are not reproduced.
-- Six optional eBible editions: ASV, YLT, Darby, Webster, Reina Valera 1909 and
-  Ostervald. Installed Bibles are available for offline reading/search/comparison.
+- Nineteen optional eBible editions. English: ASV, YLT, Darby, Webster, Geneva 1599,
+  Revised Version 1885 and Majority Standard Bible. Other languages: Reina Valera 1909,
+  Ostervald, Louis Segond 1910, Luther 1912, Elberfelder 1905, Diodati, Riveduta,
+  Kralická, Russian Synodal, Kulish (Ukrainian) and Chinese Union Version (simplified
+  and traditional). Installed Bibles are available for offline reading/search/comparison.
+- Church Fathers and classic Christian works (0.22): seventeen optional Project
+  Gutenberg editions — Augustine (Confessions; City of God I–II; Donatist writings),
+  Ambrose's letters, Chrysostom selections, Origen I–II (Ante-Nicene Christian
+  Library), Hippolytus (Refutation of All Heresies I–II; Apostolic Tradition, Easton),
+  Ayer's Source Book for Ancient Church History, Bede, Boethius, Calvin's Institutes
+  I–II (Allen) and The Imitation of Christ (Benham). Add from Library → Fathers &
+  reception or Free study resources; read and search offline. Gutenberg regenerates
+  its files, so a byte checksum is not pinned: downloads use one HTTPS host, size
+  limits, the safe EPUB reader and an expected-title match, and each install records
+  the file's SHA-256 in its attribution. Bible references in them are linked (below).
+- Suggestions before download (0.22): a bundled reference index (citations and section
+  titles only, no text) lets the Study Desk list **Worth adding for this passage** —
+  books you have not downloaded that discuss the passage, one per author first so less
+  familiar voices surface — and lets Your AI recommend them.
+- Notes and sources (0.22): **Sources** in the notebook lists where your library cites
+  the passages in your note and paragraphs that share its key words. Your AI can read a
+  note only when you choose Attach context → My open note.
+- Linked and searchable texts (0.22): Bible references inside installed books and the
+  included Apostolic Fathers ("Rom. viii. 28", "John 3:16", "1 Cor. xiii. 4–7") are
+  detected and become links that open the passage. References inside numbered notes
+  are traced back to the sentence carrying the note marker, and note markers jump to
+  the note and back. The Study Desk's **From your library** panel lists every installed
+  paragraph that cites the passage you are reading, with **Read in context**. Library
+  search matches whole words in the same paragraph, lists exact phrases first, opens
+  the reader at the matching paragraph with terms highlighted, and accepts a reference
+  ("rev 20:4") to list the texts that cite it. Detection is automatic and conservative:
+  chapter-only references are not linked, and older editions can use Latin or Greek
+  Psalm numbering. Index-of-texts pages and bare unmatched notes are skipped.
+- Fast ranked search (0.22): Library & notes search uses an on-device index built with
+  macOS's own SQLite full-text engine (no extra software). It covers bundled commentaries,
+  installed books, the Apostolic Fathers and downloaded historic works; notes are searched
+  in memory and never indexed. Results are ranked by relevance, word forms match
+  ("resurrection"/"resurrections"), exact phrases list first, and the result line shows
+  the time taken. Commentary search went from about 15 s to under 0.1 s. The index is
+  built quietly after launch (about 5 s the first time; later only new or changed books)
+  and stores terms and locations only — no second copy of any text — about 120 MB in
+  Application Support, ResourceBooks/.search-index.sqlite. Deleting it is safe; it rebuilds.
+- Concept search (0.22): older writers rarely use modern terms, so a curated vocabulary
+  widens a search to related wording — "rapture" also finds "caught up" and "meet the Lord
+  in the air"; "millennium" finds "thousand years", "chiliasm", "millenarians"; "Antichrist"
+  finds "man of sin". Results say what else was searched, and **Exact words only** turns
+  it off. Widening a search is not a claim that two writers meant the same thing.
+- Reading labels (0.22): each historic work carries a badge (for example "Doctor of the
+  Church", "Disputed authorship", "Selections only"), era, genre, reading level, topics
+  and sourced reading notes from a historian/theologian/ecumenical-editor review, with
+  topic chips to filter. See docs/reviews/historic-works-labels-2026-10-31.md. Ideas &
+  reception adds a sourced comparison of early chiliasm with pre-tribulation and
+  Israel–church distinctives, reachable from the Darby notice.
 - Historic works: the existing 74-work/volume EEBO-TCP catalogue, now searchable
   by author/title in a full-size Library window. Download and Open remain direct.
 
 Tyndale downloads come from https://tyndaleopenresources.com/ and use CC BY-SA 4.0.
-Throughline's text conversion is attributed and shares that license. Reviewed archive
+Thruline's text conversion is attributed and shares that license. Reviewed archive
 checksums are pinned; a changed publisher file fails closed until the catalogue is
 reviewed. No Matt account or API key is needed. Failed/cancelled installation does
 not expose a partial book. Downloads are optional and are not bundled in the beta.
@@ -187,9 +248,9 @@ Search has three tabs:
 
 The workspace interaction was informed by Logos's public layout documentation:
 https://support.logos.com/hc/en-us/articles/360016599631-Set-Up-Your-Workspace-with-Layouts
-Throughline does not include Logos code, proprietary datasets, branding or entitlements.
+Thruline does not include Logos code, proprietary datasets, branding or entitlements.
 
 Core study still works without AI. Your AI panel and read-only CLI remain available;
 see CLI-AND-AI.md. The CLI intentionally continues to exclude personal books/notes.
 The public 0.18.1 beta is ad-hoc signed and not Apple-notarized. See the
-[installation guide](docs/INSTALL.md) and [public source](https://github.com/fastermatt/throughline-bible).
+[installation guide](docs/INSTALL.md) and [public source](https://github.com/fastermatt/thruline-bible).

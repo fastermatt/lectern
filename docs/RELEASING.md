@@ -2,7 +2,7 @@
 
 ## Repository setup and future forks
 
-The official repository is https://github.com/fastermatt/throughline-bible. Initial publication
+The official repository is https://github.com/fastermatt/thruline-bible. Initial publication
 is complete; do not re-create it. The commands below document setup for future forks.
 
 Review the exported tree, MIT scope, THIRD_PARTY_NOTICES, PUBLIC-SOURCE and governance
@@ -39,11 +39,32 @@ preconfigured. Agree on the governance workflow before presenting it as a staffe
 4. Run `python3 scripts/bootstrap-local-ai.py` and `scripts/package-app.sh` on Apple Silicon.
 5. Inspect light/dark, packaged CLI and optional local-model behavior. Run on a clean
    second Mac. Code changes do not justify claiming theological review of a resource.
-6. Verify `codesign --verify --deep --strict /path/to/Throughline.app` and archive integrity.
+6. Verify `codesign --verify --deep --strict /path/to/Thruline Bible.app` and archive integrity.
 7. Generate SHA-256 checksums. Create a draft GitHub Release with version tag, ZIP,
    checksum and readable notes. Keep code history separate from release archives/models.
 8. State signing/notarization status and known limits; publish only after review.
 
-The current script signs ad hoc. Developer ID signing/notarization and a secure updater
-remain separate work; do not describe this beta as Apple-approved or automatically updated.
+The current script signs ad hoc; Developer ID signing/notarization remains separate work, so
+do not describe this beta as Apple-approved.
+
+## In-app updates (0.22+)
+
+Thruline checks this repository's GitHub Releases once a day and shows an "Update to x.y"
+button when a newer release exists. It installs a release in one click only when the release
+carries `<zip>.sig`: an Ed25519 signature over the ZIP's SHA-256 made with the maintainer's
+release key. The public half is `AppUpdater.releasePublicKey`; the private half lives only in
+the maintainer's login Keychain (service "Throughline release signing") and must be backed up
+outside this Mac. Never commit it. Releases without a `.sig` are offered as "Open Download Page".
+
+- First time on a Mac: `swift scripts/release-key.swift generate` (prints the public key; it
+  must match the one in `AppUpdater.swift`).
+- Publish: `scripts/publish-release.sh Releases/Thruline-Bible-X.Y.Z.zip notes.md` signs,
+  verifies against the compiled-in key, writes the `.sha256`, and uploads all three assets as a
+  pre-release (`--final` for a full release). The tag must match `Info.plist`.
+- Before installing, the app checks: GitHub HTTPS hosts only (including redirects), signature,
+  one app in the archive, same bundle identifier, advertised version, `codesign --verify --deep
+  --strict`. Then a helper waits for the app to quit, swaps it in (rolling back on failure) and
+  reopens it. Translocated or unwritable copies are sent to the download page instead.
+- If the key is ever lost or exposed: generate a new one, put its public key in the next
+  release, and tell testers to install that release manually once.
 Models are user downloads, not Git LFS assets. Never include publisher keys or caches.

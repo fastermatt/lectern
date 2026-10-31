@@ -1,28 +1,30 @@
-# Throughline Bible
+<p align="center"><img src="Assets/AppIcon-1024.png" width="128" alt="Thruline Bible app icon: a lit cross above a winding path"></p>
 
-[![Contributor checks](https://github.com/fastermatt/throughline-bible/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/fastermatt/throughline-bible/actions/workflows/checks.yml)
+# Thruline Bible
+
+[![Contributor checks](https://github.com/fastermatt/thruline-bible/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/fastermatt/thruline-bible/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **Jesus is the throughline of Scripture. Study the Bible with the Church, across centuries.**
 
-Throughline, the app of the Throughline Bible project, brings Scripture,
+Thruline Bible (formerly Throughline) brings Scripture,
 historical sources, original-language tools and your own notes into one quiet
 workspace. Open a passage, follow its sources, and keep what you learn. The included core works offline, without a subscription, account or AI
 service.
 
-[Download the Throughline Mac beta](https://github.com/fastermatt/throughline-bible/releases/tag/v0.21.0)
+[Download the Thruline Bible Mac beta](https://github.com/fastermatt/thruline-bible/releases/latest)
 · [See what you can do](#what-you-can-do-today)
-· [Help build Throughline](#help-build-throughline)
+· [Help build Thruline](#help-build-thruline)
 
-![Throughline passage study in light mode](docs/images/study-romans-light.png)
+![Thruline passage study in light mode](docs/images/study-romans-light.png)
 
 [View dark mode](docs/images/study-romans-dark.png)
 
-## Why Throughline exists
+## Why Thruline exists
 
 For centuries, Christians have copied, translated, preserved, debated and explained
 Scripture. Much of that work can be shared freely, yet finding a trustworthy edition
-and using it alongside a passage can still be difficult. Throughline brings those texts
+and using it alongside a passage can still be difficult. Thruline brings those texts
 into reach with clear attribution and room for the reader's own work.
 
 We want serious study to be available whether or not someone can pay. The official
@@ -31,7 +33,7 @@ choices. We take historic Christian teaching seriously: disputed or rejected cla
 need specific evidence and room for correction, not a verdict based only on an
 author's name. AI output cannot approve those claims.
 
-Throughline is built in public so readers, researchers, translators, accessibility
+Thruline is built in public so readers, researchers, translators, accessibility
 testers, writers and developers around the world can improve it. We credit their
 work and explain editorial decisions. The project should be able to grow beyond
 any one founder.
@@ -52,38 +54,40 @@ any one founder.
 - **Use separate windows.** Detach Bible, Sources & tools, or Notes with the pane
   button or View menu. Pin a sermon note while browsing, then return the panes to
   the workspace. Notes share one live editor session and the existing saved data.
+  Saved layouts remember separate windows, and open windows come back after relaunch.
 - **Keep your work.** Write passage-linked notes, save and highlight verses, organize
   collections, and export study work. Save a favorite layout; adjust reading type,
   light/dark colors and optional navigation tips.
-- **Grow your library.** Add free Bible editions, Tyndale study notes and a
-  dictionary; import your own unencrypted EPUB or plain-text books. Included and
+- **Grow your library.** Add free Bible editions in English and eight other
+  languages, Tyndale study notes and a dictionary, and Church Fathers such as
+  Augustine, Ambrose, Chrysostom and Origen; import your own unencrypted EPUB or plain-text books. Included and
   downloadable resources disclose their rights and provenance; importing a book
   does not grant redistribution rights. [See the library guide](WORKSPACE-AND-LIBRARY.md).
 - **Use AI only if it helps.** Choose one of three optional local models, connect
-  your own compatible provider, or let an external AI use Throughline's read-only JSON
+  your own compatible provider, or let an external AI use Thruline's read-only JSON
   CLI. None is needed for core study. [See AI and CLI](CLI-AND-AI.md).
 
-## Get Throughline
+## Get Thruline
 
-[Download Throughline beta 0.20.1](https://github.com/fastermatt/throughline-bible/releases/tag/v0.21.0)
+[Download the latest Thruline Bible beta](https://github.com/fastermatt/thruline-bible/releases)
 for an **Apple Silicon Mac running macOS 14 or later**. The current beta is
 ad-hoc signed and not Apple-notarized. Follow the [installation and update guide](docs/INSTALL.md)
-for the exact steps; updates are manual for now. No account is needed for the included
+for the exact steps. From 0.22 the app updates itself in one click. No account is needed for the included
 study resources.
 
-## Help build Throughline
+## Help build Thruline
 
 You do not need to write Swift or own a Mac to help. Try one study session and report
 where you got stuck; check a citation or resource edition; improve a translation,
 help page or accessibility path. Small, well-sourced contributions matter.
 
-- [Report an installation problem](https://github.com/fastermatt/throughline-bible/issues/1)
-  or [ask a question](https://github.com/fastermatt/throughline-bible/discussions).
-- [Pick a good first issue](https://github.com/fastermatt/throughline-bible/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
-  including [accessibility](https://github.com/fastermatt/throughline-bible/issues/2),
-  [localization](https://github.com/fastermatt/throughline-bible/issues/3) and
-  [reproducible resources](https://github.com/fastermatt/throughline-bible/issues/4).
-- [Help share maintenance](https://github.com/fastermatt/throughline-bible/issues/5) so the
+- [Report an installation problem](https://github.com/fastermatt/thruline-bible/issues/1)
+  or [ask a question](https://github.com/fastermatt/thruline-bible/discussions).
+- [Pick a good first issue](https://github.com/fastermatt/thruline-bible/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
+  including [accessibility](https://github.com/fastermatt/thruline-bible/issues/2),
+  [localization](https://github.com/fastermatt/thruline-bible/issues/3) and
+  [reproducible resources](https://github.com/fastermatt/thruline-bible/issues/4).
+- [Help share maintenance](https://github.com/fastermatt/thruline-bible/issues/5) so the
   project can continue without one person's constant attention.
 
 Start with [Contributing](CONTRIBUTING.md) and the [roadmap](docs/ROADMAP.md). Work
@@ -100,8 +104,8 @@ beta and bundled local engine target **Apple Silicon, macOS 14+**. The local ver
 record is in [Validation](docs/VALIDATION.md); the badge above links the current hosted CI result. Windows/Linux contributors can use the Python validators and edit docs/data.
 
 ```sh
-git clone https://github.com/fastermatt/throughline-bible.git
-cd throughline-bible
+git clone https://github.com/fastermatt/thruline-bible.git
+cd thruline-bible
 # Run inside your clone. Accept Xcode's license through Xcode if prompted.
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 python3 scripts/verify-public-source.py
@@ -118,7 +122,7 @@ To build an installable beta with the optional local engine:
 ```sh
 python3 scripts/bootstrap-local-ai.py   # pinned 16.5 MB engine; no model weights
 scripts/verify-content.sh
-scripts/package-app.sh                 # writes Releases/Throughline-Beta-<version>.zip
+scripts/package-app.sh                 # writes Releases/Thruline-Bible-<version>.zip
 ```
 
 The packager refuses to overwrite an existing release. Update Info.plist for a new

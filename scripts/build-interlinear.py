@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds Throughline's word-level original-language interlinear data (Workstream G, 0.8).
+"""Builds Thruline's word-level original-language interlinear data (Workstream G, 0.8).
 
 Source: **STEPBible-Data** (Tyndale House Cambridge, curated by STEPBible.org) —
 TAHOT (Translators Amalgamated Hebrew OT, Leningrad-based, includes the Aramaic

@@ -3,12 +3,16 @@ import SwiftUI
 struct PatristicLibraryView: View {
     enum Section: String, CaseIterable { case read = "Read", authors = "Authors", ideas = "Ideas & reception" }
     var initialSection: Section = .read
+    /// Optional downloads need the shared library; previews may omit it.
+    var books: ResourceBookLibrary? = nil
     let read: (ResourceBook) -> Void
     @State private var section: Section = .read
     @State private var query = ""
     @State private var selectedProfile: FatherProfile?
     @State private var book: ResourceBook?
     @State private var error: String?
+    @State private var topic: String?
+    @State private var includedNotes = false
     private let profiles = FatherProfileStore.shared.allProfiles
 
     var body: some View {
@@ -49,14 +53,36 @@ struct PatristicLibraryView: View {
             Text("Clement, Polycarp, Ignatius, Hermas, Papias and related early writings. English translation edited by Alexander Roberts and James Donaldson, 1870; translated by Roberts, Donaldson and Frederick Crombie.")
             Text("This edition also contains disputed attributions, longer and shorter recensions, and an appendix explicitly labeled spurious. Read the edition’s introductions; inclusion is not proof of authorship or doctrinal endorsement.")
                 .foregroundStyle(STColor.secondary)
+            if let labels = WorkLabels.of("apostolic-fathers-1870") {
+                HStack(spacing: 8) { WorkBadge(text: labels.badge); Text([labels.era, labels.genre, labels.level].joined(separator: " · ")).font(.caption).foregroundStyle(STColor.secondary) }
+                WorkReadingNotes(labels: labels, expanded: $includedNotes)
+            }
             if let book {
                 Button("Read offline · \(book.articles.count) sections") { read(book) }.buttonStyle(.borderedProminent)
                     .navigationHelp("Open the contents, search within this volume, and read without a connection.")
             } else if let error { Text(error).foregroundStyle(STColor.warning) }
             else { ProgressView("Opening the included reader…") }
             Link("Edition & permissions · Project Gutenberg", destination: URL(string: "https://www.gutenberg.org/ebooks/77576")!)
-            Text("Public domain in the USA; other countries’ laws may differ. The ebook’s attribution and license are retained in the reader. This starting volume is not the complete Church Fathers collection and is not yet indexed to Bible verses.")
+            Text("Public domain in the USA; other countries’ laws may differ. The ebook’s attribution and license are retained in the reader. This starting volume is not the complete Church Fathers collection. Its Bible references are linked: they open the passage, and the Study Desk's From your library panel shows where this volume cites what you are reading.")
                 .font(.caption).foregroundStyle(STColor.secondary)
+            if let books {
+                Divider()
+                Text("Add more early Christian writings").font(.headline)
+                Text("Optional public-domain downloads from Project Gutenberg, converted to text on this Mac. Each translation is a historic edition; introductions and notes are the translators’ own. Inclusion is not doctrinal endorsement, and older attributions can be disputed.")
+                    .foregroundStyle(STColor.secondary)
+                TopicChips(topics: WorkLabels.topicOrder, selected: $topic)
+                ForEach([HistoricWork.Shelf.fathers, .history, .classics], id: \.self) { shelf in
+                    let works = HistoricWork.works(on: shelf).filter { topic == nil || WorkLabels.of($0.id)?.topics.contains(topic!) == true }
+                    if !works.isEmpty {
+                    Text(shelf.rawValue.uppercased()).font(.system(size: 10, weight: .semibold, design: .monospaced))
+                        .foregroundStyle(STColor.secondary).padding(.top, 4).accessibilityAddTraits(.isHeader)
+                    }
+                    ForEach(works) { work in
+                        HistoricWorkRow(books: books, work: work, read: read, showProfile: { selectedProfile = $0 })
+                        Divider()
+                    }
+                }
+            }
             Divider()
             Text("About passage-linked excerpts").font(.headline)
             Text("The separate HCF excerpt collection is withheld from release packages until edition-level distribution permissions are verified. Author profiles remain available; a profile does not mean that author’s full works are installed.")

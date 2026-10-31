@@ -17,7 +17,7 @@ struct StudyTableApp: App {
     }
 
     var body: some Scene {
-        Window("Throughline", id: "workspace") {
+        Window("Thruline Bible", id: "workspace") {
             MainView()
                 .environmentObject(state)
                 .preferredColorScheme(state.colorScheme)
@@ -26,6 +26,9 @@ struct StudyTableApp: App {
         }
         .windowStyle(.hiddenTitleBar)
         .commands {
+            CommandGroup(after: .appInfo) {
+                Button("Check for Updates\u{2026}") { state.updater.checkFromMenu() }
+            }
             CommandMenu("Study") {
                 Button("Search Bible…") { state.showBibleSearch = true }
                     .keyboardShortcut("f", modifiers: .command)

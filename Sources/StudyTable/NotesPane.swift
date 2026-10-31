@@ -92,6 +92,7 @@ private struct NotebookEditor: View {
     @EnvironmentObject private var state: AppState
     var startsExpanded = false
     @ObservedObject var notebook: NotebookSession
+    @State private var showingSources = false
 
     private var anchors: [Anchor] { get { notebook.anchors } nonmutating set { notebook.anchors = newValue } }
     private var noteIDsAtAnchor: [UUID] { get { notebook.noteIDsAtAnchor } nonmutating set { notebook.noteIDsAtAnchor = newValue } }
@@ -225,6 +226,11 @@ private struct NotebookEditor: View {
             }
             .menuStyle(.borderlessButton).fixedSize()
             .accessibilityLabel("Template, \(template.name)")
+            Button { showingSources = true } label: { Label("Sources", systemImage: "books.vertical").font(.system(size: 11, design: .rounded)) }
+                .buttonStyle(.plain)
+                .help("Find where your library cites this note's passages and where its ideas appear in other texts")
+                .accessibilityLabel("Sources for this note")
+                .popover(isPresented: $showingSources) { NoteSourcesView(notebook: notebook).environmentObject(state).preferredColorScheme(state.colorScheme) }
             Spacer()
             Button(role: .destructive) { showDeleteConfirm = true } label: { Image(systemName: "trash") }
                 .buttonStyle(.plain).disabled(currentNoteID == nil)
@@ -278,7 +284,7 @@ private struct NotebookEditor: View {
             TextField("Romans 8:28–39", text: $anchorEditText)
                 .textFieldStyle(.roundedBorder).frame(width: 200)
                 .onSubmit { commitAnchorEdit(index: index) }
-            if anchorEditError { Text("Not a passage Throughline recognizes.").font(.system(size: 10)).foregroundStyle(STColor.warning) }
+            if anchorEditError { Text("Not a passage Thruline recognizes.").font(.system(size: 10)).foregroundStyle(STColor.warning) }
             HStack {
                 Spacer()
                 Button("Cancel") { editingAnchorIndex = nil }

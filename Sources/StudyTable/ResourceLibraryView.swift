@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 enum LibraryDestination: String, CaseIterable, Identifiable {
-    case discover = "Discover", contribute = "Help improve Throughline", fathers = "Fathers & reception"
+    case discover = "Discover", contribute = "Help improve Thruline", fathers = "Fathers & reception"
     case books = "My books", included = "Included study tools", modern = "Free study resources"
     case bibles = "Free Bibles", historic = "Historic works", publishers = "Publisher stores"
     var id: String { rawValue }
@@ -32,6 +32,8 @@ struct ResourceLibraryView: View {
     @State private var destination: LibraryDestination
     @State private var importing = false
     @State private var selectedBook: ResourceBook?
+    @State private var readerFocus: LibraryFocus?
+    @State private var fathersSection: PatristicLibraryView.Section = .read
     @State private var query = ""
     @State private var fileError: String?
     init(books: ResourceBookLibrary, adding: Bool = false, destination: LibraryDestination? = nil, historic: PuritanLibraryService? = nil) {
@@ -62,7 +64,8 @@ struct ResourceLibraryView: View {
                     .background(STColor.tileBottom)
                 Group {
                     if let selectedBook {
-                        ResourceBookReader(book: selectedBook) { self.selectedBook = nil }
+                        ResourceBookReader(book: selectedBook, focus: readerFocus) { self.selectedBook = nil; readerFocus = nil }
+                            .id(selectedBook.id + (readerFocus?.id.uuidString ?? ""))
                     } else {
                         detail
                     }
@@ -77,7 +80,11 @@ struct ResourceLibraryView: View {
         .defaultAppStorage(state.preferenceStore)
         .frame(minWidth: 760, minHeight: 560)
         .task { await books.load() }
-        .onChange(of: destination) { _, _ in selectedBook = nil; query = "" }
+        .onChange(of: destination) { _, _ in selectedBook = nil; readerFocus = nil; query = "" }
+        .onAppear { consumeLibraryRequest(); consumeDestinationRequest() }
+        .onChange(of: state.libraryRequest) { _, _ in consumeLibraryRequest() }
+        .onChange(of: state.libraryDestinationRequest) { _, _ in consumeDestinationRequest() }
+        .onChange(of: books.books.count) { _, _ in consumeLibraryRequest() }
         .fileImporter(isPresented: $importing, allowedContentTypes: [UTType(filenameExtension: "epub")!, .plainText]) { result in
             switch result {
             case .success(let url): fileError = nil; books.importBook(url); destination = .books
@@ -90,7 +97,7 @@ struct ResourceLibraryView: View {
         case .discover:
             ResourceDiscoveryView(books: books, downloads: bibleDownloads, read: { selectedBook = $0 }, browseHistoric: { destination = .historic }, browseFathers: { destination = .fathers })
         case .fathers:
-            PatristicLibraryView(read: { selectedBook = $0 })
+            PatristicLibraryView(initialSection: fathersSection, books: books, read: { selectedBook = $0 }).id(fathersSection)
         case .contribute:
             ContributionView(draft: $contributionDraft)
         case .books:
@@ -161,6 +168,14 @@ struct ResourceLibraryView: View {
                         }.padding(.vertical, 10)
                         Divider()
                     }
+                    Text("Classic Christian works").font(.title3).padding(.top, 6)
+                    Text("Optional public-domain editions from Project Gutenberg. More early writers are under Fathers & reception.")
+                        .font(.callout).foregroundStyle(.secondary)
+                    ForEach(HistoricWork.works(on: .classics)) { work in
+                        HistoricWorkRow(books: books, work: work, read: { selectedBook = $0 })
+                        Divider()
+                    }
+                    Button("Browse Church Fathers") { destination = .fathers }
                     Button("Browse historic works") { destination = .historic }
                     Button("Find more Bible translations") { destination = .bibles }
                 }.padding(24)
@@ -179,7 +194,7 @@ struct ResourceLibraryView: View {
                     Divider()
                     Link("Browse Crossway ↗", destination: URL(string: "https://www.crossway.org/books/")!)
                     Link("Check Crossway ebook formats ↗", destination: URL(string: "https://www.crossway.org/faq/")!).font(.callout)
-                    Text("Check the product’s format before buying. Throughline imports unencrypted EPUB and UTF-8 text; it cannot unlock Logos, Kindle or other DRM-protected libraries. Text imports omit images, original page numbers and publisher styling.")
+                    Text("Check the product’s format before buying. Thruline imports unencrypted EPUB and UTF-8 text; it cannot unlock Logos, Kindle or other DRM-protected libraries. Text imports omit images, original page numbers and publisher styling.")
                         .font(.callout).foregroundStyle(.secondary)
                     Button("Import a downloaded book…") { importing = true }.disabled(books.activeID != nil)
                     Divider()
@@ -202,59 +217,27 @@ struct ResourceLibraryView: View {
         }.buttonStyle(.plain).accessibilityAddTraits(selected ? [.isSelected] : [])
     }
 
+    private func consumeDestinationRequest() {
+        guard let request = state.libraryDestinationRequest else { return }
+        if request == .fathers { fathersSection = .ideas }
+        destination = request; selectedBook = nil
+        state.libraryDestinationRequest = nil
+    }
+
+    /// Opens the reader at a section and paragraph requested elsewhere (Study Desk, search).
+    private func consumeLibraryRequest() {
+        guard let request = state.libraryRequest, let book = books.book(id: request.bookID) else { return }
+        readerFocus = request
+        selectedBook = book
+        state.libraryRequest = nil
+    }
+
     private func openIncluded(_ id: String) {
         if id == "apostolic-fathers" { destination = .fathers; return }
         state.revealIncludedResource(id)
         openWindow(id: "workspace")
     }
 
-}
-
-struct ResourceBookReader: View {
-    let book: ResourceBook
-    let back: () -> Void
-    @State private var query = ""
-    @State private var matches: [ResourceArticle] = []
-    @State private var selected: String?
-    @State private var limit = 100
-    private var article: ResourceArticle? { book.articles.first { $0.id == selected } }
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack { Button("Back to library", action: back); Spacer(); Text(book.author).font(.caption).foregroundStyle(.secondary) }
-            Text(book.title).font(.title2)
-            TextField("Search this book’s full text", text: $query).textFieldStyle(.roundedBorder)
-            HSplitView {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("\(matches.count.formatted()) sections").font(.caption).foregroundStyle(.secondary)
-                    List(selection: $selected) {
-                        ForEach(matches.prefix(limit)) { entry in Text(entry.title).lineLimit(3).tag(entry.id) }
-                    }.listStyle(.plain)
-                    if matches.count > limit { Button("Show 100 more") { limit += 100 } }
-                }.frame(minWidth: 160, idealWidth: 190, maxWidth: 260)
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        if let article {
-                            Text(article.title).font(.title2)
-                            if let anchor = article.anchor { Text(anchor.displayString).font(.callout).foregroundStyle(.secondary) }
-                            Text(article.body).font(.system(size: 16, design: .serif)).lineSpacing(5).textSelection(.enabled)
-                        } else { Text("Choose a section to read.").foregroundStyle(.secondary) }
-                    }.padding(.horizontal, 16).frame(maxWidth: .infinity, alignment: .leading)
-                }.frame(minWidth: 260)
-            }
-            DisclosureGroup("Attribution & edition details") {
-                Text(book.attribution).font(.caption).textSelection(.enabled)
-                if let source = book.source, let url = URL(string: source), url.scheme == "https" { Link("Original publisher resource", destination: url) }
-            }.font(.caption)
-        }.padding(20).foregroundStyle(STColor.ink).background(STColor.paper)
-        .task(id: query) {
-            let text = query.trimmingCharacters(in: .whitespacesAndNewlines), articles = book.articles
-            let worker = Task.detached { articles.filter { text.isEmpty || ($0.title + " " + $0.body).localizedCaseInsensitiveContains(text) } }
-            let found = await worker.value
-            guard !Task.isCancelled else { return }
-            matches = found; limit = 100
-            if !found.contains(where: { $0.id == selected }) { selected = found.first?.id }
-        }
-    }
 }
 
 struct DownloadedPassageNotes: View {

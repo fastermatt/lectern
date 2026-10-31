@@ -60,7 +60,7 @@ private extension FatherProfile {
 /// Full theological profile: dates, region/see, language, school/tradition, ecclesial
 /// recognition, 1–3 emphases, any controversy or conciliar judgment, reception by the Reformers
 /// where sourced, and — always — the citation(s) the whole profile rests on. Neutral, descriptive
-/// tone throughout: this describes an author's historical standing, never Throughline's own
+/// tone throughout: this describes an author's historical standing, never Thruline's own
 /// doctrinal verdict on them (the same discipline the tier system and source-class labels hold
 /// to elsewhere in the app).
 struct FatherProfileSheet: View {

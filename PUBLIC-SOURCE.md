@@ -1,6 +1,6 @@
 # Public source profile
 
-Throughline Bible began as a curated source export of the former Lectern 0.18.0 build 49, not the private working
+Thruline Bible began as a curated source export of the former Lectern 0.18.0 build 49, not the private working
 directory. It builds with the same public study text as the beta. The export keeps
 41,233 mixed-rights HCF excerpts out of both source and application, while preserving
 604 independently sourced Apostolic Fathers reader sections and author profiles.
@@ -44,3 +44,14 @@ Notices document the included editions and modifications; they are not a blanket
 worldwide legal opinion. Gutenberg's edition is public domain in the USA and retains
 its full notice. KJV's notice identifies UK restrictions. CC BY material keeps
 attribution and license links. Optional downloads and publisher accounts stay separate.
+
+## Historic-works reference index (0.22)
+
+`Sources/StudyTable/Resources/Reference/historic-citations.json` lists, for each optional
+Project Gutenberg work in `HistoricWork.catalog`, the Bible references its text cites and
+its section titles — no text from the works. It powers "Worth adding for this passage" and
+lets the AI recommend books that are not downloaded. Regenerate after changing the
+catalogue: download each `https://www.gutenberg.org/cache/epub/<n>/pg<n>.epub` into one
+folder, then run `STUDYTABLE_WRITE_CITATION_INDEX=<folder> swift test --filter
+CatalogSuggestionTests/testWriteIndex` and record it with
+`python3 scripts/verify-public-source.py --write-manifest`.

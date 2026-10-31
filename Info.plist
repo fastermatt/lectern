@@ -5,12 +5,12 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Throughline</string>
+	<string>Thruline Bible</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>Throughline Study File</string>
+			<string>Thruline Study File</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -30,19 +30,19 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Throughline</string>
+	<string>Thruline Bible</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.21.0</string>
+	<string>0.22.0</string>
 	<key>CFBundleVersion</key>
-	<string>55</string>
+	<string>56</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>14.0</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Throughline beta. Bundled Scripture (BSB, KJV, WEB) is public domain. ESV and NKJV are fetched from their publishers with your own API key.</string>
+	<string>Thruline Bible beta. Bundled Scripture (BSB, KJV, WEB) is public domain. ESV and NKJV are fetched from their publishers with your own API key.</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
@@ -51,7 +51,7 @@
 				<string>public.json</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Throughline Study File</string>
+			<string>Thruline Study File</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.fastermatt.studytable.lecternstudy</string>
 			<key>UTTypeTagSpecification</key>

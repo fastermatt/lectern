@@ -3,11 +3,13 @@ import SwiftUI
 /// Resource context, separate from optional navigation help and confessional approval badges.
 enum DarbyComparisonContext {
     static let label = "Darby · Dispensational background"
-    static let summary = "Retained for comparison with historic orthodox Christian teaching. Darby's Israel–Church distinction and pre-tribulation interpretation are disputed and should not be assumed to represent historic Christian consensus. Evaluate his translation separately from his explanatory writings; Throughline's download omits footnotes."
+    static let summary = "Retained for comparison with historic orthodox Christian teaching. Darby's Israel–Church distinction and pre-tribulation interpretation are disputed and should not be assumed to represent historic Christian consensus. Evaluate his translation separately from his explanatory writings; Thruline's download omits footnotes."
     static let discovery = "Darby · Dispensational background. Available for comparison with historic orthodox Christian teaching. Read and search offline; explanatory footnotes are not included."
 }
 
 struct DarbyComparisonNotice: View {
+    @EnvironmentObject private var state: AppState
+    @Environment(\.openWindow) private var openWindow
     let translationID: String
 
     var body: some View {
@@ -21,6 +23,11 @@ struct DarbyComparisonNotice: View {
                          destination: URL(string: "https://www.stempublishing.com/authors/darby/PROPHET/11007E.html")!)
                     Link("Early Christian comparison: Didache 16 ↗",
                          destination: URL(string: "https://www.newadvent.org/fathers/0714.htm")!)
+                    Button("Compare with early Christian writers in your library") {
+                        state.libraryDestinationRequest = .fathers
+                        openWindow(id: "resource-library")
+                    }
+                    .help("Open a sourced comparison: which early writers expected a millennium, and where pre-tribulation and Israel–church ideas come from")
                     Text("These sources support comparison; the Didache is one early witness, not a statement of every Christian tradition.")
                         .foregroundStyle(STColor.secondary)
                         .fixedSize(horizontal: false, vertical: true)

@@ -1,10 +1,10 @@
-# Use your own AI with Throughline
+# Use your own AI with Thruline
 
-The public Throughline beta provides optional local models, a connection to your own provider, and a read-only CLI. Core Bible study still requires
+The public Thruline beta provides optional local models, a connection to your own provider, and a read-only CLI. Core Bible study still requires
 no model, account or subscription. Neither route gives AI automatic access to
 your private notes or publisher credentials.
 
-## Install a model inside Throughline
+## Install a model inside Thruline
 
 Choose **Your AI → On this Mac → Choose a model**. Download, then **Use model**.
 
@@ -47,7 +47,7 @@ Examples of the supported Chat Completions protocol:
 | OpenRouter | `https://openrouter.ai/api/v1` | Identifier from your own provider account |
 | Other compatible server | Its HTTPS API base URL | Its supported text-chat model ID |
 
-Throughline appends `/chat/completions`. It requests a non-streaming text response
+Thruline appends `/chat/completions`. It requests a non-streaming text response
 with a 2,048-token output limit. It does not run a local inference server,
 download models, manage provider billing, or turn a consumer chat subscription
 into API access. Hosted use may incur your provider's charges. HTTP is accepted
@@ -57,10 +57,15 @@ Use **Save connection** to retain URL/model settings and store any entered key
 in macOS Keychain. Keys are scoped to the exact endpoint and separate from Bible
 publisher keys. Leaving the key field empty uses that endpoint's saved key;
 **Forget saved key** removes it. A key entered without saving is used only for
-the current window's requests. No actual key is supplied with Throughline.
+the current window's requests. No actual key is supplied with Thruline.
 
-Type a question. **Attach context** can add the current BSB passage, or the
-passage plus the first three cited study-guide entries. Expand the attached
+Type a question. **Attach context** can add the current BSB passage, the
+passage plus the first three cited study-guide entries, or **What my library says
+about this passage**: exact quotations from installed historic books and the included
+Apostolic Fathers that cite the passage, each labelled with author, work and section.
+Ask Church Fathers questions with that attachment: without source text, general models
+misstate patristic positions. With the on-Mac model, attachments are shortened to fit
+its window (marked when shortened) instead of failing on Send. Expand the attached
 context to see exactly what will be sent; remove it if unwanted. Attachments
 are bounded and identify source/edition, quote status and truncation. The chat
 does not automatically search or execute tools; use the external CLI for an
@@ -72,20 +77,20 @@ citations. **Stop** cancels locally (a server may already be processing/billing
 the request). **Copy chat** explicitly copies it; **New chat** clears it.
 Chats remain in memory across closing/reopening the window, and disappear on
 quit. Changing server/model requires a new chat so an existing conversation is
-not silently transferred to another destination. Throughline's CLI cannot read
+not silently transferred to another destination. Thruline's CLI cannot read
 this conversation or the stored key.
 
 ## External AI tools and Terminal
 
-After placing Throughline.app in Applications:
+After placing Thruline Bible.app in Applications:
 
 ```sh
-'/Applications/Throughline.app/Contents/MacOS/throughline' help
-'/Applications/Throughline.app/Contents/MacOS/throughline' read 'Romans 8:28–39'
-'/Applications/Throughline.app/Contents/MacOS/throughline' search 'faith OR hope' --in 'Romans 8' --limit 10
-'/Applications/Throughline.app/Contents/MacOS/throughline' guide 'Romans 8:28–39' --limit 5
-'/Applications/Throughline.app/Contents/MacOS/throughline' word G26 --limit 20
-'/Applications/Throughline.app/Contents/MacOS/throughline' resources
+'/Applications/Thruline Bible.app/Contents/MacOS/thruline' help
+'/Applications/Thruline Bible.app/Contents/MacOS/thruline' read 'Romans 8:28–39'
+'/Applications/Thruline Bible.app/Contents/MacOS/thruline' search 'faith OR hope' --in 'Romans 8' --limit 10
+'/Applications/Thruline Bible.app/Contents/MacOS/thruline' guide 'Romans 8:28–39' --limit 5
+'/Applications/Thruline Bible.app/Contents/MacOS/thruline' word G26 --limit 20
+'/Applications/Thruline Bible.app/Contents/MacOS/thruline' resources
 ```
 
 The executable is bundled inside the app and runs with the GUI closed. It does
@@ -93,7 +98,7 @@ not start an AI server or call a provider. For a shorter command, add this
 function to your own shell configuration:
 
 ```sh
-throughline() { '/Applications/Throughline.app/Contents/MacOS/throughline' "$@"; }
+thruline() { '/Applications/Thruline Bible.app/Contents/MacOS/thruline' "$@"; }
 ```
 
 In the app's **CLI setup**, **Copy instructions for my AI** supplies the actual

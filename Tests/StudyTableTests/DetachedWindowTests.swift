@@ -178,4 +178,121 @@ final class DetachedWindowTests: XCTestCase {
         XCTAssertEqual(opened, ["workspace"])
         XCTAssertTrue(state.detachedPanels.isEmpty)
     }
+
+    // MARK: 0.22 — windows in layouts and across launches
+
+    private func relaunch(_ defaults: UserDefaults) -> AppState {
+        let cache = OnlineChapterCache(directory: temporaryDirectory("cache"))
+        let service = OnlineTranslationService(cache: cache, transport: { _ in throw URLError(.notConnectedToInternet) },
+            idStore: BibleIDStore(defaultsKey: "test.ids.\(UUID().uuidString)"), keyReader: { _ in nil })
+        let state = AppState(library: ScriptureLibrary(), studyResources: StudyResourceStore(), online: service, defaults: defaults,
+            notes: ephemeralNotes(), resourceBooks: ResourceBookLibrary(root: temporaryDirectory("resource-books")))
+        state.detachedWindows.presentsWindows = false
+        return state
+    }
+
+    func testLayoutRecordsAndReopensSeparateWindowsWithPinChoice() throws {
+        let state = state()
+        state.windowsReady = true
+        defer { state.detachedWindows.redockAll() }
+        state.detachedWindows.detach(.sources)
+        state.detachedWindows.detach(.notes)
+        state.notebook.isPinned = false
+        let recipe = state.workspaceRecipe()
+        XCTAssertEqual(recipe.windows?.map(\.panel), ["sources", "notes"])
+        XCTAssertEqual(recipe.windows?.last?.pinned, false)
+        XCTAssertNil(recipe.windows?.first?.frame, "Offscreen test windows must not record a frame")
+        let layout = SavedWorkspace(name: "Two windows", recipe: recipe)
+        state.detachedWindows.redockAll()
+        state.navigate(bookCode: "GEN", chapter: 1, verse: 1)
+        state.openLayout(layout)
+        XCTAssertEqual(state.detachedPanels, [.sources, .notes])
+        XCTAssertNotNil(state.detachedWindows.window(for: .notes))
+        XCTAssertFalse(state.notebook.isPinned)
+        XCTAssertEqual(state.selectedBookCode, "ROM"); XCTAssertEqual(state.selectedChapter, 8)
+        XCTAssertEqual(state.showStudyDesk, recipe.sources); XCTAssertEqual(state.showNotes, recipe.notes)
+    }
+
+    func testLayoutWithoutWindowsReturnsPanesWithoutJumpingToPinnedPassage() throws {
+        let state = state()
+        state.windowsReady = true
+        defer { state.detachedWindows.redockAll() }
+        var recipe = state.workspaceRecipe()
+        XCTAssertEqual(recipe.windows, [])
+        recipe.windows = nil // a layout saved before 0.22
+        state.navigate(bookCode: "JHN", chapter: 3, verse: 16)
+        state.detachedWindows.detach(.notes)  // pinned to John 3:16
+        state.detachedWindows.detach(.bible)
+        state.openLayout(SavedWorkspace(name: "Docked", recipe: recipe))
+        XCTAssertTrue(state.detachedPanels.isEmpty)
+        XCTAssertNil(state.detachedWindows.window(for: .bible))
+        XCTAssertEqual(state.selectedBookCode, "ROM", "The layout passage wins over the Notes pin")
+        XCTAssertFalse(state.notebook.isPinned)
+    }
+
+    func testLayoutsSavedBeforeWindowsStillDecode() throws {
+        var recipe = makeOfflineState().workspaceRecipe()
+        recipe.windows = nil
+        let json = try XCTUnwrap(String(data: JSONEncoder().encode(recipe), encoding: .utf8))
+        XCTAssertFalse(json.contains("windows"))
+        XCTAssertNil(try JSONDecoder().decode(WorkspaceRecipe.self, from: Data(json.utf8)).windows)
+        let withWindows = WorkspaceRecipe(book: "ROM", chapter: 8, verse: 28, rangeEnd: nil, translation: "BSB", library: true,
+            sources: true, notes: true, focus: false, sourcesOnLeft: false, mode: "sources", pinnedGuide: nil, order: [],
+            hidden: [], banks: [], type: 20, leading: 8, readingRatio: 0.6, notesRatio: 0.65,
+            windows: [DetachedWindowRecipe(panel: "bible", frame: [10, 20, 600, 700], pinned: nil)])
+        XCTAssertEqual(try JSONDecoder().decode(WorkspaceRecipe.self, from: JSONEncoder().encode(withWindows)), withWindows)
+    }
+
+    func testSeparateWindowsReopenAfterRelaunchUnlessTurnedOff() throws {
+        let defaults = ephemeralDefaults()
+        let first = relaunch(defaults)
+        first.windowsReady = true
+        first.detachedWindows.detach(.bible)
+        first.detachedWindows.detach(.notes)
+        XCTAssertEqual(DetachedWindowManager.savedSession(in: defaults).map(\.panel), ["bible", "notes"])
+
+        let second = relaunch(defaults)
+        defer { second.detachedWindows.redockAll() }
+        XCTAssertTrue(second.detachedPanels.isEmpty, "Windows wait for the workspace scene")
+        second.restoreWindowsAtLaunch()
+        XCTAssertEqual(second.detachedPanels, [.bible, .notes])
+        second.restoreWindowsAtLaunch()
+        XCTAssertEqual(second.detachedPanels, [.bible, .notes], "Restoring twice must not duplicate windows")
+
+        first.detachedWindows.redockAll()
+        first.detachedWindows.detach(.sources)
+        first.reopenDetachedWindows = false
+        let third = relaunch(defaults)
+        third.restoreWindowsAtLaunch()
+        XCTAssertTrue(third.detachedPanels.isEmpty)
+        first.detachedWindows.redockAll()
+    }
+
+    func testStartupLayoutWindowsWinOverLastSession() throws {
+        let defaults = ephemeralDefaults()
+        let first = relaunch(defaults)
+        first.windowsReady = true
+        first.detachedWindows.detach(.notes)
+        let id = try XCTUnwrap(first.layouts.save("Startup", recipe: first.workspaceRecipe()))
+        first.layouts.setStartup(id)
+        first.detachedWindows.redockAll()
+        first.detachedWindows.detach(.bible)  // last session: Bible only
+        let second = relaunch(defaults)
+        defer { second.detachedWindows.redockAll(); first.detachedWindows.redockAll() }
+        second.restoreWindowsAtLaunch()
+        XCTAssertEqual(second.detachedPanels, [.notes])
+        XCTAssertEqual(second.activeLayoutID, id)
+    }
+
+    func testSavedFramesAreUsedOnlyWhenReachableOnAScreen() {
+        let screen = NSRect(x: 0, y: 0, width: 1440, height: 875)
+        XCTAssertEqual(DetachedWindowManager.placeableFrame([100, 100, 600, 700], screens: [screen]), NSRect(x: 100, y: 100, width: 600, height: 700))
+        XCTAssertNil(DetachedWindowManager.placeableFrame([3000, 100, 600, 700], screens: [screen]), "Disconnected display")
+        XCTAssertNil(DetachedWindowManager.placeableFrame([.nan, 0, 600, 700], screens: [screen]))
+        XCTAssertNil(DetachedWindowManager.placeableFrame([0, 0, 600], screens: [screen]))
+        let clamped = DetachedWindowManager.placeableFrame([1200, 80, 600, 800], screens: [screen])
+        XCTAssertEqual(clamped?.maxX, screen.maxX); XCTAssertEqual(clamped?.maxY, screen.maxY)
+        let second = NSRect(x: 1440, y: 0, width: 1920, height: 1080)
+        XCTAssertEqual(DetachedWindowManager.placeableFrame([1600, 200, 800, 700], screens: [screen, second])?.minX, 1600)
+    }
 }

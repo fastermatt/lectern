@@ -28,7 +28,7 @@ private struct ResourceCenterContent: View {
             }
 
             Section("Your own AI") {
-                Text("Connect a local or hosted model in the AI panel, or let your AI tool call Throughline’s read-only CLI. Core Bible study still works without AI.")
+                Text("Connect a local or hosted model in the AI panel, or let your AI tool call Thruline’s read-only CLI. Core Bible study still works without AI.")
                 Button("Open AI panel & CLI setup") { openWindow(id: "ai-assistant") }
             }
             Section(ResourceAccessGroup.included.rawValue) {
@@ -55,6 +55,10 @@ private struct ResourceCenterContent: View {
                         Button("Manage Bible downloads") {
                             SettingsOpener.shared.destination = .translations
                         }
+                    } else if resource.id == "historic-works" {
+                        Text("\(HistoricWork.catalog.count) optional works. Open Library → Fathers & reception or Free study resources to add one.")
+                            .font(.callout)
+                        Button("Open the Library") { openWindow(id: "add-resources") }
                     } else if resource.id == "tcp-reading" {
                         if let count = ResourceCatalog.readingWorkCount {
                             Text("\(count) work and volume entries in this catalogue.")
@@ -77,7 +81,7 @@ private struct ResourceCenterContent: View {
                 Button("Open translation settings") {
                     SettingsOpener.shared.destination = .translations
                 }
-                Text("Publisher keys belong to you and are stored in your macOS Keychain. They are not supplied by Throughline.")
+                Text("Publisher keys belong to you and are stored in your macOS Keychain. They are not supplied by Thruline.")
                     .font(.caption).foregroundStyle(.secondary)
             }
 

@@ -54,13 +54,14 @@ private struct AboutSettings: View {
 
     var body: some View {
         Form {
+            UpdateSettingsSection(updater: state.updater)
             // Placed here (rather than the Workspace tab) because this round's workstream owns
             // SettingsView.swift but not WorkspaceCustomization.swift or the SettingsDestination
             // enum (MainView.swift) needed to add a dedicated tab -- see the workstream report.
             // Claude may want to relocate this to Workspace, alongside source-bank visibility,
             // during wave-2 integration now that it can touch those files.
             Section("Confessional alignment lens") {
-                Text("Throughline does not claim one fixed doctrinal identity. Choose which confessional standard, if any, governs the alignment language (agreement / tension / no mapping / historically disputed) shown on source cards. This is independent of which authors or traditions you display in Fathers, Reformed, Exegetes or Cross-References \u{2014} changing the lens never hides or shows a source.")
+                Text("Thruline does not claim one fixed doctrinal identity. Choose which confessional standard, if any, governs the alignment language (agreement / tension / no mapping / historically disputed) shown on source cards. This is independent of which authors or traditions you display in Fathers, Reformed, Exegetes or Cross-References \u{2014} changing the lens never hides or shows a source.")
                     .font(.caption).foregroundStyle(.secondary)
                 AlignmentLensPicker()
             }

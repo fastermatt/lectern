@@ -62,6 +62,8 @@ final class AppState: ObservableObject {
     @AppStorage("studyTypeface") private var storedStudyTypeface = ReadingTypeface.baskerville.rawValue
     @AppStorage("studyFontSize") var studyFontSize = 13.5
     @AppStorage("studyLineSpacing") var studyLineSpacing = 3.0
+    /// Reopen the separate Bible, Sources and Notes windows that were open at quit.
+    @AppStorage("reopenDetachedWindows") var reopenDetachedWindows = true
 
     @Published var selectedBookCode = "JHN" {
         didSet {
@@ -123,6 +125,13 @@ final class AppState: ObservableObject {
     @Published var requestedStudyTool: StudyDeskSection?
     @Published var requestedStudyNote: StudyNoteOpenRequest?
     @Published var detachedPanels = Set<DetachedPanel>()
+    /// A request to open the Library window's reader at a book, section and paragraph.
+    @Published var libraryRequest: LibraryFocus?
+    /// Opens the Library window at a destination (Fathers & reception opens at Ideas).
+    @Published var libraryDestinationRequest: LibraryDestination?
+    /// False until the workspace scene exists; window recipes wait until then.
+    var windowsReady = false
+    var pendingWindowRecipes: [DetachedWindowRecipe]?
     let notebook: NotebookSession
     lazy var detachedWindows = DetachedWindowManager(state: self)
     /// Scene-backed action forwarded to AppKit-hosted panes, whose default openWindow
@@ -140,6 +149,7 @@ final class AppState: ObservableObject {
     @Published var layoutRevision = UUID()
     @Published var activeLayoutID: UUID?
     let layouts: LayoutLibrary
+    let updater: AppUpdater
     let resourceBooks: ResourceBookLibrary
 
     /// Set just before Scripture itself changes the selected verse (a click, or choosing a word):
@@ -263,7 +273,9 @@ final class AppState: ObservableObject {
         self.defaults = defaults
         self.palette = WorkspacePalette.load(from: defaults)
         self.layouts = LayoutLibrary(defaults: defaults)
+        self.updater = AppUpdater(defaults: defaults)
         self.resourceBooks = resourceBooks ?? ResourceBookLibrary()
+        self.resourceBooks.searchRoots = (studyResources.searchDirectory, AppResources.supportDirectory.appendingPathComponent("PuritanLibrary"))
         self.notes = notes
         self.notebook = NotebookSession(store: notes)
         self.alignment = alignment
@@ -283,6 +295,7 @@ final class AppState: ObservableObject {
         _storedStudyTypeface = AppStorage(wrappedValue: ReadingTypeface.baskerville.rawValue, "studyTypeface", store: defaults)
         _studyFontSize = AppStorage(wrappedValue: 13.5, "studyFontSize", store: defaults)
         _studyLineSpacing = AppStorage(wrappedValue: 3.0, "studyLineSpacing", store: defaults)
+        _reopenDetachedWindows = AppStorage(wrappedValue: true, "reopenDetachedWindows", store: defaults)
         deskSectionOrder = StudyDeskSection.normalizedOrder(defaults.stringArray(forKey: "desk.sectionOrder") ?? [])
         hiddenDeskSections = Set((defaults.stringArray(forKey: "desk.hiddenSections") ?? [])
             .compactMap(StudyDeskSection.init(rawValue:)).filter { !$0.isSourceBank })
@@ -313,7 +326,7 @@ final class AppState: ObservableObject {
         theme = currentScheme == .dark ? .light : .dark
     }
     /// The reader's chosen alignment lens. Defaults to `.none` -- per the 2026-09-24 decision,
-    /// Throughline does not ship with a fixed confessional identity, so no lens is the shipped
+    /// Thruline does not ship with a fixed confessional identity, so no lens is the shipped
     /// default rather than defaulting to Westminster Standards. See the workstream report for
     /// the reasoning and for flagging this as a default worth Matt confirming directly.
     var alignmentStandard: AlignmentStandard {
@@ -449,6 +462,13 @@ final class AppState: ObservableObject {
             ?? library.chapter(translation: "BSB", bookCode: bookCode, chapter: clampedChapter)
         let lastVerse = target?.map(\.number).max() ?? book.verseCount(chapter: clampedChapter)
         selectedVerse = lastVerse > 0 ? min(verse, lastVerse) : verse
+    }
+
+    /// Shows a cited passage, keeping a same-chapter verse range selected.
+    func openPassage(_ anchor: Anchor) {
+        navigate(bookCode: anchor.book, chapter: anchor.chapterStart, verse: max(1, anchor.verseStart))
+        if anchor.chapterStart == anchor.chapterEnd, anchor.verseEnd != Anchor.endOfChapter,
+           anchor.verseEnd > anchor.verseStart, anchor.verseEnd <= verseCount { rangeEndVerse = anchor.verseEnd }
     }
 
     /// Parses a stored passage string ("Genesis 1:1", "Song of Solomon 2:1") back into a

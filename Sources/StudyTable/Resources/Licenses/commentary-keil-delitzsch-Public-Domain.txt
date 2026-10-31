@@ -12,7 +12,7 @@ Public Domain Mark declaration: https://creativecommons.org/publicdomain/mark/1.
 Old Testament only (39 books per the source's own manifest, work-content/helloao/
 keil-delitzsch/_books.json). Authors: Carl Friedrich Keil (1807-1888) and Franz Delitzsch
 (1813-1890), German Lutheran Old Testament scholars -- not confessionally Reformed. Filed
-in Throughline's Tier-2 "Exegetes" bank, labelled "Lutheran" on every card.
+in Thruline's Tier-2 "Exegetes" bank, labelled "Lutheran" on every card.
 
 Known upstream gaps, not a parsing defect (see work-content/helloao/keil-delitzsch/
 _fetch-manifest.json and data/study-build-report.json): 11 individual chapters returned
