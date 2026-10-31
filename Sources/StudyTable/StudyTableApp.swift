@@ -33,6 +33,12 @@ struct StudyTableApp: App {
                 Button("Add resources…") { openWindow(id: "add-resources") }
                 Button("Your AI & CLI…") { openWindow(id: "ai-assistant") }
                 Divider()
+                ForEach(DetachedPanel.allCases, id: \.self) { panel in
+                    Button("Open \(panel.title) in a separate window") { state.detachedWindows.detach(panel) }
+                }
+                Button("Return all study windows to workspace") { state.detachedWindows.redockAll() }
+                    .disabled(state.detachedPanels.isEmpty)
+                Divider()
                 Button("Focus Scripture") { state.focusMode.toggle() }
                     .keyboardShortcut("f", modifiers: [.command, .shift])
                 Button("Toggle Library") { state.showLibrary.toggle() }

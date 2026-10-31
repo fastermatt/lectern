@@ -8,6 +8,7 @@ No web service is required for core functionality.
 |---|---|
 | App and windows | Sources/StudyTable/StudyTableApp.swift, MainView.swift |
 | State and preferences | AppState.swift, SavedLayouts.swift |
+| Detached pane windows and live notebook session | DetachedWindows.swift, NotebookSession.swift; shared AppState/StudyStore, no copied notes database |
 | Reader and study panes | Panes.swift, ReadingNavigation.swift, Models.swift |
 | Guided passage learning | GuidedStudyView.swift, GrammarLessons.swift, GrammarHelpView.swift, PassageLearning.swift |
 | Appearance | Theme.swift, native pane/control components |

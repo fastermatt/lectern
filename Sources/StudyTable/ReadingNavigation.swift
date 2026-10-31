@@ -36,6 +36,7 @@ struct ReadingNavigation: View {
                 .help("Choose translation; manage downloads in Translation settings")
                 chapterKey(-1)
                 chapterKey(1)
+                DetachPanelButton(panel: .bible)
             }
             if let previous = state.passageHistory.last {
                 Button { state.returnToPreviousPassage() } label: {

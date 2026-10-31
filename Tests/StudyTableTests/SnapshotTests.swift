@@ -8,6 +8,26 @@ import XCTest
 /// that rendering produces a non-blank image.
 @MainActor
 final class SnapshotTests: XCTestCase {
+    func testDetachedPanelsInBothAppearances() throws {
+        for (dark, name) in [(false, "light"), (true, "dark")] {
+            let state = stateAt("ROM", 8, 28)
+            state.study.addNote(anchors: [Anchor(book: "ROM", chapter: 8, verses: 28, to: 39)],
+                title: "Sermon preparation", kind: .sermonIdea,
+                sections: [NoteSection(key: "bigIdea", text: "Read the promise in its full context."),
+                           NoteSection(key: "points", text: "1. The promise\n2. The purpose\n3. Our response")])
+            state.notebook.pin(to: state.selectedAnchor)
+            state.detachedPanels = Set(DetachedPanel.allCases)
+            for panel in DetachedPanel.allCases {
+                let rep = try render(DetachedPanelRoot(panel: panel).environmentObject(state), dark: dark,
+                    size: CGSize(width: 560, height: 760), name: "detached-\(panel.rawValue)-\(name)")
+                assertNotBlank(rep, "detached \(panel) \(name)")
+            }
+            let rep = try render(MainView().environmentObject(state), dark: dark,
+                size: CGSize(width: 980, height: 650), name: "detached-workspace-\(name)")
+            assertNotBlank(rep, "detached workspace \(name)")
+        }
+    }
+
     func testGuidedStudyInBothAppearances() throws {
         for (dark, name) in [(false, "light"), (true, "dark")] {
             let state = stateAt("PHP", 4, 4)

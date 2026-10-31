@@ -122,6 +122,16 @@ final class AppState: ObservableObject {
     @Published var showBibleSearch = false
     @Published var requestedStudyTool: StudyDeskSection?
     @Published var requestedStudyNote: StudyNoteOpenRequest?
+    @Published var detachedPanels = Set<DetachedPanel>()
+    let notebook: NotebookSession
+    lazy var detachedWindows = DetachedWindowManager(state: self)
+    /// Scene-backed action forwarded to AppKit-hosted panes, whose default openWindow
+    /// environment does not belong to the main SwiftUI scene.
+    var openSceneWindow: ((String) -> Void)?
+
+    var hasDockedStudyDesk: Bool {
+        showStudyDesk && (!detachedPanels.contains(.sources) || (showNotes && !detachedPanels.contains(.notes)))
+    }
     @Published var deskMode: StudyDeskMode = .sources
     @Published var guideScope = PassageGuideScope()
     @Published var sourcesOnLeft = false
@@ -255,6 +265,7 @@ final class AppState: ObservableObject {
         self.layouts = LayoutLibrary(defaults: defaults)
         self.resourceBooks = resourceBooks ?? ResourceBookLibrary()
         self.notes = notes
+        self.notebook = NotebookSession(store: notes)
         self.alignment = alignment
         // Every preference uses the injectable suite, not just the remembered translation.
         // Offscreen previews and regression tests must never alter a reader's real workspace.
@@ -406,6 +417,7 @@ final class AppState: ObservableObject {
         showStudyDesk = true
         showNotes = true
         requestedStudyNote = StudyNoteOpenRequest(noteID: id)
+        if detachedPanels.contains(.notes) { detachedWindows.focus(.notes) }
         return true
     }
 

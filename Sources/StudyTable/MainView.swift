@@ -8,6 +8,7 @@ private let gutter: CGFloat = 1
 
 struct MainView: View {
     @EnvironmentObject private var state: AppState
+    @Environment(\.openWindow) private var openWindow
     @StateObject private var searchSession = BibleSearchSession()
 
     var body: some View {
@@ -27,6 +28,10 @@ struct MainView: View {
         }
         .task { await state.resourceBooks.load() }
         .captureSettingsOpener()
+        .onAppear {
+            let action = openWindow
+            state.openSceneWindow = { id in action(id: id) }
+        }
         .modifier(StudyStoreAlertPresenter(study: state.study))
     }
 }
@@ -35,7 +40,7 @@ struct MainView: View {
 /// newer than this app, or can't be saved, the store recovers or goes read-only and *says so through
 /// `StudyStore.alert`* — but nothing in the UI displayed it, so the app would have quietly stopped
 /// saving. Observes the store directly (AppState doesn't republish the store's changes).
-private struct StudyStoreAlertPresenter: ViewModifier {
+struct StudyStoreAlertPresenter: ViewModifier {
     @ObservedObject var study: StudyStore
 
     func body(content: Content) -> some View {
@@ -58,12 +63,16 @@ private struct Workspace: View {
             }
             VStack(spacing: gutter) {
                 HSplitView {
-                    if state.sourcesOnLeft && state.showStudyDesk && !state.focusMode {
+                    if state.sourcesOnLeft && state.hasDockedStudyDesk && !state.focusMode {
                         StudyDesk().frame(minWidth: 290, idealWidth: 350)
                     }
-                    ScripturePane().frame(minWidth: 350, idealWidth: 570)
-                        .background { if state.showStudyDesk && !state.focusMode { WorkspaceDivider(fraction: $state.readingRatio, revision: state.layoutRevision) } }
-                    if !state.sourcesOnLeft && state.showStudyDesk && !state.focusMode {
+                    if !state.detachedPanels.contains(.bible) {
+                        ScripturePane().frame(minWidth: 350, idealWidth: 570)
+                            .background { if state.hasDockedStudyDesk && !state.focusMode { WorkspaceDivider(fraction: $state.readingRatio, revision: state.layoutRevision) } }
+                    } else if !state.hasDockedStudyDesk || state.focusMode {
+                        DetachedWorkspacePlaceholder()
+                    }
+                    if !state.sourcesOnLeft && state.hasDockedStudyDesk && !state.focusMode {
                         StudyDesk().frame(minWidth: 290, idealWidth: 350, maxWidth: .infinity)
                     }
                 }
@@ -130,6 +139,14 @@ struct WorkspaceFooter: View {
                 Toggle("Bible navigation", isOn: $state.showLibrary)
                 Toggle("Sources & tools", isOn: $state.showStudyDesk)
                 Toggle("Notes", isOn: $state.showNotes)
+                Divider()
+                ForEach(DetachedPanel.allCases, id: \.self) { panel in
+                    Button(state.detachedPanels.contains(panel) ? "Show \(panel.title) window" : "Detach \(panel.title)") {
+                        state.detachedWindows.detach(panel)
+                    }
+                }
+                Button("Return all windows to workspace") { state.detachedWindows.redockAll() }
+                    .disabled(state.detachedPanels.isEmpty)
                 Divider()
                 Toggle("Show disputed-reception sources", isOn: $state.showResearchTier)
                 Button("Confessional library…") { showConfessions = true }

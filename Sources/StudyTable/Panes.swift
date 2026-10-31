@@ -467,10 +467,12 @@ struct StudyDesk: View {
 
     var body: some View {
         VSplitView {
-            SourcesPane().frame(minHeight: 190, idealHeight: 380).physicalPaneSurface()
+            if !state.detachedPanels.contains(.sources) {
+                SourcesPane().frame(minHeight: 190, idealHeight: 380).physicalPaneSurface()
                 .background(WorkspaceDivider(fraction: $state.notesRatio, revision: state.layoutRevision, vertical: false))
+            }
             // Notes are a real, resizable aperture in the console. NOTES hides it entirely.
-            if state.showNotes {
+            if state.showNotes && !state.detachedPanels.contains(.notes) {
                 NoteEditor(startsExpanded: true).frame(minHeight: 230, idealHeight: 280).physicalPaneSurface()
             }
         }
@@ -505,6 +507,7 @@ struct SourcesPane: View {
                 Label("Linked to \(state.passage)", systemImage: "link")
                     .font(.system(size: 11)).foregroundStyle(STColor.secondary).lineLimit(1)
                 Spacer(minLength: 4)
+                DetachPanelButton(panel: .sources)
                 if mode == .sources {
                     Menu {
                         ForEach(SourceTradition.allCases) { tradition in

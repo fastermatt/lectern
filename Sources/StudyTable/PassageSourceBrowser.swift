@@ -60,7 +60,10 @@ struct PassageSourceBrowser: View {
             HStack {
                 Text("\(ordered.count) linked entries").font(.caption).foregroundStyle(STColor.secondary)
                 Spacer()
-                Button("Add resources…") { openWindow(id: "add-resources") }.font(.caption)
+                Button("Add resources…") {
+                    if let action = state.openSceneWindow { action("add-resources") }
+                    else { openWindow(id: "add-resources") }
+                }.font(.caption)
             }.padding(.horizontal, 20).padding(.vertical, 10)
             Divider()
             if let selection {

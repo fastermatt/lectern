@@ -82,16 +82,30 @@ struct NoteEditor: View {
     @EnvironmentObject private var state: AppState
     var startsExpanded = false
 
-    @State private var anchors: [Anchor] = []
-    @State private var noteIDsAtAnchor: [UUID] = []
-    @State private var position = 0
+    var body: some View {
+        NotebookEditor(startsExpanded: startsExpanded, notebook: state.notebook)
+            .environmentObject(state)
+    }
+}
 
-    @State private var title = ""
-    @State private var kind: NoteKind = .free
-    @State private var body_ = ""
-    @State private var fieldTexts: [String: String] = [:]
-    @State private var tags: [String] = []
-    @State private var newTagText = ""
+private struct NotebookEditor: View {
+    @EnvironmentObject private var state: AppState
+    var startsExpanded = false
+    @ObservedObject var notebook: NotebookSession
+
+    private var anchors: [Anchor] { get { notebook.anchors } nonmutating set { notebook.anchors = newValue } }
+    private var noteIDsAtAnchor: [UUID] { get { notebook.noteIDsAtAnchor } nonmutating set { notebook.noteIDsAtAnchor = newValue } }
+    private var position: Int { get { notebook.position } nonmutating set { notebook.position = newValue } }
+
+    private var title: String { get { notebook.title } nonmutating set { notebook.title = newValue } }
+    private var kind: NoteKind { get { notebook.kind } nonmutating set { notebook.kind = newValue } }
+    private var body_: String { get { notebook.body } nonmutating set { notebook.body = newValue } }
+    private var fieldTexts: [String: String] { get { notebook.fieldTexts } nonmutating set { notebook.fieldTexts = newValue } }
+    private var tags: [String] { get { notebook.tags } nonmutating set { notebook.tags = newValue } }
+    private var newTagText: String { get { notebook.newTagText } nonmutating set { notebook.newTagText = newValue } }
+
+    private var scopeAnchor: Anchor? { notebook.isPinned ? notebook.pinnedAnchor : state.selectedAnchor }
+    private var scopeLabel: String { scopeAnchor?.displayString ?? state.passage }
 
     @State private var isLoading = false
     @State private var browsingAllNotes = false
@@ -137,7 +151,10 @@ struct NoteEditor: View {
         .background(STColor.tileWell.opacity(0.5))
         .overlay(alignment: .top) { Rectangle().fill(STColor.hairline).frame(height: 1) }
         .onAppear { load() }
-        .onChange(of: state.passage) { _, _ in load(); manuallyExpanded = false }
+        .onChange(of: state.passage) { _, _ in
+            if !notebook.isPinned { load(); manuallyExpanded = false }
+        }
+        .onChange(of: notebook.isPinned) { _, _ in load() }
         .onChange(of: state.requestedStudyNote) { _, request in
             if request != nil { load() }
         }
@@ -171,19 +188,23 @@ struct NoteEditor: View {
             }
             Button { goToPrevious() } label: { Image(systemName: "chevron.left") }
                 .buttonStyle(.plain).disabled(position == 0)
-                .accessibilityLabel("Previous note at \(state.passage)")
+                .accessibilityLabel("Previous note at \(scopeLabel)")
             Button { startNew() } label: { Image(systemName: "plus") }
                 .buttonStyle(.plain)
-                .accessibilityLabel("New note at \(state.passage)")
+                .accessibilityLabel("New note at \(scopeLabel)")
             Button { goToNext() } label: { Image(systemName: "chevron.right") }
                 .buttonStyle(.plain).disabled(position >= totalSlots - 1)
-                .accessibilityLabel("Next note at \(state.passage)")
+                .accessibilityLabel("Next note at \(scopeLabel)")
             if !state.study.allNotes.isEmpty {
                 Button { browsingAllNotes = true } label: { Image(systemName: "list.bullet") }
                     .buttonStyle(.plain).help("Browse My Study")
                     .accessibilityLabel("Browse all notes")
             }
-            Button { state.showNotes = false } label: { Image(systemName: "xmark") }
+            DetachPanelButton(panel: .notes)
+            Button {
+                if state.detachedPanels.contains(.notes) { state.detachedWindows.redock(.notes) }
+                else { state.showNotes = false }
+            } label: { Image(systemName: "xmark") }
                 .buttonStyle(.plain).accessibilityLabel("Close notebook")
         }
         .popover(isPresented: $browsingAllNotes) { NotesBrowser().preferredColorScheme(state.colorScheme) }
@@ -302,7 +323,7 @@ struct NoteEditor: View {
                 .padding(8)
                 .overlay(alignment: .topLeading) {
                     if body_.isEmpty {
-                        Text("Write a note about \(state.passage)…")
+                        Text("Write a note about \(scopeLabel)…")
                             .font(STFont.reading(state.studyFontSize, typeface: state.studyTypeface)).foregroundStyle(STColor.secondary)
                             .padding(.horizontal, 13).padding(.top, 9)
                             .allowsHitTesting(false)
@@ -363,7 +384,7 @@ struct NoteEditor: View {
                 .padding(.horizontal, 7).padding(.vertical, 3)
                 .overlay(Capsule().stroke(STColor.keyRim, lineWidth: 1))
             }
-            TextField("+ tag", text: $newTagText)
+            TextField("+ tag", text: Binding(get: { newTagText }, set: { newTagText = $0 }))
                 .textFieldStyle(.plain).font(.system(size: 10, design: .rounded))
                 .frame(width: 56)
                 .onSubmit { addTag() }
@@ -405,7 +426,7 @@ struct NoteEditor: View {
                 HStack(spacing: 6) {
                     Image(systemName: "square.and.pencil").font(.system(size: 11))
                     Text("NOTEBOOK").font(STFont.legend(9)).tracking(0.9)
-                    Text("Add a note for \(state.passage)")
+                    Text("Add a note for \(scopeLabel)")
                         .font(.system(size: 11, design: .rounded))
                         .foregroundStyle(STColor.secondary).lineLimit(1)
                     Spacer(minLength: 4)
@@ -415,7 +436,7 @@ struct NoteEditor: View {
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
-            .accessibilityLabel("Notebook, add a note for \(state.passage)")
+            .accessibilityLabel("Notebook, add a note for \(scopeLabel)")
             if !state.study.allNotes.isEmpty {
                 Button { browsingAllNotes = true } label: {
                     Image(systemName: "list.bullet")
@@ -433,8 +454,15 @@ struct NoteEditor: View {
 
     // MARK: Loading & navigation among notes at the anchor
 
-    private func load() {
-        let anchor = state.selectedAnchor
+    private func load(force: Bool = false) {
+        let request = state.requestedStudyNote
+        let newRequest = request != nil && request?.token != notebook.lastRequestToken
+        if newRequest, notebook.isPinned { notebook.pinnedAnchor = state.selectedAnchor }
+        let anchor = scopeAnchor
+        guard force || !notebook.didLoad || notebook.loadedAnchor != anchor || newRequest else { return }
+        notebook.didLoad = true
+        notebook.loadedAnchor = anchor
+        notebook.lastRequestToken = request?.token
         // A sermon may be anchored to a paragraph or chapter. It remains relevant when the
         // reader is on one verse inside that range, rather than appearing to vanish.
         let atAnchor = anchor.map { state.study.notes(overlapping: $0) } ?? []
@@ -461,17 +489,11 @@ struct NoteEditor: View {
     private func startNew() { loadSlot(noteIDsAtAnchor.count); manuallyExpanded = true }
 
     private func applyNote(_ note: Note) {
-        title = note.title
-        kind = note.kind
-        body_ = note.body
-        tags = note.tags
-        if !note.anchors.isEmpty { anchors = note.anchors }
-        var texts = Dictionary(uniqueKeysWithValues: note.sections.map { ($0.key, $0.text) })
-        for field in NoteTemplates.definition(for: note.kind).fields where texts[field.key] == nil { texts[field.key] = "" }
-        fieldTexts = texts
+        notebook.apply(note)
     }
 
     private func applyDraft() {
+        notebook.loadedNote = nil
         title = ""
         kind = .free
         body_ = ""
@@ -518,12 +540,14 @@ struct NoteEditor: View {
                 note.tags = tags
                 if !anchors.isEmpty { note.anchors = anchors }
             }
+            notebook.loadedNote = state.study.note(id: id)
         } else {
             // Never create a note from an empty draft (no ghost notes) — only real field/body text does.
             guard !contentEmpty, !anchors.isEmpty else { return }
             guard let created = state.study.addNote(anchors: anchors, title: title, kind: kind, body: bodyText, sections: sections, tags: tags) else { return }
             noteIDsAtAnchor.append(created.id)
             position = noteIDsAtAnchor.count - 1
+            notebook.loadedNote = created
         }
     }
 
@@ -548,7 +572,7 @@ struct NoteEditor: View {
         lastDeleted = nil
         undoWorkItem?.cancel()
         Announcer.post("Note restored.")
-        load()
+        load(force: true)
     }
 }
 

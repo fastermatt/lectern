@@ -1,5 +1,30 @@
 # Throughline workspace and library
 
+## Separate study windows
+
+Use a pane's **Detach** icon (arrow out of a square), **View → Detach**, or the
+**Study** menu to open Bible, Sources & tools, or Notes in its own native window.
+Move, resize, minimize or place these windows on another display. Each pane has
+one detached window; selecting Detach again brings that window forward.
+
+Bible and Sources & tools follow the workspace's selected passage. Notes start
+with **Pin note** on: the active note and its passage stay put while you browse
+the Bible. Turn Pin note off to follow the workspace. Opening another saved note
+from My Study or search selects that exact note in the existing Notes window.
+
+**Return to workspace**, closing the window, or **View → Return all windows to
+workspace** restores the panes. Returning pinned notes brings the Bible back to
+the notebook's passage and retains its active note, template and unfinished draft.
+Only one live notebook session and one StudyStore are used; no second notes file
+or copied database is created. Changes made to the same saved note through another
+study surface refresh the shared session. Existing backup/read-only alerts apply.
+
+Window positions/sizes use macOS autosave. Detached windows do not automatically
+reopen after quitting; the app starts with docked panes. Saved workspace layouts
+do not capture detached-window arrangements. This is pane detachment, not arbitrary
+tab groups or independent Bible/source navigation sets.
+
+
 ## Reopening your notes
 
 In **My Study → Notes**, choose a saved note and **Open in Reader** to reopen that
@@ -91,8 +116,8 @@ Recipes include the passage/range, translation, source banks, tools/order, pinne
 Guide range, pane visibility, reading/notes split fractions and Scripture size/leading.
 The navigator stays within its existing compact width constraints. Layouts do not
 copy notes, keys, AI conversations or books. Notes keep saving independently.
-This is a fixed-role pane workspace, not arbitrary draggable tab groups or multiple
-independent link sets. Window minimums may constrain a saved divider fraction.
+This is a fixed-role pane workspace with optional separate windows, not arbitrary
+draggable tab groups or multiple independent link sets. Window minimums may constrain a saved divider fraction.
 
 ## Add free resources
 

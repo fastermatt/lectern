@@ -1,5 +1,28 @@
 # Source preparation checks — 2026-10-28
 
+## 0.21.0 detached pane windows — 2026-10-30
+
+The affected local suite passed 85 tests, zero failures: native window lifecycle,
+notebook reopening/durability, store recovery, guided notes, workspace behavior,
+light/dark notebook renders, eight new detached/workspace renders and minimum-size
+workspace rendering. Eight native window tests cover single-window reuse, closing
+and returning panes, unsaved title/template retention without empty notes, pinned
+sermon edits and disk reload, following the Bible after unpinning, exact-note open
+requests, updates from another study surface native appearance changes and returning to the main scene.
+
+The notebook now has one memory-only live session shared by its pane and window;
+StudyStore remains its one existing file-backed store. No notes-file schema or
+migration changes. Tests use isolated data/preferences and offscreen windows;
+they do not edit real notes or saved window positions. Final panel previews in
+light/dark were inspected for text/control layout. Real multi-monitor placement
+and window-position restoration across separate launches are not certified by
+these tests; native macOS windows/frame autosave provide those behaviors.
+
+Only one window per pane is supported. Bible/sources share workspace navigation;
+notes can stay pinned. Floating windows are not restored automatically on relaunch
+and are not included in saved workspace layouts. Full hosted results are linked
+from the release PR.
+
 ## 0.20.2 note reopening fix — 2026-10-30
 
 Two native-editor regression tests first failed on 0.20.1: opening a specific
