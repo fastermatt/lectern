@@ -467,12 +467,10 @@ struct StudyDesk: View {
 
     var body: some View {
         VSplitView {
-            if !state.detachedPanels.contains(.sources) {
-                SourcesPane().frame(minHeight: 190, idealHeight: 380).physicalPaneSurface()
+            SourcesPane().frame(minHeight: 190, idealHeight: 380).physicalPaneSurface()
                 .background(WorkspaceDivider(fraction: $state.notesRatio, revision: state.layoutRevision, vertical: false))
-            }
             // Notes are a real, resizable aperture in the console. NOTES hides it entirely.
-            if state.showNotes && !state.detachedPanels.contains(.notes) {
+            if state.showNotes {
                 NoteEditor(startsExpanded: true).frame(minHeight: 230, idealHeight: 280).physicalPaneSurface()
             }
         }
@@ -501,13 +499,12 @@ struct SourcesPane: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                ForEach([StudyDeskMode.sources, .tools, .guide, .learn]) { choice in deskTab(choice) }
+                ForEach([StudyDeskMode.sources, .tools, .guide]) { choice in deskTab(choice) }
             }.padding(.horizontal, 16)
             HStack {
                 Label("Linked to \(state.passage)", systemImage: "link")
                     .font(.system(size: 11)).foregroundStyle(STColor.secondary).lineLimit(1)
                 Spacer(minLength: 4)
-                DetachPanelButton(panel: .sources)
                 if mode == .sources {
                     Menu {
                         ForEach(SourceTradition.allCases) { tradition in
@@ -523,14 +520,10 @@ struct SourcesPane: View {
             ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {
-                    if mode == .sources || mode == .guide {
+                    if mode != .tools {
                         DownloadedPassageNotes(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
-                        LibraryCitationsPanel(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
-                        CatalogSuggestionsPanel(books: state.resourceBooks, anchor: mode == .guide ? state.guideScope.anchor(selection: state.selectedAnchor) : state.selectedAnchor)
                     }
-                    if mode == .learn {
-                        GuidedStudyView(study: state.study)
-                    } else if mode == .guide {
+                    if mode == .guide {
                         PassageGuideView(study: state.study, references: references, scope: $state.guideScope) { destination, anchor, tool in
                             state.navigate(bookCode: anchor.book, chapter: anchor.chapterStart, verse: anchor.verseStart)
                             if let tool { state.setDeskSectionVisible(tool, true) }
@@ -600,7 +593,7 @@ struct SourcesPane: View {
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(selected ? .isSelected : [])
-        .help(choice == .learn ? "Read, explore words and grammar, and save a reflection" : choice == .guide ? "Overview of a selected or entered passage" : choice == .tools
+        .help(choice == .guide ? "Overview of a selected or entered passage" : choice == .tools
             ? "Original languages, proof texts, topics, dictionary, people and translations for the reader's verse"
             : "Commentary and cross-reference banks for the reader's verse")
     }
@@ -771,8 +764,8 @@ struct SourceCard: View {
                 // Commentary/study text has its own font, size and leading (0.10.2) — independent
                 // of Scripture's Type/Leading knobs, per Matt's explicit request. An 0.10.1
                 // stopgap briefly scaled this off the Scripture knobs; this replaces that.
-                DeskExpandableText(text: entry.excerpt, expanded: $expanded,
-                                   typeface: state.studyTypeface, fontSize: state.studyFontSize, lineSpacing: state.studyLineSpacing)
+                FormattedCommentaryText(text: entry.excerpt, expanded: $expanded,
+                                        typeface: state.studyTypeface, fontSize: state.studyFontSize, lineSpacing: state.studyLineSpacing)
             }
             footer
             if expanded { details }

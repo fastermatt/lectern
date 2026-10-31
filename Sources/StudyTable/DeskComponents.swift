@@ -226,6 +226,167 @@ struct DeskExpandableText: View {
     }
 }
 
+// MARK: - Commentary paragraph formatter
+
+/// The structural role a detected paragraph segment plays in a commentary text.
+///
+/// Matthew Henry uses Roman-numeral main headings (I. II. III.) and Arabic sub-points (1. 2. 3.).
+/// Calvin and verse-by-verse commentators open each paragraph with the verse number (1. 2. etc.).
+/// Short excerpts from the Fathers or cross-reference entries parse as `.body` (no structure).
+enum CommentarySegmentKind {
+    /// Roman-numeral main heading: "I. The apostle…", "II. This great truth…"
+    case romanHeading
+    /// Arabic-numbered paragraph: "1. It is the unspeakable privilege…", "2. For the law…"
+    case numberedParagraph
+    /// Unstructured prose — no detected paragraph marker.
+    case body
+}
+
+struct CommentarySegment {
+    let kind: CommentarySegmentKind
+    let text: String
+}
+
+extension CommentarySegment {
+    /// Splits `text` into visually meaningful segments by detecting paragraph-marker patterns.
+    ///
+    /// A marker fires only when ALL of these hold:
+    /// - It sits at the very start of the string OR immediately after `. `, `! `, or `? `
+    /// - The token is Roman-numeral caps only (up to 6 chars: covers VIII) or Arabic 1–99
+    /// - It is followed by `. ` and then a capital letter, open-quote `"`, or open-paren `(`
+    ///
+    /// This keeps abbreviations ("i.e.", "cf.", "Rev. 8:", "Chap. 3:"), inline numbers ("in
+    /// 1. day"), and lowercase/mixed text safely inside the current block rather than splitting
+    /// them as false paragraph boundaries.
+    static func parse(_ text: String) -> [CommentarySegment] {
+        // NSRegularExpression: Swift built-in regex lacks variable-width lookbehind on macOS 12.
+        guard let regex = try? NSRegularExpression(
+            pattern: #"(?:^|(?<=[.!?] ))([IVXLC]{1,6}|[1-9][0-9]?)\.[ ](?=[A-Z"“(])"#
+        ) else {
+            return [CommentarySegment(kind: .body, text: text)]
+        }
+
+        let ns = text as NSString
+        let matches = regex.matches(in: text, range: NSRange(location: 0, length: ns.length))
+        guard !matches.isEmpty else { return [CommentarySegment(kind: .body, text: text)] }
+
+        var segments: [CommentarySegment] = []
+
+        // Text before the first detected marker (preamble / introduction).
+        let firstStart = matches[0].range.location
+        if firstStart > 0 {
+            let leading = ns.substring(with: NSRange(location: 0, length: firstStart))
+                .trimmingCharacters(in: .whitespaces)
+            if !leading.isEmpty { segments.append(CommentarySegment(kind: .body, text: leading)) }
+        }
+
+        // Each match starts a segment that runs to the next match (or the end of the string).
+        for (i, match) in matches.enumerated() {
+            let segStart = match.range.location
+            let segEnd = i + 1 < matches.count ? matches[i + 1].range.location : ns.length
+            let segText = ns.substring(with: NSRange(location: segStart, length: segEnd - segStart))
+                .trimmingCharacters(in: .whitespaces)
+            guard !segText.isEmpty else { continue }
+
+            let token = ns.substring(with: match.range(at: 1))
+            let isRoman = token.allSatisfy { "IVXLC".contains($0) }
+            segments.append(CommentarySegment(kind: isRoman ? .romanHeading : .numberedParagraph, text: segText))
+        }
+
+        return segments.isEmpty ? [CommentarySegment(kind: .body, text: text)] : segments
+    }
+}
+
+/// Commentary text renderer that adds visual paragraph structure when expanded.
+///
+/// **Collapsed:** identical to `DeskExpandableText` — first N lines, bottom fade, "Show more" pill.
+/// **Expanded:** each detected paragraph renders as its own `Text` block with vertical spacing
+/// calibrated to its role — generous gaps before Roman-numeral main headings (Matthew Henry I. II.
+/// III.), moderate gaps before numbered sub-points (1. 2. 3.), and no gap before the very first
+/// segment. Falls back to flat rendering for short texts or texts with no detected structure.
+///
+/// The caller still owns the `expanded` binding (paired with `DeskMoreButton` in the card footer).
+struct FormattedCommentaryText: View {
+    let text: String
+    var collapsedLines: Int = 6
+    @Binding var expanded: Bool
+    var fadeColor: Color = STColor.tileWell
+    var typeface: ReadingTypeface = .baskerville
+    var fontSize: CGFloat = 13.5
+    var lineSpacing: CGFloat = 3
+
+    // Parsed once per render; cheap for typical commentary lengths (< 20,000 chars).
+    private var segments: [CommentarySegment] { CommentarySegment.parse(text) }
+
+    var body: some View {
+        if expanded { expandedBody } else { collapsedBody }
+    }
+
+    // Expanded: paragraph-structured layout.
+    @ViewBuilder private var expandedBody: some View {
+        let segs = segments
+        if segs.count <= 1 {
+            // No structure found — plain text, same as DeskExpandableText in its expanded state.
+            Text(text)
+                .font(STFont.reading(fontSize, typeface: typeface))
+                .lineSpacing(lineSpacing)
+                .textSelection(.enabled)
+                .foregroundStyle(STColor.ink)
+        } else {
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(Array(segs.enumerated()), id: \.offset) { index, seg in
+                    Text(seg.text)
+                        .font(STFont.reading(fontSize, typeface: typeface))
+                        .lineSpacing(lineSpacing)
+                        .textSelection(.enabled)
+                        .foregroundStyle(STColor.ink)
+                        .padding(.top, index == 0 ? 0 : topPadding(for: seg.kind))
+                }
+            }
+        }
+    }
+
+    // Collapsed: first N lines with fade and "Show more" pill — same as DeskExpandableText.
+    private var collapsedBody: some View {
+        VStack(alignment: .trailing, spacing: 6) {
+            Text(text)
+                .font(STFont.reading(fontSize, typeface: typeface))
+                .lineSpacing(lineSpacing)
+                .lineLimit(collapsedLines)
+                .textSelection(.enabled)
+                .foregroundStyle(STColor.ink)
+                .overlay(alignment: .bottom) {
+                    LinearGradient(colors: [fadeColor.opacity(0), fadeColor],
+                                   startPoint: .top, endPoint: .bottom)
+                        .frame(height: 18)
+                        .allowsHitTesting(false)
+                }
+            Button { expanded = true } label: {
+                HStack(spacing: 2) {
+                    Text("Show more").font(.system(size: 10.5, weight: .semibold, design: .rounded))
+                    Image(systemName: "chevron.down").font(.system(size: 8, weight: .semibold))
+                }
+                .foregroundStyle(STColor.ink)
+                .padding(.horizontal, 7).padding(.vertical, 3)
+                .background(fadeColor, in: Capsule())
+                .overlay(Capsule().stroke(STColor.keyRim, lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+            .accessibilityHidden(true)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityAction(named: "Show more") { expanded = true }
+    }
+
+    private func topPadding(for kind: CommentarySegmentKind) -> CGFloat {
+        switch kind {
+        case .romanHeading:      return 16  // Major section break — generous space
+        case .numberedParagraph: return 10  // Sub-point / verse paragraph — moderate space
+        case .body:              return  8  // Continuation block
+        }
+    }
+}
+
 /// The small MORE/LESS toggle used in a desk card's footer.
 struct DeskMoreButton: View {
     @Binding var expanded: Bool
