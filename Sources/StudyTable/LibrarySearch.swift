@@ -9,6 +9,7 @@ struct LibraryTextHit: Identifiable, Sendable {
     var anchor: Anchor?
     var source: URL?
     var attribution: String
+    var noteID: UUID? = nil
 }
 struct LibraryTextPage: Sendable { var hits: [LibraryTextHit]; var total: Int; var unreadable: Int }
 enum LibraryTextScope: String, CaseIterable, Identifiable, Sendable {
@@ -35,7 +36,7 @@ enum LibraryTextSearch {
             for note in notes {
                 try Task.checkCancellation()
                 consider(.init(id: "note:" + note.id.uuidString, title: note.title.isEmpty ? "Untitled note" : note.title,
-                    collection: "My notes", body: ([note.body] + note.sections.map(\.text) + note.tags).joined(separator: "\n\n"), anchor: note.anchors.first, source: nil, attribution: "Your private note · stored on this Mac"))
+                    collection: "My notes", body: ([note.body] + note.sections.map(\.text) + note.tags).joined(separator: "\n\n"), anchor: note.anchors.first, source: nil, attribution: "Your private note · stored on this Mac", noteID: note.id))
             }
         }
         if scope == .all || scope == .books {
@@ -172,7 +173,11 @@ private struct LibraryTextSearchView: View {
             VStack(alignment: .leading, spacing: 12) {
                 HStack { Text(hit.title).font(.headline); Spacer(); Button("Done") { detail = nil } }
                 Text(hit.collection).foregroundStyle(.secondary)
-                if let anchor = hit.anchor {
+                if let id = hit.noteID {
+                    Button("Open note in workspace") {
+                        if state.openStudyNote(id) { detail = nil; dismiss() }
+                    }
+                } else if let anchor = hit.anchor {
                     Button("Read \(anchor.displayString) in workspace") { state.navigate(bookCode: anchor.book, chapter: anchor.chapterStart, verse: max(1, anchor.verseStart)); detail = nil; dismiss() }
                 }
                 ScrollView { Text(hit.body).font(.system(size: 16, design: .serif)).lineSpacing(5).textSelection(.enabled).frame(maxWidth: .infinity, alignment: .leading) }

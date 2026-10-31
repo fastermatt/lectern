@@ -1,5 +1,22 @@
 # Throughline workspace and library
 
+## Reopening your notes
+
+In **My Study → Notes**, choose a saved note and **Open in Reader** to reopen that
+exact note and its saved template in the right-hand notebook. Search → Library &
+notes → Open note in workspace uses the same route. The notebook and study desk
+reopen even when hidden or in Reading focus. Notes attached to a passage range or
+chapter are available while reading a verse inside that range. Previous/Next and
+New in the notebook still let you choose among notes covering the current passage.
+
+Version 0.20.2 fixes a navigation problem that could show a blank or different note
+instead of the selected sermon note. This does not require recreating the note or
+changing its template. If a note is visible in My Study, its saved content can be
+read there before updating. Keep backups and use Recently Deleted for deliberately
+deleted notes. User notes remain in the existing StudyTable support directory; the
+fix does not migrate or replace the notes database.
+
+
 ## Guided passage study
 
 Choose **Learn** in the toolbar or study desk. Four steps follow the selected verse:

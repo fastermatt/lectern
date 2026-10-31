@@ -76,8 +76,8 @@ enum NoteEditorContent {
 /// as editable chips defaulting to `state.selectedAnchor`, and Delete is real (confirms, soft-
 /// deletes to Recently Deleted, offers Undo). No note is ever created from an empty draft — only
 /// real content typed into the body or a template field creates one — and merely visiting a
-/// passage (or a note within it) never touches `modifiedAt`: every field is loaded through
-/// `isLoading`, which suppresses the `onChange` commit chain while values are being assigned.
+/// passage (or a note within it) never touches `modifiedAt`: only user-facing binding setters
+/// save changes. Loading state does not run an asynchronous `onChange` save chain.
 struct NoteEditor: View {
     @EnvironmentObject private var state: AppState
     var startsExpanded = false
@@ -122,10 +122,9 @@ struct NoteEditor: View {
                 notebookHeader
                 anchorChipsRow
                 toolRow
-                TextField("Note title", text: $title)
+                TextField("Note title", text: titleBinding)
                     .textFieldStyle(.plain).font(STFont.reading(max(19, state.studyFontSize * 1.35), typeface: state.studyTypeface))
                     .padding(.horizontal, 14).frame(height: 38)
-                    .onChange(of: title) { _, _ in commit() }
                 Rectangle().fill(STColor.hairline).frame(height: 1)
                 content
                 tagsRow
@@ -139,6 +138,12 @@ struct NoteEditor: View {
         .overlay(alignment: .top) { Rectangle().fill(STColor.hairline).frame(height: 1) }
         .onAppear { load() }
         .onChange(of: state.passage) { _, _ in load(); manuallyExpanded = false }
+        .onChange(of: state.requestedStudyNote) { _, request in
+            if request != nil { load() }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openStudyNote)) { notification in
+            if let id = notification.object as? UUID { state.openStudyNote(id) }
+        }
         .confirmationDialog("Delete this note?", isPresented: $showDeleteConfirm, titleVisibility: .visible) {
             Button("Delete", role: .destructive) { confirmDelete() }
             Button("Cancel", role: .cancel) {}
@@ -291,7 +296,7 @@ struct NoteEditor: View {
 
     @ViewBuilder private var content: some View {
         if kind == .free {
-            TextEditor(text: $body_)
+            TextEditor(text: bodyBinding)
                 .font(STFont.reading(state.studyFontSize, typeface: state.studyTypeface))
                 .scrollContentBackground(.hidden)
                 .padding(8)
@@ -303,7 +308,6 @@ struct NoteEditor: View {
                             .allowsHitTesting(false)
                     }
                 }
-                .onChange(of: body_) { _, _ in commit() }
                 .accessibilityLabel("Note text")
         } else {
             ScrollView {
@@ -334,6 +338,16 @@ struct NoteEditor: View {
 
     private func fieldBinding(_ key: String) -> Binding<String> {
         Binding(get: { fieldTexts[key] ?? "" }, set: { fieldTexts[key] = $0; commit() })
+    }
+
+    // Save user edits at the binding boundary. onChange also fires after applyNote finishes,
+    // when isLoading is already false, and must not be used to save loaded field values.
+    private var titleBinding: Binding<String> {
+        Binding(get: { title }, set: { title = $0; commit() })
+    }
+
+    private var bodyBinding: Binding<String> {
+        Binding(get: { body_ }, set: { body_ = $0; commit() })
     }
 
     private var tagsRow: some View {
@@ -421,11 +435,13 @@ struct NoteEditor: View {
 
     private func load() {
         let anchor = state.selectedAnchor
-        let atAnchor = anchor.map { state.study.notes(exactlyAt: $0) } ?? []
+        // A sermon may be anchored to a paragraph or chapter. It remains relevant when the
+        // reader is on one verse inside that range, rather than appearing to vanish.
+        let atAnchor = anchor.map { state.study.notes(overlapping: $0) } ?? []
         isLoading = true
         anchors = anchor.map { [$0] } ?? []
         noteIDsAtAnchor = atAnchor.sorted { $0.createdAt < $1.createdAt }.map(\.id)
-        position = 0
+        position = state.requestedStudyNote.flatMap { noteIDsAtAnchor.firstIndex(of: $0.noteID) } ?? 0
         if let id = currentNoteID, let note = state.study.note(id: id) { applyNote(note) } else { applyDraft() }
         isLoading = false
         lastDeleted = nil
@@ -434,6 +450,7 @@ struct NoteEditor: View {
 
     private func loadSlot(_ index: Int) {
         isLoading = true
+        state.requestedStudyNote = nil
         position = index
         if let id = currentNoteID, let note = state.study.note(id: id) { applyNote(note) } else { applyDraft() }
         isLoading = false
@@ -485,11 +502,8 @@ struct NoteEditor: View {
         commit()
     }
 
-    /// Writes the current fields to the store. Suppressed while `load()`/`applyNote`/`applyDraft`
-    /// are assigning `@State` in sequence (`isLoading`), so visiting a note or cycling between
-    /// notes at the same anchor never fires a spurious edit — the PASTOR-QA "visiting bumps
-    /// modifiedAt" defect, reproduced by an `onChange` chain that commits mid-assignment with a
-    /// mix of the old note's and the new note's fields.
+    /// User binding setters and explicit editing actions save synchronously. Programmatic
+    /// loading never invokes those setters, so browsing cannot write over a loaded note.
     private func commit() {
         guard !isLoading else { return }
         let sections: [NoteSection] = kind == .free ? [] : template.fields.map { NoteSection(key: $0.key, text: fieldTexts[$0.key] ?? "") }

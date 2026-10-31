@@ -19,6 +19,12 @@ enum ChapterLoad: Equatable {
     case unavailable(String)
 }
 
+/// Retained until the notebook mounts, including when it was hidden during navigation.
+struct StudyNoteOpenRequest: Equatable {
+    let noteID: UUID
+    let token = UUID()
+}
+
 @MainActor
 final class AppState: ObservableObject {
     @Published var palette = WorkspacePalette.standard {
@@ -115,6 +121,7 @@ final class AppState: ObservableObject {
     /// The dedicated search workspace keeps book navigation available in the Library.
     @Published var showBibleSearch = false
     @Published var requestedStudyTool: StudyDeskSection?
+    @Published var requestedStudyNote: StudyNoteOpenRequest?
     @Published var deskMode: StudyDeskMode = .sources
     @Published var guideScope = PassageGuideScope()
     @Published var sourcesOnLeft = false
@@ -387,6 +394,18 @@ final class AppState: ObservableObject {
         if anchor.verseEnd != Anchor.endOfChapter, anchor.verseEnd > first {
             rangeEndVerse = anchor.verseEnd
         }
+        return true
+    }
+
+    @discardableResult
+    func openStudyNote(_ id: UUID) -> Bool {
+        guard let note = study.note(id: id), let anchor = note.anchors.first else { return false }
+        let start = anchor.startVerse
+        navigate(bookCode: anchor.book, chapter: start.chapter, verse: start.verse)
+        focusMode = false
+        showStudyDesk = true
+        showNotes = true
+        requestedStudyNote = StudyNoteOpenRequest(noteID: id)
         return true
     }
 

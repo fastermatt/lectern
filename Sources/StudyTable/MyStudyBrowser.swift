@@ -233,13 +233,13 @@ struct MyStudyBrowser: View {
     }
 
     private func open(_ hit: StudySearchHit) {
+        if hit.kind == .note {
+            if state.openStudyNote(hit.id) { dismiss() }
+            return
+        }
         guard let anchor = hit.anchors.first else { return }
         let start = anchor.startVerse
         state.navigate(bookCode: anchor.book, chapter: start.chapter, verse: start.verse)
-        if hit.kind == .note {
-            state.showNotes = true
-            NotificationCenter.default.post(name: .openStudyNote, object: hit.id)
-        }
         dismiss()
     }
 

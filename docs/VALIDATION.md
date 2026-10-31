@@ -1,5 +1,26 @@
 # Source preparation checks — 2026-10-28
 
+## 0.20.2 note reopening fix — 2026-10-30
+
+Two native-editor regression tests first failed on 0.20.1: opening a specific
+sermon note showed another note at the same verse, and opening a range note
+showed a blank editor. The old open-note notification had no notebook subscriber;
+the search route also retained only a passage instead of the note identity.
+
+The final affected suite passes 75 tests with zero failures, including seven
+native-editor/navigation regressions, notebook light/dark renders, notes-store
+recovery, guided reflections and workspace/search behavior. Requests now survive
+a hidden notebook, repeated opens select the exact note, and paragraph/chapter
+notes are visible from their contained verses. Tests verify that native typing
+is persisted before a passage change, reopening leaves all saved note fields
+unchanged, and invalid/deleted requests do not navigate. Test data is ephemeral;
+no real user notes were read, changed or recovered during these checks.
+
+The snapshot/content gate and all ten portable Python tests pass. No notes-file
+schema, data-directory, backup or migration changes are introduced. This fixes
+reopening and display behavior; it is not a claim of forensic recovery from a
+reader's actual Mac. Hosted full-suite results belong to the release PR.
+
 This historical validation record covers the public-source preparation of the former Lectern 0.18.0. The current Throughline Bible repository is https://github.com/fastermatt/throughline-bible. This document records local
 checks; consult the Actions tab for current hosted results. An independent contributor
 Mac is still needed for installation testing.

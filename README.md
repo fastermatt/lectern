@@ -10,7 +10,7 @@ historical sources, original-language tools and your own notes into one quiet
 workspace. Open a passage, follow its sources, and keep what you learn. The included core works offline, without a subscription, account or AI
 service.
 
-[Download the Throughline Mac beta](https://github.com/fastermatt/throughline-bible/releases/tag/v0.20.1)
+[Download the Throughline Mac beta](https://github.com/fastermatt/throughline-bible/releases/tag/v0.20.2)
 · [See what you can do](#what-you-can-do-today)
 · [Help build Throughline](#help-build-throughline)
 
@@ -62,7 +62,7 @@ any one founder.
 
 ## Get Throughline
 
-[Download Throughline beta 0.20.1](https://github.com/fastermatt/throughline-bible/releases/tag/v0.20.1)
+[Download Throughline beta 0.20.1](https://github.com/fastermatt/throughline-bible/releases/tag/v0.20.2)
 for an **Apple Silicon Mac running macOS 14 or later**. The current beta is
 ad-hoc signed and not Apple-notarized. Follow the [installation and update guide](docs/INSTALL.md)
 for the exact steps; updates are manual for now. No account is needed for the included
